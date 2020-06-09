@@ -46,8 +46,8 @@
                           <Component id="btnAtras" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="txtContraseña" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtContraseña" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="221" max="32767" attributes="0"/>
           </Group>
@@ -58,9 +58,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
               <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Component id="txtContraseña" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="rBAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rBCliente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -87,8 +87,6 @@
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtContrase&#xf1;a">
     </Component>
     <Component class="javax.swing.JButton" name="btnIngresar">
       <Properties>
@@ -135,6 +133,8 @@
           <Image iconType="3" name="/imagenes/password.png"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtContrase&#xf1;a">
     </Component>
   </SubComponents>
 </Form>

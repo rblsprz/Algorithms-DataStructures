@@ -37,7 +37,6 @@ public class CustomNew extends javax.swing.JFrame {
         cmbRoles = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
@@ -49,6 +48,12 @@ public class CustomNew extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -93,50 +98,72 @@ public class CustomNew extends javax.swing.JFrame {
 
         jLabel8.setText("Cédula:");
 
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Tener al menos una mayusculas y minisculas");
+
+        jLabel13.setText("Tener al menos una numero");
+
+        jLabel9.setText("La contraseña debe cumplir con:");
+
+        jLabel10.setText("Minimo de 8 caracteres");
+
+        jLabel11.setText("Tener al menos un caracter especial");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRegistrar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel7))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel3))
-                            .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRegistrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(102, 102, 102)
+                                .addComponent(jLabel2)
+                                .addGap(44, 44, 44)
+                                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                                            .addComponent(txtTel))
-                                        .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                                        .addComponent(txtTel))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel8))
-                                            .addGap(45, 45, 45)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                                .addComponent(txtCedula)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addGap(240, 240, 240))))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel8))
+                                    .addGap(45, 45, 45)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(txtCedula)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,45 +182,151 @@ public class CustomNew extends javax.swing.JFrame {
                     .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel6)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(48, 48, 48)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
                         .addComponent(btnRegistrar)
-                        .addGap(42, 42, 42))))
+                        .addGap(93, 93, 93))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel13)
+                        .addGap(65, 65, 65))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+     public boolean validateTel(String datos) {
+        return datos.matches("[0-9]*");
+    }
+
+    public boolean validateLetras(String datos) {
+        return datos.matches("[a-zA-Z]*");
+    }
+
+    public boolean validateNombre(String datos) {
+        return datos.matches("[a-zA-Z]*");
+    }
+
+    public boolean validatePassword(String p) {
+        boolean verificado = false;
+        int especiales = 0;
+        int size = 0;
+        int mayuscula = 0;
+        int miniscula = 0;
+        int nums = 0;
+
+        if (p.length() >= 8) {
+
+            for (int i = 0; i < p.length(); i++) {
+                char letras = p.charAt(i);
+                if (letras >= 65 && letras <= 90) {
+                    mayuscula++;
+                }
+                if (letras >= 97 && letras <= 122) {
+                    miniscula++;
+                }
+                if (letras >= 48 && letras <= 57) {
+                    nums++;
+                }
+                if (letras >= 33 && letras <= 47) {
+                    especiales++;
+                }
+            }//End for
+            if (mayuscula > 0 && miniscula > 0 && nums > 0 && especiales > 0) {
+                verificado = true;
+            }
+        }//End if
+
+        return verificado;
+    }//End validatePassword
+
+    public boolean validateID(String cadena) {
+
+        int num;
+
+        try {
+            if (cadena.length() == 9) {
+                num = Integer.parseInt(cadena);
+
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return validateID(cadena);
+    }
+    
+    
+    
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        int rol = 0;
-        if(cmbRoles.getSelectedItem().toString() == "Administrador")
-            rol = 1;
-        else 
-            rol = 2;
+       
+          if (validateTel(txtTel.getText()) || txtTel.getText().length() == 8) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "En el campo telefono \nSolo se aceptan Numeros y tiene que ser 8 digitos");
+        }
+////////////////////////////////////////////////////////////////////////////
+        if (validateLetras(txtApellidos.getText().trim())) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se aceptan letrtas en el campo de Apellido");
+        }
+///////////////////////////////////////////////////////////////////////
+        if (validateNombre(txtNombre.getText())) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se aceptan letrtas en el campo de Nombre");
+        }
+////////////////////////////////////////////////////////////////////////////
+        boolean v = validateID(txtCedula.getText());
+
+        if (v = false) {
+            JOptionPane.showMessageDialog(null, "En el campo de la cedula son van numeros");
+        }
+        String passw = txtContraseña.getText().trim();
+
+        if (validatePassword(passw)) {
+            Person p = new Person();
+
+        }//End if
+        else {
+            JOptionPane.showMessageDialog(null, "Contraseña sin exito");
+        }
         
+        int rol = 0;
+        if ((validateTel(txtTel.getText())  && txtTel.getText().length() == 8) && validateNombre(txtNombre.getText()) && validateLetras(txtApellidos.getText()) && validateID(txtCedula.getText().trim()) && validatePassword(passw) && cmbRoles.getSelectedItem().toString() == "Administrador".trim()) {
+            rol = 1;
+        }else {
+            rol = 2;
+                    }
        Customers lS = new Customers();
         Logic Fl = new Logic();
         Person p1 = new Person(txtCedula.getText(),txtNombre.getText(), txtApellidos.getText(),txtContraseña.getText(),txtDir.getText(), rol, Integer.parseInt(txtTel.getText())); 
         lS.add(p1);     
       try {   
-                if(lS.createCliente(txtCedula.getText(),txtNombre.getText(),txtApellidos.getText(),txtContraseña.getText(),txtDir.getText(),rol, Integer.parseInt(txtTel.getText()))== true){  
+                 if ((validateTel(txtTel.getText())  && txtTel.getText().length() == 8) && validateNombre(txtNombre.getText()) && validateLetras(txtApellidos.getText()) && validateID(txtCedula.getText()) && validatePassword(passw) && lS.createCliente(txtCedula.getText(), txtNombre.getText(), txtApellidos.getText(), txtContraseña.getText(), txtDir.getText(), rol, Integer.parseInt(txtTel.getText())) == true) {
                     Fl.insertEmployee(txtNombre.getText(), txtContraseña.getText(), rol);
                     JOptionPane.showMessageDialog(null,"REGISTRO EXITOSO");
                     txtNombre.setText("");
@@ -202,10 +335,7 @@ public class CustomNew extends javax.swing.JFrame {
                     txtDir.setText("");
                     txtTel.setText("");
                     txtCedula.setText("");
-                }  
-                
-                else if(lS.createCliente(txtCedula.getText(),txtNombre.getText(),txtApellidos.getText(),txtContraseña.getText(),txtDir.getText(),rol, Integer.parseInt(txtTel.getText()))== false){
-                    
+               } else if ((validateTel(txtTel.getText())  && txtTel.getText().length() == 8) && validateNombre(txtNombre.getText()) && validateLetras(txtApellidos.getText()) && validateID(txtCedula.getText()) && validatePassword(passw) && lS.createCliente(txtCedula.getText(), txtNombre.getText(), txtApellidos.getText(), txtContraseña.getText(), txtDir.getText(), rol, Integer.parseInt(txtTel.getText())) == false) {  
                     JOptionPane.showMessageDialog(null,"Este usuario ya existe");    
                 }
             
@@ -225,6 +355,10 @@ public class CustomNew extends javax.swing.JFrame {
         dispose();
         f.setVisible (true);
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +400,10 @@ public class CustomNew extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> cmbRoles;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -273,10 +411,11 @@ public class CustomNew extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextArea txtDir;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTel;

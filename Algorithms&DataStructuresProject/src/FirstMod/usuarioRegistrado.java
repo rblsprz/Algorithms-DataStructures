@@ -32,13 +32,13 @@ public class usuarioRegistrado extends javax.swing.JFrame {
     private void initComponents() {
 
         txtNombre = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         rBAdmin = new javax.swing.JRadioButton();
         rBCliente = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -95,8 +95,8 @@ public class usuarioRegistrado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(rBCliente)
                             .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtContraseña)
-                    .addComponent(txtNombre))
+                    .addComponent(txtNombre)
+                    .addComponent(txtContraseña))
                 .addContainerGap(221, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,9 +104,9 @@ public class usuarioRegistrado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(208, 208, 208)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(70, 70, 70)
                 .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rBAdmin)
                     .addComponent(rBCliente))
@@ -215,7 +215,7 @@ public class usuarioRegistrado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JRadioButton rBAdmin;
     private javax.swing.JRadioButton rBCliente;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
