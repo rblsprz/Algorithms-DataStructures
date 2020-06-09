@@ -43,7 +43,7 @@ public class Customers implements LinkedList {
     }
 
     ListaNodo inicio;
-    Roles roles = new Roles(); //ERROR AQUÍ 
+    Roles roles = new Roles(); 
 
     /**
      * Agrega un nuevo nodo en la lista.
@@ -226,7 +226,7 @@ public class Customers implements LinkedList {
         }
     }
 
-    //Busca a un Employee en un archivo txt. Si no existe es agregado, de otra forma no.
+    //Busca a un Customer en un archivo txt. Si no existe es agregado, de otra forma no.
     public boolean createCliente(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) throws FileNotFoundException {
 
         roles.setCedula(cedula);
@@ -243,13 +243,14 @@ public class Customers implements LinkedList {
         FileOutputStream fos = new FileOutputStream(f2, true);
         PrintStream ps = new PrintStream(fos);
 
-        if (!roles.getNombre().equals("") 
+        if ( !roles.getCedula().equals("") 
+                &&!roles.getNombre().equals("") 
                 && !roles.getApellido().equals("") 
                 && !roles.getNombreUsuario().equals("") 
                 && !roles.getContraseña().equals("")  
                 && !roles.getCorreo().equals("")) {
 
-            ps.println(roles.getCedula() + ";" + roles.getNombre() + ";" + roles.getApellido() + ";" + roles.getContraseña() + ";" + roles.getEdad() + ";" + roles.getTelefono() + ";" + roles.getCorreo() + ";" + roles.getTipoRol());
+            ps.println(roles.getCedula() + ";" + roles.getNombre() + ";" + roles.getApellido() + ";" + roles.getNombreUsuario()+ ";"+ roles.getContraseña() + ";" + roles.getEdad() + ";" + roles.getTelefono() + ";" + roles.getCorreo() + ";" + roles.getTipoRol());
             return true;
         } else {
             return false;

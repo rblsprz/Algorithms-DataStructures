@@ -1,4 +1,5 @@
 package GUI;
+
 import Logic.Customers;
 import Logic.Logic;
 import Logic.Files;
@@ -15,7 +16,6 @@ public class NewRol extends javax.swing.JFrame {
     /**
      * Creates new form nuevoUsuario
      */
-
     public NewRol() {
         initComponents();
 
@@ -183,20 +183,19 @@ public class NewRol extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         int rol = 0;
         if (cbRoles.getSelectedItem().toString() == "ADMINISTRATOR") {
-            rol = 1;
+            rol = 2;
         }//End if 
         else {
-            rol = 2;
+            rol = 3;
         }//End else
-        
+
         Customers cU = new Customers();
-        Files f = new Files();
         Logic l = new Logic();
-        Roles r = new Roles(tfID.getText(),tfName.getText(),tfLastName.getText(),tfUserName.getText(),tfPassword.getText(),Integer.parseInt(tfAge.getText()),Integer.parseInt(tfPhone.getText()),tfEmail.getText(),rol);
+        Roles r = new Roles(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
         cU.add(r);
         try {
-            if (cU.createCliente(tfID.getText(),tfName.getText(),tfLastName.getText(),tfUserName.getText(),tfPassword.getText(),Integer.parseInt(tfAge.getText()),Integer.parseInt(tfPhone.getText()),tfEmail.getText(),rol)==true) {
-                l.insertCustomer(tfID.getText(),tfName.getText(),tfLastName.getText(),tfUserName.getText(),tfPassword.getText(),Integer.parseInt(tfAge.getText()),Integer.parseInt(tfPhone.getText()),tfEmail.getText(),rol);
+            if (cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
+                l.insertCustomer(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
                 lbMensajes.setText("SUCCESFUL PROCEDURE!");
                 tfID.setText("");
                 tfName.setText("");
@@ -207,7 +206,7 @@ public class NewRol extends javax.swing.JFrame {
                 tfPhone.setText("");
                 tfEmail.setText("");
 
-            } else if (cU.createCliente(tfID.getText(),tfName.getText(),tfLastName.getText(),tfUserName.getText(),tfPassword.getText(),Integer.parseInt(tfAge.getText()),Integer.parseInt(tfPhone.getText()),tfEmail.getText(),rol) == false) {
+            } else if (cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
 
                 lbMensajes.setText("USER ALREADY EXISTS!");
             }

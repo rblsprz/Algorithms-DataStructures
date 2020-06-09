@@ -27,11 +27,9 @@ public class Roles {
         this.correo = correo;
         this.tipoRol = tipoRol;
     }//End Roles Constructor
-
-    Roles() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Roles(){ 
     }
-
 
     public String getCedula() {
         return cedula;

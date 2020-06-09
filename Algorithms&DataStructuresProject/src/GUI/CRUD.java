@@ -62,6 +62,7 @@ public class CRUD extends javax.swing.JFrame {
         tfRol = new javax.swing.JTextField();
         lbPassword = new javax.swing.JLabel();
         tfPassword = new javax.swing.JTextField();
+        lbMensajes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,11 +157,14 @@ public class CRUD extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(198, 198, 198)
-                        .addComponent(btnshowRoles)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnDelete)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnUpdate)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbMensajes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnshowRoles)
+                                .addGap(41, 41, 41)
+                                .addComponent(btnDelete)
+                                .addGap(41, 41, 41)
+                                .addComponent(btnUpdate)))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -196,12 +200,14 @@ public class CRUD extends javax.swing.JFrame {
                 .addComponent(tfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnshowRoles)
                             .addComponent(btnDelete)
                             .addComponent(btnUpdate))
-                        .addGap(177, 177, 177))
+                        .addGap(27, 27, 27)
+                        .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lbEmail)
@@ -209,9 +215,9 @@ public class CRUD extends javax.swing.JFrame {
                         .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lbRol)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, Short.MAX_VALUE)))
+                .addComponent(tfRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,7 +232,7 @@ public class CRUD extends javax.swing.JFrame {
         tfID.setText(jTable3.getValueAt(seleccion, 0).toString());
         tfName.setText(jTable3.getValueAt(seleccion, 1).toString());
         tfLastName.setText(jTable3.getValueAt(seleccion, 2).toString());
-        tfUserName.setText(jTable3.getValueAt(seleccion, 3).toString());
+        tfUserName.setText(jTable3.getValueAt(seleccion,3).toString());
         tfPassword.setText(jTable3.getValueAt(seleccion, 4).toString());
         tfAge.setText(jTable3.getValueAt(seleccion, 5).toString());
         tfPhone.setText(jTable3.getValueAt(seleccion, 6).toString());
@@ -243,10 +249,10 @@ public class CRUD extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         try {
             Delete em = new Delete();
-            int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar " + tfName.getText() + " de este archivo?");
+            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText()+ " ?");
             if (d == 0) {
                 em.borrarPersona("registros.txt", tfID.getText());
-                JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
+                lbMensajes.setText("SUCCESSFULLY REMOVED!");
                 mostrarRegistros();
                 tfID.setText("");
                 tfName.setText("");
@@ -260,7 +266,7 @@ public class CRUD extends javax.swing.JFrame {
                 
             }
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar");
+            lbMensajes.setText("DELETE ERROR!");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -283,10 +289,10 @@ public class CRUD extends javax.swing.JFrame {
             }
 
             Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar a " + tfName.getText() + " ?");
+            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText()+ " ?");
             if (edit == 0) {
-                em.actualizarPersona(tfID.getText(), tfName.getText(), tfLastName.getText(),tfUserName.getText(), tfPassword.getText(),Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()),tfEmail.getText());
-                JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
+                em.actualizarPersona(tfID.getText(), tfName.getText(), tfLastName.getText(),tfUserName.getText(), tfPassword.getText(),Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()),tfEmail.getText(), Integer.parseInt(tfRol.getText()));
+                lbMensajes.setText("SUCCESSFULLY UPDATED!");
                 mostrarRegistros();
                 tfID.setText("");
                 tfName.setText("");
@@ -299,7 +305,7 @@ public class CRUD extends javax.swing.JFrame {
                 tfRol.setText("");
             }
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error al modificar");
+            JOptionPane.showMessageDialog(null, "UPDATE ERROR!");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -323,7 +329,7 @@ public class CRUD extends javax.swing.JFrame {
             int tipoRol = array.get(i).getTipoRol();
             int telefono = array.get(i).getTelefono();
             
-            matriz[i][0] = array.get(i).getNombre();
+            matriz[i][0] = array.get(i).getCedula();
             matriz[i][1] = array.get(i).getNombre();
             matriz[i][2] = array.get(i).getApellido();
             matriz[i][3] = array.get(i).getNombreUsuario();
@@ -387,6 +393,7 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbLastName;
+    private javax.swing.JLabel lbMensajes;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPassword;
     private javax.swing.JLabel lbPhone;

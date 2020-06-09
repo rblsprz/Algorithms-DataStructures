@@ -107,5 +107,5 @@ public class Delete {
             if(!getNombreArchivo(arregloArchivo[i], 0).equalsIgnoreCase(identificador))
                 ps.println(arregloArchivo[i]);
         }//End if
-    }//End borrarPais
+    }//End borrarPersona
 }

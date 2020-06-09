@@ -73,7 +73,7 @@ public class Files {
     }//End 
 
     //Escritura-output
-    public void insertCustomer(int cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) {
+    public void insertCustomer(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) {
         File fileCustomer = new File("clientes.txt");
         try {
             FileOutputStream fos = new FileOutputStream(fileCustomer, true);

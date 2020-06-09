@@ -92,7 +92,7 @@ public class Update {
         return ps;
     }//End getPrintStream
     
-    public void actualizarPersona(String cedula, String nombre, String apellido, String nombreUsuario,String contraseña, int edad,int telefono, String correo) throws IOException{
+    public void actualizarPersona(String cedula, String nombre, String apellido, String nombreUsuario,String contraseña, int edad,int telefono, String correo, int tipoRol) throws IOException{
         String[] arregloArchivo = getArregloArchivo("registros.txt");
 
         PrintStream ps = getPrintStream("registros.txt", false);
@@ -101,7 +101,7 @@ public class Update {
             if (!getNameFile(arregloArchivo[i], 0).equals(cedula)) {
                 ps.println(arregloArchivo[i]);
             } else {
-                ps.println(cedula+ ";" +nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";"+ correo);
+                ps.println(cedula+ ";" +nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";"+ correo + ";" + tipoRol);
             }
         }//End for
     }//End actualizarDatos

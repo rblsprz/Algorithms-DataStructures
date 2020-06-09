@@ -139,10 +139,10 @@ public class Main extends javax.swing.JFrame {
         String superAdministradorContrasena = "ucr2020";
 
         if ((tfpassword.getText().length() == 0 && tfpassword.getText().length() == 0) && (!jRadioButtonSuperAdministrador.isSelected() && !jRadioButtonAdministrador.isSelected() && !jRadioButtonCustomer.isSelected())) {
-            lbAutenticacion.setText("PLEASE FILL THE BLANKS!");
+            lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
         }//End if
         else if ((tfpassword.getText().length() == 0 || tfpassword.getText().length() == 0) || (!jRadioButtonSuperAdministrador.isSelected() && !jRadioButtonAdministrador.isSelected() && !jRadioButtonCustomer.isSelected())) {
-            lbAutenticacion.setText("PLEASE FILL THE BLANKS!");
+            lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
         }//End else if 
         else if (jRadioButtonSuperAdministrador.isSelected()) {
             if (tFnombredeUsuario.getText().equals(superAdministradorNombre) && tfpassword.getText().equals(superAdministradorContrasena)) {
@@ -153,38 +153,8 @@ public class Main extends javax.swing.JFrame {
             }//End if 
             else {
                 lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-            }//End else   
-        }//End else if 
-
-        Logic l = new Logic();
-        int rol = 0;
-        if (jRadioButtonAdministrador.isSelected()) {
-            rol = 1;
-        }//End if 
-        else if (jRadioButtonCustomer.isSelected()) {
-            rol = 2;
-        }//End else if
-        try {
-            if (l.searchAdministratorID(tFnombredeUsuario.getText(), tfpassword.getText(), rol) == false) {
-                lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-                tFnombredeUsuario.setText("");
-                tfpassword.setText("");
-            }//End if 
-            else {
-                if (rol == 1) {
-                    tFnombredeUsuario.setText("");
-                    tfpassword.setText("");
-                }//End if
-                else {
-                    lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-                    tFnombredeUsuario.setText("");
-                    tfpassword.setText("");
-                }//End else
             }//End else
-        }//End try 
-        catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }//End catch
+        }//End else if   
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     /**

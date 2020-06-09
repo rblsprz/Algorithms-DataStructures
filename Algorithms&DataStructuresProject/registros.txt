@@ -1,2 +1,3 @@
-123456779;valery;molina;pera;salitrillos;2;70437685
-123456789;erick;chavarria;play;tres rios;1;45678965
+
+305350721;David;Robles;robles;12345;18;61122441;davidroblesucr;2
+123456789;Valeria;Salazar;valeria123;salazar123;19;12345678;valeriavaleria;3
