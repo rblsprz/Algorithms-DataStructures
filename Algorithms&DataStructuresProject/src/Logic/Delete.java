@@ -1,4 +1,4 @@
-package FirstMod;
+package Logic;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author pc
  */
-public class logicDelete {
+public class Delete {
     
     //Retorna un printstream 
     public PrintStream getPrintStream(String nombreArchivo, boolean editable) {
@@ -26,7 +26,7 @@ public class logicDelete {
             ps = new PrintStream(fos);
         }
         catch(FileNotFoundException fnfe){
-            System.out.println("Problemas con el archivo");
+            System.out.println("¡PROBLEMAS CON EL ARCHIVO!");
         }
     return ps;
     }//End getPrintStream
@@ -41,7 +41,7 @@ public class logicDelete {
             br = new BufferedReader(isr);
         }
         catch(FileNotFoundException fnfe){
-            System.out.println("Problemas con el archivo.");
+            System.out.println("¡PROBLEMAS CON EL ARCHIVO!");
         }
     return br;
     }//End getBufferedReader
@@ -60,7 +60,7 @@ public class logicDelete {
             }//End while 
         }
         catch(IOException ioe){
-            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS CON EL ARCHIVO!");
         }
     return contador;
     }//End cuentaLineasArchivo
@@ -81,7 +81,7 @@ public class logicDelete {
             }//Fin while 
         }
         catch(IOException ioe){
-            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS CON EL ARCHIVO!");
         }
     return arregloArchivo;
     }//Fin getArregloArchivo

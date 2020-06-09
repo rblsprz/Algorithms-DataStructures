@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FirstMod;
+package Logic;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,10 +21,10 @@ import javax.swing.JOptionPane;
  * @author pc
  */
 public class Logic {
-    
+
     //Método de lectura general
     public BufferedReader getBufferedReader() {
-        File fileAdmin = new File("clientes-lista.txt");
+        File fileAdmin = new File("clientes.txt");
         BufferedReader br = null;
         try {
 
@@ -32,53 +32,54 @@ public class Logic {
             InputStreamReader isr = new InputStreamReader(fis);
             br = new BufferedReader(isr);
         } catch (FileNotFoundException fnfe) {
-            JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }
         return br;
     }
-     /**
-     * Busca si existe el usuario registrado para iniciar sesion 
+
+    /**
+     * Busca si existe el usuario registrado para iniciar sesion
      *
-     * @param name, password, rol valores a buscar.
+     * @param nombre, contraseña, rol valores a buscar.
      * @return true si existe el valor en la lista o false si no existe el valor
      * en la lista
      */
-    public boolean searchAdminID(String name, String password, int rol) throws IOException {     
-        BufferedReader br = getBufferedReader();     
+    public boolean searchAdministratorID(String nombreUsuario, String contraseña,int tipoRol) throws IOException {
+        BufferedReader br = getBufferedReader();
         String Acounts = "";
-        String AcFind = name + ";" + password + ";"+ rol;
+        String AcFind = nombreUsuario + ";" + contraseña + ";" + tipoRol;
 
         while (Acounts != null) {
-            
+
             Acounts = br.readLine();
-            
+
             if (Acounts == null) {
-                
-                return false;               
+
+                return false;
             }
             if (Acounts.equals(AcFind)) {
-                
-                return true;               
-            }           
+
+                return true;
+            }
         }//end while        
         return false;
     }
-    
-    public int searchAdmin(String name) {
+
+    public int searchAdministrator(String nombre) {
 
         //Llama y busca el archivo
         int found = -1;
 
         try {
             BufferedReader br = getBufferedReader();
-            String searchNameEmployee = "";
+            String searchNameCustomer = "";
 
-            while (searchNameEmployee != null) {
-                searchNameEmployee = br.readLine();
+            while (searchNameCustomer != null) {
+                searchNameCustomer = br.readLine();
 
-                if (searchNameEmployee != null) {
-                    
-                    if (searchNameEmployee.equalsIgnoreCase(name))//Cuenta mayúsculas y minúsculas(equalsIgnoreCase)
+                if (searchNameCustomer != null) {
+
+                    if (searchNameCustomer.equalsIgnoreCase(nombre))//Cuenta mayúsculas y minúsculas(equalsIgnoreCase)
                     {
                         found = 1;
                     }
@@ -87,76 +88,73 @@ public class Logic {
             }//End while
 
         }//End try
-        
         catch (FileNotFoundException fnfe) {
-            
-            JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);
+
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
 
         }//End catch
-        
         catch (IOException ioe) {
 
-            JOptionPane.showMessageDialog(null, "Troubles with the archive" + ioe);
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
 
         }//End catch
 
         return found;
     }
-    
-    //Escritura-output
-    public void insertEmployee(String name, String password, int rol) {
 
-        File fileEmployee = new File("clientes-lista.txt");
+    //Escritura-output
+    public void insertCustomer(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) {
+
+        File fileCustomer = new File("clientes.txt");
 
         try {
-            FileOutputStream fos = new FileOutputStream(fileEmployee, true);
+            FileOutputStream fos = new FileOutputStream(fileCustomer, true);
             PrintStream ps = new PrintStream(fos);
 
-            if (searchAdmin(name) == -1) {
-                ps.println(name + ";" + password + ";" + rol);
+            if (searchAdministrator(nombre) == -1) {
+                ps.println(cedula + ";" + nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";" + correo + ";" + tipoRol);
             }
         } catch (FileNotFoundException fnfe) {
-            JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
         }
     }
 
-
-    public String showEmployeeList() {
+    public String showCustomers() {
 
         BufferedReader br = getBufferedReader();
-        String employeeList = "";
+        String customers = "";
 
         try {
 
-            String employeeName = "";
+            String customerName = "";
 
-            while (employeeName != null) {
-                employeeName = br.readLine();
+            while (customerName != null) {
+                customerName = br.readLine();
 
-                if (employeeName != null) {
-                    employeeList += employeeList + "\n";
+                if (customerName != null) {
+                    customers += customers + "\n";
                 }
 
             }//End while
         } catch (IOException ioe) {
 
-            JOptionPane.showMessageDialog(null, "Troubles with the archive" + ioe);
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }
 
-        return employeeList;
+        return customers;
     }
-    
-     /**
+
+    /**
      * Obtiene la cantidad de lineas del archivo
      *
      * @return countRegisters el numero total de lineas
      */
     public int getFileRegisters() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("registros.txt");
+        File fileCustomers = new File("registros.txt");
         int countRegisters = 0;
         try {
-            FileInputStream fis = new FileInputStream(fileCountries);
+            FileInputStream fis = new FileInputStream(fileCustomers);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
 
@@ -170,25 +168,25 @@ public class Logic {
             }//endWhile
 
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }//endCatch
         return countRegisters;
     }//endInt
-    
-     /**
+
+    /**
      * Leemos los elementos en el archivo
      *
      * @return array[] con los elementos del archivo
      */
-    public Person[] readRegistersFiles() {
+    public Roles[] readRegistersFiles() {
 
-        Person array[] = new Person[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("registros.txt");
+        Roles array[] = new Roles[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCustomers = new File("registros.txt");
 
         try {
-            FileInputStream fis = new FileInputStream(fileCountries);
+            FileInputStream fis = new FileInputStream(fileCustomers);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
 
@@ -197,15 +195,14 @@ public class Logic {
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                String nombre = "", apellido = "", contraseña = "", direccion = "", cedula = "";
-                int tipo = 0, tel = 0;
-               
+                String cedula = "",nombre = "", apellido = "", nombreUsuario = "", contraseña = "", correo = "";
+                int edad = 0, telefono = 0, tipoRol = 0;
+
                 //Se pone dentro del ciclo para que se resetee
                 int controlTokens = 1;
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
 
                 while (st.hasMoreTokens()) {
-
                     if (controlTokens == 1) {
                         cedula = st.nextToken();
                     } else if (controlTokens == 2) {
@@ -213,31 +210,33 @@ public class Logic {
                     } else if (controlTokens == 3) {
                         apellido = st.nextToken();
                     } else if (controlTokens == 4) {
-                        contraseña = st.nextToken();
+                        nombreUsuario = st.nextToken();
                     } else if (controlTokens == 5) {
-                        direccion = st.nextToken();
+                        contraseña = st.nextToken();
                     } else if (controlTokens == 6) {
-                        tipo = Integer.parseInt(st.nextToken());
+                        edad = Integer.parseInt(st.nextToken());
                     } else if (controlTokens == 7) {
-                        tel = Integer.parseInt(st.nextToken());
-                    } 
-
+                        telefono = Integer.parseInt(st.nextToken());
+                    } else if (controlTokens == 8) {
+                        correo = st.nextToken();
+                    } else if (controlTokens == 9) {
+                        tipoRol = Integer.parseInt(st.nextToken());
+                    }
                     controlTokens++;
                 }//endWhileInterno
 
-                Person c = new Person(cedula,nombre, apellido, contraseña, direccion, tipo, tel);
-                array[indexArray] = c;
+                Roles r = new Roles(cedula, nombre, apellido, nombreUsuario, contraseña, edad, telefono, correo, tipoRol);
+                array[indexArray] = r;
                 indexArray++;
 
                 actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
             }//endWhile
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }//endCatch
-
         return array;
     }//endCountry[]
-    
+
 }

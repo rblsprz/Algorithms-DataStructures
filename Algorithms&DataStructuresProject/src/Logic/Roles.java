@@ -1,4 +1,3 @@
-
 package Logic;
 
 /**
@@ -6,27 +5,42 @@ package Logic;
  * @author David Robles
  */
 public class Roles {
-    
+
+    private String cedula;
     private String nombre;
     private String apellido;
-    private int edad;
     private String nombreUsuario;
     private String contraseña;
-    private String correo;
+    private int edad;
     private int telefono;
+    private String correo;
     private int tipoRol;
 
-    public Roles(String nombre, String apellido, int edad, String nombreUsuario, String contraseña, String correo, int telefono, int tipoRol) {
+    public Roles(String cedula, String nombre, String apellido,String nombreUsuario, String contraseña, int edad,int telefono,String correo, int tipoRol) {
+        this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
-        this.correo = correo;
+        this.edad = edad;
         this.telefono = telefono;
+        this.correo = correo;
         this.tipoRol = tipoRol;
     }//End Roles Constructor
 
+    Roles() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+    public String getCedula() {
+        return cedula;
+    }//End getCedula
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }//End setCedula
+    
     public String getNombre() {
         return nombre;
     }//End getNombre
@@ -43,13 +57,6 @@ public class Roles {
         this.apellido = apellido;
     }//End setApellido
 
-    public int getEdad() {
-        return edad;
-    }//End getEdad
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }//End setEdad
 
     public String getNombreUsuario() {
         return nombreUsuario;
@@ -66,6 +73,22 @@ public class Roles {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }//End setContraseña
+    
+    public int getEdad() {
+        return edad;
+    }//End getEdad
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }//End setEdad
+    
+    public int getTelefono() {
+        return telefono;
+    }//End getTelefono
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }//End setTelefono
 
     public String getCorreo() {
         return correo;
@@ -75,13 +98,6 @@ public class Roles {
         this.correo = correo;
     }//End setCorreo
 
-    public int getTelefono() {
-        return telefono;
-    }//End getTelefono
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }//End setTelefono
 
     public int getTipoRol() {
         return tipoRol;
@@ -90,4 +106,8 @@ public class Roles {
     public void setTipoRol(int tipoRol) {
         this.tipoRol = tipoRol;
     }//End setTipoRol
+    
+    public String toString(){
+    return "CÉDULA " + cedula + "NOMBRE " + nombre + "APELLIDO " + apellido + "NOMBRE USUARIO " + nombreUsuario + "CONTRASEÑA "+ contraseña + "EDAD "+ edad + "TELÉFONO " + telefono + "CORREO " + correo + "TIPO ROL " +tipoRol;
+    }
 }//End Roles

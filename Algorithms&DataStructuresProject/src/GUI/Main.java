@@ -1,8 +1,11 @@
 package GUI;
+
+import Logic.Logic;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -144,51 +147,44 @@ public class Main extends javax.swing.JFrame {
         else if (jRadioButtonSuperAdministrador.isSelected()) {
             if (tFnombredeUsuario.getText().equals(superAdministradorNombre) && tfpassword.getText().equals(superAdministradorContrasena)) {
                 SuperAdministrator sA;
-//                try {
-                    sA = new SuperAdministrator();
-                    sA.show(true);
-                    this.show(false);
-//                }//End try 
-//                catch (IOException ex) {
-//                    Logger.getLogger(SuperAdministrator.class.getName()).log(Level.SEVERE, null, ex);
-//                }//End catch       
+                sA = new SuperAdministrator();
+                sA.show(true);
+                this.show(false);
             }//End if 
             else {
                 lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
             }//End else   
         }//End else if 
-        else if (jRadioButtonAdministrador.isSelected()) {
-            if (tFnombredeUsuario.getText().equals(superAdministradorNombre) && tfpassword.getText().equals(superAdministradorContrasena)) {
-                Administrator aM;
-//                try {
-                    aM = new Administrator();
-                    aM.show(true);
-                    this.show(false);
-//                }//End try 
-//                catch (IOException ex) {
-//                    Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-//                }//End catch       
-            }//End if 
-            else {
-                lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-            }//End else   
+
+        Logic l = new Logic();
+        int rol = 0;
+        if (jRadioButtonAdministrador.isSelected()) {
+            rol = 1;
+        }//End if 
+        else if (jRadioButtonCustomer.isSelected()) {
+            rol = 2;
         }//End else if
-        else {
-            if (tFnombredeUsuario.getText().equals(superAdministradorNombre) && tfpassword.getText().equals(superAdministradorContrasena)) {
-                Customer cU;
-//                try {
-                    cU = new Customer();
-                    cU.show(true);
-                    this.show(false);
-//                }//End try 
-//                catch (IOException ex) {
-//                    Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-//                }//End catch       
+        try {
+            if (l.searchAdministratorID(tFnombredeUsuario.getText(), tfpassword.getText(), rol) == false) {
+                lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
+                tFnombredeUsuario.setText("");
+                tfpassword.setText("");
             }//End if 
             else {
-                lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-            }//End else   
-        }//End else
+                if (rol == 1) {
+                    tFnombredeUsuario.setText("");
+                    tfpassword.setText("");
+                }//End if
+                else {
+                    lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
+                    tFnombredeUsuario.setText("");
+                    tfpassword.setText("");
+                }//End else
+            }//End else
+        }//End try 
+        catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }//End catch
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     /**

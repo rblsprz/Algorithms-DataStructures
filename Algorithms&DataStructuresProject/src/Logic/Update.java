@@ -1,4 +1,4 @@
-package FirstMod;
+package Logic;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author pc
  */
-public class logicUpdate {
+public class Update {
     
     public BufferedReader getBufferedReader(String nameFile) {
         File archivo = new File(nameFile);
@@ -55,7 +55,7 @@ public class logicUpdate {
 
             }//End while 
         } catch (IOException ioe) {
-            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS CON EL ARCHIVO!");
         }
         return contador;
     }//End cuentaLineasArchivo
@@ -74,7 +74,7 @@ public class logicUpdate {
 
             }//Fin while 
         } catch (IOException ioe) {
-            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS CON EL ARCHIVO!");
         }
         return arregloArchivo;
     }//Fin getArregloArchivo
@@ -87,12 +87,12 @@ public class logicUpdate {
             FileOutputStream fos = new FileOutputStream(archivo, editable);
             ps = new PrintStream(fos);
         } catch (FileNotFoundException fnfe) {
-            System.out.println("Problemas con el archivo");
+            System.out.println("¡PROBLEMAS CON EL ARCHIVO!");
         }
         return ps;
     }//End getPrintStream
     
-    public void actualizarPersona(String cedula, String name, String apellido, String contraseña, String direccion,int tipo,int tel) throws IOException{
+    public void actualizarPersona(String cedula, String nombre, String apellido, String nombreUsuario,String contraseña, int edad,int telefono, String correo) throws IOException{
         String[] arregloArchivo = getArregloArchivo("registros.txt");
 
         PrintStream ps = getPrintStream("registros.txt", false);
@@ -101,9 +101,9 @@ public class logicUpdate {
             if (!getNameFile(arregloArchivo[i], 0).equals(cedula)) {
                 ps.println(arregloArchivo[i]);
             } else {
-                ps.println(cedula+ ";" +name + ";" + apellido + ";" + contraseña + ";" + direccion + ";" + tipo + ";"+ tel);
+                ps.println(cedula+ ";" +nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";"+ correo);
             }
         }//End for
-    }//End actualizarPaises
+    }//End actualizarDatos
     
 }

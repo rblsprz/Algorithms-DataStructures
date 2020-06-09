@@ -30,39 +30,92 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         lbSuperAdministrator = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuItemAdministrator = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        menuItemCustomer = new javax.swing.JMenuItem();
+        menuAdd = new javax.swing.JMenu();
+        menuItemNewRol = new javax.swing.JMenuItem();
+        menuCrud = new javax.swing.JMenu();
+        menuItemCrud = new javax.swing.JMenuItem();
+        menuAccess = new javax.swing.JMenu();
+        menuItemAccessAdministrator = new javax.swing.JMenuItem();
+        menuItemAcessCustomer = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
+        jMenu2.setText("File");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("File");
+        jMenuBar3.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar3.add(jMenu6);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbSuperAdministrator.setText("SUPER ADMINISTRATOR");
 
-        menuItemAdministrator.setText("CREATE");
+        menuAdd.setText("ADD");
 
-        jMenuItem1.setText("NEW ADMINISTRATOR");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemNewRol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemNewRol.setText("NEW ROL");
+        menuItemNewRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuItemNewRolActionPerformed(evt);
             }
         });
-        menuItemAdministrator.add(jMenuItem1);
+        menuAdd.add(menuItemNewRol);
 
-        menuItemCustomer.setText("NEW CUSTOMER");
-        menuItemCustomer.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(menuAdd);
+
+        menuCrud.setText("CRUD");
+
+        menuItemCrud.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemCrud.setText("CRUD");
+        menuItemCrud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemCustomerActionPerformed(evt);
+                menuItemCrudActionPerformed(evt);
             }
         });
-        menuItemAdministrator.add(menuItemCustomer);
+        menuCrud.add(menuItemCrud);
 
-        jMenuBar1.add(menuItemAdministrator);
+        jMenuBar1.add(menuCrud);
+
+        menuAccess.setText("ACCESS");
+
+        menuItemAccessAdministrator.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemAccessAdministrator.setText("ADMINISTRATOR");
+        menuItemAccessAdministrator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAccessAdministratorActionPerformed(evt);
+            }
+        });
+        menuAccess.add(menuItemAccessAdministrator);
+
+        menuItemAcessCustomer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemAcessCustomer.setText("CUSTOMER");
+        menuItemAcessCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAcessCustomerActionPerformed(evt);
+            }
+        });
+        menuAccess.add(menuItemAcessCustomer);
+
+        jMenuBar1.add(menuAccess);
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +124,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
 
+        menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuItemSignOff.setText("SIGN OFF");
         menuItemSignOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,23 +151,11 @@ public class SuperAdministrator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(lbSuperAdministrator)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(487, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        CreateAdministrator cA = new CreateAdministrator();
-        cA.setVisible(true);
-        cA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void menuItemCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCustomerActionPerformed
-        CreateCustomer cC = new CreateCustomer();
-        cC.setVisible(true);
-        cC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemCustomerActionPerformed
 
     private void menuOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionsActionPerformed
 
@@ -124,6 +166,30 @@ public class SuperAdministrator extends javax.swing.JFrame {
         m.show(true);
         this.show(false);
     }//GEN-LAST:event_menuItemSignOffActionPerformed
+
+    private void menuItemNewRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewRolActionPerformed
+        NewRol nR = new NewRol();
+        nR.show();
+        nR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemNewRolActionPerformed
+
+    private void menuItemCrudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrudActionPerformed
+        CRUD cR = new CRUD();
+        cR.show();
+        cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemCrudActionPerformed
+
+    private void menuItemAccessAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAccessAdministratorActionPerformed
+        Administrator aD = new Administrator();
+        aD.show();
+        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemAccessAdministratorActionPerformed
+
+    private void menuItemAcessCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcessCustomerActionPerformed
+        Customer cM = new Customer();
+        cM.show();
+        cM.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemAcessCustomerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,11 +228,22 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JLabel lbSuperAdministrator;
-    private javax.swing.JMenu menuItemAdministrator;
-    private javax.swing.JMenuItem menuItemCustomer;
+    private javax.swing.JMenu menuAccess;
+    private javax.swing.JMenu menuAdd;
+    private javax.swing.JMenu menuCrud;
+    private javax.swing.JMenuItem menuItemAccessAdministrator;
+    private javax.swing.JMenuItem menuItemAcessCustomer;
+    private javax.swing.JMenuItem menuItemCrud;
+    private javax.swing.JMenuItem menuItemNewRol;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables

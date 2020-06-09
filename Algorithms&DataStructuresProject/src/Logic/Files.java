@@ -32,10 +32,10 @@ public class Files {
         return br;
     }//End BufferedReader
 
-    public boolean searchAdministratorID(String name, String password) throws IOException {
+    public boolean searchAdministratorID(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) throws IOException {
         BufferedReader br = getBufferedReader();
         String Acounts = "";
-        String findAccount = name + ";" + password;
+        String findAccount = cedula + ";" + nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";" + correo + ";" + tipoRol;
         while (Acounts != null) {
             Acounts = br.readLine();
             if (Acounts == null) {
@@ -48,7 +48,7 @@ public class Files {
         return false;
     }//End 
 
-    public int searchAdministrator(String name) {
+    public int searchAdministrator(String nombre) {
         //Llama y busca el archivo
         int found = -1;
         try {
@@ -57,12 +57,12 @@ public class Files {
             while (searchnameCustomer != null) {
                 searchnameCustomer = br.readLine();
                 if (searchnameCustomer != null) {
-                    if (searchnameCustomer.equalsIgnoreCase(name)) {//Cuenta mayúsculas y minúsculas(equalsIgnoreCase)
+                    if (searchnameCustomer.equalsIgnoreCase(nombre)) {//Cuenta mayúsculas y minúsculas(equalsIgnoreCase)
                         found = 1;
                     }//End if
                 }//End if
             }//End while
-        }//End try
+        }//End try//End try
         catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }//End catch
@@ -73,13 +73,13 @@ public class Files {
     }//End 
 
     //Escritura-output
-    public void insertCustomer(String name, String password, int rol) {
+    public void insertCustomer(int cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) {
         File fileCustomer = new File("clientes.txt");
         try {
             FileOutputStream fos = new FileOutputStream(fileCustomer, true);
             PrintStream ps = new PrintStream(fos);
-            if (searchAdministrator(name) == -1) {
-                ps.println(name + ";" + password + ";" + rol);
+            if (searchAdministrator(nombre) == -1) {
+                ps.println(cedula + ";" + nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";" + correo + ";" + tipoRol);
             }//End if
         }//End try  
         catch (FileNotFoundException fnfe) {
@@ -140,33 +140,42 @@ public class Files {
             String actualRegister = br.readLine(); //Lee el archivo 
             int indexArray = 0;
             while (actualRegister != null) { //Cuando sea null va a parar
-                String nombre = "", apellido = "", contraseña = "", direccion = "";
-                int tipo = 0, tel = 0;
+                String cedula = "", nombre = "", apellido = "",nombreUsuario = "" ,contraseña = "", correo = "";
+                int edad = 0, telefono = 0, tipoRol = 0;
                 //Se pone dentro del ciclo para que se resetee
                 int controlTokens = 1;
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
                 while (st.hasMoreTokens()) {
                     if (controlTokens == 1) {
-                        nombre = st.nextToken();
+                        cedula = st.nextToken();
                     }//End if 
                     else if (controlTokens == 2) {
-                        apellido = st.nextToken();
-                    }//End else if 
+                        nombre = st.nextToken();
+                    }//End else if
                     else if (controlTokens == 3) {
-                        contraseña = st.nextToken();
-                    }//End else if 
+                        apellido = st.nextToken();
+                    }//End else if
                     else if (controlTokens == 4) {
-                        direccion = st.nextToken();
+                        nombreUsuario = st.nextToken();
                     }//End else if 
                     else if (controlTokens == 5) {
-                        tipo = Integer.parseInt(st.nextToken());
-                    }//End else if 
+                        contraseña = st.nextToken();
+                    }//End else if
                     else if (controlTokens == 6) {
-                        tel = Integer.parseInt(st.nextToken());
+                        edad = Integer.parseInt(st.nextToken());
+                    }//End else if 
+                    else if (controlTokens == 7) {
+                        telefono = Integer.parseInt(st.nextToken());
+                    }//End else if 
+                    else if (controlTokens == 8) {
+                        correo = st.nextToken();
+                    }//End else if 
+                    else if (controlTokens == 9) {
+                        tipoRol = Integer.parseInt(st.nextToken());
                     }//End else if
                     controlTokens++;
                 }//End while 
-                Roles r = new Roles(nombre, apellido, tel, nombre, contraseña, direccion, tel, tipo);
+                Roles r = new Roles(cedula,nombre,apellido,nombreUsuario,contraseña,edad,telefono,correo,tipoRol);
                 array[indexArray] = r;
                 indexArray++;
                 actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
@@ -180,24 +189,4 @@ public class Files {
         }//End catch
         return array;
     }//End Roles
-    
-    //Muestra la lista de los empleados
-    public boolean loginAdministrator(String name, String password) throws IOException {
-        BufferedReader br = getBufferedReader();
-        String Acounts = "";
-        String findAccount = name + "|" + password;
-        String firstAdministrator = "David;david2020";
-        String secondAdministrator = "Erick;erick2020";
-        String thirdAdministrator = "Jesús;jesús2020";
-        while (Acounts != null) {
-            Acounts = br.readLine();
-            if (Acounts == null) {
-                return false;
-            }//End if
-            if (firstAdministrator.equals(findAccount) || secondAdministrator.equals(findAccount) || thirdAdministrator.equals(findAccount)) {
-                return true;
-            }//End if
-        }//End while
-        return true;
-    }//End 
 }//End Files

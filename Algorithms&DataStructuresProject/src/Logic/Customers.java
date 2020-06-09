@@ -1,5 +1,8 @@
-package FirstMod;
+package Logic;
 
+import GUI.CRUD;
+import Interfaces.LinkedList;
+import Logic.Roles;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,13 +36,14 @@ class ListaNodo { //Se puede poner en otra clase
         return element;
     }
 }
+
 public class Customers implements LinkedList {
-    
+
     public Customers() { //Vacio      
     }
 
     ListaNodo inicio;
-    Person newCus = new Person();
+    Roles roles = new Roles(); //ERROR AQUÍ 
 
     /**
      * Agrega un nuevo nodo en la lista.
@@ -92,7 +96,7 @@ public class Customers implements LinkedList {
         }
         return encontrado;
     }
-    
+
     /**
      * Elimina un nodo que se encuentre en la lista ubicado por un valor de
      * referencia.
@@ -123,8 +127,8 @@ public class Customers implements LinkedList {
             }
         }
     }
-    
-     /**
+
+    /**
      * Obtiene el valor de un nodo en la ultima posicion.
      *
      * @return el numero que se encuentra el la ultima posicion de la lista
@@ -141,12 +145,12 @@ public class Customers implements LinkedList {
             }
             return lastNodo;
         }//endElse
-    }   
-    
-     /**
+    }
+
+    /**
      * Elimina el ultimo nodo de la lista
      */
-     public void removeLast() {
+    public void removeLast() {
         ListaNodo actual = inicio; //Inicializa la lista 
 
         if (inicio == null) //Si la lista esta vacia entonces muestra un mensaje
@@ -190,7 +194,7 @@ public class Customers implements LinkedList {
     public boolean isEmpty() {
         return inicio == null;
     }
-    
+
     /**
      * Obtiene el valor de un nodo en una determinada posición.
      *
@@ -198,7 +202,7 @@ public class Customers implements LinkedList {
      * @return un numero entero entre [0,n-1] n = numero de nodos de la lista y
      * sino lo encuentra un mensaje donde indique tal cosa
      */
-   // @Override
+    // @Override
     public Object indexOf(int index) {
         // Verifica si la posición ingresada se encuentre en el rango de elementos de la lista
         if (index >= 0 && index < size()) {
@@ -221,57 +225,62 @@ public class Customers implements LinkedList {
             return "Posición inexistente en la lista";
         }
     }
-    
+
     //Busca a un Employee en un archivo txt. Si no existe es agregado, de otra forma no.
-     public boolean createCliente (String cedula, String name, String apellido, String password, String direccion, int tipo, int tel) throws FileNotFoundException{
-         
-         newCus.setCedula(cedula);
-         newCus.setNombre(name);
-         newCus.setApellido(apellido);
-         newCus.setContraseña(password);
-         newCus.setDireccion(direccion);
-         newCus.setTipo(tipo);
-         newCus.setTel(tel);
-         
-        File f2 = new File ("registros.txt");
+    public boolean createCliente(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) throws FileNotFoundException {
+
+        roles.setCedula(cedula);
+        roles.setNombre(nombre);
+        roles.setApellido(apellido);
+        roles.setNombreUsuario(nombreUsuario);
+        roles.setContraseña(contraseña);
+        roles.setEdad(edad);
+        roles.setTelefono(telefono);
+        roles.setCorreo(correo);
+        roles.setTipoRol(tipoRol);
+
+        File f2 = new File("registros.txt");
         FileOutputStream fos = new FileOutputStream(f2, true);
         PrintStream ps = new PrintStream(fos);
-        
-        if(!newCus.getCedula().equals("") && !newCus.getNombre().equals("") && !newCus.getApellido().equals("") 
-                && !newCus.getContraseña().equals("") && !newCus.getDireccion().equals("")){
-         
-            ps.println(newCus.getCedula()+";"+newCus.getNombre()+";"+newCus.getApellido()+";"+newCus.getContraseña()+";"+newCus.getDireccion()+";"+newCus.getTipo()+";"+newCus.getTel());
+
+        if (!roles.getNombre().equals("") 
+                && !roles.getApellido().equals("") 
+                && !roles.getNombreUsuario().equals("") 
+                && !roles.getContraseña().equals("")  
+                && !roles.getCorreo().equals("")) {
+
+            ps.println(roles.getCedula() + ";" + roles.getNombre() + ";" + roles.getApellido() + ";" + roles.getContraseña() + ";" + roles.getEdad() + ";" + roles.getTelefono() + ";" + roles.getCorreo() + ";" + roles.getTipoRol());
             return true;
-        }else            
+        } else {
             return false;
-      }//end createEmployee()
-     
-     public Customers showEmployees() {
-        
+        }
+    }//end createEmployee()
+
+    public Customers showCustomers() {
+
         Customers list = new Customers();
         File f = new File("registros.txt");
-         int counter = 1;
-        
+        int counter = 1;
+
         try {
-             FileInputStream fis = new FileInputStream(f);
-             InputStreamReader isr = new InputStreamReader(fis);
-             BufferedReader br = new BufferedReader(isr);
-             
-             String reader = "";             
-             while (reader!=null) {
-                 
+            FileInputStream fis = new FileInputStream(f);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String reader = "";
+            while (reader != null) {
+
                 reader = br.readLine();
-                list.add("("+Integer.toString(counter)+")"+reader+"\n");               
+                list.add("(" + Integer.toString(counter) + ")" + reader + "\n");
                 counter++;
             }//end while   
-         }//end try  
-         catch (FileNotFoundException fnfe) {     
-             JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);    
-         } catch (IOException ex) {
+        }//end try  
+        catch (FileNotFoundException fnfe) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
+        } catch (IOException ex) {
             Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
         list.removeLast();
-    return list;
-    }//end showEmployees
-
-}
+        return list;
+    }//end showCustomers
+}//End Customers
