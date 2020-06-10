@@ -69,7 +69,7 @@ private Timer time;
         getContentPane().add(jLabel2);
         jLabel2.setBounds(1070, 0, 310, 710);
         getContentPane().add(jProgressBar);
-        jProgressBar.setBounds(470, 150, 390, 14);
+        jProgressBar.setBounds(470, 150, 390, 12);
 
         lbEnter.setText("     ENTER");
         lbEnter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,7 +78,7 @@ private Timer time;
             }
         });
         getContentPane().add(lbEnter);
-        lbEnter.setBounds(620, 180, 60, 14);
+        lbEnter.setBounds(620, 180, 60, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
