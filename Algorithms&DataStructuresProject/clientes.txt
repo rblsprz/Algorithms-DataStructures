@@ -3,6 +3,15 @@
 305350721;David;Robles;david2001;12345;18;61122441;davidroblesucr;2
 305350721;David;Robles;robles;12345;18;61122441;davidrobles;2
 123456789;Valeria;Salazar;valeria123;salazar123;19;12345678;valeriavaleria;3
+
+48858;nnun;mjn;2585;mmim;55858;5985;iuju;3
+88484;jesus;uhu;huh;Jesus.vargas20;48484;8844;ugugug;3
+45544;bbhb;bhhbhb;hbbhbh;Jesus.va2001;123;12345678;jijij;2
+123456789;nvfnvnuf;viijnvnr;jjijijiji;Jesus.vargas200;788787;12345678;uhuhuhuh;2
+123456789;hhuhuh;nhuhhuh;hhhuh;Jesus.vasrgas2000;484848;12345678;frfr;2
+123456789;jjiii;jijiji;jijijj;Chuz.vargas20;123;12345678;kokok;2
 305350721;David;Robles;rblsprz;ucr2020;18;61122441;david.roblesperez@ucr.ac.cr;2
 305350721;David;Robles;davidrobles;12345678;18;61122441;hahahahaha;2
 12345678;Jesus;Vargas;jesusvargas;holahola;18;12345;ggggggg;3
+
+
