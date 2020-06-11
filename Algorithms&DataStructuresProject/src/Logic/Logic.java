@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import Interfaces.LinkedList;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
@@ -307,4 +309,6 @@ public class Logic {
     public boolean validateAge(String datos){
     return datos.matches("[0-9]*");
     }
-}
+
+    }//End Roles[]
+

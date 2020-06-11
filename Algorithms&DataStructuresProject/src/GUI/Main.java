@@ -137,6 +137,8 @@ public class Main extends javax.swing.JFrame {
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         String superAdministradorNombre = "rblsprz";
         String superAdministradorContrasena = "ucr2020";
+        Logic Lf = new Logic();
+        int rol = 0;
 
         if ((tfpassword.getText().length() == 0 && tfpassword.getText().length() == 0) && (!jRadioButtonSuperAdministrador.isSelected() && !jRadioButtonAdministrador.isSelected() && !jRadioButtonCustomer.isSelected())) {
             lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
@@ -150,11 +152,28 @@ public class Main extends javax.swing.JFrame {
                 sA = new SuperAdministrator();
                 sA.show(true);
                 this.show(false);
-            }//End if 
-            else {
-                lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-            }//End else
-        }//End else if   
+            }//End if
+        }//End else if
+        else if (jRadioButtonAdministrador.isSelected()) {
+            rol = 2;
+            if (tFnombredeUsuario.getText().equals(tFnombredeUsuario) && tfpassword.getText().equals(tfpassword) == true && rol==2) {
+                Administrator A;
+                A = new Administrator();
+                A.show(true);
+                this.show(false);
+            }//End if
+        }//End else if
+        else if (jRadioButtonCustomer.isSelected()) {
+            rol = 3;
+            if (tFnombredeUsuario.getText().equals(tFnombredeUsuario) && tfpassword.getText().equals(tfpassword) == true && rol==3) {
+                Customer C;
+                C = new Customer();
+                C.show(true);
+                this.show(false);
+            }//End if
+        }//End else if
+        
+
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     /**

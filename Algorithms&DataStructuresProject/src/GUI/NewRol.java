@@ -125,11 +125,10 @@ public class NewRol extends javax.swing.JFrame {
                             .addComponent(tfID, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfUserName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfName)
-                            .addComponent(tfLastName)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
+                            .addComponent(tfLastName))
+                        .addGap(18, 18, 18)
                         .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,6 +182,7 @@ public class NewRol extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+
         
         String passw = tfPassword.getText().trim();
 
@@ -228,41 +228,47 @@ public class NewRol extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "En el campo de edad solo se aceptan numero");
         }
 
-        int rol = 0;
-        if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cbRoles.getSelectedItem().toString() == "ADMINISTRATOR") {
-            rol = 2;
-        }//End if 
-        else {
-            rol = 3;
+      
+
+        if (tfID.getText().equals("") || tfName.getText().equals("") || tfLastName.getText().equals("") || tfUserName.getText().equals("") || tfPassword.getText().equals("") || tfEmail.getText().equals("")) {
+            lbMensajes.setText("FILL THE DATA!");
+        }//End if
+        else{
+            int rol = 0;
+            if (cbRoles.getSelectedItem().toString() == "ADMINISTRATOR") {
+                rol = 2;
+            }//End if 
+            else {
+                rol = 3;
+            }//End else
+
+            Customers cU = new Customers();
+            Logic l = new Logic();
+            Roles r = new Roles(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
+            cU.add(r);
+            try {
+                   if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9)  && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
+                    l.insertCustomer(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
+                    lbMensajes.setText("SUCCESFUL PROCEDURE!");
+                    tfID.setText("");
+                    tfName.setText("");
+                    tfLastName.setText("");
+                    tfUserName.setText("");
+                    tfPassword.setText("");
+                    tfAge.setText("");
+                    tfPhone.setText("");
+                    tfEmail.setText("");
+
+                 } else if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
+
+                    lbMensajes.setText("USER ALREADY EXISTS!");
+                }
+            } catch (FileNotFoundException ex) {
+
+                JOptionPane.showMessageDialog(null, ex);
+
+            }//end try/catch
         }//End else
-
-        Customers cU = new Customers();
-        Logic l = new Logic();
-        Roles r = new Roles(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
-        cU.add(r);
-        try {
-            if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9)  && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
-                l.insertCustomer(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
-                lbMensajes.setText("SUCCESFUL PROCEDURE!");
-                tfID.setText("");
-                tfName.setText("");
-                tfLastName.setText("");
-                tfUserName.setText("");
-                tfPassword.setText("");
-                tfAge.setText("");
-                tfPhone.setText("");
-                tfEmail.setText("");
-
-            } else if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
-
-                lbMensajes.setText("USER ALREADY EXISTS!");
-            }
-
-        } catch (FileNotFoundException ex) {
-
-            JOptionPane.showMessageDialog(null, ex);
-
-        }//end try/catch
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void cbRolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbRolesMouseClicked
