@@ -4,3 +4,5 @@
 305350721;David;Robles;robles;12345;18;61122441;davidrobles;2
 123456789;Valeria;Salazar;valeria123;salazar123;19;12345678;valeriavaleria;3
 305350721;David;Robles;rblsprz;ucr2020;18;61122441;david.roblesperez@ucr.ac.cr;2
+305350721;David;Robles;davidrobles;12345678;18;61122441;hahahahaha;2
+12345678;Jesus;Vargas;jesusvargas;holahola;18;12345;ggggggg;3
