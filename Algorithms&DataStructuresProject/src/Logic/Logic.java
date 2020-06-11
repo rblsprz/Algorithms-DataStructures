@@ -239,5 +239,76 @@ public class Logic {
             JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }//endCatch
         return array;
+    }//endCountry[]
+
+    public boolean validateTel(String datos) {
+        return datos.matches("[0-9]*");
+    }
+
+    public boolean validateLetras(String datos) {
+        return datos.matches("[a-zA-Z]*");
+    }
+
+    public boolean validateNombre(String datos) {
+        return datos.matches("[a-zA-Z]*");
+    }
+
+    public boolean validatePassword(String p) {
+        boolean verificado = false;
+        int especiales = 0;
+        int size = 0;
+        int mayuscula = 0;
+        int miniscula = 0;
+        int nums = 0;
+
+        if (p.length() >= 8) {
+
+            for (int i = 0; i < p.length(); i++) {
+                char letras = p.charAt(i);
+                if (letras >= 65 && letras <= 90) {
+                    mayuscula++;
+                }
+                if (letras >= 97 && letras <= 122) {
+                    miniscula++;
+                }
+                if (letras >= 48 && letras <= 57) {
+                    nums++;
+                }
+                if (letras >= 33 && letras <= 47) {
+                    especiales++;
+                }
+            }//End for
+            if (mayuscula > 0 && miniscula > 0 && nums > 0 && especiales > 0) {
+                verificado = true;
+            }
+        }//End if
+
+        return verificado;
+    }//End validatePassword
+
+    public boolean validateID(String cadena) {
+
+        int num;
+
+        try {
+            if (cadena.length() == 9) {
+                num = Integer.parseInt(cadena);
+
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return validateID(cadena);
+    }
+    
+    public boolean validateCed(String datos){
+    return datos.matches("[0-9]*");
+    }
+    
+    public boolean validateAge(String datos){
+    return datos.matches("[0-9]*");
+    }
+
     }//End Roles[]
-}
+

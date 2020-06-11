@@ -5,16 +5,18 @@ import Logic.Logic;
 import Logic.Roles;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
-
+import Logic.Logic;
 /**
  *
  * @author pc
  */
+
 public class NewRol extends javax.swing.JFrame {
 
     /**
      * Creates new form nuevoUsuario
      */
+    Logic lo = new Logic();
     public NewRol() {
         initComponents();
 
@@ -179,6 +181,54 @@ public class NewRol extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+
+        
+        String passw = tfPassword.getText().trim();
+
+        if (lo.validatePassword(passw)) {
+            Roles p = new Roles();
+
+        }//End if
+        else {
+            JOptionPane.showMessageDialog(null, "Contraseña sin exito");
+        }//endValidatePassword
+        
+        if (lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "En el campo telefono \nSolo se aceptan Numeros y tiene que ser 8 digitos");
+        }
+////////////////////////////////////////////////////////////////////////////
+
+        if (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) {
+            
+        }else{
+        JOptionPane.showMessageDialog(null, "Ej el campo de ID solo se aceptan numeros y tiene que tener 9 digitos");
+        }
+////////////////////////////////////////////////////////////////////////////
+
+        if (lo.validateLetras(tfLastName.getText())) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se aceptan letrtas en el campo de Apellido");
+        }
+///////////////////////////////////////////////////////////////////////
+
+        if (lo.validateNombre(tfName.getText())) {
+           
+        }else{
+         JOptionPane.showMessageDialog(null, "Solo se aceptan letrtas en el campo de Nombre");
+        }
+////////////////////////////////////////////////////////////////////
+
+        if (lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) {
+            
+        }else{
+        JOptionPane.showMessageDialog(null, "En el campo de edad solo se aceptan numero");
+        }
+
+      
+
         if (tfID.getText().equals("") || tfName.getText().equals("") || tfLastName.getText().equals("") || tfUserName.getText().equals("") || tfPassword.getText().equals("") || tfEmail.getText().equals("")) {
             lbMensajes.setText("FILL THE DATA!");
         }//End if
@@ -196,7 +246,7 @@ public class NewRol extends javax.swing.JFrame {
             Roles r = new Roles(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
             cU.add(r);
             try {
-                if (cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
+                   if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9)  && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
                     l.insertCustomer(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
                     lbMensajes.setText("SUCCESFUL PROCEDURE!");
                     tfID.setText("");
@@ -208,11 +258,10 @@ public class NewRol extends javax.swing.JFrame {
                     tfPhone.setText("");
                     tfEmail.setText("");
 
-                } else if (cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
+                 } else if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
 
                     lbMensajes.setText("USER ALREADY EXISTS!");
                 }
-
             } catch (FileNotFoundException ex) {
 
                 JOptionPane.showMessageDialog(null, ex);
