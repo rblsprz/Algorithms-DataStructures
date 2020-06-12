@@ -114,7 +114,7 @@ public class Logic {
             PrintStream ps = new PrintStream(fos);
 
             if (searchAdministrator(nombre) == -1) {
-                ps.println(cedula + ";" + nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";" + correo + ";" + tipoRol);
+                ps.println(nombreUsuario + ";" + contraseña + ";" + tipoRol);
             }
         } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
