@@ -135,8 +135,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonAdministradorActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        String superAdministradorNombre = "rblsprz";
-        String superAdministradorContrasena = "ucr2020";
+        String superAdministradorNombre = "r";
+        String superAdministradorContrasena = "u";
         Logic Lf = new Logic();
         
         int rol = 0;
