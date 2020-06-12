@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.StringTokenizer;
-import proyectofinal.Pilas;
+import Interfaces.Stacks;
 
 /**
  *
@@ -46,7 +46,7 @@ import proyectofinal.Pilas;
             return this.numCel;
         }
     }
-public class pilaNodo implements Pilas{
+public class pilaNodo implements Stacks{
 
      NodeCita inicio;
 

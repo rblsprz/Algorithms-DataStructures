@@ -2,3 +2,4 @@
 mano;Prueba12.;2
 maguilar;Prueba13.;3
 fulanita;Prueba13.;3
+fulamita;Fulanita14.;2
