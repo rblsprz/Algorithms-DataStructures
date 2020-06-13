@@ -190,41 +190,41 @@ public class NewRol extends javax.swing.JFrame {
 
         }//End if
         else {
-            JOptionPane.showMessageDialog(null, "Contraseña sin exito");
+            JOptionPane.showMessageDialog(null, "INVALID PASSWORD!");
         }//endValidatePassword
         
         if (lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) {
 
         } else {
-            JOptionPane.showMessageDialog(null, "En el campo telefono \nSolo se aceptan Numeros y tiene que ser 8 digitos");
+            JOptionPane.showMessageDialog(null, "IN THE PHONE, ADD ONLY 8 NUMBERS!");
         }
 ////////////////////////////////////////////////////////////////////////////
 
         if (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) {
             
         }else{
-        JOptionPane.showMessageDialog(null, "Ej el campo de ID solo se aceptan numeros y tiene que tener 9 digitos");
+        JOptionPane.showMessageDialog(null, "IN THE ID, ADD ONLY 9 NUMBERS!");
         }
 ////////////////////////////////////////////////////////////////////////////
 
         if (lo.validateLetras(tfLastName.getText())) {
 
         } else {
-            JOptionPane.showMessageDialog(null, "Solo se aceptan letrtas en el campo de Apellido");
+            JOptionPane.showMessageDialog(null, "IN THE LAST NAME, ADD ONLY LETTERS!");
         }
 ///////////////////////////////////////////////////////////////////////
 
         if (lo.validateNombre(tfName.getText())) {
            
         }else{
-         JOptionPane.showMessageDialog(null, "Solo se aceptan letrtas en el campo de Nombre");
+         JOptionPane.showMessageDialog(null, "IN THE NAME, ADD ONLY LETTERS!");
         }
 ////////////////////////////////////////////////////////////////////
 
         if (lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) {
             
         }else{
-        JOptionPane.showMessageDialog(null, "En el campo de edad solo se aceptan numero");
+        JOptionPane.showMessageDialog(null, "IN THE AGE, ADD ONLY NUMBERS!");
         }
 
       
