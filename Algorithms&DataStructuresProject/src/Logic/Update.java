@@ -105,5 +105,17 @@ public class Update {
             }
         }//End for
     }//End actualizarDatos
-    
+    public void actualizarCita(String fecha, String hora, String nombre, String cedula) throws IOException{
+        String[] arregloArchivo = getArregloArchivo("citas.txt");
+
+        PrintStream ps = getPrintStream("citas.txt", false);
+        for (int i = 0; i < arregloArchivo.length; i++) {
+
+            if (!getNameFile(arregloArchivo[i], 2).equals(cedula)) {
+                ps.println(arregloArchivo[i]);
+            } else {
+                ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
+            }
+        }//End for
+    }//End actualizarPaises
 }

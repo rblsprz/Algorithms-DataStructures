@@ -205,6 +205,7 @@ public class Logic {
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
 
                 while (st.hasMoreTokens()) {
+                    
                     if (controlTokens == 1) {
                         cedula = st.nextToken();
                     } else if (controlTokens == 2) {
@@ -240,6 +241,112 @@ public class Logic {
         }//endCatch
         return array;
     }//endCountry[]
+    
+    public BufferedReader getBufferedReaderCita() {
+        File fileAdmin = new File("citas.txt");
+        BufferedReader br = null;
+        try {
+
+            FileInputStream fis = new FileInputStream(fileAdmin);
+            InputStreamReader isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+        } catch (FileNotFoundException fnfe) {
+            JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);
+        }
+        return br;
+    }
+    /**
+     * Obtiene la cantidad de lineas del archivo
+     *
+     * @return countRegisters el numero total de lineas
+     */
+    public int getFileRegistersCita() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileCountries = new File("citas.txt");
+        int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+    
+    public Cita[] readRegistersFilesCita() {
+
+        Cita array[] = new Cita[getFileRegistersCita()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCountries = new File("citas.txt");
+
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                 String fecha = "", hora = "", cedula = "", nombre = "";
+
+               
+                //Se pone dentro del ciclo para que se resetee
+                int controlTokens = 1;
+                StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
+
+                while (st.hasMoreTokens()) {
+
+                    if (controlTokens == 1) {
+                        fecha = st.nextToken();
+                    } else if (controlTokens == 2) {
+                        hora = st.nextToken();
+                    } else if (controlTokens == 3) {
+                        cedula = st.nextToken();
+                    } else if (controlTokens == 4) {
+                        nombre = st.nextToken();
+                    } 
+                    controlTokens++;
+                }//endWhileInterno
+
+                Cita c = new Cita(fecha,hora, cedula, nombre);
+                array[indexArray] = c;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+
+        return array;
+    }//endCountry[]
+    
+     public boolean searchCita(String fecha, String hora) {
+        Cita[] c = readRegistersFilesCita();
+        for (int i = 0; i < c.length; i++) {
+            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public boolean validateTel(String datos) {
         return datos.matches("[0-9]*");

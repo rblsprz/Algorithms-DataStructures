@@ -247,27 +247,28 @@ public class CRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_btnshowRolesActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        try {
-            Delete em = new Delete();
-            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText()+ " ?");
-            if (d == 0) {
-                em.borrarPersona("registros.txt", tfID.getText());
-                lbMensajes.setText("SUCCESSFULLY REMOVED!");
-                mostrarRegistros();
-                tfID.setText("");
-                tfName.setText("");
-                tfLastName.setText("");
-                tfUserName.setText("");
-                tfPassword.setText("");
-                tfAge.setText("");
-                tfPhone.setText("");
-                tfEmail.setText("");
-                tfRol.setText("");
-                
-            }
-        } catch (IOException ex) {
-            lbMensajes.setText("DELETE ERROR!");
+          try {
+        Delete em = new Delete();
+        int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText()+ " ?");
+        if (d == 0) {
+          
+            em.removeLines(tfID.getText());
+            lbMensajes.setText("SUCCESSFULLY REMOVED!");
+            mostrarRegistros();
+            tfID.setText("");
+            tfName.setText("");
+            tfLastName.setText("");
+            tfUserName.setText("");
+            tfPassword.setText("");
+            tfAge.setText("");
+            tfPhone.setText("");
+            tfEmail.setText("");
+            tfRol.setText("");
+            
         }
+            }catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al eliminar");
+            }   
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -277,7 +278,7 @@ public class CRUD extends javax.swing.JFrame {
             ArrayList<Roles> array = new ArrayList();
             String contraseña = "";
 
-            Roles[] tempCustomers = lC.readRegistersFiles();
+            Roles tempCustomers[] = lC.readRegistersFiles();
             for (int i = 0; i < tempCustomers.length; i++) {
                 array.add(tempCustomers[i]);
             }//endfor
@@ -317,7 +318,7 @@ public class CRUD extends javax.swing.JFrame {
         Logic lC = new Logic();
         ArrayList<Roles> array = new ArrayList();
 
-        Roles[] tempCustomers = lC.readRegistersFiles();
+        Roles tempCustomers[] = lC.readRegistersFiles();
         for (int i = 0; i < tempCustomers.length; i++) {
             array.add(tempCustomers[i]);
         }//endfor
