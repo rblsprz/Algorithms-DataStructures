@@ -38,8 +38,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         lbSuperAdministrator = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAdd = new javax.swing.JMenu();
         menuItemNewRol = new javax.swing.JMenuItem();
@@ -70,20 +68,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbSuperAdministrator.setText("SUPER ADMINISTRATOR");
-
-        jButton1.setText("Agregar Citas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("CRUD Citas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         menuAdd.setText("ADD");
 
@@ -158,15 +142,8 @@ public class SuperAdministrator extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(lbSuperAdministrator))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))))
+                .addGap(245, 245, 245)
+                .addComponent(lbSuperAdministrator)
                 .addContainerGap(250, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -174,11 +151,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(lbSuperAdministrator)
-                .addGap(129, 129, 129)
-                .addComponent(jButton1)
-                .addGap(33, 33, 33)
-                .addComponent(jButton2)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(487, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,19 +191,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
         cM.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemAcessCustomerActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       CitasAdmin cA=new CitasAdmin();
-       dispose();
-       cA.setVisible(true);
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       CRUD_ADMIN_CITAS crud=new CRUD_ADMIN_CITAS();
-       dispose();
-       crud.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -267,8 +227,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

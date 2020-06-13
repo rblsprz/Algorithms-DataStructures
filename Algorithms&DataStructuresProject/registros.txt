@@ -1,2 +1,4 @@
 ;;;;;0;0;;0
-117800556;erick;chavarria;mano;Prueba12.;19;88888888;prueba@hotmail.com;2
+117800556;Erick;Chavarria;mano;Prueba01.;19;88448844;pruebam@hotmail.com;2
+123456789;Rachel;montoya;rac;Prueba02.;19;88881111;pruebar@hotmail.com;3
+900970120;Mauren;Aguilar;maguilar;Prueba04.;46;88884433;pruebam@hotmail.com;3

@@ -5,29 +5,28 @@
  */
 package GUI;
 
-import Logic.Logic;
-import java.util.Calendar;
-import java.util.Date;
-import javax.swing.JOptionPane;
 import Logic.Cita;
+import Logic.Logic;
+import Logic.Roles;
 import Logic.logicaPilaFiles;
 import Logic.pilaNodo;
+import java.util.ArrayList;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author pc
  */
-public class CitasAdmin extends javax.swing.JFrame {
+public class CitaCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form CRUD_CITAS
+     * Creates new form CitaCliente
      */
-    public CitasAdmin() {
+    public CitaCliente() {
         initComponents();
     }
-    
-    logicaPilaFiles stack = new logicaPilaFiles();
-    Logic Stack = new Logic();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,23 +36,20 @@ public class CitasAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        lblNombre = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         cbmHora = new javax.swing.JComboBox<>();
         btnSolicitar = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
+        lblNombre = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblNombre.setText("Nombre del Paciente: ");
-
-        jLabel1.setText("Cédula:");
+        txtCedula.setEditable(false);
 
         jLabel3.setText("Hora:");
 
@@ -68,10 +64,21 @@ public class CitasAdmin extends javax.swing.JFrame {
 
         jLabel2.setText("Fecha: ");
 
-        jButton1.setText("Regresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtras.setText("Atrás");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAtrasActionPerformed(evt);
+            }
+        });
+
+        lblNombre.setText("Nombre del Paciente: ");
+
+        jLabel1.setText("Cédula:");
+
+        jTextField1.setEditable(false);
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
             }
         });
 
@@ -80,12 +87,8 @@ public class CitasAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -95,9 +98,11 @@ public class CitasAdmin extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(101, 101, 101)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbmHora, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
+                            .addComponent(cbmHora, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -106,8 +111,14 @@ public class CitasAdmin extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,9 +126,9 @@ public class CitasAdmin extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -127,44 +138,69 @@ public class CitasAdmin extends javax.swing.JFrame {
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSolicitar)
-                    .addComponent(jButton1))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(btnAtras))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+   Main uR = new Main();
+    logicaPilaFiles stack = new logicaPilaFiles();
+    Logic Stack = new Logic();
+   
+     public void mostrarNombre(){
+        Logic lC = new Logic();
+        ArrayList<Roles> array = new ArrayList();
+        
+        Roles tempCountries[] = lC.readRegistersFilesIndividual();
+        for(int i = 0; i < tempCountries.length; i++){
+            array.add(tempCountries[i]);
+        }//endfor
+        for (int j = 0; j < 1; j++) {
+            txtCedula.setText(array.get(j).getCedula().trim());
+        jTextField1.setText(array.get(j).getNombre().trim());
+        
+        }
+    } 
+ 
+    
     private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
         //Campos vacios validacion
-            String dia=Integer.toString(jDateChooser1.getCalendar().get(Calendar.DAY_OF_MONTH));
-            String mes=Integer.toString(jDateChooser1.getCalendar().get(Calendar.MONTH)+1);
-            String year=Integer.toString(jDateChooser1.getCalendar().get(Calendar.YEAR));
-            String fecha=(year+"-"+mes+"-"+dia);
-            
-        if (txtCedula.getText().equals("") || txtNombre.getText().equals("") || cbmHora.getSelectedItem().equals("")) {
+        String dia=Integer.toString(jDateChooser1.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes=Integer.toString(jDateChooser1.getCalendar().get(Calendar.MONTH)+1);
+        String year=Integer.toString(jDateChooser1.getCalendar().get(Calendar.YEAR));
+        String fecha=(year+"-"+mes+"-"+dia);
+
+        if (txtCedula.getText().equals("") || jTextField1.getText().equals("") || cbmHora.getSelectedItem().equals("") || jDateChooser1.getDate().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellene todos los espacios en blanco");
-        }//End if 
+        }//End if
         else {
             if(Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false){
-            pilaNodo pila = new pilaNodo();  
-            Cita cita = new Cita(fecha, cbmHora.getSelectedItem().toString(), txtCedula.getText(), txtNombre.getText());            
-            pila.push(fecha,cbmHora.getSelectedItem().toString(), txtNombre.getText(), txtCedula.getText());
-            stack.insertCita(cita);
-            JOptionPane.showMessageDialog(null, "Cita Registrada");
+                pilaNodo pila = new pilaNodo();
+                Cita cita = new Cita(fecha, cbmHora.getSelectedItem().toString(), txtCedula.getText(), jTextField1.getText());
+                pila.push(fecha,cbmHora.getSelectedItem().toString(), jTextField1.getText(), txtCedula.getText());
+                stack.insertCita(cita);
+                JOptionPane.showMessageDialog(null, "Cita Registrada");
             } else {
                 JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
             }
-        } 
-        
+        }
+
         //else
-//           JOptionPane.showMessageDialog(null, "Cita NO Registrada");
+        //           JOptionPane.showMessageDialog(null, "Cita NO Registrada");
     }//GEN-LAST:event_btnSolicitarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Administrator sA=new Administrator();
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        Customer nS = new Customer();
+        nS.setVisible (true);
         dispose();
-        sA.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+        mostrarNombre();
+    }//GEN-LAST:event_jTextField1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -183,13 +219,13 @@ public class CitasAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CitasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CitasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CitasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CitasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -197,22 +233,21 @@ public class CitasAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CitasAdmin().setVisible(true);
+                new CitaCliente().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnSolicitar;
     private javax.swing.JComboBox<String> cbmHora;
-    private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

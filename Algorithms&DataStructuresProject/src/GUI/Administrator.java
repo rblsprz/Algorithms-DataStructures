@@ -28,6 +28,8 @@ public class Administrator extends javax.swing.JFrame {
     private void initComponents() {
 
         lbAdministrator = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
@@ -35,6 +37,20 @@ public class Administrator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbAdministrator.setText("ADMINISTRATOR");
+
+        jButton1.setText("Agregar Citas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("CRUD Citas");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -61,14 +77,26 @@ public class Administrator extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(lbAdministrator)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(lbAdministrator))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton2)))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(30, 30, 30)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(21, 21, 21)
                 .addComponent(lbAdministrator)
                 .addContainerGap(138, Short.MAX_VALUE))
         );
@@ -87,6 +115,19 @@ public class Administrator extends javax.swing.JFrame {
         m.show(true);
         this.show(false);
     }//GEN-LAST:event_menuItemSignOffActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CitasAdmin cA=new CitasAdmin();
+        dispose();
+        cA.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CRUD_ADMIN_CITAS crud=new CRUD_ADMIN_CITAS();
+        dispose();
+        crud.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +165,8 @@ public class Administrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbAdministrator;
     private javax.swing.JMenuItem menuItemSignOff;

@@ -28,6 +28,7 @@ public class Customer extends javax.swing.JFrame {
     private void initComponents() {
 
         lbCustomer = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
@@ -35,6 +36,13 @@ public class Customer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbCustomer.setText("CUSTOMER");
+
+        jButton1.setText("Agregar cita");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -61,14 +69,21 @@ public class Customer extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(lbCustomer)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(lbCustomer))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(82, 82, 82)
                 .addComponent(lbCustomer)
                 .addContainerGap(138, Short.MAX_VALUE))
         );
@@ -85,6 +100,12 @@ public class Customer extends javax.swing.JFrame {
         m.show(true);
         this.show(false);
     }//GEN-LAST:event_menuItemSignOffActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CitaCliente cC=new CitaCliente();
+        dispose();
+        cC.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,6 +143,7 @@ public class Customer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbCustomer;
     private javax.swing.JMenuItem menuItemSignOff;

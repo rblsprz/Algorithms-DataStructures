@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import Logic.Cita;
+import Logic.Delete;
 
 /**
  *
@@ -51,6 +52,7 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
         btnShow = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
+        txtFecha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +87,11 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnShow.setText("Mostrar Citas");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +116,16 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnModificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnShow))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -120,17 +137,8 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                             .addComponent(txtHora)
                             .addComponent(txtCedul)
                             .addComponent(txtPaciente)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnModificar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnShow)))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -157,13 +165,15 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnModificar)
                             .addComponent(btnEliminar)
                             .addComponent(btnShow))
                         .addGap(61, 61, 61)
                         .addComponent(jButton1)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
@@ -234,10 +244,28 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        SuperAdministrator sA=new SuperAdministrator();
+        Administrator sA=new Administrator();
         dispose();
         sA.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+      try {
+                Delete stack = new Delete();
+                int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar la cita de " + txtPaciente.getText() + " de este archivo?");
+                if(d == 0){
+                    stack.borrarCita("citas.txt", txtCedul.getText());
+                    JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
+                    mostrarCitas();
+                    txtCedul.setText("");
+                    txtFecha.setText("");
+                    txtHora.setText("");
+                    txtPaciente.setText("");
+                }
+            }catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al eliminar");
+            }   
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,6 +315,7 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable3;
     private javax.swing.JTextField txtCedul;
+    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtHora;
     private javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables

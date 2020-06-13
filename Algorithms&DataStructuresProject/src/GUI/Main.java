@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -133,19 +134,24 @@ public class Main extends javax.swing.JFrame {
     private void jRadioButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdministradorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonAdministradorActionPerformed
+    public ArrayList activo() {
+
+        ArrayList<String> usuarioActivo = new ArrayList<String>();
+        usuarioActivo.add(tFnombredeUsuario.getText());
+        usuarioActivo.add(tfpassword.getText());
+        return usuarioActivo;
+    }
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         String superAdministradorNombre = "r";
         String superAdministradorContrasena = "u";
         Logic Lf = new Logic();
-        
+
         int rol = 0;
-        
-        
+
         if ((tfpassword.getText().length() == 0 && tfpassword.getText().length() == 0) && (!jRadioButtonSuperAdministrador.isSelected() && !jRadioButtonAdministrador.isSelected() && !jRadioButtonCustomer.isSelected())) {
             lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
         }//End if
-        
         else if ((tfpassword.getText().length() == 0 || tfpassword.getText().length() == 0) || (!jRadioButtonSuperAdministrador.isSelected() && !jRadioButtonAdministrador.isSelected() && !jRadioButtonCustomer.isSelected())) {
             lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
         }//End else if 
@@ -157,45 +163,46 @@ public class Main extends javax.swing.JFrame {
                 this.show(false);
             }//End if
         }//End else if
-        
-        if(jRadioButtonAdministrador.isSelected()){
-           rol = 2; 
-       }
-       else if(jRadioButtonCustomer.isSelected()){
-           rol = 3;
-       }
-       
-     try {      
-                
-         
-                if(Lf.searchAdministratorID(tFnombredeUsuario.getText(),tfpassword.getText(), rol)==false){
-                    JOptionPane.showMessageDialog(null, "NO DATA FOUND"); //No encuentra al usuario
+
+        if (jRadioButtonAdministrador.isSelected()) {
+            rol = 2;
+        } else if (jRadioButtonCustomer.isSelected()) {
+            rol = 3;
+        }
+
+        try {
+
+            if (Lf.searchAdministratorID(tFnombredeUsuario.getText(), tfpassword.getText(), rol) == false) {
+                JOptionPane.showMessageDialog(null, "NO DATA FOUND"); //No encuentra al usuario
+                tFnombredeUsuario.setText("");
+                tfpassword.setText("");
+            } else {
+                if (rol == 2) {
+                    JOptionPane.showMessageDialog(null, "Administrador Aceptado"); //Usuario tipo Admin
+
+                    Lf.searchCliente(tFnombredeUsuario.getText(), tfpassword.getText());
                     tFnombredeUsuario.setText("");
-                    tfpassword.setText("");   
-               }else{
-                 if (rol==2) {
-                          JOptionPane.showMessageDialog(null, "Administrador Aceptado"); //Usuario tipo Admin
-                            tFnombredeUsuario.setText("");
-                            tfpassword.setText(""); 
-                            
-                             Administrator A = new Administrator();
-                             dispose();
-                             A.setVisible(true);
-                             
-                            
-                   } else if(rol==3){
-                            JOptionPane.showMessageDialog(null, "Usuario Aceptado"); //Usuario tipo Cliente
-                            tFnombredeUsuario.setText("");
-                            tfpassword.setText("");
-                             Customer C= new Customer();
-                             dispose();
-                             C.setVisible(true);
-                             
-                       }
-               }   
-       } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }   
+                    tfpassword.setText("");
+
+                    Administrator A = new Administrator();
+                    dispose();
+                    A.setVisible(true);
+
+                }
+                if (rol == 3) {
+                    JOptionPane.showMessageDialog(null, "Usuario Aceptado"); //Usuario tipo Cliente
+                    Lf.searchCliente(tFnombredeUsuario.getText(), tfpassword.getText());
+                    tFnombredeUsuario.setText("");
+                    tfpassword.setText("");
+                    Customer C = new Customer();
+                    dispose();
+                    C.setVisible(true);
+
+                }
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     /**
