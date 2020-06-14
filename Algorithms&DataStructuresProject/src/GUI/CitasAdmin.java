@@ -44,12 +44,18 @@ public class CitasAdmin extends javax.swing.JFrame {
         tfID = new javax.swing.JTextField();
         lbTime = new javax.swing.JLabel();
         cbmHora = new javax.swing.JComboBox<>();
+
         btnRequest = new javax.swing.JButton();
         lbDate = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lbMessages = new javax.swing.JLabel();
 
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        getContentPane().setLayout(null);
 
         lbName.setText("NAME:");
 
@@ -63,6 +69,8 @@ public class CitasAdmin extends javax.swing.JFrame {
 
         lbTime.setText("TIME:");
 
+
+
         cbmHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m" }));
 
         btnRequest.setText("Solicitar");
@@ -71,15 +79,23 @@ public class CitasAdmin extends javax.swing.JFrame {
                 btnRequestActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSolicitar);
+        btnSolicitar.setBounds(321, 212, 112, 29);
+        getContentPane().add(jDateChooser1);
+        jDateChooser1.setBounds(464, 49, 160, 26);
+
 
         lbDate.setText("DATE:");
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 0, 123, 33);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +156,12 @@ public class CitasAdmin extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(1, 0, 700, 280);
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
@@ -154,6 +175,7 @@ public class CitasAdmin extends javax.swing.JFrame {
             lbMessages.setText("FILL THE DATA!");
         }//End if 
         else {
+
             if (Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false) {
                 NodeStacks pila = new NodeStacks();
                 History cita = new History(fecha, cbmHora.getSelectedItem().toString(), tfID.getText(), tfName.getText());
@@ -171,6 +193,7 @@ public class CitasAdmin extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         SuperAdministrator sA = new SuperAdministrator();
+
         dispose();
         sA.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -219,6 +242,7 @@ public class CitasAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRequest;
     private javax.swing.JComboBox<String> cbmHora;
+
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbMessages;
@@ -226,5 +250,10 @@ public class CitasAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lbTime;
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfName;
+
+
+    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+   
     // End of variables declaration//GEN-END:variables
 }

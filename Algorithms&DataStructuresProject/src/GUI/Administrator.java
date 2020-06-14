@@ -5,6 +5,11 @@
  */
 package GUI;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author HELLO
@@ -14,7 +19,10 @@ public class Administrator extends javax.swing.JFrame {
     /**
      * Creates new form Administrator
      */
+    
+    FondoPanel fondo = new FondoPanel();
     public Administrator() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -28,13 +36,39 @@ public class Administrator extends javax.swing.JFrame {
     private void initComponents() {
 
         lbAdministrator = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        getContentPane().setLayout(null);
 
+        lbAdministrator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_administrator_green_15073.png"))); // NOI18N
         lbAdministrator.setText("ADMINISTRATOR");
+        lbAdministrator.setOpaque(true);
+        getContentPane().add(lbAdministrator);
+        lbAdministrator.setBounds(307, 39, 261, 128);
+
+        jButton1.setText("Agregar Citas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 39, 129, 29);
+
+        jButton2.setText("CRUD Citas");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(0, 94, 129, 29);
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -57,37 +91,34 @@ public class Administrator extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(lbAdministrator)
-                .addContainerGap(158, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(lbAdministrator)
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
-
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionsActionPerformed
-        Main m = new Main();
-        m.show(true);
-        this.show(false);
+          Main m = new Main();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_menuOptionsActionPerformed
 
     private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
         Main m = new Main();
-        m.show(true);
-        this.show(false);
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_menuItemSignOffActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CitasAdmin cA=new CitasAdmin();
+        dispose();
+        cA.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CRUD_ADMIN_CITAS crud=new CRUD_ADMIN_CITAS();
+        dispose();
+        crud.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,9 +156,25 @@ public class Administrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbAdministrator;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel{
+    private Image imagen;
+    
+    public void paint(Graphics g){
+    
+        imagen = new ImageIcon(getClass().getResource("/Images/fondo1.jpg")).getImage();
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        
+        super.paint(g);
+    }
+    }
+
 }

@@ -14,8 +14,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.StringTokenizer;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,7 +55,7 @@ public class Logic {
     public boolean searchAdministratorID(String nombreUsuario, String contraseña, int tipoRol) throws IOException {
         BufferedReader br = getBufferedReader();
         String Acounts = "";
-        String AcFind = nombreUsuario + ";" + contraseña + ";" + tipoRol;
+        String AcFind = nombreUsuario + ";" +  contraseña + ";" + tipoRol;
 
         while (Acounts != null) {
 
@@ -114,7 +120,7 @@ public class Logic {
             PrintStream ps = new PrintStream(fos);
 
             if (searchAdministrator(nombre) == -1) {
-                ps.println(nombreUsuario + ";" + contraseña + ";" + tipoRol);
+                ps.println(nombreUsuario + ";" + contraseña  + ";" + tipoRol);
             }
         } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
@@ -241,7 +247,22 @@ public class Logic {
         }//endCatch
         return array;
     }//endCountry[]
-
+    
+     public void searchCliente(String nombre, String contraseña) throws FileNotFoundException{
+        Roles[] c = readRegistersFiles();
+        for (int i = 0; i < c.length; i++) {
+            if (c[i].getContraseña().equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)){
+                File f2 = new File ("temporal.txt");
+                FileOutputStream fos = new FileOutputStream(f2); //Elimina los datos cada vez que guarda
+                PrintStream ps = new PrintStream(fos);
+                
+                ps.println(c[i].getCedula()+";"+c[i].getNombre()+";"+c[i].getApellido()+";"+c[i].getNombreUsuario()+";"+c[i].getContraseña()+";"+c[i].getEdad()+";"+c[i].getTelefono()+";"+c[i].getCorreo()+";"+c[i].getTipoRol());
+            }
+        }
+    }
+     
+     
+    
     public BufferedReader getBufferedReaderCita() {
         File fileAdmin = new File("citas.txt");
         BufferedReader br = null;
@@ -545,6 +566,137 @@ public class Logic {
     public boolean validateAge(String datos) {
         return datos.matches("[0-9]*");
     }
+public int getFileRegistersIndividual() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileCountries = new File("temporal.txt");
+       int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+    
+     /**
+     * Leemos los elementos en el archivo
+     *
+     * @return array[] con los elementos del archivo
+     */
+    public Roles[] readRegistersFilesIndividual() {
+
+        Roles array[] = new Roles[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCountries = new File("temporal.txt");
+try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                String cedula = "",nombre = "", apellido = "", nombreUsuario = "", contraseña = "";
+                int edad = 0, telefono = 0;
+                String correo = "";
+                int tipoRol = 0;
+
+                //Se pone dentro del ciclo para que se resetee
+                int controlTokens = 1;
+                StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
+
+                while (st.hasMoreTokens()) {
+                    
+                    if (controlTokens == 1) {
+                        cedula = st.nextToken();
+                    } else if (controlTokens == 2) {
+                        nombre = st.nextToken();
+                    } else if (controlTokens == 3) {
+                        apellido = st.nextToken();
+                    } else if (controlTokens == 4) {
+                        nombreUsuario = st.nextToken();
+                    } else if (controlTokens == 5) {
+                        contraseña = st.nextToken();
+                    } else if (controlTokens == 6) {
+                        edad = Integer.parseInt(st.nextToken());
+                    } else if (controlTokens == 7) {
+                        telefono = Integer.parseInt(st.nextToken());
+                    } else if (controlTokens == 8) {
+                        correo = st.nextToken();
+                    } else if (controlTokens == 9) {
+                        tipoRol = Integer.parseInt(st.nextToken());
+                    }
+                    controlTokens++;
+                }//endWhileInterno
+
 
 }//End Roles[]
+
+                Roles r = new Roles(cedula, nombre, apellido, nombreUsuario, contraseña, edad, telefono, correo, tipoRol);
+                array[indexArray] = r;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        }//endCatch
+        return array;
+    }//endCountry[]
+     
+    public String ecnode(String secretKey, String cadena){
+    
+        String encriptacion= "";
+        try{
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            byte[] llavePassword = md5.digest(secretKey.getBytes("utf-8"));
+            byte[] BytesKey = Arrays.copyOf(llavePassword, 24);
+            SecretKey key = new SecretKeySpec(BytesKey,"DESede");
+            Cipher cifrado = Cipher.getInstance("DESede");
+            cifrado.init(Cipher.ENCRYPT_MODE, key);
+            byte[] plainTextBytes = cadena.getBytes("utf-8");
+            byte[] buf= cifrado.doFinal(plainTextBytes);
+            byte[] base64Bytes = Base64.getEncoder().encode(buf);
+            encriptacion = new String(base64Bytes);
+        }catch(Exception ex){
+        JOptionPane.showMessageDialog(null, "Problemas");
+        }
+        return encriptacion;
+    }
+    
+     public String deecnode(String secretKey, String cadena){
+      String desencriptacion= "";
+         try {
+             byte[] message = Base64.getDecoder().decode(cadena.getBytes("utf-8"));
+             MessageDigest md5 = MessageDigest.getInstance("MD5");
+             byte[] digestofPassword = md5.digest(secretKey.getBytes("utf-8"));
+             byte[] BytesKey = Arrays.copyOf(digestofPassword, 24);
+             SecretKey key = new SecretKeySpec(BytesKey,"DESede");
+             Cipher decipher = Cipher.getInstance("DESede");
+             decipher.init(Cipher.DECRYPT_MODE,key);
+             byte[] plainTextBytes = decipher.doFinal(message);
+             desencriptacion = new String(plainTextBytes,"UTF-8");
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Problemas");
+         }
+       return desencriptacion;
+     }
+    }//End Roles[]
 

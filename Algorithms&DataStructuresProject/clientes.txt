@@ -1,5 +1,3 @@
-
-mano;Prueba12.;2
-maguilar;Prueba13.;3
-fulanita;Prueba13.;3
-fulamita;Fulanita14.;2
+mano;Prueba00.;2
+vale;Prueba01.;3
+maguilar;Prueba02.;3

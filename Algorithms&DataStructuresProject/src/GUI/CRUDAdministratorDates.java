@@ -10,8 +10,13 @@ import Logic.Update;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import javax.swing.JOptionPane;
-import Logic.History;
+import javax.swing.JOptionPane;=
+import Logic.Cita;
+import Logic.Delete;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,7 +27,10 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     /**
      * Creates new form CRUD_ADMIN_CITAS
      */
-    public CRUDAdministratorDates() {
+
+     FondoPanel fondo = new FondoPanel();
+    public CRUD_ADMIN_CITAS() {
+        this.setContentPane(fondo);
         initComponents();
     }
     
@@ -52,8 +60,10 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         dateChooser = new org.netbeans.modules.form.InvalidComponent();
         btnBack = new javax.swing.JButton();
         lbMessages = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         TableCRUD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,8 +94,17 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
+        getContentPane().add(btnModificar);
+        btnModificar.setBounds(670, 299, 97, 29);
 
-        btnDelete.setText("DELETE");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminar);
+        btnEliminar.setBounds(776, 299, 91, 29);
 
         btnShow.setText("SHOW DATES");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
@@ -93,13 +112,22 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 btnShowActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShow);
+        btnShow.setBounds(536, 299, 125, 29);
+        getContentPane().add(jDateChooser1);
+        jDateChooser1.setBounds(626, 155, 219, 26);
 
-        btnBack.setText("BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
+        jButton1.setText("Regresar");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,7 +200,13 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 0, 123, 33);
+        getContentPane().add(txtFecha);
+        txtFecha.setBounds(626, 197, 97, 26);
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TableCRUDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableCRUDMouseClicked
@@ -239,11 +273,34 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }   
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         SuperAdministrator sA=new SuperAdministrator();
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Administrator sA=new Administrator();
+
         dispose();
         sA.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+      try {
+                Delete stack = new Delete();
+                int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar la cita de " + txtPaciente.getText() + " de este archivo?");
+                if(d == 0){
+                    stack.borrarCita("citas.txt", txtCedul.getText());
+                    JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
+                    mostrarCitas();
+                    txtCedul.setText("");
+                    txtFecha.setText("");
+                    txtHora.setText("");
+                    txtPaciente.setText("");
+                }
+            }catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al eliminar");
+            }   
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +336,8 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 new CRUDAdministratorDates().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -298,4 +357,19 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     private javax.swing.JTextField tfName;
     private javax.swing.JTextField tfTime;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel{
+    private Image imagen;
+    
+    public void paint(Graphics g){
+    
+        imagen = new ImageIcon(getClass().getResource("/Images/fondo1.jpg")).getImage();
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        
+        super.paint(g);
+    }
+    
+    
+    }
 }

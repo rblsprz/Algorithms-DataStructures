@@ -68,13 +68,21 @@ public class SuperAdministrator extends javax.swing.JFrame {
         jMenuBar3.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        getContentPane().setLayout(null);
 
+        lbSuperAdministrator.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbSuperAdministrator.setText("SUPER ADMINISTRATOR");
+        getContentPane().add(lbSuperAdministrator);
+        lbSuperAdministrator.setBounds(429, 0, 248, 108);
+
 
         menuAdd.setText("ADD");
 
         menuItemNewRol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+
         menuItemNewRol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
+
         menuItemNewRol.setText("NEW ROL");
         menuItemNewRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,11 +114,11 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
         menuCrudRoles.add(menuItemCrudRoles);
-
         menuItemCRUDDates.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuItemCRUDDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/see.png"))); // NOI18N
         menuItemCRUDDates.setText("CRUD DATES");
         menuItemCRUDDates.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemCRUDDatesActionPerformed(evt);
             }
@@ -164,6 +172,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,22 +191,25 @@ public class SuperAdministrator extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionsActionPerformed
-
-    }//GEN-LAST:event_menuOptionsActionPerformed
+  Main m = new Main();
+        m.setVisible(true);
+        dispose();    }//GEN-LAST:event_menuOptionsActionPerformed
 
     private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
-        Main m = new Main();
-        m.show(true);
-        this.show(false);
+       Main m = new Main();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_menuItemSignOffActionPerformed
 
     private void menuItemNewRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewRolActionPerformed
-        NewRol nR = new NewRol();
-        nR.show();
-        nR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        NewRol f = new NewRol();
+        dispose();
+        f.setVisible (true); 
     }//GEN-LAST:event_menuItemNewRolActionPerformed
 
     private void menuItemCrudRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrudRolesActionPerformed
@@ -206,10 +218,14 @@ public class SuperAdministrator extends javax.swing.JFrame {
         cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemCrudRolesActionPerformed
 
+
     private void menuItemAccessAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAccessAdministratorActionPerformed
         Administrator aD = new Administrator();
-        aD.show();
-        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        aD.setVisible(true);
+        dispose();
+        SuperAdministrator f = new SuperAdministrator();
+        dispose();
+        f.setVisible (true); 
     }//GEN-LAST:event_menuItemAccessAdministratorActionPerformed
 
     private void menuItemAcessCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcessCustomerActionPerformed

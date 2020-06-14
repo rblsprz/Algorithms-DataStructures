@@ -31,6 +31,7 @@ public class Customer extends javax.swing.JFrame {
 
         jMenuItem3 = new javax.swing.JMenuItem();
         lbCustomer = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInformation = new javax.swing.JMenu();
         menuItemMyAdvances = new javax.swing.JMenuItem();
@@ -42,8 +43,22 @@ public class Customer extends javax.swing.JFrame {
         jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         lbCustomer.setText("CUSTOMER");
+        getContentPane().add(lbCustomer);
+        lbCustomer.setBounds(164, 120, 83, 20);
+
+        jButton1.setText("Agregar cita");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(152, 191, 119, 29);
 
         menuInformation.setText("PROFILE");
 
@@ -97,24 +112,8 @@ public class Customer extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(lbCustomer)
-                .addContainerGap(181, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(lbCustomer)
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
-
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionsActionPerformed
@@ -123,9 +122,10 @@ public class Customer extends javax.swing.JFrame {
 
     private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
         Main m = new Main();
-        m.show(true);
-        this.show(false);
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_menuItemSignOffActionPerformed
+
 
     private void menuItemMyAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyAdvancesActionPerformed
         MyAdvances mA = new MyAdvances();
@@ -144,6 +144,13 @@ public class Customer extends javax.swing.JFrame {
         dH.show();
         dH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemDatingHistoryActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CitaCliente cC=new CitaCliente();
+        dispose();
+        cC.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -181,6 +188,7 @@ public class Customer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel lbCustomer;
