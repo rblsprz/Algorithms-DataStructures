@@ -46,7 +46,7 @@ public class Logic {
      * @return true si existe el valor en la lista o false si no existe el valor
      * en la lista
      */
-    public boolean searchAdministratorID(String nombreUsuario, String contraseña,int tipoRol) throws IOException {
+    public boolean searchAdministratorID(String nombreUsuario, String contraseña, int tipoRol) throws IOException {
         BufferedReader br = getBufferedReader();
         String Acounts = "";
         String AcFind = nombreUsuario + ";" + contraseña + ";" + tipoRol;
@@ -197,7 +197,7 @@ public class Logic {
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                String cedula = "",nombre = "", apellido = "", nombreUsuario = "", contraseña = "", correo = "";
+                String cedula = "", nombre = "", apellido = "", nombreUsuario = "", contraseña = "", correo = "";
                 int edad = 0, telefono = 0, tipoRol = 0;
 
                 //Se pone dentro del ciclo para que se resetee
@@ -205,7 +205,7 @@ public class Logic {
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
 
                 while (st.hasMoreTokens()) {
-                    
+
                     if (controlTokens == 1) {
                         cedula = st.nextToken();
                     } else if (controlTokens == 2) {
@@ -241,7 +241,7 @@ public class Logic {
         }//endCatch
         return array;
     }//endCountry[]
-    
+
     public BufferedReader getBufferedReaderCita() {
         File fileAdmin = new File("citas.txt");
         BufferedReader br = null;
@@ -251,10 +251,11 @@ public class Logic {
             InputStreamReader isr = new InputStreamReader(fis);
             br = new BufferedReader(isr);
         } catch (FileNotFoundException fnfe) {
-            JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
         }
         return br;
     }
+
     /**
      * Obtiene la cantidad de lineas del archivo
      *
@@ -279,16 +280,16 @@ public class Logic {
             }//endWhile
 
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }//endCatch
         return countRegisters;
     }//endInt
-    
-    public Cita[] readRegistersFilesCita() {
 
-        Cita array[] = new Cita[getFileRegistersCita()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+    public History[] readRegistersFilesCita() {
+
+        History array[] = new History[getFileRegistersCita()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
         File fileCountries = new File("citas.txt");
 
         try {
@@ -301,9 +302,8 @@ public class Logic {
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                 String fecha = "", hora = "", cedula = "", nombre = "";
+                String fecha = "", hora = "", cedula = "", nombre = "";
 
-               
                 //Se pone dentro del ciclo para que se resetee
                 int controlTokens = 1;
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
@@ -318,35 +318,164 @@ public class Logic {
                         cedula = st.nextToken();
                     } else if (controlTokens == 4) {
                         nombre = st.nextToken();
-                    } 
+                    }
                     controlTokens++;
                 }//endWhileInterno
 
-                Cita c = new Cita(fecha,hora, cedula, nombre);
+                History c = new History(fecha, hora, cedula, nombre);
                 array[indexArray] = c;
                 indexArray++;
 
                 actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
             }//endWhile
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
         }//endCatch
 
         return array;
     }//endCountry[]
-    
-     public boolean searchCita(String fecha, String hora) {
-        Cita[] c = readRegistersFilesCita();
+
+    public boolean searchCita(String fecha, String hora) {
+        History[] c = readRegistersFilesCita();
         for (int i = 0; i < c.length; i++) {
-            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)){
+            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)) {
                 return true;
             }
         }
         return false;
+    }//End Stacks
+    //****************************************************************************************************
+
+    public BufferedReader getBufferedReaderHistoria() {
+        File fileHistory = new File("historia.txt");
+        BufferedReader br = null;
+        try {
+
+            FileInputStream fis = new FileInputStream(fileHistory);
+            InputStreamReader isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+        } catch (FileNotFoundException fnfe) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
+        }
+        return br;
     }
 
+    /**
+     * Obtiene la cantidad de lineas del archivo
+     *
+     * @return countRegisters el numero total de lineas
+     */
+    public int getFileRegistersHistoria() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileHistoria = new File("historia.txt");
+        int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileHistoria);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+
+    public History[] readRegistersFilesHistoria() {
+
+        History array[] = new History[getFileRegistersHistoria()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileHistoria = new File("historia.txt");
+
+        try {
+            FileInputStream fis = new FileInputStream(fileHistoria);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                String cedula = "", nombre = "", apellido = "", nombreUsuario = "", correo = "", grasa = "", peso = "", musculo = "", hidratacion = ""; //AGREGAR DATOS
+                int edad = 0, telefono = 0;
+
+                //Se pone dentro del ciclo para que se resetee
+                int controlTokens = 1;
+                StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
+
+                while (st.hasMoreTokens()) {
+
+                    if (controlTokens == 1) {
+                        cedula = st.nextToken();
+                    }//End if 
+                    else if (controlTokens == 2) {
+                        nombre = st.nextToken();
+                    }//End else if 
+                    else if (controlTokens == 3) {
+                        apellido = st.nextToken();
+                    }//End else if 
+                    else if (controlTokens == 4) {
+                        nombreUsuario = st.nextToken();
+                    }//End else if 
+                    else if (controlTokens == 5) {
+                        edad = Integer.parseInt(st.nextToken());
+                    }//End else if
+                    else if (controlTokens == 6) {
+                        telefono = Integer.parseInt(st.nextToken());
+                    }//End else if
+                    else if (controlTokens == 7) {
+                        correo = st.nextToken();
+                    }//End else if
+                    else if (controlTokens == 8) {
+                        grasa = st.nextToken();
+                    }//End else if
+                    else if (controlTokens == 9) {
+                        peso = st.nextToken();
+                    }//End else if
+                    else if (controlTokens == 10) {
+                        musculo = st.nextToken();
+                    }//End else if
+                    else if (controlTokens == 11) {
+                        hidratacion = st.nextToken();
+                    }//End else if
+                    controlTokens++;
+                }//endWhileInterno
+
+                History c = new History(grasa, peso, musculo, hidratacion);
+                array[indexArray] = c;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        }//endCatch
+        return array;
+    }//End History[]
+
+//    public boolean searchCita(String fecha, String hora) {
+//        History[] c = readRegistersFilesCita();
+//        for (int i = 0; i < c.length; i++) {
+//            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }//End Trees
 
     public boolean validateTel(String datos) {
         return datos.matches("[0-9]*");
@@ -408,14 +537,14 @@ public class Logic {
         }
         return validateID(cadena);
     }
-    
-    public boolean validateCed(String datos){
-    return datos.matches("[0-9]*");
-    }
-    
-    public boolean validateAge(String datos){
-    return datos.matches("[0-9]*");
+
+    public boolean validateCed(String datos) {
+        return datos.matches("[0-9]*");
     }
 
-    }//End Roles[]
+    public boolean validateAge(String datos) {
+        return datos.matches("[0-9]*");
+    }
+
+}//End Roles[]
 

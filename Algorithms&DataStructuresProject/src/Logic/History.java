@@ -9,54 +9,52 @@ package Logic;
  *
  * @author pc
  */
-public class Cita {
+public class History {
     
     private String fecha;
     private String hora;
     private String cedula;
     private String nombre;
 
-    public Cita(String fecha, String hora, String cedula, String nombre) {
+    public History(String fecha, String hora, String cedula, String nombre) {
         this.fecha = fecha;
         this.hora = hora;
         this.cedula = cedula;
         this.nombre = nombre;
-    }
+    }//End Constructor History
     
-    public Cita(){}
+    public History(){
+    }//End History
 
     public String getFecha() {
         return fecha;
-    }
+    }//End getFecha
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
+    }//End setFecha
 
     public String getHora() {
         return hora;
-    }
+    }//End getHora
 
     public void setHora(String hora) {
         this.hora = hora;
-    }
+    }//End setHora
 
     public String getCedula() {
         return cedula;
-    }
+    }//End getCedula
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
-    }
+    }//End setCedula
 
     public String getNombre() {
         return nombre;
-    }
+    }//End getNombre
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    
-    
-    
-}
+    }//End setNombre   
+}//End History

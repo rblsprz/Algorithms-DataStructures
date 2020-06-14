@@ -43,13 +43,13 @@ private Timer time;
     private void initComponents() {
 
         lbWelcome = new javax.swing.JLabel();
+        jProgressBar = new javax.swing.JProgressBar();
         lbBarrasWelcome = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jProgressBar = new javax.swing.JProgressBar();
         lbEnter = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        setPreferredSize(new java.awt.Dimension(2500, 2500));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -60,6 +60,8 @@ private Timer time;
         lbWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fondoBienvenida.jpg"))); // NOI18N
         getContentPane().add(lbWelcome);
         lbWelcome.setBounds(290, 260, 780, 470);
+        getContentPane().add(jProgressBar);
+        jProgressBar.setBounds(470, 150, 390, 14);
 
         lbBarrasWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barrasWelcome.jpg"))); // NOI18N
         getContentPane().add(lbBarrasWelcome);
@@ -68,8 +70,6 @@ private Timer time;
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barrasWelcome.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(1070, 0, 310, 710);
-        getContentPane().add(jProgressBar);
-        jProgressBar.setBounds(470, 150, 390, 12);
 
         lbEnter.setText("     ENTER");
         lbEnter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,7 +78,7 @@ private Timer time;
             }
         });
         getContentPane().add(lbEnter);
-        lbEnter.setBounds(620, 180, 60, 16);
+        lbEnter.setBounds(620, 180, 60, 14);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

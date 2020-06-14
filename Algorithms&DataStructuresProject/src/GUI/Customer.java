@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author HELLO
@@ -27,14 +29,52 @@ public class Customer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem3 = new javax.swing.JMenuItem();
         lbCustomer = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        menuInformation = new javax.swing.JMenu();
+        menuItemMyAdvances = new javax.swing.JMenuItem();
+        menuItemDatingHistory = new javax.swing.JMenuItem();
+        menuItemFoodPlans = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbCustomer.setText("CUSTOMER");
+
+        menuInformation.setText("PROFILE");
+
+        menuItemMyAdvances.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myadvances.png"))); // NOI18N
+        menuItemMyAdvances.setText("MY ADVANCES");
+        menuItemMyAdvances.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMyAdvancesActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemMyAdvances);
+
+        menuItemDatingHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/history.png"))); // NOI18N
+        menuItemDatingHistory.setText("DATING HISTORY");
+        menuItemDatingHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemDatingHistoryActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemDatingHistory);
+
+        menuItemFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food.png"))); // NOI18N
+        menuItemFoodPlans.setText("FOOD PLANS");
+        menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemFoodPlansActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemFoodPlans);
+
+        jMenuBar1.add(menuInformation);
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -44,6 +84,7 @@ public class Customer extends javax.swing.JFrame {
         });
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuItemSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
         menuItemSignOff.setText("SIGN OFF");
         menuItemSignOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +127,24 @@ public class Customer extends javax.swing.JFrame {
         this.show(false);
     }//GEN-LAST:event_menuItemSignOffActionPerformed
 
+    private void menuItemMyAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyAdvancesActionPerformed
+        MyAdvances mA = new MyAdvances();
+        mA.show();
+        mA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemMyAdvancesActionPerformed
+
+    private void menuItemFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFoodPlansActionPerformed
+        FoodPlans fP = new FoodPlans();
+        fP.show();
+        fP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemFoodPlansActionPerformed
+
+    private void menuItemDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDatingHistoryActionPerformed
+        DatingHistoryCustomer dH = new DatingHistoryCustomer();
+        dH.show();
+        dH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemDatingHistoryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -123,7 +182,12 @@ public class Customer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel lbCustomer;
+    private javax.swing.JMenu menuInformation;
+    private javax.swing.JMenuItem menuItemDatingHistory;
+    private javax.swing.JMenuItem menuItemFoodPlans;
+    private javax.swing.JMenuItem menuItemMyAdvances;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables

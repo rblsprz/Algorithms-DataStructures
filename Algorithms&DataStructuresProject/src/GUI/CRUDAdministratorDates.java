@@ -11,18 +11,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
-import Logic.Cita;
+import Logic.History;
 
 /**
  *
  * @author pc
  */
-public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
+public class CRUDAdministratorDates extends javax.swing.JFrame {
 
     /**
      * Creates new form CRUD_ADMIN_CITAS
      */
-    public CRUD_ADMIN_CITAS() {
+    public CRUDAdministratorDates() {
         initComponents();
     }
     
@@ -38,65 +38,66 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        txtPaciente = new javax.swing.JTextField();
+        TableCRUD = new javax.swing.JTable();
+        lbName = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtCedul = new javax.swing.JTextField();
-        Fecha = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtHora = new javax.swing.JTextField();
-        btnModificar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        tfID = new javax.swing.JTextField();
+        lbDate = new javax.swing.JLabel();
+        lbTime = new javax.swing.JLabel();
+        tfTime = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         btnShow = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        dateChooser = new org.netbeans.modules.form.InvalidComponent();
+        btnBack = new javax.swing.JButton();
+        lbMessages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        TableCRUD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Fecha", "Hora", "Nombre", "Cédula"
+                "DATE", "TIME", "NAME", "ID"
             }
         ));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        TableCRUD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+                TableCRUDMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(TableCRUD);
 
-        jLabel1.setText("Paciente:");
+        lbName.setText("NAME:");
 
-        jLabel2.setText("Cédula: ");
+        jLabel2.setText("ID:");
 
-        Fecha.setText("Fecha:");
+        lbDate.setText("DATE:");
 
-        jLabel3.setText("Hora:");
+        lbTime.setText("TIME:");
 
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("Eliminar");
+        btnDelete.setText("DELETE");
 
-        btnShow.setText("Mostrar Citas");
+        btnShow.setText("SHOW DATES");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowActionPerformed(evt);
             }
         });
 
-        jButton1.setText("regresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -111,27 +112,30 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtHora)
-                            .addComponent(txtCedul)
-                            .addComponent(txtPaciente)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbName)
+                                    .addComponent(jLabel2)
+                                    .addComponent(lbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbTime))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfTime)
+                                    .addComponent(tfID)
+                                    .addComponent(tfName)
+                                    .addComponent(dateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
+                            .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(btnBack)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnModificar)
+                                .addComponent(btnUpdate)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnEliminar)))
+                                .addComponent(btnDelete)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnShow)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,46 +146,48 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbName)
+                            .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtCedul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Fecha)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbDate)
+                            .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbTime)
+                            .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addComponent(lbMessages)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnModificar)
-                            .addComponent(btnEliminar)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete)
                             .addComponent(btnShow))
                         .addGap(61, 61, 61)
-                        .addComponent(jButton1)))
+                        .addComponent(btnBack)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        int seleccion = jTable3.getSelectedRow();
-        txtHora.setText(jTable3.getValueAt(seleccion, 1).toString());
-        txtCedul.setText(jTable3.getValueAt(seleccion, 3).toString());
-        txtPaciente.setText(jTable3.getValueAt(seleccion, 2).toString());
+    private void TableCRUDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableCRUDMouseClicked
+        int seleccion = TableCRUD.getSelectedRow();
+        tfTime.setText(TableCRUD.getValueAt(seleccion, 1).toString());
+        tfID.setText(TableCRUD.getValueAt(seleccion, 3).toString());
+        tfName.setText(TableCRUD.getValueAt(seleccion, 2).toString());
        // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
-    }//GEN-LAST:event_jTable3MouseClicked
+    }//GEN-LAST:event_TableCRUDMouseClicked
     
         public void mostrarCitas(){
         Logic lC = new Logic();
-        ArrayList<Cita> array = new ArrayList();
+        ArrayList<History> array = new ArrayList();
         
-        Cita tempCountries[] = lC.readRegistersFilesCita();
+        History tempCountries[] = lC.readRegistersFilesCita();
         
         for(int i = 0; i < tempCountries.length; i++){
             array.add(tempCountries[i]);
@@ -195,10 +201,10 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
         matriz[i][2]= array.get(i).getNombre();
         matriz[i][3]= array.get(i).getCedula();
         
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        TableCRUD.setModel(new javax.swing.table.DefaultTableModel(
            matriz,
             new String [] {
-                "Fecha","Hora", "Nombre", "Cédula"
+                "DATE","TIME", "NAME", "ID"
             }
         ));
          } } 
@@ -206,38 +212,38 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
         mostrarCitas();
     }//GEN-LAST:event_btnShowActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
           
-            String dia=Integer.toString(jDateChooser1.getCalendar().get(Calendar.DAY_OF_MONTH));
-            String mes=Integer.toString(jDateChooser1.getCalendar().get(Calendar.MONTH)+1);
-            String year=Integer.toString(jDateChooser1.getCalendar().get(Calendar.YEAR));
+            String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+            String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
+            String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
             String fecha=(year+"-"+mes+"-"+dia);
         
         try {
                 Update em = new Update();
-                int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + txtPaciente.getText() + " ?");
+                int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + tfName.getText() + " ?");
                 if(edit == 0){
-                    if(Stack.searchCita(fecha, txtHora.getText()) == false){
-                    em.actualizarCita(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
-                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
+                    if(Stack.searchCita(fecha, tfTime.getText()) == false){
+                    em.actualizarCita(fecha, tfTime.getText(), tfName.getText(), tfID.getText());
+                    lbMessages.setText("SUCCESSFULLY UPDATED!");
                     mostrarCitas();
-                    txtCedul.setText("");
-                    txtPaciente.setText("");
-                    txtHora.setText("");
+                    tfID.setText("");
+                    tfName.setText("");
+                    tfTime.setText("");
                    } else {
-                JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
+                lbMessages.setText("THE DATE AND TIME AREN'T AVAILABLE!");
             }
                 }
             }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al modificar");
+                lbMessages.setText("ERROR UPDATING!");
             }   
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         SuperAdministrator sA=new SuperAdministrator();
         dispose();
         sA.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,38 +262,40 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CRUD_ADMIN_CITAS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDAdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CRUD_ADMIN_CITAS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDAdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CRUD_ADMIN_CITAS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDAdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CRUD_ADMIN_CITAS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDAdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CRUD_ADMIN_CITAS().setVisible(true);
+                new CRUDAdministratorDates().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Fecha;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
+    public static javax.swing.JTable TableCRUD;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnShow;
-    private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnUpdate;
+    private org.netbeans.modules.form.InvalidComponent dateChooser;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    public static javax.swing.JTable jTable3;
-    private javax.swing.JTextField txtCedul;
-    private javax.swing.JTextField txtHora;
-    private javax.swing.JTextField txtPaciente;
+    private javax.swing.JLabel lbDate;
+    private javax.swing.JLabel lbMessages;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbTime;
+    private javax.swing.JTextField tfID;
+    private javax.swing.JTextField tfName;
+    private javax.swing.JTextField tfTime;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,4 +18,4 @@ public interface Stacks {
     public int peek(); //Obtener el ultimo
     public Object pop(); //Eliminar el ultimo
     
-}
+}//End Stacks

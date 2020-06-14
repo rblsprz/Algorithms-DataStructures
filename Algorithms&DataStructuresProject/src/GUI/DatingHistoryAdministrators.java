@@ -9,12 +9,12 @@ package GUI;
  *
  * @author HELLO
  */
-public class DatingHistory extends javax.swing.JFrame {
+public class DatingHistoryAdministrators extends javax.swing.JFrame {
 
     /**
-     * Creates new form DatingHistory
+     * Creates new form DatingHistoryAdministrators
      */
-    public DatingHistory() {
+    public DatingHistoryAdministrators() {
         initComponents();
     }
 
@@ -27,27 +27,27 @@ public class DatingHistory extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbDatingHistory = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbDatingHistory.setText("DATING HISTORY");
+        jLabel1.setText("ESTE MUESTRA TODO EL REGISTRO DE LAS CITAS DE TODAS LAS PERSONAS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(lbDatingHistory)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(jLabel1)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lbDatingHistory)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         pack();
@@ -70,25 +70,25 @@ public class DatingHistory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatingHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatingHistoryAdministrators.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatingHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatingHistoryAdministrators.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatingHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatingHistoryAdministrators.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatingHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatingHistoryAdministrators.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DatingHistory().setVisible(true);
+                new DatingHistoryAdministrators().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lbDatingHistory;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

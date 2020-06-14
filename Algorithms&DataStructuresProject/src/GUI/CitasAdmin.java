@@ -9,9 +9,9 @@ import Logic.Logic;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import Logic.Cita;
-import Logic.logicaPilaFiles;
-import Logic.pilaNodo;
+import Logic.History;
+import Logic.FilesStacks;
+import Logic.NodeStacks;
 
 /**
  *
@@ -25,9 +25,10 @@ public class CitasAdmin extends javax.swing.JFrame {
     public CitasAdmin() {
         initComponents();
     }
-    
-    logicaPilaFiles stack = new logicaPilaFiles();
+
+    FilesStacks stack = new FilesStacks();
     Logic Stack = new Logic();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,41 +38,46 @@ public class CitasAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        lblNombre = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        txtCedula = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbName = new javax.swing.JLabel();
+        lbID = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
+        tfID = new javax.swing.JTextField();
+        lbTime = new javax.swing.JLabel();
         cbmHora = new javax.swing.JComboBox<>();
-        btnSolicitar = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRequest = new javax.swing.JButton();
+        lbDate = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        lbMessages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblNombre.setText("Nombre del Paciente: ");
+        lbName.setText("NAME:");
 
-        jLabel1.setText("Cédula:");
+        lbID.setText("ID:");
 
-        jLabel3.setText("Hora:");
-
-        cbmHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8 a.m", "9 a.m", "10 a.m", "11 a.m", "2 p.m", "3 p.m", "4 p.m", "5 p.m", " " }));
-
-        btnSolicitar.setText("Solicitar");
-        btnSolicitar.addActionListener(new java.awt.event.ActionListener() {
+        tfName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSolicitarActionPerformed(evt);
+                tfNameActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Fecha: ");
+        lbTime.setText("TIME:");
 
-        jButton1.setText("Regresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cbmHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m" }));
+
+        btnRequest.setText("Solicitar");
+        btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRequestActionPerformed(evt);
+            }
+        });
+
+        lbDate.setText("DATE:");
+
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -81,90 +87,97 @@ public class CitasAdmin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(101, 101, 101)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbmHora, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
+                        .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbID)
+                                .addGap(64, 64, 64)
+                                .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbDate)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lbName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                                .addGap(39, 39, 39)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfName, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(cbmHora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addGap(128, 128, 128)
+                        .addComponent(btnRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(336, 336, 336))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(325, 325, 325))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(cbmHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
+                    .addComponent(lbID)
+                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSolicitar)
-                    .addComponent(jButton1))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(lbName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbTime)
+                    .addComponent(cbmHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addComponent(lbDate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnRequest))
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
+    private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         //Campos vacios validacion
-            String dia=Integer.toString(jDateChooser1.getCalendar().get(Calendar.DAY_OF_MONTH));
-            String mes=Integer.toString(jDateChooser1.getCalendar().get(Calendar.MONTH)+1);
-            String year=Integer.toString(jDateChooser1.getCalendar().get(Calendar.YEAR));
-            String fecha=(year+"-"+mes+"-"+dia);
-            
-        if (txtCedula.getText().equals("") || txtNombre.getText().equals("") || cbmHora.getSelectedItem().equals("")) {
-            JOptionPane.showMessageDialog(null, "Rellene todos los espacios en blanco");
+        String dia = Integer.toString(jDateChooser1.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes = Integer.toString(jDateChooser1.getCalendar().get(Calendar.MONTH) + 1);
+        String year = Integer.toString(jDateChooser1.getCalendar().get(Calendar.YEAR));
+        String fecha = (year + "-" + mes + "-" + dia);
+
+        if (tfID.getText().equals("") || tfName.getText().equals("") || cbmHora.getSelectedItem().equals("")) {
+            lbMessages.setText("FILL THE DATA!");
         }//End if 
         else {
-            if(Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false){
-            pilaNodo pila = new pilaNodo();  
-            Cita cita = new Cita(fecha, cbmHora.getSelectedItem().toString(), txtCedula.getText(), txtNombre.getText());            
-            pila.push(fecha,cbmHora.getSelectedItem().toString(), txtNombre.getText(), txtCedula.getText());
-            stack.insertCita(cita);
-            JOptionPane.showMessageDialog(null, "Cita Registrada");
-            } else {
-                JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
-            }
-        } 
-        
-        //else
-//           JOptionPane.showMessageDialog(null, "Cita NO Registrada");
-    }//GEN-LAST:event_btnSolicitarActionPerformed
+            if (Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false) {
+                NodeStacks pila = new NodeStacks();
+                History cita = new History(fecha, cbmHora.getSelectedItem().toString(), tfID.getText(), tfName.getText());
+                pila.push(fecha, cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
+                stack.addDate(cita);
+                lbMessages.setText("DATE REGISTRATED!");
+            }//End if
+            else {
+                lbMessages.setText("THE DATA AND TIME AREN'T AVAILABLE!");
+            }//End else
+        }//End else
+        //End else
+//           JOptionPane.showMessageDialog(null, "History NO Registrada");
+    }//GEN-LAST:event_btnRequestActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       SuperAdministrator sA=new SuperAdministrator();
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        SuperAdministrator sA = new SuperAdministrator();
         dispose();
         sA.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,16 +216,15 @@ public class CitasAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSolicitar;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnRequest;
     private javax.swing.JComboBox<String> cbmHora;
-    private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JLabel lbDate;
+    private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbMessages;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbTime;
+    private javax.swing.JTextField tfID;
+    private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables
 }
