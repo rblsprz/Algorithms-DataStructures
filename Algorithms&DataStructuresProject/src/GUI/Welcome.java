@@ -42,11 +42,11 @@ private Timer time;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbWelcome = new javax.swing.JLabel();
         lbBarrasWelcome = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar = new javax.swing.JProgressBar();
         lbEnter = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1500, 1500));
@@ -57,19 +57,15 @@ private Timer time;
         });
         getContentPane().setLayout(null);
 
-        lbWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fondoBienvenida.jpg"))); // NOI18N
-        getContentPane().add(lbWelcome);
-        lbWelcome.setBounds(290, 260, 780, 470);
-
         lbBarrasWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barrasWelcome.jpg"))); // NOI18N
         getContentPane().add(lbBarrasWelcome);
         lbBarrasWelcome.setBounds(0, 0, 290, 710);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barrasWelcome.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(1070, 0, 310, 710);
+        jLabel2.setBounds(940, 0, 310, 710);
         getContentPane().add(jProgressBar);
-        jProgressBar.setBounds(470, 150, 390, 12);
+        jProgressBar.setBounds(470, 150, 390, 14);
 
         lbEnter.setText("     ENTER");
         lbEnter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,9 +74,14 @@ private Timer time;
             }
         });
         getContentPane().add(lbEnter);
-        lbEnter.setBounds(620, 180, 60, 16);
+        lbEnter.setBounds(620, 180, 90, 20);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(290, -3, 662, 710);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEnterMouseClicked
@@ -130,9 +131,9 @@ private Timer time;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JLabel lbBarrasWelcome;
     private javax.swing.JLabel lbEnter;
-    private javax.swing.JLabel lbWelcome;
     // End of variables declaration//GEN-END:variables
 }

@@ -120,7 +120,7 @@ public class Logic {
             PrintStream ps = new PrintStream(fos);
 
             if (searchAdministrator(nombre) == -1) {
-                ps.println(nombreUsuario + ";" +  ecnode("Algoritmos",contraseña)  + ";" + tipoRol);
+                ps.println(nombreUsuario + ";" + contraseña  + ";" + tipoRol);
             }
         } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);

@@ -67,6 +67,8 @@ public class CRUD extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        getContentPane().setLayout(null);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,12 +85,17 @@ public class CRUD extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(229, 16, 603, 447);
+
         btnshowRoles.setText("SHOW ROLES");
         btnshowRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnshowRolesActionPerformed(evt);
             }
         });
+        getContentPane().add(btnshowRoles);
+        btnshowRoles.setBounds(230, 530, 131, 29);
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -96,22 +103,44 @@ public class CRUD extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDelete);
+        btnDelete.setBounds(530, 530, 89, 29);
+        getContentPane().add(tfName);
+        tfName.setBounds(29, 187, 140, 26);
 
         lbName.setText("NAME");
+        getContentPane().add(lbName);
+        lbName.setBounds(29, 149, 43, 20);
+        getContentPane().add(tfLastName);
+        tfLastName.setBounds(29, 269, 140, 26);
+        getContentPane().add(tfUserName);
+        tfUserName.setBounds(29, 362, 140, 26);
+        getContentPane().add(tfAge);
+        tfAge.setBounds(29, 534, 140, 26);
 
         tfPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPhoneActionPerformed(evt);
             }
         });
+        getContentPane().add(tfPhone);
+        tfPhone.setBounds(29, 616, 140, 26);
 
         lbLastName.setText("LAST NAME");
+        getContentPane().add(lbLastName);
+        lbLastName.setBounds(29, 231, 86, 20);
 
         lbUserName.setText("USERNAME");
+        getContentPane().add(lbUserName);
+        lbUserName.setBounds(29, 324, 82, 20);
 
         lbAge.setText("AGE");
+        getContentPane().add(lbAge);
+        lbAge.setBounds(29, 496, 31, 20);
 
         lbPhone.setText("PHONE");
+        getContentPane().add(lbPhone);
+        lbPhone.setBounds(29, 578, 52, 20);
 
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -119,16 +148,37 @@ public class CRUD extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
+        getContentPane().add(btnUpdate);
+        btnUpdate.setBounds(400, 530, 93, 29);
 
         lbID.setText("ID");
+        getContentPane().add(lbID);
+        lbID.setBounds(29, 76, 17, 20);
+        getContentPane().add(tfID);
+        tfID.setBounds(29, 105, 140, 26);
 
         lbEmail.setText("EMAIL");
+        getContentPane().add(lbEmail);
+        lbEmail.setBounds(29, 642, 46, 20);
+        getContentPane().add(tfEmail);
+        tfEmail.setBounds(29, 680, 140, 26);
 
         lbRol.setText("ROL");
+        getContentPane().add(lbRol);
+        lbRol.setBounds(29, 729, 30, 20);
+        getContentPane().add(tfRol);
+        tfRol.setBounds(29, 767, 140, 26);
 
         lbPassword.setText("PASSWORD");
+        getContentPane().add(lbPassword);
+        lbPassword.setBounds(29, 414, 85, 20);
+        getContentPane().add(tfPassword);
+        tfPassword.setBounds(29, 452, 140, 26);
+        getContentPane().add(lbMensajes);
+        lbMensajes.setBounds(230, 490, 340, 28);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
+        jButton1.setText("Regresar");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,105 +186,8 @@ public class CRUD extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(358, 358, 358)
-                                .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbName)
-                                    .addComponent(tfName)
-                                    .addComponent(tfLastName)
-                                    .addComponent(tfUserName)
-                                    .addComponent(tfAge)
-                                    .addComponent(lbLastName)
-                                    .addComponent(lbUserName)
-                                    .addComponent(lbAge)
-                                    .addComponent(lbPhone)
-                                    .addComponent(lbID)
-                                    .addComponent(tfID)
-                                    .addComponent(lbEmail)
-                                    .addComponent(tfEmail)
-                                    .addComponent(lbRol)
-                                    .addComponent(tfRol)
-                                    .addComponent(lbPassword)
-                                    .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(175, 175, 175)
-                                .addComponent(btnshowRoles)
-                                .addGap(53, 53, 53)
-                                .addComponent(btnDelete)
-                                .addGap(86, 86, 86)
-                                .addComponent(btnUpdate)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(lbID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbName)
-                .addGap(18, 18, 18)
-                .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbLastName)
-                .addGap(18, 18, 18)
-                .addComponent(tfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(lbUserName)
-                .addGap(18, 18, 18)
-                .addComponent(tfUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(lbPassword)
-                .addGap(18, 18, 18)
-                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbAge)
-                .addGap(18, 18, 18)
-                .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbPhone)
-                    .addComponent(btnshowRoles)
-                    .addComponent(btnDelete)
-                    .addComponent(btnUpdate))
-                .addGap(18, 18, 18)
-                .addComponent(tfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbEmail)
-                .addGap(18, 18, 18)
-                .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbRol)
-                .addGap(18, 18, 18)
-                .addComponent(tfRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 0, 123, 33);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -330,7 +283,7 @@ public class CRUD extends javax.swing.JFrame {
 
         SuperAdministrator f = new SuperAdministrator();
         dispose();
-        f.setVisible (false); 
+        f.setVisible (true); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void mostrarRegistros() {

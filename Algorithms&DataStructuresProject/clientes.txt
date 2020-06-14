@@ -1,6 +1,3 @@
-mano;Prueba01.;2
-rac;Prueba02.;3
-vale;Prueba03.;3
-maguilar;Prueba04.;3
-nuunfuf;Jesus.vargas2001;3
-jjuhud;VQ6aRjREFfNywgVP3HRBeroy8HSowzdG;2
+mano;Prueba00.;2
+vale;Prueba01.;3
+maguilar;Prueba02.;3

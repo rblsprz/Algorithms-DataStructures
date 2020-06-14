@@ -61,6 +61,9 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
         txtFecha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,13 +80,30 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(15, 42, 438, 360);
+
         jLabel1.setText("Paciente:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(536, 61, 64, 20);
+        getContentPane().add(txtPaciente);
+        txtPaciente.setBounds(626, 58, 219, 26);
 
         jLabel2.setText("Cédula: ");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(536, 110, 59, 20);
+        getContentPane().add(txtCedul);
+        txtCedul.setBounds(626, 107, 219, 26);
 
         Fecha.setText("Fecha:");
+        getContentPane().add(Fecha);
+        Fecha.setBounds(536, 161, 72, 20);
 
         jLabel3.setText("Hora:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(536, 237, 40, 20);
+        getContentPane().add(txtHora);
+        txtHora.setBounds(626, 234, 219, 26);
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +111,8 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnModificar);
+        btnModificar.setBounds(670, 299, 97, 29);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -98,6 +120,8 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnEliminar);
+        btnEliminar.setBounds(776, 299, 91, 29);
 
         btnShow.setText("Mostrar Citas");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
@@ -105,8 +129,13 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                 btnShowActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShow);
+        btnShow.setBounds(536, 299, 125, 29);
+        getContentPane().add(jDateChooser1);
+        jDateChooser1.setBounds(626, 155, 219, 26);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
+        jButton1.setText("Regresar");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,83 +143,21 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnModificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnShow))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtHora)
-                            .addComponent(txtCedul)
-                            .addComponent(txtPaciente)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(23, 23, 23))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCedul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Fecha)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(7, 7, 7)
-                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnModificar)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnShow))))
-                .addContainerGap(85, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 0, 123, 33);
+        getContentPane().add(txtFecha);
+        txtFecha.setBounds(626, 197, 97, 26);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         int seleccion = jTable3.getSelectedRow();
+        txtFecha.setText(jTable3.getValueAt(seleccion, 0).toString());
         txtHora.setText(jTable3.getValueAt(seleccion, 1).toString());
-        txtCedul.setText(jTable3.getValueAt(seleccion, 3).toString());
         txtPaciente.setText(jTable3.getValueAt(seleccion, 2).toString());
+        txtCedul.setText(jTable3.getValueAt(seleccion, 3).toString());
        // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
     }//GEN-LAST:event_jTable3MouseClicked
     
@@ -251,7 +218,7 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Administrator sA=new Administrator();
+       Administrator sA=new Administrator();
         dispose();
         sA.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

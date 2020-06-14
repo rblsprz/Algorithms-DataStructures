@@ -54,17 +54,24 @@ public class NewRol extends javax.swing.JFrame {
         tfEmail = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         lbName.setText("NAME:");
+        getContentPane().add(lbName);
+        lbName.setBounds(40, 112, 49, 20);
 
         lbPassword.setText("PASSWORD:");
+        getContentPane().add(lbPassword);
+        lbPassword.setBounds(40, 276, 91, 20);
 
         cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRATOR", "CUSTOMER" }));
         cbRoles.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,8 +84,14 @@ public class NewRol extends javax.swing.JFrame {
                 cbRolesActionPerformed(evt);
             }
         });
+        getContentPane().add(cbRoles);
+        cbRoles.setBounds(161, 492, 293, 26);
 
         lbRoles.setText("ROLES:");
+        getContentPane().add(lbRoles);
+        lbRoles.setBounds(40, 495, 54, 20);
+        getContentPane().add(tfName);
+        tfName.setBounds(161, 109, 293, 26);
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnRegistrar.setText("   Registrar");
@@ -87,20 +100,51 @@ public class NewRol extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegistrar);
+        btnRegistrar.setBounds(720, 480, 147, 41);
 
         lbLastName.setText("LAST NAME:");
+        getContentPane().add(lbLastName);
+        lbLastName.setBounds(40, 168, 92, 20);
+        getContentPane().add(tfLastName);
+        tfLastName.setBounds(161, 165, 293, 26);
 
         lbPhone.setText("PHONE:");
+        getContentPane().add(lbPhone);
+        lbPhone.setBounds(40, 386, 58, 20);
+        getContentPane().add(tfPhone);
+        tfPhone.setBounds(161, 383, 293, 26);
 
         lbID.setText("ID:");
+        getContentPane().add(lbID);
+        lbID.setBounds(40, 61, 23, 20);
+        getContentPane().add(tfID);
+        tfID.setBounds(161, 58, 293, 26);
+        getContentPane().add(tfPassword);
+        tfPassword.setBounds(161, 273, 293, 26);
 
         lbUserName.setText("USERNAME:");
+        getContentPane().add(lbUserName);
+        lbUserName.setBounds(40, 221, 88, 20);
+        getContentPane().add(tfUserName);
+        tfUserName.setBounds(161, 218, 293, 26);
 
         lbAge.setText("AGE:");
+        getContentPane().add(lbAge);
+        lbAge.setBounds(40, 330, 37, 20);
+        getContentPane().add(tfAge);
+        tfAge.setBounds(161, 327, 293, 26);
 
         lbEmail.setText("EMAIL:");
+        getContentPane().add(lbEmail);
+        lbEmail.setBounds(40, 440, 52, 20);
+        getContentPane().add(tfEmail);
+        tfEmail.setBounds(161, 434, 293, 26);
+        getContentPane().add(lbMensajes);
+        lbMensajes.setBounds(658, 544, 338, 27);
 
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
+        jButtonSalir.setText("Regresar");
         jButtonSalir.setBorderPainted(false);
         jButtonSalir.setContentAreaFilled(false);
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -108,94 +152,12 @@ public class NewRol extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonSalir);
+        jButtonSalir.setBounds(15, 9, 123, 33);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(btnRegistrar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbID)
-                            .addComponent(lbName)
-                            .addComponent(lbLastName)
-                            .addComponent(lbUserName)
-                            .addComponent(lbPassword)
-                            .addComponent(lbAge)
-                            .addComponent(lbPhone)
-                            .addComponent(lbEmail)
-                            .addComponent(lbRoles))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cbRoles, javax.swing.GroupLayout.Alignment.LEADING, 0, 293, Short.MAX_VALUE)
-                            .addComponent(tfEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfPhone, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfAge, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfID, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfName)
-                            .addComponent(tfLastName))
-                        .addGap(204, 204, 204)
-                        .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonSalir)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jButtonSalir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbID)
-                            .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbName)
-                            .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbLastName)
-                            .addComponent(tfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbUserName)
-                            .addComponent(tfUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbPassword)
-                            .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbAge)
-                            .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbPhone)
-                            .addComponent(tfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addComponent(lbEmail))
-                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbRoles)
-                    .addComponent(cbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegistrar)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/busin.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(660, 90, 320, 340);
 
         pack();
         setLocationRelativeTo(null);
@@ -349,6 +311,7 @@ public class NewRol extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbID;

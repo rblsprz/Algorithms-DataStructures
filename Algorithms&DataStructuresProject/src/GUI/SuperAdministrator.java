@@ -66,12 +66,18 @@ public class SuperAdministrator extends javax.swing.JFrame {
         jMenuBar3.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        getContentPane().setLayout(null);
 
+        lbSuperAdministrator.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbSuperAdministrator.setText("SUPER ADMINISTRATOR");
+        getContentPane().add(lbSuperAdministrator);
+        lbSuperAdministrator.setBounds(429, 0, 248, 108);
 
         menuAdd.setText("ADD");
 
         menuItemNewRol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemNewRol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         menuItemNewRol.setText("NEW ROL");
         menuItemNewRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +91,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         menuCrud.setText("CRUD");
 
         menuItemCrud.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemCrud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
         menuItemCrud.setText("CRUD");
         menuItemCrud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,58 +144,41 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(lbSuperAdministrator)
-                .addContainerGap(250, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lbSuperAdministrator)
-                .addContainerGap(487, Short.MAX_VALUE))
-        );
-
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionsActionPerformed
-
-    }//GEN-LAST:event_menuOptionsActionPerformed
+  Main m = new Main();
+        m.setVisible(true);
+        dispose();    }//GEN-LAST:event_menuOptionsActionPerformed
 
     private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
-        Main m = new Main();
-        m.show(true);
-        this.show(false);
+       Main m = new Main();
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_menuItemSignOffActionPerformed
 
     private void menuItemNewRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewRolActionPerformed
-        NewRol nR = new NewRol();
-        nR.show();
-        nR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         NewRol f = new NewRol();
         dispose();
-        f.setVisible (false); 
+        f.setVisible (true); 
     }//GEN-LAST:event_menuItemNewRolActionPerformed
 
     private void menuItemCrudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrudActionPerformed
         CRUD cR = new CRUD();
-        cR.show();
-        cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+       cR.setVisible(true);
+        dispose();
     }//GEN-LAST:event_menuItemCrudActionPerformed
 
     private void menuItemAccessAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAccessAdministratorActionPerformed
         Administrator aD = new Administrator();
-        aD.show();
-        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        aD.setVisible(true);
+        dispose();
         SuperAdministrator f = new SuperAdministrator();
         dispose();
-        f.setVisible (false); 
+        f.setVisible (true); 
     }//GEN-LAST:event_menuItemAccessAdministratorActionPerformed
 
     private void menuItemAcessCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcessCustomerActionPerformed
