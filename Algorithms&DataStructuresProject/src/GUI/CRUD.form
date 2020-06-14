@@ -23,55 +23,69 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lbName" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfName" alignment="0" max="32767" attributes="0"/>
-                  <Component id="tfLastName" alignment="0" max="32767" attributes="0"/>
-                  <Component id="tfUserName" alignment="0" max="32767" attributes="0"/>
-                  <Component id="tfAge" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lbLastName" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbUserName" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbAge" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbPhone" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbID" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfID" alignment="0" pref="140" max="32767" attributes="0"/>
-                  <Component id="tfPhone" pref="140" max="32767" attributes="0"/>
-                  <Component id="lbEmail" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfEmail" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lbRol" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfRol" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lbPassword" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfPassword" alignment="0" max="32767" attributes="0"/>
-              </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="603" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lbMensajes" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="358" max="-2" attributes="0"/>
+                              <Component id="lbMensajes" min="-2" pref="340" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="tfPhone" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lbName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tfLastName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tfUserName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tfAge" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbLastName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbUserName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbAge" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbPhone" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbID" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfID" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbEmail" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbRol" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfRol" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbPassword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPassword" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                               <Component id="btnshowRoles" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                               <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                               <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="143" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="603" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="jScrollPane3" min="-2" pref="447" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbMensajes" min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lbID" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="tfID" min="-2" max="-2" attributes="0"/>
@@ -96,38 +110,23 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="tfAge" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lbPhone" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="tfPhone" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnshowRoles" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="lbMensajes" min="-2" pref="28" max="-2" attributes="0"/>
-                      <EmptySpace pref="95" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lbEmail" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tfEmail" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lbRol" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tfRol" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnshowRoles" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Component id="jScrollPane3" min="-2" pref="447" max="-2" attributes="0"/>
-              <EmptySpace min="9" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tfPhone" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lbEmail" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tfEmail" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lbRol" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tfRol" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -308,6 +307,18 @@
     <Component class="javax.swing.JTextField" name="tfPassword">
     </Component>
     <Component class="javax.swing.JLabel" name="lbMensajes">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Images/salida.png"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

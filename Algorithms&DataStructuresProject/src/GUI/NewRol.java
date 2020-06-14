@@ -31,6 +31,8 @@ public class NewRol extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         lbName = new javax.swing.JLabel();
         lbPassword = new javax.swing.JLabel();
         cbRoles = new javax.swing.JComboBox<>();
@@ -51,6 +53,11 @@ public class NewRol extends javax.swing.JFrame {
         lbEmail = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
+        jButtonSalir = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -93,6 +100,15 @@ public class NewRol extends javax.swing.JFrame {
 
         lbEmail.setText("EMAIL:");
 
+        jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
+        jButtonSalir.setBorderPainted(false);
+        jButtonSalir.setContentAreaFilled(false);
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,14 +141,19 @@ public class NewRol extends javax.swing.JFrame {
                             .addComponent(tfUserName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfName)
                             .addComponent(tfLastName))
-                        .addGap(18, 18, 18)
-                        .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(204, 204, 204)
+                        .addComponent(lbMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonSalir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(9, 9, 9)
+                .addComponent(jButtonSalir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -278,6 +299,12 @@ public class NewRol extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbRolesActionPerformed
 
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        SuperAdministrator f = new SuperAdministrator();
+        dispose();
+        f.setVisible (true); 
+    }//GEN-LAST:event_jButtonSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -319,6 +346,9 @@ public class NewRol extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> cbRoles;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbID;

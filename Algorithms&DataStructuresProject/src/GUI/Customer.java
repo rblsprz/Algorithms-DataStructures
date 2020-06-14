@@ -74,18 +74,18 @@ public class Customer extends javax.swing.JFrame {
                         .addGap(164, 164, 164)
                         .addComponent(lbCustomer))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(152, 152, 152)
                         .addComponent(jButton1)))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(82, 82, 82)
+                .addGap(120, 120, 120)
                 .addComponent(lbCustomer)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(jButton1)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();

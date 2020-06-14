@@ -14,8 +14,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.StringTokenizer;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,7 +55,7 @@ public class Logic {
     public boolean searchAdministratorID(String nombreUsuario, String contraseña,int tipoRol) throws IOException {
         BufferedReader br = getBufferedReader();
         String Acounts = "";
-        String AcFind = nombreUsuario + ";" + contraseña + ";" + tipoRol;
+        String AcFind = nombreUsuario + ";" +  contraseña + ";" + tipoRol;
 
         while (Acounts != null) {
 
@@ -114,7 +120,7 @@ public class Logic {
             PrintStream ps = new PrintStream(fos);
 
             if (searchAdministrator(nombre) == -1) {
-                ps.println(nombreUsuario + ";" + contraseña + ";" + tipoRol);
+                ps.println(nombreUsuario + ";" +  ecnode("Algoritmos",contraseña)  + ";" + tipoRol);
             }
         } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
@@ -523,5 +529,42 @@ try {
         return array;
     }//endCountry[]
      
+    public String ecnode(String secretKey, String cadena){
+    
+        String encriptacion= "";
+        try{
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            byte[] llavePassword = md5.digest(secretKey.getBytes("utf-8"));
+            byte[] BytesKey = Arrays.copyOf(llavePassword, 24);
+            SecretKey key = new SecretKeySpec(BytesKey,"DESede");
+            Cipher cifrado = Cipher.getInstance("DESede");
+            cifrado.init(Cipher.ENCRYPT_MODE, key);
+            byte[] plainTextBytes = cadena.getBytes("utf-8");
+            byte[] buf= cifrado.doFinal(plainTextBytes);
+            byte[] base64Bytes = Base64.getEncoder().encode(buf);
+            encriptacion = new String(base64Bytes);
+        }catch(Exception ex){
+        JOptionPane.showMessageDialog(null, "Problemas");
+        }
+        return encriptacion;
+    }
+    
+     public String deecnode(String secretKey, String cadena){
+      String desencriptacion= "";
+         try {
+             byte[] message = Base64.getDecoder().decode(cadena.getBytes("utf-8"));
+             MessageDigest md5 = MessageDigest.getInstance("MD5");
+             byte[] digestofPassword = md5.digest(secretKey.getBytes("utf-8"));
+             byte[] BytesKey = Arrays.copyOf(digestofPassword, 24);
+             SecretKey key = new SecretKeySpec(BytesKey,"DESede");
+             Cipher decipher = Cipher.getInstance("DESede");
+             decipher.init(Cipher.DECRYPT_MODE,key);
+             byte[] plainTextBytes = decipher.doFinal(message);
+             desencriptacion = new String(plainTextBytes,"UTF-8");
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Problemas");
+         }
+       return desencriptacion;
+     }
     }//End Roles[]
 

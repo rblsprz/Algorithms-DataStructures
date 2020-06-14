@@ -171,6 +171,9 @@ public class SuperAdministrator extends javax.swing.JFrame {
         NewRol nR = new NewRol();
         nR.show();
         nR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        NewRol f = new NewRol();
+        dispose();
+        f.setVisible (false); 
     }//GEN-LAST:event_menuItemNewRolActionPerformed
 
     private void menuItemCrudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrudActionPerformed
@@ -183,6 +186,9 @@ public class SuperAdministrator extends javax.swing.JFrame {
         Administrator aD = new Administrator();
         aD.show();
         aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator f = new SuperAdministrator();
+        dispose();
+        f.setVisible (false); 
     }//GEN-LAST:event_menuItemAccessAdministratorActionPerformed
 
     private void menuItemAcessCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcessCustomerActionPerformed
