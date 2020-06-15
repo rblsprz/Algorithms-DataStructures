@@ -42,12 +42,11 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
         getContentPane().setLayout(null);
 
         lbLogin.setText("LOGIN");
         getContentPane().add(lbLogin);
-        lbLogin.setBounds(282, 58, 48, 20);
+        lbLogin.setBounds(490, 50, 31, 14);
 
         jRadioButtonAdministrador.setText("2. ADMINISTRATOR");
         jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
@@ -56,21 +55,21 @@ public class Main extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jRadioButtonAdministrador);
-        jRadioButtonAdministrador.setBounds(307, 110, 181, 29);
+        jRadioButtonAdministrador.setBounds(470, 120, 123, 23);
 
         jRadioButtonCustomer.setText("3. CUSTOMER");
         getContentPane().add(jRadioButtonCustomer);
-        jRadioButtonCustomer.setBounds(489, 110, 135, 29);
+        jRadioButtonCustomer.setBounds(790, 110, 93, 23);
 
         lbNombreUsuario.setText("USERNAME:");
         getContentPane().add(lbNombreUsuario);
-        lbNombreUsuario.setBounds(150, 251, 88, 20);
+        lbNombreUsuario.setBounds(430, 250, 58, 14);
 
         lbContraseña.setText("PASSWORD:");
         getContentPane().add(lbContraseña);
-        lbContraseña.setBounds(150, 304, 91, 20);
+        lbContraseña.setBounds(430, 320, 61, 14);
         getContentPane().add(tFnombredeUsuario);
-        tFnombredeUsuario.setBounds(274, 248, 216, 26);
+        tFnombredeUsuario.setBounds(540, 250, 216, 20);
 
         btnIniciarSesion.setText("LOGIN");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -79,19 +78,19 @@ public class Main extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(345, 419, 81, 29);
+        btnIniciarSesion.setBounds(520, 420, 63, 23);
 
         jRadioButtonSuperAdministrador.setText("1. SUPER ADMINISTRATOR");
         getContentPane().add(jRadioButtonSuperAdministrador);
-        jRadioButtonSuperAdministrador.setBounds(22, 110, 233, 29);
+        jRadioButtonSuperAdministrador.setBounds(130, 120, 157, 23);
         getContentPane().add(tfpassword);
-        tfpassword.setBounds(274, 301, 216, 26);
+        tfpassword.setBounds(540, 310, 216, 20);
         getContentPane().add(lbAutenticacion);
         lbAutenticacion.setBounds(150, 366, 337, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, 0, 690, 590);
+        jLabel1.setBounds(1, 0, 1040, 600);
 
         pack();
         setLocationRelativeTo(null);

@@ -5,28 +5,29 @@
  */
 package GUI;
 
-import Logic.Cita;
 import Logic.Logic;
-import Logic.Roles;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import Logic.Cita;
 import Logic.FileStacks;
 import Logic.NodeStacks;
-import java.util.ArrayList;
-import java.util.Calendar;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author pc
  */
-public class CitaCliente extends javax.swing.JFrame {
+public class AdministratorDates extends javax.swing.JFrame {
 
     /**
-     * Creates new form CitaCliente
+     * Creates new form CRUD_CITAS
      */
-    public CitaCliente() {
+    public AdministratorDates() {
         initComponents();
     }
-
+    
+    FileStacks stack = new FileStacks();
+    Logic Stack = new Logic();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,36 +37,46 @@ public class CitaCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        lbName = new javax.swing.JLabel();
+        lbID = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
         tfID = new javax.swing.JTextField();
         lbTime = new javax.swing.JLabel();
-        cbmHora = new javax.swing.JComboBox<>();
+        cBTime = new javax.swing.JComboBox<>();
         btnRequest = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
         lbDate = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        lbName = new javax.swing.JLabel();
-        lbID = new javax.swing.JLabel();
-        tfName = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        tfID.setEditable(false);
+        lbName.setText("NAME:");
+        getContentPane().add(lbName);
+        lbName.setBounds(70, 120, 32, 24);
+
+        lbID.setText("ID:");
+        getContentPane().add(lbID);
+        lbID.setBounds(70, 80, 37, 14);
+        getContentPane().add(tfName);
+        tfName.setBounds(130, 120, 170, 20);
         getContentPane().add(tfID);
-        tfID.setBounds(120, 70, 171, 20);
+        tfID.setBounds(130, 80, 171, 20);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(50, 230, 40, 14);
+        lbTime.setBounds(70, 240, 28, 14);
 
-        cbmHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m", " " }));
-        cbmHora.addActionListener(new java.awt.event.ActionListener() {
+        cBTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m" }));
+        cBTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmHoraActionPerformed(evt);
+                cBTimeActionPerformed(evt);
             }
         });
-        getContentPane().add(cbmHora);
-        cbmHora.setBounds(120, 230, 79, 20);
+        getContentPane().add(cBTime);
+        cBTime.setBounds(130, 240, 79, 20);
 
         btnRequest.setText("REQUEST");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -74,103 +85,69 @@ public class CitaCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(120, 300, 112, 23);
+        btnRequest.setBounds(150, 320, 112, 23);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(120, 180, 160, 20);
+        dateChooser.setBounds(130, 170, 170, 20);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(50, 180, 30, 14);
+        lbDate.setBounds(70, 170, 30, 14);
 
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         btnBack.setText("BACK");
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         getContentPane().add(btnBack);
-        btnBack.setBounds(350, 350, 80, 23);
+        btnBack.setBounds(50, 10, 87, 33);
 
-        lbName.setText("NAME:");
-        getContentPane().add(lbName);
-        lbName.setBounds(50, 120, 40, 24);
-
-        lbID.setText("ID:");
-        getContentPane().add(lbID);
-        lbID.setBounds(50, 80, 15, 14);
-
-        tfName.setEditable(false);
-        tfName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfNameMouseClicked(evt);
-            }
-        });
-        getContentPane().add(tfName);
-        tfName.setBounds(120, 120, 170, 20);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(1, 0, 700, 440);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-   Main uR = new Main();
-    FileStacks stack = new FileStacks();
-    Logic Stack = new Logic();
-   
-     public void mostrarNombre(){
-        Logic lC = new Logic();
-        ArrayList<Roles> array = new ArrayList();
-        
-        Roles tempCountries[] = lC.readRegistersFilesIndividual();
-        for(int i = 0; i < tempCountries.length; i++){
-            array.add(tempCountries[i]);
-        }//endfor
-        for (int j = 0; j < 1; j++) {
-            tfID.setText(array.get(j).getCedula().trim());
-        tfName.setText(array.get(j).getNombre().trim());
-        
-        }
-    } 
- 
-    
+
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         //Campos vacios validacion
-        String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
-        String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
-        String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
-        String fecha=(year+"-"+mes+"-"+dia);
-
-        if (tfID.getText().equals("") || tfName.getText().equals("") || cbmHora.getSelectedItem().equals("") || dateChooser.getDate().equals("")) {
+            String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+            String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
+            String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+            String fecha=(year+"-"+mes+"-"+dia);
+            
+        if (tfID.getText().equals("") || tfName.getText().equals("") || cBTime.getSelectedItem().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellene todos los espacios en blanco");
-        }//End if
+        }//End if 
         else {
-            if(Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false){
-                NodeStacks pila = new NodeStacks();
-                Cita cita = new Cita(fecha, cbmHora.getSelectedItem().toString(), tfID.getText(), tfName.getText());
-                pila.push(fecha,cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
-                stack.insertCita(cita);
-                JOptionPane.showMessageDialog(null, "Cita Registrada");
+            if(Stack.searchCita(fecha, cBTime.getSelectedItem().toString()) == false){
+            NodeStacks pila = new NodeStacks();  
+            Cita cita = new Cita(fecha, cBTime.getSelectedItem().toString(), tfID.getText(), tfName.getText());            
+            pila.push(fecha,cBTime.getSelectedItem().toString(), tfName.getText(), tfID.getText());
+            stack.insertCita(cita);
+            JOptionPane.showMessageDialog(null, "Cita Registrada");
             } else {
                 JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
             }
-        }
-
+        } 
+        
         //else
-        //           JOptionPane.showMessageDialog(null, "Cita NO Registrada");
+//           JOptionPane.showMessageDialog(null, "Cita NO Registrada");
     }//GEN-LAST:event_btnRequestActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Customer nS = new Customer();
-        nS.setVisible (true);
+       Administrator sA=new Administrator();
         dispose();
+        sA.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
-        mostrarNombre();
-    }//GEN-LAST:event_tfNameMouseClicked
-
-    private void cbmHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmHoraActionPerformed
+    private void cBTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBTimeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbmHoraActionPerformed
+    }//GEN-LAST:event_cBTimeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,21 +166,23 @@ public class CitaCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorDates.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CitaCliente().setVisible(true);
+                new AdministratorDates().setVisible(true);
             }
         });
     }
@@ -211,8 +190,10 @@ public class CitaCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRequest;
-    private javax.swing.JComboBox<String> cbmHora;
+    private javax.swing.JComboBox<String> cBTime;
     private com.toedter.calendar.JDateChooser dateChooser;
+    private com.toedter.calendar.JCalendar jCalendar1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbName;

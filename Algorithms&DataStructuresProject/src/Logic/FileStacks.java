@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author pc
  */
-public class logicaPilaFiles {
+public class FileStacks {
     
     public void insertCita(Cita c) {
         File mainFileE = new File("citas.txt");
@@ -33,7 +33,7 @@ public class logicaPilaFiles {
 
     public void buscarCita() throws IOException {
 
-        pilaNodo pilaTemp = new pilaNodo();
+        NodeStacks pilaTemp = new NodeStacks();
         File f = new File("citas.txt");
         try {
             // metodo para leer un archivo

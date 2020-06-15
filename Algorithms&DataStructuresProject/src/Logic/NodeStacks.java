@@ -46,7 +46,7 @@ import Interfaces.Stacks;
             return this.numCel;
         }
     }
-public class pilaNodo implements Stacks{
+public class NodeStacks implements Stacks{
 
      NodeCita inicio;
 

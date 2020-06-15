@@ -49,7 +49,6 @@ private Timer time;
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -65,7 +64,7 @@ private Timer time;
         getContentPane().add(jLabel2);
         jLabel2.setBounds(940, 0, 310, 710);
         getContentPane().add(jProgressBar);
-        jProgressBar.setBounds(470, 150, 390, 14);
+        jProgressBar.setBounds(440, 360, 390, 14);
 
         lbEnter.setText("     ENTER");
         lbEnter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,9 +73,12 @@ private Timer time;
             }
         });
         getContentPane().add(lbEnter);
-        lbEnter.setBounds(620, 180, 90, 20);
+        lbEnter.setBounds(600, 390, 90, 14);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(2000, 2000));
+        jLabel3.setMinimumSize(new java.awt.Dimension(2000, 2000));
+        jLabel3.setPreferredSize(new java.awt.Dimension(2000, 2000));
         getContentPane().add(jLabel3);
         jLabel3.setBounds(290, -3, 662, 710);
 

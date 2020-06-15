@@ -6,6 +6,7 @@ import Logic.Roles;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 import Logic.Logic;
+
 /**
  *
  * @author pc
@@ -17,6 +18,7 @@ public class NewRol extends javax.swing.JFrame {
      * Creates new form nuevoUsuario
      */
     Logic lo = new Logic();
+
     public NewRol() {
         initComponents();
 
@@ -61,17 +63,17 @@ public class NewRol extends javax.swing.JFrame {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        setPreferredSize(new java.awt.Dimension(2000, 2000));
         setResizable(false);
         getContentPane().setLayout(null);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(40, 112, 49, 20);
+        lbName.setBounds(40, 112, 32, 14);
 
         lbPassword.setText("PASSWORD:");
         getContentPane().add(lbPassword);
-        lbPassword.setBounds(40, 276, 91, 20);
+        lbPassword.setBounds(40, 276, 61, 14);
 
         cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRATOR", "CUSTOMER" }));
         cbRoles.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,66 +87,66 @@ public class NewRol extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbRoles);
-        cbRoles.setBounds(161, 492, 293, 26);
+        cbRoles.setBounds(161, 492, 293, 20);
 
         lbRoles.setText("ROLES:");
         getContentPane().add(lbRoles);
-        lbRoles.setBounds(40, 495, 54, 20);
+        lbRoles.setBounds(40, 495, 36, 14);
         getContentPane().add(tfName);
-        tfName.setBounds(161, 109, 293, 26);
+        tfName.setBounds(161, 109, 293, 20);
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
-        btnRegistrar.setText("   Registrar");
+        btnRegistrar.setText("ADD NEW ROL");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
         getContentPane().add(btnRegistrar);
-        btnRegistrar.setBounds(720, 480, 147, 41);
+        btnRegistrar.setBounds(200, 550, 160, 41);
 
         lbLastName.setText("LAST NAME:");
         getContentPane().add(lbLastName);
-        lbLastName.setBounds(40, 168, 92, 20);
+        lbLastName.setBounds(40, 168, 59, 14);
         getContentPane().add(tfLastName);
-        tfLastName.setBounds(161, 165, 293, 26);
+        tfLastName.setBounds(161, 165, 293, 20);
 
         lbPhone.setText("PHONE:");
         getContentPane().add(lbPhone);
-        lbPhone.setBounds(40, 386, 58, 20);
+        lbPhone.setBounds(40, 386, 38, 14);
         getContentPane().add(tfPhone);
-        tfPhone.setBounds(161, 383, 293, 26);
+        tfPhone.setBounds(161, 383, 293, 20);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(40, 61, 23, 20);
+        lbID.setBounds(40, 61, 15, 14);
         getContentPane().add(tfID);
-        tfID.setBounds(161, 58, 293, 26);
+        tfID.setBounds(161, 58, 293, 20);
         getContentPane().add(tfPassword);
-        tfPassword.setBounds(161, 273, 293, 26);
+        tfPassword.setBounds(161, 273, 293, 20);
 
         lbUserName.setText("USERNAME:");
         getContentPane().add(lbUserName);
-        lbUserName.setBounds(40, 221, 88, 20);
+        lbUserName.setBounds(40, 221, 58, 14);
         getContentPane().add(tfUserName);
-        tfUserName.setBounds(161, 218, 293, 26);
+        tfUserName.setBounds(161, 218, 293, 20);
 
         lbAge.setText("AGE:");
         getContentPane().add(lbAge);
-        lbAge.setBounds(40, 330, 37, 20);
+        lbAge.setBounds(40, 330, 24, 14);
         getContentPane().add(tfAge);
-        tfAge.setBounds(161, 327, 293, 26);
+        tfAge.setBounds(161, 327, 293, 20);
 
         lbEmail.setText("EMAIL:");
         getContentPane().add(lbEmail);
-        lbEmail.setBounds(40, 440, 52, 20);
+        lbEmail.setBounds(40, 440, 34, 14);
         getContentPane().add(tfEmail);
-        tfEmail.setBounds(161, 434, 293, 26);
+        tfEmail.setBounds(161, 434, 293, 20);
         getContentPane().add(lbMensajes);
         lbMensajes.setBounds(658, 544, 338, 27);
 
         jButtonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
-        jButtonSalir.setText("Regresar");
+        jButtonSalir.setText("BACK");
         jButtonSalir.setBorderPainted(false);
         jButtonSalir.setContentAreaFilled(false);
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +155,7 @@ public class NewRol extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSalir);
-        jButtonSalir.setBounds(15, 9, 123, 33);
+        jButtonSalir.setBounds(10, 10, 105, 33);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/busin.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -165,7 +167,6 @@ public class NewRol extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
-        
         String passw = tfPassword.getText().trim();
 
         if (lo.validatePassword(passw)) {
@@ -175,7 +176,7 @@ public class NewRol extends javax.swing.JFrame {
         else {
             JOptionPane.showMessageDialog(null, "INVALID PASSWORD!");
         }//endValidatePassword
-        
+
         if (lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) {
 
         } else {
@@ -183,10 +184,10 @@ public class NewRol extends javax.swing.JFrame {
         }
 ////////////////////////////////////////////////////////////////////////////
 
-        if (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) {
-            
-        }else{
-        JOptionPane.showMessageDialog(null, "IN THE ID, ADD ONLY 9 NUMBERS!");
+        if (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "IN THE ID, ADD ONLY 9 NUMBERS!");
         }
 ////////////////////////////////////////////////////////////////////////////
 
@@ -198,24 +199,22 @@ public class NewRol extends javax.swing.JFrame {
 ///////////////////////////////////////////////////////////////////////
 
         if (lo.validateNombre(tfName.getText())) {
-           
-        }else{
-         JOptionPane.showMessageDialog(null, "IN THE NAME, ADD ONLY LETTERS!");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "IN THE NAME, ADD ONLY LETTERS!");
         }
 ////////////////////////////////////////////////////////////////////
 
-        if (lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) {
-            
-        }else{
-        JOptionPane.showMessageDialog(null, "IN THE AGE, ADD ONLY NUMBERS!");
-        }
+        if (lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) {
 
-      
+        } else {
+            JOptionPane.showMessageDialog(null, "IN THE AGE, ADD ONLY NUMBERS!");
+        }
 
         if (tfID.getText().equals("") || tfName.getText().equals("") || tfLastName.getText().equals("") || tfUserName.getText().equals("") || tfPassword.getText().equals("") || tfEmail.getText().equals("")) {
             lbMensajes.setText("FILL THE DATA!");
         }//End if
-        else{
+        else {
             int rol = 0;
             if (cbRoles.getSelectedItem().toString() == "ADMINISTRATOR") {
                 rol = 2;
@@ -229,7 +228,7 @@ public class NewRol extends javax.swing.JFrame {
             Roles r = new Roles(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
             cU.add(r);
             try {
-                   if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9)  && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
+                if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
                     l.insertCustomer(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
                     lbMensajes.setText("SUCCESFUL PROCEDURE!");
                     tfID.setText("");
@@ -241,7 +240,7 @@ public class NewRol extends javax.swing.JFrame {
                     tfPhone.setText("");
                     tfEmail.setText("");
 
-                 } else if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length()<=3) && lo.validateNombre(tfName.getText())&& lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length()==9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
+                } else if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
 
                     lbMensajes.setText("USER ALREADY EXISTS!");
                 }
@@ -262,9 +261,9 @@ public class NewRol extends javax.swing.JFrame {
     }//GEN-LAST:event_cbRolesActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        SuperAdministrator f = new SuperAdministrator();
+        SuperAdministrator sA = new SuperAdministrator();
+        sA.setVisible(true);
         dispose();
-        f.setVisible (true); 
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**

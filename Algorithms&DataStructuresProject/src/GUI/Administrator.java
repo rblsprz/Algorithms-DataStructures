@@ -8,6 +8,7 @@ package GUI;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -19,8 +20,8 @@ public class Administrator extends javax.swing.JFrame {
     /**
      * Creates new form Administrator
      */
-    
     FondoPanel fondo = new FondoPanel();
+
     public Administrator() {
         this.setContentPane(fondo);
         initComponents();
@@ -36,39 +37,96 @@ public class Administrator extends javax.swing.JFrame {
     private void initComponents() {
 
         lbAdministrator = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
+        menuAdd = new javax.swing.JMenu();
+        menuItemNewRol = new javax.swing.JMenuItem();
+        menuItemNewDate = new javax.swing.JMenuItem();
+        menuCRUD = new javax.swing.JMenu();
+        menuItemCRUDRoles = new javax.swing.JMenuItem();
+        menuItemCRUDDates = new javax.swing.JMenuItem();
+        menuInformation = new javax.swing.JMenu();
+        menuItemAdvances = new javax.swing.JMenuItem();
+        menuItemDatingHistory = new javax.swing.JMenuItem();
+        menuItemFoodPlans = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
         getContentPane().setLayout(null);
 
         lbAdministrator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_administrator_green_15073.png"))); // NOI18N
         lbAdministrator.setText("ADMINISTRATOR");
         lbAdministrator.setOpaque(true);
         getContentPane().add(lbAdministrator);
-        lbAdministrator.setBounds(307, 39, 261, 128);
+        lbAdministrator.setBounds(307, 39, 216, 128);
 
-        jButton1.setText("Agregar Citas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        menuAdd.setText("ADD");
+
+        menuItemNewRol.setText("NEW ROL");
+        menuItemNewRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                menuItemNewRolActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(0, 39, 129, 29);
+        menuAdd.add(menuItemNewRol);
 
-        jButton2.setText("CRUD Citas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemNewDate.setText("NEW DATE");
+        menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                menuItemNewDateActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(0, 94, 129, 29);
+        menuAdd.add(menuItemNewDate);
+
+        jMenuBar1.add(menuAdd);
+
+        menuCRUD.setText("CRUD");
+
+        menuItemCRUDRoles.setText("CRUD ROLES");
+        menuItemCRUDRoles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCRUDRolesActionPerformed(evt);
+            }
+        });
+        menuCRUD.add(menuItemCRUDRoles);
+
+        menuItemCRUDDates.setText("CRUD DATES");
+        menuItemCRUDDates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCRUDDatesActionPerformed(evt);
+            }
+        });
+        menuCRUD.add(menuItemCRUDDates);
+
+        jMenuBar1.add(menuCRUD);
+
+        menuInformation.setText("INFORMATION");
+
+        menuItemAdvances.setText("ADVANCES");
+        menuItemAdvances.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAdvancesActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemAdvances);
+
+        menuItemDatingHistory.setText("DATING HISTORY");
+        menuItemDatingHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemDatingHistoryActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemDatingHistory);
+
+        menuItemFoodPlans.setText("FOOD PLANS");
+        menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemFoodPlansActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemFoodPlans);
+
+        jMenuBar1.add(menuInformation);
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +153,7 @@ public class Administrator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionsActionPerformed
-          Main m = new Main();
+        Main m = new Main();
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_menuOptionsActionPerformed
@@ -106,18 +164,47 @@ public class Administrator extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_menuItemSignOffActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CitasAdmin cA=new CitasAdmin();
-        dispose();
-        cA.setVisible(true);
+    private void menuItemDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDatingHistoryActionPerformed
+        DatingHistory dH = new DatingHistory();
+        dH.show();
+        dH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemDatingHistoryActionPerformed
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
+        AdministratorDates aD = new AdministratorDates();
+        aD.show();
+        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemNewDateActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CRUD_ADMIN_CITAS crud=new CRUD_ADMIN_CITAS();
-        dispose();
-        crud.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void menuItemCRUDDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDDatesActionPerformed
+        CRUDAdministratorDates cR = new CRUDAdministratorDates();
+        cR.show();
+        cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
+
+    private void menuItemAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdvancesActionPerformed
+        Advances aS = new Advances();
+        aS.show();
+        aS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemAdvancesActionPerformed
+
+    private void menuItemNewRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewRolActionPerformed
+        NewRol nR = new NewRol();
+        nR.show();
+        nR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemNewRolActionPerformed
+
+    private void menuItemCRUDRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDRolesActionPerformed
+        CRUD cU = new CRUD();
+        cU.show();
+        cU.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemCRUDRolesActionPerformed
+
+    private void menuItemFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFoodPlansActionPerformed
+        FoodPlans fP = new FoodPlans();
+        fP.show();
+        fP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemFoodPlansActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,25 +242,34 @@ public class Administrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbAdministrator;
+    private javax.swing.JMenu menuAdd;
+    private javax.swing.JMenu menuCRUD;
+    private javax.swing.JMenu menuInformation;
+    private javax.swing.JMenuItem menuItemAdvances;
+    private javax.swing.JMenuItem menuItemCRUDDates;
+    private javax.swing.JMenuItem menuItemCRUDRoles;
+    private javax.swing.JMenuItem menuItemDatingHistory;
+    private javax.swing.JMenuItem menuItemFoodPlans;
+    private javax.swing.JMenuItem menuItemNewDate;
+    private javax.swing.JMenuItem menuItemNewRol;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
 
-    class FondoPanel extends JPanel{
-    private Image imagen;
-    
-    public void paint(Graphics g){
-    
-        imagen = new ImageIcon(getClass().getResource("/Images/fondo1.jpg")).getImage();
-        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-        setOpaque(false);
-        
-        super.paint(g);
-    }
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondo1.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
     }
 
 }

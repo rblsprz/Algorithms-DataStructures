@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author HELLO
@@ -28,28 +30,64 @@ public class Customer extends javax.swing.JFrame {
     private void initComponents() {
 
         lbCustomer = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
+        menuMyProfile = new javax.swing.JMenu();
+        menuItemMyAdvances = new javax.swing.JMenuItem();
+        menuItemMyDatingHistory = new javax.swing.JMenuItem();
+        menuItemMyFoodPlans = new javax.swing.JMenuItem();
+        menuAdd = new javax.swing.JMenu();
+        menuItemNewDate = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
+        setPreferredSize(new java.awt.Dimension(2000, 2000));
         setResizable(false);
         getContentPane().setLayout(null);
 
         lbCustomer.setText("CUSTOMER");
         getContentPane().add(lbCustomer);
-        lbCustomer.setBounds(164, 120, 83, 20);
+        lbCustomer.setBounds(164, 120, 55, 14);
 
-        jButton1.setText("Agregar cita");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        menuMyProfile.setText("MY PROFILE");
+
+        menuItemMyAdvances.setText("MY ADVANCES");
+        menuItemMyAdvances.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                menuItemMyAdvancesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(152, 191, 119, 29);
+        menuMyProfile.add(menuItemMyAdvances);
+
+        menuItemMyDatingHistory.setText("MY DATING HISTORY");
+        menuItemMyDatingHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMyDatingHistoryActionPerformed(evt);
+            }
+        });
+        menuMyProfile.add(menuItemMyDatingHistory);
+
+        menuItemMyFoodPlans.setText("MY FOOD PLANS");
+        menuItemMyFoodPlans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMyFoodPlansActionPerformed(evt);
+            }
+        });
+        menuMyProfile.add(menuItemMyFoodPlans);
+
+        jMenuBar1.add(menuMyProfile);
+
+        menuAdd.setText("ADD");
+
+        menuItemNewDate.setText("NEW DATE");
+        menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemNewDateActionPerformed(evt);
+            }
+        });
+        menuAdd.add(menuItemNewDate);
+
+        jMenuBar1.add(menuAdd);
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +123,29 @@ public class Customer extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_menuItemSignOffActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CitaCliente cC=new CitaCliente();
-        dispose();
-        cC.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
+        AdministratorDates aD = new AdministratorDates();
+        aD.show();
+        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemNewDateActionPerformed
+
+    private void menuItemMyDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyDatingHistoryActionPerformed
+        MyDatingHistory mD = new MyDatingHistory();
+        mD.show();
+        mD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemMyDatingHistoryActionPerformed
+
+    private void menuItemMyAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyAdvancesActionPerformed
+        MyAdvances mA = new MyAdvances();
+        mA.show();
+        mA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemMyAdvancesActionPerformed
+
+    private void menuItemMyFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyFoodPlansActionPerformed
+        MyFoodPlans mF = new MyFoodPlans();
+        mF.show();
+        mF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemMyFoodPlansActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,10 +183,15 @@ public class Customer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbCustomer;
+    private javax.swing.JMenu menuAdd;
+    private javax.swing.JMenuItem menuItemMyAdvances;
+    private javax.swing.JMenuItem menuItemMyDatingHistory;
+    private javax.swing.JMenuItem menuItemMyFoodPlans;
+    private javax.swing.JMenuItem menuItemNewDate;
     private javax.swing.JMenuItem menuItemSignOff;
+    private javax.swing.JMenu menuMyProfile;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
 }
