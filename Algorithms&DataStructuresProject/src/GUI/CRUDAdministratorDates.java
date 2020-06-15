@@ -61,7 +61,6 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         tfDate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(2000, 2000));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -228,7 +227,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 Delete stack = new Delete();
                 int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar la cita de " + tfName.getText() + " de este archivo?");
                 if(d == 0){
-                    stack.borrarCita("citas.txt", tfID.getText());
+                    stack.borrarCita("citas.txt", tfDate.getText(),tfTime.getText());
                     JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
                     mostrarCitas();
                     tfID.setText("");

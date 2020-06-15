@@ -29,8 +29,8 @@ public class Customer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbCustomer = new javax.swing.JLabel();
-
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuMyProfile = new javax.swing.JMenu();
         menuItemMyAdvances = new javax.swing.JMenuItem();
@@ -41,15 +41,11 @@ public class Customer extends javax.swing.JFrame {
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
-
-        getContentPane().setLayout(null);
-
-        lbCustomer.setText("CUSTOMER");
-        getContentPane().add(lbCustomer);
-        lbCustomer.setBounds(164, 120, 55, 14);
 
         menuMyProfile.setText("MY PROFILE");
 
@@ -92,11 +88,6 @@ public class Customer extends javax.swing.JFrame {
         jMenuBar1.add(menuAdd);
 
         menuOptions.setText("OPTIONS");
-        menuOptions.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuOptionsActionPerformed(evt);
-            }
-        });
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuItemSignOff.setText("SIGN OFF");
@@ -111,30 +102,24 @@ public class Customer extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
+
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionsActionPerformed
-
-    }//GEN-LAST:event_menuOptionsActionPerformed
-
-    private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
-        Main m = new Main();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_menuItemSignOffActionPerformed
-
-    private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
-        AdministratorDates aD = new AdministratorDates();
-        aD.show();
-        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemNewDateActionPerformed
-
     private void menuItemMyDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyDatingHistoryActionPerformed
-        MyDatingHistory mD = new MyDatingHistory();
-        mD.show();
-        mD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        MyDatingHistory mH = new MyDatingHistory();
+        mH.show();
+        mH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemMyDatingHistoryActionPerformed
 
     private void menuItemMyAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyAdvancesActionPerformed
@@ -149,11 +134,17 @@ public class Customer extends javax.swing.JFrame {
         mF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemMyFoodPlansActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-      CRUD_CLIENTE_CITAS ccc=new CRUD_CLIENTE_CITAS();
-      ccc.setVisible(true);
-      dispose();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
+        AdministratorDates aD = new AdministratorDates();
+        aD.show();
+        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemNewDateActionPerformed
+
+    private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
+        Main m = new Main();
+        m.show();
+        m.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemSignOffActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,9 +182,9 @@ public class Customer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JLabel lbCustomer;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenuItem menuItemMyAdvances;
     private javax.swing.JMenuItem menuItemMyDatingHistory;
