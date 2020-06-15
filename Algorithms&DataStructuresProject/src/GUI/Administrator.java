@@ -118,6 +118,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemDatingHistory);
 
+
         menuItemFoodPlans.setText("FOOD PLANS");
         menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +128,7 @@ public class Administrator extends javax.swing.JFrame {
         menuInformation.add(menuItemFoodPlans);
 
         jMenuBar1.add(menuInformation);
+
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +259,7 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
+
 
     class FondoPanel extends JPanel {
 

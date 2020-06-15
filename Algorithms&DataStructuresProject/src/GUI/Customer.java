@@ -30,6 +30,7 @@ public class Customer extends javax.swing.JFrame {
     private void initComponents() {
 
         lbCustomer = new javax.swing.JLabel();
+
         jMenuBar1 = new javax.swing.JMenuBar();
         menuMyProfile = new javax.swing.JMenu();
         menuItemMyAdvances = new javax.swing.JMenuItem();
@@ -41,8 +42,9 @@ public class Customer extends javax.swing.JFrame {
         menuItemSignOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(2000, 2000));
-        setResizable(false);
+
+        setPreferredSize(new java.awt.Dimension(1500, 1500));
+
         getContentPane().setLayout(null);
 
         lbCustomer.setText("CUSTOMER");
@@ -147,6 +149,12 @@ public class Customer extends javax.swing.JFrame {
         mF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemMyFoodPlansActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+      CRUD_CLIENTE_CITAS ccc=new CRUD_CLIENTE_CITAS();
+      ccc.setVisible(true);
+      dispose();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,6 +192,7 @@ public class Customer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbCustomer;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenuItem menuItemMyAdvances;

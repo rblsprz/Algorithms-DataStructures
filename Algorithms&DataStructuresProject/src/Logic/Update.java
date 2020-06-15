@@ -105,13 +105,27 @@ public class Update {
             }
         }//End for
     }//End actualizarDatos
-    public void actualizarCita(String fecha, String hora, String nombre, String cedula) throws IOException{
+     public void actualizarCita(String fecha, String hora, String nombre, String cedula) throws IOException{
         String[] arregloArchivo = getArregloArchivo("citas.txt");
 
         PrintStream ps = getPrintStream("citas.txt", false);
         for (int i = 0; i < arregloArchivo.length; i++) {
 
-            if (!getNameFile(arregloArchivo[i], 2).equals(cedula)) {
+            if (!getNameFile(arregloArchivo[i], 0).equals(fecha) && !getNameFile(arregloArchivo[i], 1).equals(hora)) {
+                ps.println(arregloArchivo[i]);
+            } else {
+                ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
+            }
+        }//End for
+    }//End actualizarPaises
+    
+     public void actualizarCita2(String fecha, String hora, String nombre, String cedula) throws IOException{
+        String[] arregloArchivo = getArregloArchivo("citas.txt");
+
+        PrintStream ps = getPrintStream("citas.txt", false);
+        for (int i = 0; i < arregloArchivo.length; i++) {
+
+            if (!getNameFile(arregloArchivo[i], 0).equals(fecha) && !getNameFile(arregloArchivo[i], 1).equals(hora)) {
                 ps.println(arregloArchivo[i]);
             } else {
                 ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
