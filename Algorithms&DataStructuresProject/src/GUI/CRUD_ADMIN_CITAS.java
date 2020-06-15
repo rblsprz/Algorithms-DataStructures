@@ -301,7 +301,7 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
     
     public void paint(Graphics g){
     
-        imagen = new ImageIcon(getClass().getResource("/Images/fondo1.jpg")).getImage();
+        imagen = new ImageIcon(getClass().getResource("/Images/fondo5.jpg")).getImage();
         g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
         setOpaque(false);
         

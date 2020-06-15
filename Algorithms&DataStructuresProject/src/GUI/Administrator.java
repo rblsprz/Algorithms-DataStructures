@@ -43,14 +43,13 @@ public class Administrator extends javax.swing.JFrame {
         menuItemSignOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
         getContentPane().setLayout(null);
 
         lbAdministrator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_administrator_green_15073.png"))); // NOI18N
         lbAdministrator.setText("ADMINISTRATOR");
         lbAdministrator.setOpaque(true);
         getContentPane().add(lbAdministrator);
-        lbAdministrator.setBounds(307, 39, 261, 128);
+        lbAdministrator.setBounds(307, 39, 227, 128);
 
         jButton1.setText("Agregar Citas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +58,7 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(0, 39, 129, 29);
+        jButton1.setBounds(0, 39, 108, 32);
 
         jButton2.setText("CRUD Citas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +67,7 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(0, 94, 129, 29);
+        jButton2.setBounds(0, 94, 129, 32);
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -168,8 +167,8 @@ public class Administrator extends javax.swing.JFrame {
     
     public void paint(Graphics g){
     
-        imagen = new ImageIcon(getClass().getResource("/Images/fondo1.jpg")).getImage();
-        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        imagen = new ImageIcon(getClass().getResource("/Images/fondo4.jpg")).getImage();
+        g.drawImage(imagen, 5, 5, getWidth(), getHeight(), this);
         setOpaque(false);
         
         super.paint(g);

@@ -170,6 +170,9 @@ public class SuperAdministrator extends javax.swing.JFrame {
         CRUD cR = new CRUD();
        cR.setVisible(true);
         dispose();
+        SuperAdministrator f = new SuperAdministrator();
+        dispose();
+        f.setVisible (false); 
     }//GEN-LAST:event_menuItemCrudActionPerformed
 
     private void menuItemAccessAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAccessAdministratorActionPerformed
@@ -178,13 +181,16 @@ public class SuperAdministrator extends javax.swing.JFrame {
         dispose();
         SuperAdministrator f = new SuperAdministrator();
         dispose();
-        f.setVisible (true); 
+        f.setVisible (false); 
     }//GEN-LAST:event_menuItemAccessAdministratorActionPerformed
 
     private void menuItemAcessCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcessCustomerActionPerformed
         Customer cM = new Customer();
         cM.show();
         cM.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator f = new SuperAdministrator();
+        dispose();
+        f.setVisible (false); 
     }//GEN-LAST:event_menuItemAcessCustomerActionPerformed
 
     /**
