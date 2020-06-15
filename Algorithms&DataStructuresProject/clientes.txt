@@ -1,3 +1,0 @@
-mano;Prueba00.;2
-vale;Prueba01.;3
-maguilar;Prueba02.;3
