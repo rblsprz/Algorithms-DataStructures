@@ -187,15 +187,18 @@ public class Delete {
     return nombreArchivo;
     }//Fin getNombreArchivo
     
-    public void borrarCita(String archivo, String identificador) throws IOException {
+    public void borrarCita(String archivo, String fecha, String hora) throws IOException {
         String [] arregloArchivo = getArregloArchivo(archivo);
         
         PrintStream ps = getPrintStream(archivo, false);
         for(int i = 0; i < arregloArchivo.length; i++){
-            if(!getNombreArchivo(arregloArchivo[i], 2).equalsIgnoreCase(identificador))
+            if(!getNombreArchivo(arregloArchivo[i], 0).equalsIgnoreCase(fecha) || !getNombreArchivo(arregloArchivo[i], 1).equalsIgnoreCase(hora)){
                 ps.println(arregloArchivo[i]);
-        }//End if
+            }   
+        } 
     }//End borrarPais
+ 
+
     
     
 //    public PrintStream getPrintStream(String nombreArchivo, boolean editable) {

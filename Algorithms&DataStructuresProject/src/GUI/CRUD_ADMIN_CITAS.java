@@ -228,7 +228,7 @@ public class CRUD_ADMIN_CITAS extends javax.swing.JFrame {
                 Delete stack = new Delete();
                 int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar la cita de " + txtPaciente.getText() + " de este archivo?");
                 if(d == 0){
-                    stack.borrarCita("citas.txt", txtCedul.getText());
+                    stack.borrarCita("citas.txt", txtFecha.getText(), txtHora.getText());
                     JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
                     mostrarCitas();
                     txtCedul.setText("");
