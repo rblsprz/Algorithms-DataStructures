@@ -68,6 +68,21 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="menuCRUD">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CRUD"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemMyCRUD">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MY CRUD"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemMyCRUDActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="menuOptions">
           <Properties>
             <Property name="text" type="java.lang.String" value="OPTIONS"/>

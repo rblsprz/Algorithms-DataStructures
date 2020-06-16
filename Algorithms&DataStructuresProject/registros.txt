@@ -1,5 +1,5 @@
 117800556;erick;chavarria;mano;Prueba00.;19;84949060;prueba@hotmail.com;2
-123456789;valery;molina;vale;Prueba01.;20;88881111;pruebav@hotmail,com;3
 900970120;mauren;aguilar;maguilar;Prueba02.;45;88889999;pruebama@hotmail.com;3
 305350721;David;Robles;david2001;Prueba.2020;18;45677764;fffffffffffffffffffffffffff;2
 305350722;Nia;Robles;niarobles;Prueba.2005;15;12345678;ddddddddddddddddddd;3
+305350876;Karla;Perez;karlap;Prueba.2018;30;12345678;ggggggggggggg;3

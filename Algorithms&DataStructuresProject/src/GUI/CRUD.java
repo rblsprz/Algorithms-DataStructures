@@ -231,7 +231,7 @@ public class CRUD extends javax.swing.JFrame {
             
         }
             }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al eliminar");
+                JOptionPane.showMessageDialog(null, "DELETE ERROR!");
             }   
     }//GEN-LAST:event_btnDeleteActionPerformed
 

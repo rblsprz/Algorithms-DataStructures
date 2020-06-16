@@ -196,9 +196,9 @@ public class SuperAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemCRUDRolesActionPerformed
 
     private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
-        CitaCliente cC = new CitaCliente();
-        cC.show();
-        cC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        AdministratorDates aD = new AdministratorDates();
+        aD.show();
+        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemNewDateActionPerformed
 
     private void menuItemCRUDDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDDatesActionPerformed

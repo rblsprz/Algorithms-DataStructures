@@ -3,3 +3,5 @@ vale;Prueba01.;3
 maguilar;Prueba02.;3
 david2001;Prueba.2020;2
 niarobles;Prueba.2005;3
+melissa;Prueba.2019;2
+karlap;Prueba.2018;3

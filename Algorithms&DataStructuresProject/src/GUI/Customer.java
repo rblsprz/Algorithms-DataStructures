@@ -38,6 +38,8 @@ public class Customer extends javax.swing.JFrame {
         menuItemMyFoodPlans = new javax.swing.JMenuItem();
         menuAdd = new javax.swing.JMenu();
         menuItemNewDate = new javax.swing.JMenuItem();
+        menuCRUD = new javax.swing.JMenu();
+        menuItemMyCRUD = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
@@ -87,6 +89,18 @@ public class Customer extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAdd);
 
+        menuCRUD.setText("CRUD");
+
+        menuItemMyCRUD.setText("MY CRUD");
+        menuItemMyCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMyCRUDActionPerformed(evt);
+            }
+        });
+        menuCRUD.add(menuItemMyCRUD);
+
+        jMenuBar1.add(menuCRUD);
+
         menuOptions.setText("OPTIONS");
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
@@ -135,9 +149,9 @@ public class Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemMyFoodPlansActionPerformed
 
     private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
-        AdministratorDates aD = new AdministratorDates();
-        aD.show();
-        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        CitaCliente cC = new CitaCliente();
+        cC.show();
+        cC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemNewDateActionPerformed
 
     private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
@@ -145,6 +159,12 @@ public class Customer extends javax.swing.JFrame {
         m.show();
         m.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemSignOffActionPerformed
+
+    private void menuItemMyCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyCRUDActionPerformed
+        CRUDCustomerDates cS = new CRUDCustomerDates();
+        cS.show();
+        cS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemMyCRUDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +206,9 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuAdd;
+    private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenuItem menuItemMyAdvances;
+    private javax.swing.JMenuItem menuItemMyCRUD;
     private javax.swing.JMenuItem menuItemMyDatingHistory;
     private javax.swing.JMenuItem menuItemMyFoodPlans;
     private javax.swing.JMenuItem menuItemNewDate;
