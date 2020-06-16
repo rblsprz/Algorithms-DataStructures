@@ -31,6 +31,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
      */
     public CRUDCustomerDates() {
         initComponents();
+        this.setExtendedState(CRUDCustomerDates.MAXIMIZED_BOTH);
     }
     
     Logic Stack = new Logic();
@@ -43,7 +44,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
@@ -60,15 +60,9 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         lbDatesRegisters = new javax.swing.JLabel();
         dateChooser = new com.toedter.calendar.JDateChooser();
         lbMessages = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back1.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,13 +120,23 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         lbDatesRegisters.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDatesRegisters.setText("DATES REGISTERS");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back1.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbDatesRegisters, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(335, 335, 335))
@@ -174,7 +178,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addComponent(jButton1)
                     .addComponent(lbDatesRegisters, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,18 +213,12 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                         .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(51, 51, 51)
                 .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Customer i = new Customer();
-        i.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         int seleccion = jTable3.getSelectedRow();
@@ -332,6 +330,11 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         mostrarNombre();
     }//GEN-LAST:event_tfNameMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Customer sA=new Customer();
+        dispose();
+        sA.setVisible(true);    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -375,7 +378,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private javax.swing.JButton btnShowDates;
     private javax.swing.JButton btnUpdate;
     private com.toedter.calendar.JDateChooser dateChooser;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable3;
     private javax.swing.JLabel lbDate;

@@ -24,6 +24,7 @@ public class AdministratorDates extends javax.swing.JFrame {
      */
     public AdministratorDates() {
         initComponents();
+        this.setExtendedState(AdministratorDates.MAXIMIZED_BOTH);
     }
     
     FileStacks stack = new FileStacks();
@@ -53,61 +54,86 @@ public class AdministratorDates extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        lbName.setForeground(new java.awt.Color(0, 0, 0));
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(70, 120, 32, 24);
+        lbName.setBounds(860, 120, 36, 24);
 
+        lbID.setForeground(new java.awt.Color(0, 0, 0));
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(70, 80, 37, 14);
-        getContentPane().add(tfName);
-        tfName.setBounds(130, 120, 170, 20);
-        getContentPane().add(tfID);
-        tfID.setBounds(130, 80, 171, 20);
+        lbID.setBounds(870, 80, 37, 16);
 
+        tfName.setBackground(new java.awt.Color(0, 102, 102));
+        tfName.setOpaque(false);
+        getContentPane().add(tfName);
+        tfName.setBounds(920, 120, 170, 24);
+
+        tfID.setBackground(new java.awt.Color(0, 102, 102));
+        tfID.setOpaque(false);
+        tfID.setSelectionColor(new java.awt.Color(204, 204, 204));
+        getContentPane().add(tfID);
+        tfID.setBounds(920, 80, 171, 24);
+
+        lbTime.setForeground(new java.awt.Color(0, 0, 0));
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(70, 240, 28, 14);
+        lbTime.setBounds(870, 220, 30, 20);
 
+        cBTime.setBackground(new java.awt.Color(204, 204, 204));
+        cBTime.setEditable(true);
         cBTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m" }));
+        cBTime.setToolTipText("");
+        cBTime.setOpaque(false);
         cBTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cBTimeActionPerformed(evt);
             }
         });
         getContentPane().add(cBTime);
-        cBTime.setBounds(130, 240, 79, 20);
+        cBTime.setBounds(920, 220, 79, 26);
 
+        btnRequest.setBackground(new java.awt.Color(255, 255, 255));
+        btnRequest.setForeground(new java.awt.Color(0, 0, 0));
         btnRequest.setText("REQUEST");
+        btnRequest.setOpaque(false);
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestActionPerformed(evt);
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(150, 320, 112, 23);
-        getContentPane().add(dateChooser);
-        dateChooser.setBounds(130, 170, 170, 20);
+        btnRequest.setBounds(920, 300, 112, 32);
 
+        dateChooser.setBackground(new java.awt.Color(204, 204, 204));
+        dateChooser.setForeground(new java.awt.Color(255, 255, 255));
+        dateChooser.setOpaque(false);
+        getContentPane().add(dateChooser);
+        dateChooser.setBounds(920, 160, 170, 29);
+
+        lbDate.setForeground(new java.awt.Color(0, 0, 0));
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(70, 170, 30, 14);
+        lbDate.setBounds(870, 170, 33, 16);
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setForeground(new java.awt.Color(0, 0, 0));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         btnBack.setText("BACK");
         btnBack.setBorderPainted(false);
         btnBack.setContentAreaFilled(false);
+        btnBack.setFocusable(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         getContentPane().add(btnBack);
-        btnBack.setBounds(50, 10, 87, 33);
+        btnBack.setBounds(50, 10, 140, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(1, 0, 700, 440);
+        jLabel4.setBounds(0, 0, 2030, 1020);
 
         pack();
         setLocationRelativeTo(null);

@@ -31,6 +31,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     public CRUDAdministratorDates() {
         this.setContentPane(fondo);
         initComponents();
+        this.setExtendedState(CRUD.MAXIMIZED_BOTH);
     }
     
     Logic Stack = new Logic();
@@ -81,29 +82,29 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable3);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(20, 40, 438, 360);
+        jScrollPane3.setBounds(160, 210, 438, 360);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(536, 61, 32, 14);
+        lbName.setBounds(680, 240, 36, 16);
         getContentPane().add(tfName);
-        tfName.setBounds(626, 58, 219, 20);
+        tfName.setBounds(770, 230, 219, 24);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(536, 110, 15, 14);
+        lbID.setBounds(680, 280, 14, 16);
         getContentPane().add(tfID);
-        tfID.setBounds(626, 107, 219, 20);
+        tfID.setBounds(770, 280, 219, 24);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(536, 161, 72, 14);
+        lbDate.setBounds(680, 340, 72, 16);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(536, 237, 40, 14);
+        lbTime.setBounds(680, 410, 40, 16);
         getContentPane().add(tfTime);
-        tfTime.setBounds(626, 234, 219, 20);
+        tfTime.setBounds(770, 410, 219, 24);
 
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +113,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(670, 299, 71, 23);
+        btnUpdate.setBounds(800, 470, 110, 32);
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +122,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(776, 299, 69, 23);
+        btnDelete.setBounds(920, 470, 120, 32);
 
         btnShowDates.setText("SHOW DATES");
         btnShowDates.addActionListener(new java.awt.event.ActionListener() {
@@ -130,9 +131,9 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(536, 299, 110, 23);
+        btnShowDates.setBounds(640, 470, 140, 32);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(626, 155, 219, 20);
+        dateChooser.setBounds(770, 330, 219, 29);
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         btnBack.setText("BACK");
@@ -144,9 +145,9 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBack);
-        btnBack.setBounds(820, 420, 87, 33);
+        btnBack.setBounds(10, 20, 130, 40);
         getContentPane().add(tfDate);
-        tfDate.setBounds(626, 197, 97, 20);
+        tfDate.setBounds(770, 370, 97, 24);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(560, 370, 290, 0);
 

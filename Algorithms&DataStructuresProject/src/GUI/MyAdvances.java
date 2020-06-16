@@ -16,6 +16,7 @@ public class MyAdvances extends javax.swing.JFrame {
      */
     public MyAdvances() {
         initComponents();
+        this.setExtendedState(MyAdvances.MAXIMIZED_BOTH);
     }
 
     /**

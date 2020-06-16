@@ -20,7 +20,8 @@ private Timer time;
     public Welcome() {
         initComponents();
         lbEnter.setCursor(new Cursor(HAND_CURSOR));
-        setLocation(350, 50);
+        setLocation(900, 500); 
+        this.setExtendedState(Welcome.MAXIMIZED_BOTH);
     }//End Welcome
 
     public class progress implements ActionListener{
@@ -57,14 +58,15 @@ private Timer time;
         getContentPane().setLayout(null);
 
         lbBarrasWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barrasWelcome.jpg"))); // NOI18N
+        lbBarrasWelcome.setPreferredSize(new java.awt.Dimension(1000, 1000));
         getContentPane().add(lbBarrasWelcome);
-        lbBarrasWelcome.setBounds(0, 0, 290, 710);
+        lbBarrasWelcome.setBounds(0, -50, 540, 1090);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/barrasWelcome.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(940, 0, 310, 710);
+        jLabel2.setBounds(1440, -20, 740, 1030);
         getContentPane().add(jProgressBar);
-        jProgressBar.setBounds(440, 360, 390, 14);
+        jProgressBar.setBounds(810, 370, 390, 12);
 
         lbEnter.setText("     ENTER");
         lbEnter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,14 +75,17 @@ private Timer time;
             }
         });
         getContentPane().add(lbEnter);
-        lbEnter.setBounds(600, 390, 90, 14);
+        lbEnter.setBounds(940, 410, 90, 16);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
+        jLabel3.setAlignmentX(500.0F);
+        jLabel3.setAlignmentY(500.0F);
+        jLabel3.setAutoscrolls(true);
         jLabel3.setMaximumSize(new java.awt.Dimension(2000, 2000));
         jLabel3.setMinimumSize(new java.awt.Dimension(2000, 2000));
         jLabel3.setPreferredSize(new java.awt.Dimension(2000, 2000));
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(290, -3, 662, 710);
+        jLabel3.setBounds(540, -40, 900, 1040);
 
         pack();
         setLocationRelativeTo(null);
@@ -126,6 +131,7 @@ private Timer time;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Welcome().setVisible(true);
+                
             }
         }//End Runnable
         );

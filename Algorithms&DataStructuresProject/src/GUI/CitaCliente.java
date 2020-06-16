@@ -25,6 +25,7 @@ public class CitaCliente extends javax.swing.JFrame {
      */
     public CitaCliente() {
         initComponents();
+        this.setExtendedState(CitaCliente.MAXIMIZED_BOTH);
     }
 
     /**
@@ -52,11 +53,11 @@ public class CitaCliente extends javax.swing.JFrame {
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(120, 70, 171, 20);
+        tfID.setBounds(220, 80, 171, 24);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(50, 230, 40, 14);
+        lbTime.setBounds(150, 240, 60, 16);
 
         cbmHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m", " " }));
         cbmHora.addActionListener(new java.awt.event.ActionListener() {
@@ -65,39 +66,46 @@ public class CitaCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmHora);
-        cbmHora.setBounds(120, 230, 79, 20);
+        cbmHora.setBounds(230, 240, 79, 26);
 
         btnRequest.setText("REQUEST");
+        btnRequest.setBorderPainted(false);
+        btnRequest.setContentAreaFilled(false);
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestActionPerformed(evt);
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(120, 300, 112, 23);
+        btnRequest.setBounds(200, 310, 130, 32);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(120, 180, 160, 20);
+        dateChooser.setBounds(220, 180, 160, 29);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(50, 180, 30, 14);
+        lbDate.setBounds(150, 190, 50, 16);
 
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back1.png"))); // NOI18N
         btnBack.setText("BACK");
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setFocusable(false);
+        btnBack.setOpaque(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         getContentPane().add(btnBack);
-        btnBack.setBounds(350, 350, 80, 23);
+        btnBack.setBounds(10, 20, 160, 48);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(50, 120, 40, 24);
+        lbName.setBounds(150, 130, 60, 24);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(50, 80, 15, 14);
+        lbID.setBounds(150, 90, 50, 16);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +114,7 @@ public class CitaCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(120, 120, 170, 20);
+        tfName.setBounds(220, 130, 170, 24);
 
         pack();
         setLocationRelativeTo(null);

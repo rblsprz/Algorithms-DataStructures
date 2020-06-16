@@ -79,6 +79,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemNewDate">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/configure_user_16726.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="NEW DATE"/>
               </Properties>
               <Events>
@@ -108,6 +111,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemCRUDDates">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="CRUD DATES"/>
               </Properties>
               <Events>
@@ -160,6 +166,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Alt+E"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/salida.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="SIGN OFF"/>
               </Properties>
               <Events>
@@ -189,7 +198,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,110,0,0,3,-20"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,110,0,0,6,16"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -205,7 +214,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="429" y="0" width="248" height="108"/>
+          <AbsoluteConstraints x="880" y="0" width="248" height="108"/>
         </Constraint>
       </Constraints>
     </Component>

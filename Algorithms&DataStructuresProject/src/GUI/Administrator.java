@@ -52,13 +52,14 @@ public class Administrator extends javax.swing.JFrame {
         menuItemSignOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(null);
 
         lbAdministrator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_administrator_green_15073.png"))); // NOI18N
         lbAdministrator.setText("ADMINISTRATOR");
         lbAdministrator.setOpaque(true);
         getContentPane().add(lbAdministrator);
-        lbAdministrator.setBounds(307, 39, 216, 128);
+        lbAdministrator.setBounds(307, 39, 227, 128);
 
         menuAdd.setText("ADD");
 
@@ -118,7 +119,6 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemDatingHistory);
 
-
         menuItemFoodPlans.setText("FOOD PLANS");
         menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +128,6 @@ public class Administrator extends javax.swing.JFrame {
         menuInformation.add(menuItemFoodPlans);
 
         jMenuBar1.add(menuInformation);
-
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {

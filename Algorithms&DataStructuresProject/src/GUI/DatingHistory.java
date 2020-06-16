@@ -16,6 +16,7 @@ public class DatingHistory extends javax.swing.JFrame {
      */
     public DatingHistory() {
         initComponents();
+        this.setExtendedState(DatingHistory.MAXIMIZED_BOTH);
     }
 
     /**

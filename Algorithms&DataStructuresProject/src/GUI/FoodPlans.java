@@ -15,6 +15,7 @@ public class FoodPlans extends javax.swing.JFrame {
     /** Creates new form FoodPlans */
     public FoodPlans() {
         initComponents();
+        this.setExtendedState(FoodPlans.MAXIMIZED_BOTH);
     }
 
     /** This method is called from within the constructor to

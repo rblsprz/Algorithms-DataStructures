@@ -18,6 +18,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
      */
     public SuperAdministrator() {
         initComponents();
+        this.setExtendedState(SuperAdministrator.MAXIMIZED_BOTH);
     }
 
     /**
@@ -74,7 +75,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         lbSuperAdministrator.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbSuperAdministrator.setText("SUPER ADMINISTRATOR");
         getContentPane().add(lbSuperAdministrator);
-        lbSuperAdministrator.setBounds(429, 0, 248, 108);
+        lbSuperAdministrator.setBounds(880, 0, 248, 108);
 
         menuAdd.setText("ADD");
 
@@ -88,6 +89,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuAdd.add(menuItemNewRol);
 
+        menuItemNewDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
         menuItemNewDate.setText("NEW DATE");
         menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +112,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuCrud.add(menuItemCRUDRoles);
 
+        menuItemCRUDDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         menuItemCRUDDates.setText("CRUD DATES");
         menuItemCRUDDates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +159,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuItemSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         menuItemSignOff.setText("SIGN OFF");
         menuItemSignOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,41 +191,59 @@ public class SuperAdministrator extends javax.swing.JFrame {
         NewRol nR = new NewRol();
         nR.show();
         nR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator sA = new SuperAdministrator();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemNewRolActionPerformed
 
     private void menuItemCRUDRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDRolesActionPerformed
         CRUD cR = new CRUD();
         cR.show();
         cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator sA = new SuperAdministrator();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemCRUDRolesActionPerformed
 
     private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
         AdministratorDates aD = new AdministratorDates();
         aD.show();
         aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator sA = new SuperAdministrator();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemNewDateActionPerformed
 
     private void menuItemCRUDDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDDatesActionPerformed
         CRUDAdministratorDates cA = new CRUDAdministratorDates();
         cA.show();
         cA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator sA = new SuperAdministrator();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
 
     private void menuItemFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFoodPlansActionPerformed
         FoodPlans fP = new FoodPlans();
         fP.show();
         fP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);    }//GEN-LAST:event_menuItemFoodPlansActionPerformed
-
+ 
     private void menuItemAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdvancesActionPerformed
         Advances aS = new Advances();
         aS.show();
         aS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator sA = new SuperAdministrator();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemAdvancesActionPerformed
 
     private void menuItemDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDatingHistoryActionPerformed
         DatingHistory dH = new DatingHistory();
         dH.show();
         dH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        SuperAdministrator sA = new SuperAdministrator();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemDatingHistoryActionPerformed
 
 

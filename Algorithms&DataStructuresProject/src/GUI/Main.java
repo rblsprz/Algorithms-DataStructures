@@ -23,6 +23,7 @@ public class Main extends javax.swing.JFrame {
         grupoDeBotones.add(jRadioButtonSuperAdministrador);
         grupoDeBotones.add(jRadioButtonAdministrador);
         grupoDeBotones.add(jRadioButtonCustomer);
+        this.setExtendedState(Main.MAXIMIZED_BOTH);
     }//End Main
 
     @SuppressWarnings("unchecked")
@@ -44,53 +45,76 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        lbLogin.setForeground(new java.awt.Color(0, 0, 0));
         lbLogin.setText("LOGIN");
         getContentPane().add(lbLogin);
-        lbLogin.setBounds(490, 50, 31, 14);
+        lbLogin.setBounds(970, 50, 35, 16);
 
+        jRadioButtonAdministrador.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButtonAdministrador.setText("2. ADMINISTRATOR");
+        jRadioButtonAdministrador.setOpaque(false);
         jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonAdministradorActionPerformed(evt);
             }
         });
         getContentPane().add(jRadioButtonAdministrador);
-        jRadioButtonAdministrador.setBounds(470, 120, 123, 23);
+        jRadioButtonAdministrador.setBounds(910, 110, 140, 28);
 
+        jRadioButtonCustomer.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButtonCustomer.setText("3. CUSTOMER");
+        jRadioButtonCustomer.setOpaque(false);
         getContentPane().add(jRadioButtonCustomer);
-        jRadioButtonCustomer.setBounds(790, 110, 93, 23);
+        jRadioButtonCustomer.setBounds(1190, 110, 110, 28);
 
+        lbNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbNombreUsuario.setText("USERNAME:");
         getContentPane().add(lbNombreUsuario);
-        lbNombreUsuario.setBounds(430, 250, 58, 14);
+        lbNombreUsuario.setBounds(810, 240, 67, 16);
 
+        lbContraseña.setForeground(new java.awt.Color(0, 0, 0));
         lbContraseña.setText("PASSWORD:");
         getContentPane().add(lbContraseña);
-        lbContraseña.setBounds(430, 320, 61, 14);
-        getContentPane().add(tFnombredeUsuario);
-        tFnombredeUsuario.setBounds(540, 250, 216, 20);
+        lbContraseña.setBounds(810, 290, 72, 16);
 
+        tFnombredeUsuario.setBackground(new java.awt.Color(204, 204, 204));
+        tFnombredeUsuario.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        getContentPane().add(tFnombredeUsuario);
+        tFnombredeUsuario.setBounds(910, 240, 216, 24);
+
+        btnIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        btnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         btnIniciarSesion.setText("LOGIN");
+        btnIniciarSesion.setBorderPainted(false);
+        btnIniciarSesion.setDoubleBuffered(true);
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
         getContentPane().add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(520, 420, 63, 23);
+        btnIniciarSesion.setBounds(930, 360, 170, 60);
 
+        jRadioButtonSuperAdministrador.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButtonSuperAdministrador.setText("1. SUPER ADMINISTRATOR");
+        jRadioButtonSuperAdministrador.setFocusPainted(false);
+        jRadioButtonSuperAdministrador.setOpaque(false);
         getContentPane().add(jRadioButtonSuperAdministrador);
-        jRadioButtonSuperAdministrador.setBounds(130, 120, 157, 23);
+        jRadioButtonSuperAdministrador.setBounds(600, 110, 182, 28);
+
+        tfpassword.setBackground(new java.awt.Color(204, 204, 204));
+        tfpassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         getContentPane().add(tfpassword);
-        tfpassword.setBounds(540, 310, 216, 20);
+        tfpassword.setBounds(910, 290, 216, 22);
+        tfpassword.getAccessibleContext().setAccessibleName("");
+
         getContentPane().add(lbAutenticacion);
-        lbAutenticacion.setBounds(150, 366, 337, 24);
+        lbAutenticacion.setBounds(870, 440, 337, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, 0, 1040, 600);
+        jLabel1.setBounds(-10, 0, 2020, 1000);
 
         pack();
         setLocationRelativeTo(null);

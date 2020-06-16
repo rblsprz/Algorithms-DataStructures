@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import Logic.Logic;
 
 /**
- *
+ 
  * @author pc
  */
 
@@ -21,6 +21,7 @@ public class NewRol extends javax.swing.JFrame {
 
     public NewRol() {
         initComponents();
+        this.setExtendedState(NewRol.MAXIMIZED_BOTH);
 
     }
 
@@ -63,17 +64,16 @@ public class NewRol extends javax.swing.JFrame {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(2000, 2000));
         setResizable(false);
         getContentPane().setLayout(null);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(40, 112, 32, 14);
+        lbName.setBounds(40, 112, 36, 16);
 
         lbPassword.setText("PASSWORD:");
         getContentPane().add(lbPassword);
-        lbPassword.setBounds(40, 276, 61, 14);
+        lbPassword.setBounds(40, 276, 72, 16);
 
         cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRATOR", "CUSTOMER" }));
         cbRoles.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -87,61 +87,63 @@ public class NewRol extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbRoles);
-        cbRoles.setBounds(161, 492, 293, 20);
+        cbRoles.setBounds(161, 492, 293, 26);
 
         lbRoles.setText("ROLES:");
         getContentPane().add(lbRoles);
-        lbRoles.setBounds(40, 495, 36, 14);
+        lbRoles.setBounds(40, 495, 42, 16);
         getContentPane().add(tfName);
-        tfName.setBounds(161, 109, 293, 20);
+        tfName.setBounds(161, 109, 293, 24);
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnRegistrar.setText("ADD NEW ROL");
+        btnRegistrar.setBorderPainted(false);
+        btnRegistrar.setContentAreaFilled(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
         getContentPane().add(btnRegistrar);
-        btnRegistrar.setBounds(200, 550, 160, 41);
+        btnRegistrar.setBounds(200, 550, 160, 48);
 
         lbLastName.setText("LAST NAME:");
         getContentPane().add(lbLastName);
-        lbLastName.setBounds(40, 168, 59, 14);
+        lbLastName.setBounds(40, 168, 69, 16);
         getContentPane().add(tfLastName);
-        tfLastName.setBounds(161, 165, 293, 20);
+        tfLastName.setBounds(161, 165, 293, 24);
 
         lbPhone.setText("PHONE:");
         getContentPane().add(lbPhone);
-        lbPhone.setBounds(40, 386, 38, 14);
+        lbPhone.setBounds(40, 386, 43, 16);
         getContentPane().add(tfPhone);
-        tfPhone.setBounds(161, 383, 293, 20);
+        tfPhone.setBounds(161, 383, 293, 24);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(40, 61, 15, 14);
+        lbID.setBounds(40, 61, 14, 16);
         getContentPane().add(tfID);
-        tfID.setBounds(161, 58, 293, 20);
+        tfID.setBounds(161, 58, 293, 24);
         getContentPane().add(tfPassword);
-        tfPassword.setBounds(161, 273, 293, 20);
+        tfPassword.setBounds(161, 273, 293, 22);
 
         lbUserName.setText("USERNAME:");
         getContentPane().add(lbUserName);
-        lbUserName.setBounds(40, 221, 58, 14);
+        lbUserName.setBounds(40, 221, 67, 16);
         getContentPane().add(tfUserName);
-        tfUserName.setBounds(161, 218, 293, 20);
+        tfUserName.setBounds(161, 218, 293, 24);
 
         lbAge.setText("AGE:");
         getContentPane().add(lbAge);
-        lbAge.setBounds(40, 330, 24, 14);
+        lbAge.setBounds(40, 330, 26, 16);
         getContentPane().add(tfAge);
-        tfAge.setBounds(161, 327, 293, 20);
+        tfAge.setBounds(161, 327, 293, 24);
 
         lbEmail.setText("EMAIL:");
         getContentPane().add(lbEmail);
-        lbEmail.setBounds(40, 440, 34, 14);
+        lbEmail.setBounds(40, 440, 38, 16);
         getContentPane().add(tfEmail);
-        tfEmail.setBounds(161, 434, 293, 20);
+        tfEmail.setBounds(161, 434, 293, 24);
         getContentPane().add(lbMensajes);
         lbMensajes.setBounds(658, 544, 338, 27);
 
@@ -155,7 +157,7 @@ public class NewRol extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSalir);
-        jButtonSalir.setBounds(10, 10, 105, 33);
+        jButtonSalir.setBounds(10, 10, 105, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/busin.png"))); // NOI18N
         getContentPane().add(jLabel1);

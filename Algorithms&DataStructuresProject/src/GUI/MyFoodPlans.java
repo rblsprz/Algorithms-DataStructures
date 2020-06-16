@@ -16,6 +16,7 @@ public class MyFoodPlans extends javax.swing.JFrame {
      */
     public MyFoodPlans() {
         initComponents();
+        this.setExtendedState(MyFoodPlans.MAXIMIZED_BOTH);
     }
 
     /**

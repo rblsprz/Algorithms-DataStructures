@@ -16,6 +16,7 @@ public class Advances extends javax.swing.JFrame {
      */
     public Advances() {
         initComponents();
+        this.setExtendedState(Advances.MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,17 +38,17 @@ public class Advances extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(954, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addGap(927, 927, 927))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(521, 521, 521)
                 .addComponent(jLabel1)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(639, Short.MAX_VALUE))
         );
 
         pack();

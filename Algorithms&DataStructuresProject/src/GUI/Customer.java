@@ -18,6 +18,7 @@ public class Customer extends javax.swing.JFrame {
      */
     public Customer() {
         initComponents();
+        this.setExtendedState(Customer.MAXIMIZED_BOTH);
     }
 
     /**
@@ -152,6 +153,9 @@ public class Customer extends javax.swing.JFrame {
         CitaCliente cC = new CitaCliente();
         cC.show();
         cC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Customer sA = new Customer();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemNewDateActionPerformed
 
     private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
@@ -164,6 +168,9 @@ public class Customer extends javax.swing.JFrame {
         CRUDCustomerDates cS = new CRUDCustomerDates();
         cS.show();
         cS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Customer sA = new Customer();
+        sA.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuItemMyCRUDActionPerformed
 
     /**
