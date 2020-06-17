@@ -29,26 +29,138 @@ public class Advances extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        lbSeeCustomers = new javax.swing.JLabel();
+        cbCustomers = new javax.swing.JComboBox<>();
+        lbID = new javax.swing.JLabel();
+        lbName = new javax.swing.JLabel();
+        lbLastName = new javax.swing.JLabel();
+        lbUserName = new javax.swing.JLabel();
+        lbPhone = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        tfID = new javax.swing.JTextField();
+        tfName = new javax.swing.JTextField();
+        tfLastName = new javax.swing.JTextField();
+        tfUserName = new javax.swing.JTextField();
+        tfPhone = new javax.swing.JTextField();
+        tfEmail = new javax.swing.JTextField();
+        lbMessages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("ADVANCES");
 
+        lbSeeCustomers.setText("CHOOSE CUSTOMER");
+
+        lbID.setText("ID:");
+
+        lbName.setText("NAME:");
+
+        lbLastName.setText("LAST NAME:");
+
+        lbUserName.setText("USERNAME:");
+
+        lbPhone.setText("PHONE:");
+
+        jLabel2.setText("EMAIL:");
+
+        tfID.setEditable(false);
+
+        tfName.setEditable(false);
+
+        tfLastName.setEditable(false);
+
+        tfUserName.setEditable(false);
+
+        tfPhone.setEditable(false);
+
+        tfEmail.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(954, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(927, 927, 927))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(581, 581, 581)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(lbSeeCustomers))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addGap(112, 112, 112)
+                                            .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(lbPhone)
+                                            .addGap(108, 108, 108)
+                                            .addComponent(tfPhone))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(lbUserName)
+                                            .addGap(88, 88, 88)
+                                            .addComponent(tfUserName))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(lbLastName)
+                                            .addGap(87, 87, 87)
+                                            .addComponent(tfLastName))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lbID)
+                                                .addComponent(lbName))
+                                            .addGap(114, 114, 114)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(tfName, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                                                .addComponent(tfID)))))))
+                        .addGap(156, 156, 156)
+                        .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(521, 521, 521)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel1)
-                .addContainerGap(639, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(lbSeeCustomers)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbID)
+                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbName)
+                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbLastName)
+                    .addComponent(tfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbUserName)
+                    .addComponent(tfUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbPhone)
+                    .addComponent(tfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lbMessages)))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,6 +202,21 @@ public class Advances extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbCustomers;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbLastName;
+    private javax.swing.JLabel lbMessages;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbPhone;
+    private javax.swing.JLabel lbSeeCustomers;
+    private javax.swing.JLabel lbUserName;
+    private javax.swing.JTextField tfEmail;
+    private javax.swing.JTextField tfID;
+    private javax.swing.JTextField tfLastName;
+    private javax.swing.JTextField tfName;
+    private javax.swing.JTextField tfPhone;
+    private javax.swing.JTextField tfUserName;
     // End of variables declaration//GEN-END:variables
 }

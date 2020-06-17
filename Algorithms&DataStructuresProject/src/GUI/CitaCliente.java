@@ -43,7 +43,6 @@ public class CitaCliente extends javax.swing.JFrame {
         btnRequest = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
         lbDate = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         lbName = new javax.swing.JLabel();
         lbID = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
@@ -53,11 +52,11 @@ public class CitaCliente extends javax.swing.JFrame {
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(220, 80, 171, 24);
+        tfID.setBounds(220, 80, 171, 20);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(150, 240, 60, 16);
+        lbTime.setBounds(150, 240, 60, 14);
 
         cbmHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m", " " }));
         cbmHora.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +65,7 @@ public class CitaCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmHora);
-        cbmHora.setBounds(230, 240, 79, 26);
+        cbmHora.setBounds(230, 240, 79, 20);
 
         btnRequest.setText("REQUEST");
         btnRequest.setBorderPainted(false);
@@ -77,27 +76,13 @@ public class CitaCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(200, 310, 130, 32);
+        btnRequest.setBounds(200, 310, 130, 23);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(220, 180, 160, 29);
+        dateChooser.setBounds(220, 180, 160, 20);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(150, 190, 50, 16);
-
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back1.png"))); // NOI18N
-        btnBack.setText("BACK");
-        btnBack.setBorderPainted(false);
-        btnBack.setContentAreaFilled(false);
-        btnBack.setFocusable(false);
-        btnBack.setOpaque(false);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBack);
-        btnBack.setBounds(10, 20, 160, 48);
+        lbDate.setBounds(150, 190, 50, 14);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
@@ -105,7 +90,7 @@ public class CitaCliente extends javax.swing.JFrame {
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(150, 90, 50, 16);
+        lbID.setBounds(150, 90, 50, 14);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,7 +99,7 @@ public class CitaCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(220, 130, 170, 24);
+        tfName.setBounds(220, 130, 170, 20);
 
         pack();
         setLocationRelativeTo(null);
@@ -166,12 +151,6 @@ public class CitaCliente extends javax.swing.JFrame {
         //           JOptionPane.showMessageDialog(null, "Cita NO Registrada");
     }//GEN-LAST:event_btnRequestActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Customer nS = new Customer();
-        nS.setVisible (true);
-        dispose();
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
         mostrarNombre();
     }//GEN-LAST:event_tfNameMouseClicked
@@ -217,7 +196,6 @@ public class CitaCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRequest;
     private javax.swing.JComboBox<String> cbmHora;
     private com.toedter.calendar.JDateChooser dateChooser;

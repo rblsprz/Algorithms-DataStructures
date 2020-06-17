@@ -131,5 +131,19 @@ public class Update {
                 ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
             }
         }//End for
-    }//End actualizarPaises
-}
+    }//End actualizarCita2
+     
+     public void actualizarHistorial(String fecha, String hora, String nombre, String cedula) throws IOException{
+        String[] arregloArchivo = getArregloArchivo("historia.txt");
+
+        PrintStream ps = getPrintStream("historia.txt", false);
+        for (int i = 0; i < arregloArchivo.length; i++) {
+
+            if (!getNameFile(arregloArchivo[i], 0).equals(fecha) && !getNameFile(arregloArchivo[i], 1).equals(hora)) {
+                ps.println(arregloArchivo[i]);
+            } else {
+                ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
+            }
+        }//End for
+    }//End actualizarCita2
+}//End Update

@@ -48,37 +48,33 @@ public class AdministratorDates extends javax.swing.JFrame {
         btnRequest = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
         lbDate = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        lbName.setForeground(new java.awt.Color(0, 0, 0));
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(860, 120, 36, 24);
+        lbName.setBounds(860, 120, 32, 24);
 
-        lbID.setForeground(new java.awt.Color(0, 0, 0));
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(870, 80, 37, 16);
+        lbID.setBounds(870, 80, 37, 14);
 
         tfName.setBackground(new java.awt.Color(0, 102, 102));
         tfName.setOpaque(false);
         getContentPane().add(tfName);
-        tfName.setBounds(920, 120, 170, 24);
+        tfName.setBounds(920, 120, 170, 20);
 
         tfID.setBackground(new java.awt.Color(0, 102, 102));
         tfID.setOpaque(false);
         tfID.setSelectionColor(new java.awt.Color(204, 204, 204));
         getContentPane().add(tfID);
-        tfID.setBounds(920, 80, 171, 24);
+        tfID.setBounds(920, 80, 171, 20);
 
-        lbTime.setForeground(new java.awt.Color(0, 0, 0));
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(870, 220, 30, 20);
+        lbTime.setBounds(870, 220, 28, 20);
 
         cBTime.setBackground(new java.awt.Color(204, 204, 204));
         cBTime.setEditable(true);
@@ -91,10 +87,9 @@ public class AdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cBTime);
-        cBTime.setBounds(920, 220, 79, 26);
+        cBTime.setBounds(920, 220, 79, 20);
 
         btnRequest.setBackground(new java.awt.Color(255, 255, 255));
-        btnRequest.setForeground(new java.awt.Color(0, 0, 0));
         btnRequest.setText("REQUEST");
         btnRequest.setOpaque(false);
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -103,33 +98,17 @@ public class AdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(920, 300, 112, 32);
+        btnRequest.setBounds(920, 300, 112, 23);
 
         dateChooser.setBackground(new java.awt.Color(204, 204, 204));
         dateChooser.setForeground(new java.awt.Color(255, 255, 255));
         dateChooser.setOpaque(false);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(920, 160, 170, 29);
+        dateChooser.setBounds(920, 160, 170, 20);
 
-        lbDate.setForeground(new java.awt.Color(0, 0, 0));
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(870, 170, 33, 16);
-
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setForeground(new java.awt.Color(0, 0, 0));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
-        btnBack.setText("BACK");
-        btnBack.setBorderPainted(false);
-        btnBack.setContentAreaFilled(false);
-        btnBack.setFocusable(false);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBack);
-        btnBack.setBounds(50, 10, 140, 40);
+        lbDate.setBounds(870, 170, 30, 14);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -164,12 +143,6 @@ public class AdministratorDates extends javax.swing.JFrame {
         //else
 //           JOptionPane.showMessageDialog(null, "Cita NO Registrada");
     }//GEN-LAST:event_btnRequestActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       Administrator sA=new Administrator();
-        dispose();
-        sA.setVisible(true);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void cBTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBTimeActionPerformed
         // TODO add your handling code here:
@@ -214,7 +187,6 @@ public class AdministratorDates extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRequest;
     private javax.swing.JComboBox<String> cBTime;
     private com.toedter.calendar.JDateChooser dateChooser;

@@ -65,7 +65,8 @@ public class CRUD extends javax.swing.JFrame {
         lbPassword = new javax.swing.JLabel();
         tfPassword = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
+        cbReportes = new javax.swing.JComboBox<>();
+        lbReports = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -86,7 +87,7 @@ public class CRUD extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable3);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(260, 110, 603, 447);
+        jScrollPane3.setBounds(260, 30, 603, 447);
 
         btnshowRoles.setText("SHOW ROLES");
         btnshowRoles.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +96,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(360, 620, 109, 32);
+        btnshowRoles.setBounds(260, 510, 99, 23);
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -104,19 +105,19 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(630, 620, 73, 32);
+        btnDelete.setBounds(490, 510, 69, 23);
         getContentPane().add(tfName);
-        tfName.setBounds(60, 220, 140, 24);
+        tfName.setBounds(50, 140, 140, 20);
 
         lbName.setText("NAME");
         getContentPane().add(lbName);
-        lbName.setBounds(60, 190, 33, 16);
+        lbName.setBounds(50, 110, 28, 14);
         getContentPane().add(tfLastName);
-        tfLastName.setBounds(60, 300, 140, 24);
+        tfLastName.setBounds(50, 220, 140, 20);
         getContentPane().add(tfUserName);
-        tfUserName.setBounds(60, 380, 140, 24);
+        tfUserName.setBounds(50, 290, 140, 20);
         getContentPane().add(tfAge);
-        tfAge.setBounds(60, 530, 140, 24);
+        tfAge.setBounds(50, 430, 140, 20);
 
         tfPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,23 +125,23 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfPhone);
-        tfPhone.setBounds(60, 590, 140, 24);
+        tfPhone.setBounds(50, 500, 140, 20);
 
         lbLastName.setText("LAST NAME");
         getContentPane().add(lbLastName);
-        lbLastName.setBounds(60, 270, 66, 16);
+        lbLastName.setBounds(50, 190, 55, 14);
 
         lbUserName.setText("USERNAME");
         getContentPane().add(lbUserName);
-        lbUserName.setBounds(60, 350, 64, 16);
+        lbUserName.setBounds(50, 260, 54, 14);
 
         lbAge.setText("AGE");
         getContentPane().add(lbAge);
-        lbAge.setBounds(60, 500, 23, 16);
+        lbAge.setBounds(50, 400, 20, 14);
 
         lbPhone.setText("PHONE");
         getContentPane().add(lbPhone);
-        lbPhone.setBounds(60, 570, 40, 16);
+        lbPhone.setBounds(50, 470, 34, 14);
 
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -149,45 +150,41 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(510, 620, 76, 32);
+        btnUpdate.setBounds(390, 510, 71, 23);
 
         lbID.setText("ID");
         getContentPane().add(lbID);
-        lbID.setBounds(60, 130, 11, 16);
+        lbID.setBounds(50, 40, 11, 14);
         getContentPane().add(tfID);
-        tfID.setBounds(60, 160, 140, 24);
+        tfID.setBounds(50, 70, 140, 20);
 
         lbEmail.setText("EMAIL");
         getContentPane().add(lbEmail);
-        lbEmail.setBounds(60, 630, 35, 16);
+        lbEmail.setBounds(50, 540, 30, 14);
         getContentPane().add(tfEmail);
-        tfEmail.setBounds(60, 660, 140, 24);
+        tfEmail.setBounds(50, 570, 140, 20);
 
         lbRol.setText("ROL");
         getContentPane().add(lbRol);
-        lbRol.setBounds(60, 700, 24, 16);
+        lbRol.setBounds(50, 610, 20, 14);
         getContentPane().add(tfRol);
-        tfRol.setBounds(60, 730, 140, 24);
+        tfRol.setBounds(50, 640, 140, 20);
 
         lbPassword.setText("PASSWORD");
         getContentPane().add(lbPassword);
-        lbPassword.setBounds(60, 430, 69, 16);
+        lbPassword.setBounds(50, 330, 57, 14);
         getContentPane().add(tfPassword);
-        tfPassword.setBounds(60, 460, 140, 24);
+        tfPassword.setBounds(50, 360, 140, 20);
         getContentPane().add(lbMensajes);
         lbMensajes.setBounds(260, 580, 340, 28);
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
-        btnBack.setText("BACK");
-        btnBack.setBorderPainted(false);
-        btnBack.setContentAreaFilled(false);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBack);
-        btnBack.setBounds(0, 0, 105, 40);
+        cbReportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PDF", "EXCEL" }));
+        getContentPane().add(cbReportes);
+        cbReportes.setBounds(760, 510, 110, 20);
+
+        lbReports.setText("EXPORT REPORTS");
+        getContentPane().add(lbReports);
+        lbReports.setBounds(770, 490, 110, 14);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -279,13 +276,6 @@ public class CRUD extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPhoneActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
-        SuperAdministrator f = new SuperAdministrator();
-        dispose();
-        f.setVisible (true); 
-    }//GEN-LAST:event_btnBackActionPerformed
-
     public void mostrarRegistros() {
         Logic lC = new Logic();
         ArrayList<Roles> array = new ArrayList();
@@ -357,10 +347,10 @@ public class CRUD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnshowRoles;
+    private javax.swing.JComboBox<String> cbReportes;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable3;
     private javax.swing.JLabel lbAge;
@@ -371,6 +361,7 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPassword;
     private javax.swing.JLabel lbPhone;
+    private javax.swing.JLabel lbReports;
     private javax.swing.JLabel lbRol;
     private javax.swing.JLabel lbUserName;
     private javax.swing.JTextField tfAge;

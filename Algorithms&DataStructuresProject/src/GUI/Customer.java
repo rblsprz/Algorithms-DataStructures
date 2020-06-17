@@ -32,6 +32,7 @@ public class Customer extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        lbCustomer = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuMyProfile = new javax.swing.JMenu();
         menuItemMyAdvances = new javax.swing.JMenuItem();
@@ -49,6 +50,8 @@ public class Customer extends javax.swing.JFrame {
         jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbCustomer.setText("CUSTOMER");
 
         menuMyProfile.setText("MY PROFILE");
 
@@ -121,11 +124,17 @@ public class Customer extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(174, 174, 174)
+                .addComponent(lbCustomer)
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(lbCustomer)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,9 +162,6 @@ public class Customer extends javax.swing.JFrame {
         CitaCliente cC = new CitaCliente();
         cC.show();
         cC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        Customer sA = new Customer();
-        sA.setVisible(false);
-        dispose();
     }//GEN-LAST:event_menuItemNewDateActionPerformed
 
     private void menuItemSignOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSignOffActionPerformed
@@ -168,9 +174,6 @@ public class Customer extends javax.swing.JFrame {
         CRUDCustomerDates cS = new CRUDCustomerDates();
         cS.show();
         cS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        Customer sA = new Customer();
-        sA.setVisible(false);
-        dispose();
     }//GEN-LAST:event_menuItemMyCRUDActionPerformed
 
     /**
@@ -212,6 +215,7 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lbCustomer;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenuItem menuItemMyAdvances;
