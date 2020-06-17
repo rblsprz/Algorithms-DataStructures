@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Logic.NotasCliente;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -41,6 +42,7 @@ public class Administrator extends javax.swing.JFrame {
         menuAdd = new javax.swing.JMenu();
         menuItemNewRol = new javax.swing.JMenuItem();
         menuItemNewDate = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuCRUD = new javax.swing.JMenu();
         menuItemCRUDRoles = new javax.swing.JMenuItem();
         menuItemCRUDDates = new javax.swing.JMenuItem();
@@ -52,14 +54,13 @@ public class Administrator extends javax.swing.JFrame {
         menuItemSignOff = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(null);
 
         lbAdministrator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_administrator_green_15073.png"))); // NOI18N
         lbAdministrator.setText("ADMINISTRATOR");
         lbAdministrator.setOpaque(true);
         getContentPane().add(lbAdministrator);
-        lbAdministrator.setBounds(307, 39, 227, 128);
+        lbAdministrator.setBounds(307, 39, 261, 128);
 
         menuAdd.setText("ADD");
 
@@ -78,6 +79,14 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
         menuAdd.add(menuItemNewDate);
+
+        jMenuItem1.setText("NEW DATA");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuAdd.add(jMenuItem1);
 
         jMenuBar1.add(menuAdd);
 
@@ -207,6 +216,12 @@ public class Administrator extends javax.swing.JFrame {
         fP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemFoodPlansActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+         AdminisNot nC = new AdminisNot();
+        nC.show();
+       nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +259,7 @@ public class Administrator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lbAdministrator;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;
