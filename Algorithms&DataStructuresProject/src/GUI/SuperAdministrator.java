@@ -5,7 +5,11 @@
  */
 package GUI;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,7 +20,9 @@ public class SuperAdministrator extends javax.swing.JFrame {
     /**
      * Creates new form SuperAdministrator
      */
+    FondoPanel fondo = new FondoPanel();
     public SuperAdministrator() {
+          this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(SuperAdministrator.MAXIMIZED_BOTH);
     }
@@ -125,6 +131,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         menuInformation.setText("INFORMATION");
 
+        menuItemAdvances.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food.png"))); // NOI18N
         menuItemAdvances.setText("ADVANCES");
         menuItemAdvances.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +140,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemAdvances);
 
+        menuItemDatingHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         menuItemDatingHistory.setText("DATING HISTORY");
         menuItemDatingHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +149,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemDatingHistory);
 
+        menuItemFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food2.png"))); // NOI18N
         menuItemFoodPlans.setText("FOOD PLANS");
         menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,4 +313,18 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/frutas13.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

@@ -61,6 +61,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         dateChooser = new com.toedter.calendar.JDateChooser();
         tfDate = new javax.swing.JTextField();
         lbMessages = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -107,6 +108,8 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         tfTime.setBounds(770, 410, 219, 20);
 
         btnUpdate.setText("UPDATE");
+        btnUpdate.setBorderPainted(false);
+        btnUpdate.setContentAreaFilled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -116,6 +119,8 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         btnUpdate.setBounds(800, 470, 110, 23);
 
         btnDelete.setText("DELETE");
+        btnDelete.setBorderPainted(false);
+        btnDelete.setContentAreaFilled(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -125,6 +130,8 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         btnDelete.setBounds(920, 470, 120, 23);
 
         btnShowDates.setText("SHOW DATES");
+        btnShowDates.setBorderPainted(false);
+        btnShowDates.setContentAreaFilled(false);
         btnShowDates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowDatesActionPerformed(evt);
@@ -138,6 +145,12 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         tfDate.setBounds(770, 370, 97, 20);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(560, 370, 290, 0);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon1.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        getContentPane().add(jButton1);
+        jButton1.setBounds(760, 580, 170, 170);
 
         pack();
         setLocationRelativeTo(null);
@@ -269,6 +282,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     private javax.swing.JButton btnShowDates;
     private javax.swing.JButton btnUpdate;
     private com.toedter.calendar.JDateChooser dateChooser;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable3;
     private javax.swing.JLabel lbDate;

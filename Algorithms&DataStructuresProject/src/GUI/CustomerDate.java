@@ -10,9 +10,13 @@ import Logic.Logic;
 import Logic.Roles;
 import Logic.FileStacks;
 import Logic.NodeStacks;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,7 +27,13 @@ public class CustomerDate extends javax.swing.JFrame {
     /**
      * Creates new form CitaCliente
      */
+
     public CustomerDate() {
+
+    FondoPanel fondo = new FondoPanel();
+    public CitaCliente() {
+         this.setContentPane(fondo);
+
         initComponents();
         this.setExtendedState(CustomerDate.MAXIMIZED_BOTH);
     }
@@ -208,4 +218,19 @@ public class CustomerDate extends javax.swing.JFrame {
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

@@ -5,7 +5,11 @@
  */
 package GUI;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,8 +20,10 @@ public class Customer extends javax.swing.JFrame {
     /**
      * Creates new form Customer
      */
+     FondoPanel fondo = new FondoPanel();
     public Customer() {
         initComponents();
+        this.setContentPane(fondo);
         this.setExtendedState(Customer.MAXIMIZED_BOTH);
     }
 
@@ -55,6 +61,7 @@ public class Customer extends javax.swing.JFrame {
 
         menuMyProfile.setText("MY PROFILE");
 
+        menuItemMyAdvances.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food.png"))); // NOI18N
         menuItemMyAdvances.setText("MY ADVANCES");
         menuItemMyAdvances.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +70,7 @@ public class Customer extends javax.swing.JFrame {
         });
         menuMyProfile.add(menuItemMyAdvances);
 
+        menuItemMyDatingHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         menuItemMyDatingHistory.setText("MY DATING HISTORY");
         menuItemMyDatingHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +79,7 @@ public class Customer extends javax.swing.JFrame {
         });
         menuMyProfile.add(menuItemMyDatingHistory);
 
+        menuItemMyFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food2.png"))); // NOI18N
         menuItemMyFoodPlans.setText("MY FOOD PLANS");
         menuItemMyFoodPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +92,7 @@ public class Customer extends javax.swing.JFrame {
 
         menuAdd.setText("ADD");
 
+        menuItemNewDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         menuItemNewDate.setText("NEW DATE");
         menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +105,7 @@ public class Customer extends javax.swing.JFrame {
 
         menuCRUD.setText("CRUD");
 
+        menuItemMyCRUD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
         menuItemMyCRUD.setText("MY CRUD");
         menuItemMyCRUD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +119,7 @@ public class Customer extends javax.swing.JFrame {
         menuOptions.setText("OPTIONS");
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuItemSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         menuItemSignOff.setText("SIGN OFF");
         menuItemSignOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,4 +239,19 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JMenu menuMyProfile;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/futas11.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }
