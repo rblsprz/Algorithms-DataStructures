@@ -66,7 +66,7 @@ private Timer time;
         getContentPane().add(jLabel2);
         jLabel2.setBounds(1440, -20, 740, 1030);
         getContentPane().add(jProgressBar);
-        jProgressBar.setBounds(810, 370, 390, 12);
+        jProgressBar.setBounds(760, 320, 390, 14);
 
         lbEnter.setText("     ENTER");
         lbEnter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,7 +75,7 @@ private Timer time;
             }
         });
         getContentPane().add(lbEnter);
-        lbEnter.setBounds(940, 410, 90, 16);
+        lbEnter.setBounds(920, 360, 90, 14);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
         jLabel3.setAlignmentX(500.0F);

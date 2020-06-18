@@ -368,7 +368,6 @@ public class Logic {
         return false;
     }
 
-
     public boolean validateTel(String datos) {
         return datos.matches("[0-9]*");
     }

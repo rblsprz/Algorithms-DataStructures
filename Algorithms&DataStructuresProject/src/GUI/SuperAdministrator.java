@@ -202,7 +202,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         nR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         SuperAdministrator sA = new SuperAdministrator();
         sA.setVisible(false);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_menuItemNewRolActionPerformed
 
     private void menuItemCRUDRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDRolesActionPerformed
@@ -211,7 +211,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         SuperAdministrator sA = new SuperAdministrator();
         sA.setVisible(false);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_menuItemCRUDRolesActionPerformed
 
     private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
@@ -220,7 +220,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         SuperAdministrator sA = new SuperAdministrator();
         sA.setVisible(false);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_menuItemNewDateActionPerformed
 
     private void menuItemCRUDDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDDatesActionPerformed
@@ -229,7 +229,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         cA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         SuperAdministrator sA = new SuperAdministrator();
         sA.setVisible(false);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
 
     private void menuItemFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFoodPlansActionPerformed
@@ -243,16 +243,17 @@ public class SuperAdministrator extends javax.swing.JFrame {
         aS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         SuperAdministrator sA = new SuperAdministrator();
         sA.setVisible(false);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_menuItemAdvancesActionPerformed
 
     private void menuItemDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDatingHistoryActionPerformed
         DatingHistory dH = new DatingHistory();
         dH.show();
         dH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
         SuperAdministrator sA = new SuperAdministrator();
         sA.setVisible(false);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_menuItemDatingHistoryActionPerformed
 
 

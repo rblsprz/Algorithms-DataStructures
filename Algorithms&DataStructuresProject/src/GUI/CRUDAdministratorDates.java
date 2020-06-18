@@ -27,13 +27,14 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     /**
      * Creates new form CRUDAdministratorDates
      */
-     FondoPanel fondo = new FondoPanel();
+    FondoPanel fondo = new FondoPanel();
+
     public CRUDAdministratorDates() {
         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(CRUD.MAXIMIZED_BOTH);
     }
-    
+
     Logic Stack = new Logic();
 
     /**
@@ -58,7 +59,6 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnShowDates = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
-        btnBack = new javax.swing.JButton();
         tfDate = new javax.swing.JTextField();
         lbMessages = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -87,25 +87,25 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(680, 240, 36, 16);
+        lbName.setBounds(680, 240, 32, 14);
         getContentPane().add(tfName);
-        tfName.setBounds(770, 230, 219, 24);
+        tfName.setBounds(770, 230, 219, 20);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(680, 280, 14, 16);
+        lbID.setBounds(680, 280, 15, 14);
         getContentPane().add(tfID);
-        tfID.setBounds(770, 280, 219, 24);
+        tfID.setBounds(770, 280, 219, 20);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(680, 340, 72, 16);
+        lbDate.setBounds(680, 340, 72, 14);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(680, 410, 40, 16);
+        lbTime.setBounds(680, 410, 40, 14);
         getContentPane().add(tfTime);
-        tfTime.setBounds(770, 410, 219, 24);
+        tfTime.setBounds(770, 410, 219, 20);
 
         btnUpdate.setText("UPDATE");
         btnUpdate.setBorderPainted(false);
@@ -116,7 +116,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(800, 470, 110, 32);
+        btnUpdate.setBounds(800, 470, 110, 23);
 
         btnDelete.setText("DELETE");
         btnDelete.setBorderPainted(false);
@@ -127,7 +127,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(920, 470, 120, 32);
+        btnDelete.setBounds(920, 470, 120, 23);
 
         btnShowDates.setText("SHOW DATES");
         btnShowDates.setBorderPainted(false);
@@ -138,23 +138,11 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(640, 470, 140, 32);
+        btnShowDates.setBounds(640, 470, 140, 23);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(770, 330, 219, 29);
-
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
-        btnBack.setText("BACK");
-        btnBack.setBorderPainted(false);
-        btnBack.setContentAreaFilled(false);
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBack);
-        btnBack.setBounds(10, 20, 130, 40);
+        dateChooser.setBounds(770, 330, 219, 20);
         getContentPane().add(tfDate);
-        tfDate.setBounds(770, 370, 97, 24);
+        tfDate.setBounds(770, 370, 97, 20);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(560, 370, 290, 0);
 
@@ -174,87 +162,82 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         tfTime.setText(jTable3.getValueAt(seleccion, 1).toString());
         tfName.setText(jTable3.getValueAt(seleccion, 2).toString());
         tfID.setText(jTable3.getValueAt(seleccion, 3).toString());
-       // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
+        // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
     }//GEN-LAST:event_jTable3MouseClicked
-    
-        public void mostrarCitas(){
+
+    public void mostrarCitas() {
         Logic lC = new Logic();
         ArrayList<Cita> array = new ArrayList();
-        
+
         Cita tempCountries[] = lC.readRegistersFilesCita();
-        
-        for(int i = 0; i < tempCountries.length; i++){
+
+        for (int i = 0; i < tempCountries.length; i++) {
             array.add(tempCountries[i]);
         }//endfor
-       
-       String matriz[][]= new String[array.size()][4];
-       
-         for (int i = 0; i < array.size(); i++) {
-        matriz[i][0]= array.get(i).getFecha();
-        matriz[i][1]= array.get(i).getHora();
-        matriz[i][2]= array.get(i).getNombre();
-        matriz[i][3]= array.get(i).getCedula();
-        
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-           matriz,
-            new String [] {
-                "DATE","TIME", "NAME", "ID"
-            }
-        ));
-         } } 
+
+        String matriz[][] = new String[array.size()][4];
+
+        for (int i = 0; i < array.size(); i++) {
+            matriz[i][0] = array.get(i).getFecha();
+            matriz[i][1] = array.get(i).getHora();
+            matriz[i][2] = array.get(i).getNombre();
+            matriz[i][3] = array.get(i).getCedula();
+
+            jTable3.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz,
+                    new String[]{
+                        "DATE", "TIME", "NAME", "ID"
+                    }
+            ));
+        }
+    }
     private void btnShowDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowDatesActionPerformed
         mostrarCitas();
     }//GEN-LAST:event_btnShowDatesActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-          
-            String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
-            String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
-            String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
-            String fecha=(year+"-"+mes+"-"+dia);
-        
+
+        String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
+        String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+        String fecha = (year + "-" + mes + "-" + dia);
+
         try {
-                Update em = new Update();
-                int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE THE DATE FROM " + tfID.getText()+ " ?");
-                if(edit == 0){
-                    if(Stack.searchCita(fecha, tfTime.getText()) == false){
+            Update em = new Update();
+            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE THE DATE FROM " + tfID.getText() + " ?");
+            if (edit == 0) {
+                if (Stack.searchCita(fecha, tfTime.getText()) == false) {
                     em.actualizarCita(fecha, tfTime.getText(), tfName.getText(), tfID.getText());
                     lbMessages.setText("SUCCESFULLY UPDATED!");
                     mostrarCitas();
                     tfID.setText("");
                     tfName.setText("");
                     tfTime.setText("");
-                   } else {
-                JOptionPane.showMessageDialog(null, "THE DATA AND TIME AREN'T AVAILABLE!");
-            }
+                } else {
+                    JOptionPane.showMessageDialog(null, "THE DATA AND TIME AREN'T AVAILABLE!");
                 }
-            }catch (IOException ex) {
-                lbMessages.setText("UPDATE ERROR!");
-            }   
+            }
+        } catch (IOException ex) {
+            lbMessages.setText("UPDATE ERROR!");
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       Administrator sA=new Administrator();
-        dispose();
-        sA.setVisible(true);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-      try {
-                Delete stack = new Delete();
-                int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE THE DATE FROM " + tfID.getText()+ " ?");
-                if(d == 0){
-                    stack.borrarCita("citas.txt", tfDate.getText(),tfTime.getText());
-                    lbMessages.setText("SUCCESSFULLY DELETED!");
-                    mostrarCitas();
-                    tfID.setText("");
-                    tfDate.setText("");
-                    tfTime.setText("");
-                    tfName.setText("");
-                }
-            }catch (IOException ex) {
-                lbMessages.setText("DELETE ERROR!");
-            }   
+        try {
+            Delete stack = new Delete();
+            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE THE DATE FROM " + tfID.getText() + " ?");
+            if (d == 0) {
+                stack.borrarCita("citas.txt", tfDate.getText(), tfTime.getText());
+                lbMessages.setText("SUCCESSFULLY DELETED!");
+                mostrarCitas();
+                tfID.setText("");
+                tfDate.setText("");
+                tfTime.setText("");
+                tfName.setText("");
+            }
+        } catch (IOException ex) {
+            lbMessages.setText("DELETE ERROR!");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
@@ -291,12 +274,10 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 new CRUDAdministratorDates().setVisible(true);
             }
         });
-        
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnShowDates;
     private javax.swing.JButton btnUpdate;
@@ -315,18 +296,18 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     private javax.swing.JTextField tfTime;
     // End of variables declaration//GEN-END:variables
 
-    class FondoPanel extends JPanel{
-    private Image imagen;
-    
-    public void paint(Graphics g){
-    
-        imagen = new ImageIcon(getClass().getResource("/Images/fondo5.png")).getImage();
-        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-        setOpaque(false);
-        
-        super.paint(g);
-    }
-    
-    
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondo5.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+
     }
 }
