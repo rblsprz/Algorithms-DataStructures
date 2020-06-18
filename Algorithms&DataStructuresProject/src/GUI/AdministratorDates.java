@@ -119,7 +119,8 @@ public class AdministratorDates extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
-        //Campos vacios validacion
+        
+//Campos vacios validacion
             String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
             String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
             String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));

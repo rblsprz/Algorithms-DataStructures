@@ -18,14 +18,14 @@ import javax.swing.JOptionPane;
  *
  * @author pc
  */
-public class CitaCliente extends javax.swing.JFrame {
+public class CustomerDate extends javax.swing.JFrame {
 
     /**
      * Creates new form CitaCliente
      */
-    public CitaCliente() {
+    public CustomerDate() {
         initComponents();
-        this.setExtendedState(CitaCliente.MAXIMIZED_BOTH);
+        this.setExtendedState(CustomerDate.MAXIMIZED_BOTH);
     }
 
     /**
@@ -176,21 +176,23 @@ public class CitaCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CitaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CitaCliente().setVisible(true);
+                new CustomerDate().setVisible(true);
             }
         });
     }

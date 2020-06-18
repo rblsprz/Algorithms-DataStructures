@@ -159,7 +159,7 @@ public class Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemMyFoodPlansActionPerformed
 
     private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
-        CitaCliente cC = new CitaCliente();
+        CustomerDate cC = new CustomerDate();
         cC.show();
         cC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemNewDateActionPerformed

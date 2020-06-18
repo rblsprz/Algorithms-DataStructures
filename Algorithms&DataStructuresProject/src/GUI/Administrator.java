@@ -60,7 +60,7 @@ public class Administrator extends javax.swing.JFrame {
         lbAdministrator.setText("ADMINISTRATOR");
         lbAdministrator.setOpaque(true);
         getContentPane().add(lbAdministrator);
-        lbAdministrator.setBounds(307, 39, 261, 128);
+        lbAdministrator.setBounds(307, 39, 216, 128);
 
         menuAdd.setText("ADD");
 
@@ -80,7 +80,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuAdd.add(menuItemNewDate);
 
-        jMenuItem1.setText("NEW DATA");
+        jMenuItem1.setText("NEW NOTES");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -193,9 +193,9 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
 
     private void menuItemAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdvancesActionPerformed
-        Advances aS = new Advances();
-        aS.show();
-        aS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        AdministratorNotes aN = new AdministratorNotes();
+        aN.show();
+        aN.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemAdvancesActionPerformed
 
     private void menuItemNewRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewRolActionPerformed
@@ -217,7 +217,7 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemFoodPlansActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-         AdminisNot nC = new AdminisNot();
+         AdministratorNotes nC = new AdministratorNotes();
         nC.show();
        nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed

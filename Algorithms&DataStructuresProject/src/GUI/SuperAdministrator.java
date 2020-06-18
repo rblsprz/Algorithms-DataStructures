@@ -229,12 +229,9 @@ public class SuperAdministrator extends javax.swing.JFrame {
         fP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);    }//GEN-LAST:event_menuItemFoodPlansActionPerformed
  
     private void menuItemAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdvancesActionPerformed
-        Advances aS = new Advances();
-        aS.show();
-        aS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        SuperAdministrator sA = new SuperAdministrator();
-        sA.setVisible(false);
-        //dispose();
+        AdministratorNotes aN = new AdministratorNotes();
+        aN.show();
+        aN.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemAdvancesActionPerformed
 
     private void menuItemDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDatingHistoryActionPerformed
