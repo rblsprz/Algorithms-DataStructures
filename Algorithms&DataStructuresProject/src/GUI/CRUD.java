@@ -9,14 +9,18 @@ import Logic.Logic;
 import Logic.Delete;
 import Logic.Roles;
 import Logic.Update;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -27,7 +31,9 @@ public class CRUD extends javax.swing.JFrame {
     /**
      * Creates new form CRUD
      */
+     FondoPanel fondo = new FondoPanel();
     public CRUD() {
+        this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(CRUD.MAXIMIZED_BOTH);
     }
@@ -86,7 +92,7 @@ public class CRUD extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable3);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(260, 110, 603, 447);
+        jScrollPane3.setBounds(1070, 40, 600, 440);
 
         btnshowRoles.setText("SHOW ROLES");
         btnshowRoles.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +101,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(360, 620, 109, 32);
+        btnshowRoles.setBounds(1100, 550, 170, 32);
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -104,19 +110,19 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(630, 620, 73, 32);
+        btnDelete.setBounds(1440, 550, 110, 32);
         getContentPane().add(tfName);
-        tfName.setBounds(60, 220, 140, 24);
+        tfName.setBounds(880, 100, 150, 30);
 
         lbName.setText("NAME");
         getContentPane().add(lbName);
-        lbName.setBounds(60, 190, 33, 16);
+        lbName.setBounds(880, 70, 40, 20);
         getContentPane().add(tfLastName);
-        tfLastName.setBounds(60, 300, 140, 24);
+        tfLastName.setBounds(880, 180, 150, 30);
         getContentPane().add(tfUserName);
-        tfUserName.setBounds(60, 380, 140, 24);
+        tfUserName.setBounds(880, 260, 150, 30);
         getContentPane().add(tfAge);
-        tfAge.setBounds(60, 530, 140, 24);
+        tfAge.setBounds(880, 410, 150, 30);
 
         tfPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,23 +130,23 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfPhone);
-        tfPhone.setBounds(60, 590, 140, 24);
+        tfPhone.setBounds(880, 470, 150, 30);
 
         lbLastName.setText("LAST NAME");
         getContentPane().add(lbLastName);
-        lbLastName.setBounds(60, 270, 66, 16);
+        lbLastName.setBounds(880, 150, 70, 20);
 
         lbUserName.setText("USERNAME");
         getContentPane().add(lbUserName);
-        lbUserName.setBounds(60, 350, 64, 16);
+        lbUserName.setBounds(880, 230, 70, 20);
 
         lbAge.setText("AGE");
         getContentPane().add(lbAge);
-        lbAge.setBounds(60, 500, 23, 16);
+        lbAge.setBounds(880, 380, 30, 20);
 
         lbPhone.setText("PHONE");
         getContentPane().add(lbPhone);
-        lbPhone.setBounds(60, 570, 40, 16);
+        lbPhone.setBounds(880, 450, 50, 20);
 
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -149,33 +155,33 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(510, 620, 76, 32);
+        btnUpdate.setBounds(1300, 550, 110, 32);
 
         lbID.setText("ID");
         getContentPane().add(lbID);
-        lbID.setBounds(60, 130, 11, 16);
+        lbID.setBounds(880, 10, 20, 20);
         getContentPane().add(tfID);
-        tfID.setBounds(60, 160, 140, 24);
+        tfID.setBounds(880, 40, 150, 30);
 
         lbEmail.setText("EMAIL");
         getContentPane().add(lbEmail);
-        lbEmail.setBounds(60, 630, 35, 16);
+        lbEmail.setBounds(880, 510, 40, 20);
         getContentPane().add(tfEmail);
-        tfEmail.setBounds(60, 660, 140, 24);
+        tfEmail.setBounds(880, 540, 150, 30);
 
         lbRol.setText("ROL");
         getContentPane().add(lbRol);
-        lbRol.setBounds(60, 700, 24, 16);
+        lbRol.setBounds(880, 580, 30, 20);
         getContentPane().add(tfRol);
-        tfRol.setBounds(60, 730, 140, 24);
+        tfRol.setBounds(880, 610, 150, 30);
 
         lbPassword.setText("PASSWORD");
         getContentPane().add(lbPassword);
-        lbPassword.setBounds(60, 430, 69, 16);
+        lbPassword.setBounds(880, 310, 80, 20);
         getContentPane().add(tfPassword);
-        tfPassword.setBounds(60, 460, 140, 24);
+        tfPassword.setBounds(880, 340, 150, 30);
         getContentPane().add(lbMensajes);
-        lbMensajes.setBounds(260, 580, 340, 28);
+        lbMensajes.setBounds(1070, 510, 350, 28);
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         btnBack.setText("BACK");
@@ -383,4 +389,19 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JTextField tfRol;
     private javax.swing.JTextField tfUserName;
     // End of variables declaration//GEN-END:variables
+
+     class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/frutas5.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

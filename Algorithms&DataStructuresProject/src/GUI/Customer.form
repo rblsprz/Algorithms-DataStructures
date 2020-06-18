@@ -29,6 +29,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemMyAdvances">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/food.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="MY ADVANCES"/>
               </Properties>
               <Events>
@@ -37,6 +40,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemMyDatingHistory">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/ejercicio.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="MY DATING HISTORY"/>
               </Properties>
               <Events>
@@ -45,6 +51,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemMyFoodPlans">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/food2.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="MY FOOD PLANS"/>
               </Properties>
               <Events>
@@ -60,6 +69,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemNewDate">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="NEW DATE"/>
               </Properties>
               <Events>
@@ -75,6 +87,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemMyCRUD">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/configure_user_16726.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="MY CRUD"/>
               </Properties>
               <Events>
@@ -92,6 +107,9 @@
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Alt+E"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/salida.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="SIGN OFF"/>
               </Properties>

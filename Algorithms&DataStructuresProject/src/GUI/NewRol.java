@@ -58,19 +58,23 @@ public class NewRol extends javax.swing.JFrame {
         lbMensajes = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 0));
         setResizable(false);
         getContentPane().setLayout(null);
 
+        lbName.setForeground(new java.awt.Color(0, 0, 0));
         lbName.setText("NAME:");
         getContentPane().add(lbName);
         lbName.setBounds(40, 112, 36, 16);
 
+        lbPassword.setForeground(new java.awt.Color(0, 0, 0));
         lbPassword.setText("PASSWORD:");
         getContentPane().add(lbPassword);
         lbPassword.setBounds(40, 276, 72, 16);
@@ -89,6 +93,7 @@ public class NewRol extends javax.swing.JFrame {
         getContentPane().add(cbRoles);
         cbRoles.setBounds(161, 492, 293, 26);
 
+        lbRoles.setForeground(new java.awt.Color(0, 0, 0));
         lbRoles.setText("ROLES:");
         getContentPane().add(lbRoles);
         lbRoles.setBounds(40, 495, 42, 16);
@@ -107,19 +112,23 @@ public class NewRol extends javax.swing.JFrame {
         getContentPane().add(btnRegistrar);
         btnRegistrar.setBounds(200, 550, 160, 48);
 
+        lbLastName.setForeground(new java.awt.Color(0, 0, 0));
         lbLastName.setText("LAST NAME:");
         getContentPane().add(lbLastName);
         lbLastName.setBounds(40, 168, 69, 16);
         getContentPane().add(tfLastName);
         tfLastName.setBounds(161, 165, 293, 24);
 
+        lbPhone.setForeground(new java.awt.Color(0, 0, 0));
         lbPhone.setText("PHONE:");
         getContentPane().add(lbPhone);
         lbPhone.setBounds(40, 386, 43, 16);
         getContentPane().add(tfPhone);
         tfPhone.setBounds(161, 383, 293, 24);
 
+        lbID.setForeground(new java.awt.Color(0, 0, 0));
         lbID.setText("ID:");
+        lbID.setToolTipText("");
         getContentPane().add(lbID);
         lbID.setBounds(40, 61, 14, 16);
         getContentPane().add(tfID);
@@ -127,18 +136,21 @@ public class NewRol extends javax.swing.JFrame {
         getContentPane().add(tfPassword);
         tfPassword.setBounds(161, 273, 293, 22);
 
+        lbUserName.setForeground(new java.awt.Color(0, 0, 0));
         lbUserName.setText("USERNAME:");
         getContentPane().add(lbUserName);
         lbUserName.setBounds(40, 221, 67, 16);
         getContentPane().add(tfUserName);
         tfUserName.setBounds(161, 218, 293, 24);
 
+        lbAge.setForeground(new java.awt.Color(0, 0, 0));
         lbAge.setText("AGE:");
         getContentPane().add(lbAge);
         lbAge.setBounds(40, 330, 26, 16);
         getContentPane().add(tfAge);
         tfAge.setBounds(161, 327, 293, 24);
 
+        lbEmail.setForeground(new java.awt.Color(0, 0, 0));
         lbEmail.setText("EMAIL:");
         getContentPane().add(lbEmail);
         lbEmail.setBounds(40, 440, 38, 16);
@@ -161,7 +173,11 @@ public class NewRol extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/busin.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(660, 90, 320, 340);
+        jLabel1.setBounds(520, 260, 260, 310);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -240, 2130, 1480);
 
         pack();
         setLocationRelativeTo(null);
@@ -313,6 +329,7 @@ public class NewRol extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbID;

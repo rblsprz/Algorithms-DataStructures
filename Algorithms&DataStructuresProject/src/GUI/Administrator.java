@@ -26,6 +26,7 @@ public class Administrator extends javax.swing.JFrame {
     public Administrator() {
         this.setContentPane(fondo);
         initComponents();
+         this.setExtendedState(Administrator.MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,7 +38,8 @@ public class Administrator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbAdministrator = new javax.swing.JLabel();
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAdd = new javax.swing.JMenu();
         menuItemNewRol = new javax.swing.JMenuItem();
@@ -56,14 +58,9 @@ public class Administrator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        lbAdministrator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_administrator_green_15073.png"))); // NOI18N
-        lbAdministrator.setText("ADMINISTRATOR");
-        lbAdministrator.setOpaque(true);
-        getContentPane().add(lbAdministrator);
-        lbAdministrator.setBounds(307, 39, 261, 128);
-
         menuAdd.setText("ADD");
 
+        menuItemNewRol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user.png"))); // NOI18N
         menuItemNewRol.setText("NEW ROL");
         menuItemNewRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +69,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuAdd.add(menuItemNewRol);
 
+        menuItemNewDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user2.png"))); // NOI18N
         menuItemNewDate.setText("NEW DATE");
         menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +78,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuAdd.add(menuItemNewDate);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         jMenuItem1.setText("NEW DATA");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +91,7 @@ public class Administrator extends javax.swing.JFrame {
 
         menuCRUD.setText("CRUD");
 
+        menuItemCRUDRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         menuItemCRUDRoles.setText("CRUD ROLES");
         menuItemCRUDRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +100,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuCRUD.add(menuItemCRUDRoles);
 
+        menuItemCRUDDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
         menuItemCRUDDates.setText("CRUD DATES");
         menuItemCRUDDates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +113,7 @@ public class Administrator extends javax.swing.JFrame {
 
         menuInformation.setText("INFORMATION");
 
+        menuItemAdvances.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food.png"))); // NOI18N
         menuItemAdvances.setText("ADVANCES");
         menuItemAdvances.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +122,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemAdvances);
 
+        menuItemDatingHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         menuItemDatingHistory.setText("DATING HISTORY");
         menuItemDatingHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +131,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemDatingHistory);
 
+        menuItemFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food2.png"))); // NOI18N
         menuItemFoodPlans.setText("FOOD PLANS");
         menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +150,7 @@ public class Administrator extends javax.swing.JFrame {
         });
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuItemSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         menuItemSignOff.setText("SIGN OFF");
         menuItemSignOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,9 +263,10 @@ public class Administrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JLabel lbAdministrator;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenu menuInformation;
@@ -282,7 +288,7 @@ public class Administrator extends javax.swing.JFrame {
 
         public void paint(Graphics g) {
 
-            imagen = new ImageIcon(getClass().getResource("/Images/fondo1.jpg")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/Images/frutas2.jpg")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
 
