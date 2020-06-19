@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import Logic.NotasCliente;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -14,7 +13,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author HELLO
+ * @author David Robles
  */
 public class Administrator extends javax.swing.JFrame {
 
@@ -58,14 +57,6 @@ public class Administrator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-
-        lbAdministrator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_administrator_green_15073.png"))); // NOI18N
-        lbAdministrator.setText("ADMINISTRATOR");
-        lbAdministrator.setOpaque(true);
-        getContentPane().add(lbAdministrator);
-        lbAdministrator.setBounds(307, 39, 216, 128);
-
-
         menuAdd.setText("ADD");
 
         menuItemNewRol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user.png"))); // NOI18N
@@ -86,12 +77,8 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuAdd.add(menuItemNewDate);
 
-
-        jMenuItem1.setText("NEW NOTES");
-
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         jMenuItem1.setText("NEW DATA");
-
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);

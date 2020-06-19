@@ -9,13 +9,13 @@ import Interfaces.Queues;
 
 class Nodo {
     
-    private NotasCliente valor;
+    private CustomerNotes valor;
     // Atributo para enlazar los nodos.
     private Nodo siguiente;
     
     int prioridad;
 
-    Nodo(NotasCliente valor, int prioridad) {
+    Nodo(CustomerNotes valor, int prioridad) {
        this.valor=valor;
        this.prioridad=prioridad;
     }
@@ -29,11 +29,11 @@ class Nodo {
         this.siguiente = null;
     }
 
-    public NotasCliente getValor() {
+    public CustomerNotes getValor() {
         return valor;
     }
 
-    public void setValor(NotasCliente valor) {
+    public void setValor(CustomerNotes valor) {
         this.valor = valor;
     }
 
@@ -49,9 +49,9 @@ class Nodo {
 class NodeCola {
     
     public int prioridad;
-    public NotasCliente nombreTarea;
+    public CustomerNotes nombreTarea;
 
-    public NodeCola(int prioridad, NotasCliente nombreTarea) {
+    public NodeCola(int prioridad, CustomerNotes nombreTarea) {
         this.prioridad = prioridad;
         this.nombreTarea = nombreTarea;
     }
@@ -62,7 +62,7 @@ class NodeCola {
 }   
 
 
-public class ColaMetodos implements Queues{
+public class QueueMethods implements Queues{
     
     private Nodo inicio;
     // Puntero que indica el final de la lista o el ultimo nodo.
@@ -74,7 +74,7 @@ public class ColaMetodos implements Queues{
     }
 
     
-    public void Enqueue(NotasCliente valor, int prioridad) {
+    public void Enqueue(CustomerNotes valor, int prioridad) {
         Nodo nuevo = new Nodo(valor, prioridad);
 
         if (inicio == null) {
