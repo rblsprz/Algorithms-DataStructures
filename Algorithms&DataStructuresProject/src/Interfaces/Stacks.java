@@ -5,17 +5,26 @@
  */
 package Interfaces;
 
+import Logic.Cita;
+
 /**
  *
  * @author pc
  */
 public interface Stacks {
     
-    public int size(); //Muestra el tamaño de la pila
+     public int size(); //Muestra el tamaño de la pila
+
     public boolean isEmpty(); //Muestra si la pila esta vacia
+
     public boolean isFull(); //Muestra si la pila tiene datos
-    public void push(int x); //Agregar
-    public int peek(); //Obtener el ultimo
-    public Object pop(); //Eliminar el ultimo
+
+    public void push(Cita c); //Agregar
+
+    public Cita peek(); //Obtener el ultimo
+
+    public Cita pop(Cita c); //Eliminar el ultimo
+
+    public Cita IndexOf(int index);// me devuelve el elemento del indice indicado
     
 }

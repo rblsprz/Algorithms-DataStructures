@@ -8,6 +8,7 @@ package GUI;
 import GUI.Customer;
 import Logic.Cita;
 import Logic.Delete;
+import Logic.FileStacks;
 import Logic.Logic;
 import Logic.Roles;
 import Logic.Update;
@@ -39,7 +40,9 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(CRUDCustomerDates.MAXIMIZED_BOTH);
     }
+    Delete stack = new Delete();
     
+    FileStacks stack1=new FileStacks();
     Logic Stack = new Logic();
     /**
      * This method is called from within the constructor to initialize the form.
@@ -338,11 +341,10 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     }
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         try {
-            Delete stack = new Delete();
             int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText()+ " ?");
             if(d == 0){
-                stack.borrarCita("citas.txt", tfDate.getText(), tfTime.getText());
-                searchClienteIndividual(tfID.getText());
+                 stack.removeLinesPila(tfDate.getText(), tfTime.getText());
+                 searchClienteIndividual(tfID.getText());
                 lbMessages.setText("SUCCESSFULLY DELETED!");
                 tfID.setText("");
                 tfDate.setText("");
@@ -365,7 +367,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowDatesActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-
+        int seleccion = jTable3.getSelectedRow();
         String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
         String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
         String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
@@ -376,8 +378,14 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText()+ " ?");
             if(edit == 0){
                 if(Stack.searchCita(fecha, tfTime.getText()) == false){
-                    em.actualizarCita2(fecha, tfTime.getText(), tfName.getText(), tfID.getText());
+                    Cita cita1 = new Cita(tfDate.getText(), jTable3.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
+                    Cita cita2 = new Cita(fecha, tfTime.getText(), tfID.getText(), tfName.getText());
+                    stack1.insertCita(cita2);
+                    em.ModifuUse(cita1, fecha, tfTime.getText());
+                    stack.removeLinesPila(tfDate.getText(), jTable3.getValueAt(seleccion, 1).toString());
+                    //em.actualizarCita2(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
                     searchClienteIndividual(tfID.getText());
+                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO"); 
                     lbMessages.setText("SUCCESSFULLY UPDATED!");
                     tfID.setText("");
                     tfName.setText("");

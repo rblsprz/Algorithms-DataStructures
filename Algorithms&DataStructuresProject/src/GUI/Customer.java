@@ -40,10 +40,6 @@ public class Customer extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         lbCustomer = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuMyProfile = new javax.swing.JMenu();
-        menuItemMyAdvances = new javax.swing.JMenuItem();
-        menuItemMyDatingHistory = new javax.swing.JMenuItem();
-        menuItemMyFoodPlans = new javax.swing.JMenuItem();
         menuAdd = new javax.swing.JMenu();
         menuItemNewDate = new javax.swing.JMenuItem();
         menuCRUD = new javax.swing.JMenu();
@@ -58,37 +54,6 @@ public class Customer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbCustomer.setText("CUSTOMER");
-
-        menuMyProfile.setText("MY PROFILE");
-
-        menuItemMyAdvances.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food.png"))); // NOI18N
-        menuItemMyAdvances.setText("MY ADVANCES");
-        menuItemMyAdvances.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemMyAdvancesActionPerformed(evt);
-            }
-        });
-        menuMyProfile.add(menuItemMyAdvances);
-
-        menuItemMyDatingHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
-        menuItemMyDatingHistory.setText("MY DATING HISTORY");
-        menuItemMyDatingHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemMyDatingHistoryActionPerformed(evt);
-            }
-        });
-        menuMyProfile.add(menuItemMyDatingHistory);
-
-        menuItemMyFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food2.png"))); // NOI18N
-        menuItemMyFoodPlans.setText("MY FOOD PLANS");
-        menuItemMyFoodPlans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemMyFoodPlansActionPerformed(evt);
-            }
-        });
-        menuMyProfile.add(menuItemMyFoodPlans);
-
-        jMenuBar1.add(menuMyProfile);
 
         menuAdd.setText("ADD");
 
@@ -152,24 +117,6 @@ public class Customer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuItemMyDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyDatingHistoryActionPerformed
-        MyDatingHistory mH = new MyDatingHistory();
-        mH.show();
-        mH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemMyDatingHistoryActionPerformed
-
-    private void menuItemMyAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyAdvancesActionPerformed
-        MyAdvances mA = new MyAdvances();
-        mA.show();
-        mA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemMyAdvancesActionPerformed
-
-    private void menuItemMyFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyFoodPlansActionPerformed
-        MyFoodPlans mF = new MyFoodPlans();
-        mF.show();
-        mF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemMyFoodPlansActionPerformed
-
     private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
         CustomerDate cC = new CustomerDate();
         cC.show();
@@ -230,13 +177,9 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JLabel lbCustomer;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;
-    private javax.swing.JMenuItem menuItemMyAdvances;
     private javax.swing.JMenuItem menuItemMyCRUD;
-    private javax.swing.JMenuItem menuItemMyDatingHistory;
-    private javax.swing.JMenuItem menuItemMyFoodPlans;
     private javax.swing.JMenuItem menuItemNewDate;
     private javax.swing.JMenuItem menuItemSignOff;
-    private javax.swing.JMenu menuMyProfile;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
 

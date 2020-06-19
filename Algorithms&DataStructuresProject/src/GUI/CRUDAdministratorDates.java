@@ -13,6 +13,7 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import Logic.Cita;
 import Logic.Delete;
+import Logic.FileStacks;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -34,8 +35,10 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(CRUD.MAXIMIZED_BOTH);
     }
-
-    Logic Stack = new Logic();
+    
+     Logic Stack = new Logic();
+    Delete stack = new Delete();
+    FileStacks stack1 = new FileStacks();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -196,7 +199,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowDatesActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-
+         int seleccion = jTable3.getSelectedRow();
         String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
         String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
         String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
@@ -204,22 +207,27 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
 
         try {
             Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE THE DATE FROM " + tfID.getText() + " ?");
-            if (edit == 0) {
-                if (Stack.searchCita(fecha, tfTime.getText()) == false) {
-                    em.actualizarCita(fecha, tfTime.getText(), tfName.getText(), tfID.getText());
-                    lbMessages.setText("SUCCESFULLY UPDATED!");
+            int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + tfName.getText() + " ?");
+                if(edit == 0){
+                    if(Stack.searchCita(fecha, tfTime.getText()) == false){
+                    Cita cita1 = new Cita(tfDate.getText(), jTable3.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
+                    Cita cita2 = new Cita(fecha, tfTime.getText(), tfID.getText(), tfName.getText());
+                    stack1.insertCita(cita2);
+                    em.ModifuUse(cita1, fecha, tfTime.getText());
+                    stack.removeLinesPila(tfDate.getText(), jTable3.getValueAt(seleccion, 1).toString());
+                    //em.actualizarCita(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
+                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
                     mostrarCitas();
                     tfID.setText("");
                     tfName.setText("");
                     tfTime.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(null, "THE DATA AND TIME AREN'T AVAILABLE!");
-                }
+                   } else {
+                JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
             }
-        } catch (IOException ex) {
-            lbMessages.setText("UPDATE ERROR!");
-        }
+                }
+            }catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al modificar");
+            }   
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -227,7 +235,8 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             Delete stack = new Delete();
             int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE THE DATE FROM " + tfID.getText() + " ?");
             if (d == 0) {
-                stack.borrarCita("citas.txt", tfDate.getText(), tfTime.getText());
+                 stack.removeLinesPila(tfDate.getText(), tfTime.getText());
+                    //stack.borrarCita("citas.txt", txtFecha.getText(), txtHora.getText());
                 lbMessages.setText("SUCCESSFULLY DELETED!");
                 mostrarCitas();
                 tfID.setText("");

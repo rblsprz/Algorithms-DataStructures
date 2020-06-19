@@ -15,7 +15,9 @@ import javax.swing.JOptionPane;
  * @author pc
  */
 public class Update {
-    
+
+    NodeStacks pilaTemp = new NodeStacks();
+
     public BufferedReader getBufferedReader(String nameFile) {
         File archivo = new File(nameFile);
         BufferedReader br = null;
@@ -28,8 +30,8 @@ public class Update {
         }
         return br;
     }//End getBufferedReader
-    
-     public String getNameFile(String file, int lugarNombre) {
+
+    public String getNameFile(String file, int lugarNombre) {
         String nombreArchivo = "";
         int contandor = 0;
         for (int i = 0; i < file.length() && contandor != lugarNombre + 1; i++) {
@@ -42,7 +44,7 @@ public class Update {
         }
         return nombreArchivo;
     }//Fin getNombreArchivo
-    
+
     public int cuentaLineasArchivo(String file) {
         int contador = 0;
         BufferedReader br = getBufferedReader(file);
@@ -59,7 +61,7 @@ public class Update {
         }
         return contador;
     }//End cuentaLineasArchivo
-    
+
     public String[] getArregloArchivo(String nameFile) {
         String arregloArchivo[] = new String[cuentaLineasArchivo(nameFile)];
         int indice = 0;
@@ -78,7 +80,7 @@ public class Update {
         }
         return arregloArchivo;
     }//Fin getArregloArchivo
-    
+
     public PrintStream getPrintStream(String nombreArchivo, boolean editable) {
 
         File archivo = new File(nombreArchivo);
@@ -91,8 +93,8 @@ public class Update {
         }
         return ps;
     }//End getPrintStream
-    
-    public void actualizarPersona(String cedula, String nombre, String apellido, String nombreUsuario,String contraseña, int edad,int telefono, String correo, int tipoRol) throws IOException{
+
+    public void actualizarPersona(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) throws IOException {
         String[] arregloArchivo = getArregloArchivo("registros.txt");
 
         PrintStream ps = getPrintStream("registros.txt", false);
@@ -101,11 +103,12 @@ public class Update {
             if (!getNameFile(arregloArchivo[i], 0).equals(cedula)) {
                 ps.println(arregloArchivo[i]);
             } else {
-                ps.println(cedula+ ";" +nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";"+ correo + ";" + tipoRol);
+                ps.println(cedula + ";" + nombre + ";" + apellido + ";" + nombreUsuario + ";" + contraseña + ";" + edad + ";" + telefono + ";" + correo + ";" + tipoRol);
             }
         }//End for
     }//End actualizarDatos
-     public void actualizarCita(String fecha, String hora, String nombre, String cedula) throws IOException{
+
+    public void actualizarCita(String fecha, String hora, String nombre, String cedula) throws IOException {
         String[] arregloArchivo = getArregloArchivo("citas.txt");
 
         PrintStream ps = getPrintStream("citas.txt", false);
@@ -114,12 +117,12 @@ public class Update {
             if (!getNameFile(arregloArchivo[i], 0).equals(fecha) && !getNameFile(arregloArchivo[i], 1).equals(hora)) {
                 ps.println(arregloArchivo[i]);
             } else {
-                ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
+                ps.println(fecha + ";" + hora + ";" + cedula + ";" + nombre);
             }
         }//End for
     }//End actualizarPaises
-    
-     public void actualizarCita2(String fecha, String hora, String nombre, String cedula) throws IOException{
+
+    public void actualizarCita2(String fecha, String hora, String nombre, String cedula) throws IOException {
         String[] arregloArchivo = getArregloArchivo("citas.txt");
 
         PrintStream ps = getPrintStream("citas.txt", false);
@@ -128,12 +131,12 @@ public class Update {
             if (!getNameFile(arregloArchivo[i], 0).equals(fecha) && !getNameFile(arregloArchivo[i], 1).equals(hora)) {
                 ps.println(arregloArchivo[i]);
             } else {
-                ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
+                ps.println(fecha + ";" + hora + ";" + cedula + ";" + nombre);
             }
         }//End for
     }//End actualizarCita2
-     
-     public void actualizarHistorial(String fecha, String hora, String nombre, String cedula) throws IOException{
+
+    public void actualizarHistorial(String fecha, String hora, String nombre, String cedula) throws IOException {
         String[] arregloArchivo = getArregloArchivo("historia.txt");
 
         PrintStream ps = getPrintStream("historia.txt", false);
@@ -142,8 +145,48 @@ public class Update {
             if (!getNameFile(arregloArchivo[i], 0).equals(fecha) && !getNameFile(arregloArchivo[i], 1).equals(hora)) {
                 ps.println(arregloArchivo[i]);
             } else {
-                ps.println(fecha+ ";" +hora + ";" + cedula + ";" + nombre);
+                ps.println(fecha + ";" + hora + ";" + cedula + ";" + nombre);
             }
         }//End for
     }//End actualizarCita2
+
+    public Cita newDate(Cita element, String fecha, String hora) {
+        Cita u = element;
+        Cita cita = new Cita(fecha, hora, u.getCedula(), u.getNombre());
+
+        return cita;
+    }
+
+    /**
+     *
+     * @param c : cita a modificar
+     * @param f : fecha que se
+     * @param h ; hora que se desea modificar/hora nueva
+     */
+    public void ModifuUse(Cita c, String f, String h) {
+        pilaTemp.pop(c);// elimina el ulitmo, quiza necesita un x
+        pilaTemp.push(newDate(c, f, h));
+
+    }
+
+    /**
+     *
+     * @param c : cita a modificar en el nuevo archivo guarda
+     */
+    public void removeAndModify(Cita c) {
+        pilaTemp.pop(c);// elimina el ulitmo, quiza necesita un x
+
+    }
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    public boolean search(String s) {
+
+        return pilaTemp.search(s);
+
+    }
+
 }//End Update

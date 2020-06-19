@@ -28,10 +28,9 @@ public class CustomerDate extends javax.swing.JFrame {
      * Creates new form CitaCliente
      */
 
-    public CustomerDate() {
-
     FondoPanel fondo = new FondoPanel();
-    public CitaCliente() {
+    
+    public CustomerDate() {
          this.setContentPane(fondo);
 
         initComponents();
@@ -149,7 +148,7 @@ public class CustomerDate extends javax.swing.JFrame {
             if(Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false){
                 NodeStacks pila = new NodeStacks();
                 Cita cita = new Cita(fecha, cbmHora.getSelectedItem().toString(), tfID.getText(), tfName.getText());
-                pila.push(fecha,cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
+                //pila.push(fecha,cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
                 stack.insertCita(cita);
                 JOptionPane.showMessageDialog(null, "Cita Registrada");
             } else {

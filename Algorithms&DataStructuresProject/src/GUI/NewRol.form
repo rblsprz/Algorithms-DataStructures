@@ -43,9 +43,6 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lbName">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="NAME:"/>
       </Properties>
       <Constraints>
@@ -56,9 +53,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbPassword">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="PASSWORD:"/>
       </Properties>
       <Constraints>
@@ -91,9 +85,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbRoles">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="ROLES:"/>
       </Properties>
       <Constraints>
@@ -129,9 +120,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbLastName">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="LAST NAME:"/>
       </Properties>
       <Constraints>
@@ -149,9 +137,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbPhone">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="PHONE:"/>
       </Properties>
       <Constraints>
@@ -169,9 +154,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbID">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="ID:"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
@@ -197,9 +179,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbUserName">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="USERNAME:"/>
       </Properties>
       <Constraints>
@@ -217,9 +196,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbAge">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="AGE:"/>
       </Properties>
       <Constraints>
@@ -237,9 +213,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbEmail">
       <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="EMAIL:"/>
       </Properties>
       <Constraints>

@@ -191,7 +191,7 @@ public class AdministratorDates extends javax.swing.JFrame {
             if(Stack.searchCita(fecha, cBTime.getSelectedItem().toString()) == false){
             NodeStacks pila = new NodeStacks();  
             Cita cita = new Cita(fecha, cBTime.getSelectedItem().toString(), tfID.getText(), tfName.getText());            
-            pila.push(fecha,cBTime.getSelectedItem().toString(), tfName.getText(), tfID.getText());
+//            pila.push(fecha,cbmHora.getSelectedItem().toString(), txtNombre.getText(), txtCedula.getText());
             stack.insertCita(cita);
             JOptionPane.showMessageDialog(null, "Cita Registrada");
             } else {

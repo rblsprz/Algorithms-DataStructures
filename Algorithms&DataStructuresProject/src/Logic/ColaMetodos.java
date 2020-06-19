@@ -1,127 +1,140 @@
 package Logic;
 
 import Interfaces.Queues;
+import java.util.Queue;
 
 /**
  *
  * @author pc
  */
 
-class Nodo {
+class NodeQueue {
+
+    //Atributos de los Nodos
+    NotasCliente element;
+    NodeQueue next;
+
+    /**
+     * Construye objetos tipo NodeQueue
+     *
+     * @param n
+     */
+    public NodeQueue(NotasCliente h) {
+        element = h;
+        next = null;
+    }
     
-    private NotasCliente valor;
-    // Atributo para enlazar los nodos.
-    private Nodo siguiente;
+    NotasCliente seeElement() {
+        return this.element;
+    }// end seeElement
+    // me permite ver el elemento
+    // método utilizado para el indexOf
+
+    NodeQueue seeNext() {
+        return this.next;
+    }// ver siguiente
     
-    int prioridad;
-
-    Nodo(NotasCliente valor, int prioridad) {
-       this.valor=valor;
-       this.prioridad=prioridad;
-    }
-
-    Nodo() {
-       
-    }
-    
-    public void Nodo(){
-        this.valor = null;
-        this.siguiente = null;
-    }
-
-    public NotasCliente getValor() {
-        return valor;
-    }
-
-    public void setValor(NotasCliente valor) {
-        this.valor = valor;
-    }
-
-    public Nodo getSiguiente() {
-        return siguiente;
-    }
-
-    public void setSiguiente(Nodo siguiente) {
-        this.siguiente = siguiente;
-    }
-}
-
-class NodeCola {
-    
-    public int prioridad;
-    public NotasCliente nombreTarea;
-
-    public NodeCola(int prioridad, NotasCliente nombreTarea) {
-        this.prioridad = prioridad;
-        this.nombreTarea = nombreTarea;
-    }
-
-    public int getPrioridad() {
-        return prioridad;
-    }
-}   
-
+}//end class NodeQueue
 
 public class ColaMetodos implements Queues{
     
-    private Nodo inicio;
-    // Puntero que indica el final de la lista o el ultimo nodo.
-    private Nodo ultimo;
+    //Atributos de las Queue
+    NodeQueue start;
+    NodeQueue end;
+    int size;
 
-    public void Lista() {
-        inicio = null;
-        ultimo = null;
+    @Override
+    public int Size() {
+        return size;
     }
 
-    
-    public void Enqueue(NotasCliente valor, int prioridad) {
-        Nodo nuevo = new Nodo(valor, prioridad);
-
-        if (inicio == null) {
-            inicio = ultimo = nuevo;
-        } else {
-
-            if (inicio.prioridad > prioridad) {
-                nuevo.setSiguiente(inicio);
-                inicio=nuevo;
-            }else{
-              Nodo ant=null;
-              Nodo sig=inicio;
-              while(sig!=null && prioridad>=sig.prioridad){
-                  ant=sig;
-                  sig=sig.getSiguiente();
-              }
-              nuevo.setSiguiente(sig);
-              ant.setSiguiente(nuevo);
-              if(sig==null){
-                 ultimo=nuevo;
-              }
-            
-            }
-
-        }
-    }
-
-  
-    public int size() {
-        int salida = 1; //Contador
-        Nodo aux = inicio; //Inicia la lista
-
-        while (aux.getSiguiente() != null) { // Recorre la lista hasta llegar al ultimo nodo
-            salida++; //Cada recorrido incrementa el contador
-            aux = aux.getSiguiente(); //Cada nodo va cambiando por el sgte hasta llegar a null
-        }
-        return salida; //retorna el tamaño de la lista
-    }
-
-   
+    @Override
     public boolean isEmpty() {
-        return inicio == null;
+        return start == null;
     }
 
-   
-    public void imprimir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public void Enqueue(NotasCliente h) {
+        NodeQueue aux = start;
+
+        // se pregunta si la lista está vacia
+        if (aux == null) {
+
+            // se crea mi primer objeto
+            aux = new NodeQueue(h);
+            start = aux;
+            // se hace un system.out.println para que 
+            //se pueda mostrar el resultado por consola   
+            //resultado del primer elemento de la lista
+           // System.out.println(n);
+        } else {
+            // se hará una busqueda, recorre mi lista
+            // preguntando si el siguiente elemento es diferente
+            //de vacío o sea, si existe o no
+            while (aux.next != null) {
+
+                // se le asigna la variable aux al resto de nodos 
+                aux = aux.next;
+
+            }// end while
+            aux.next = new NodeQueue(h);
+            // se hace un system.out.println para que 
+            //se pueda mostrar el resultado por consola
+            //resultado del resto de elementos de la lista
+           // System.out.println(n);
+        }// end else 
     }
+
+    @Override
+    public void Dequeue(NotasCliente h) {
+        NotasCliente element = start.element;//dato= elemento
+        if (start == end) { // siguiente= sgte
+            start = null;
+            end = null;
+        } else {
+            start = start.next;
+        }
+    }
+
+    @Override
+    public NotasCliente startQueue() {
+         return start.element;
+    }
+
+    @Override
+    public boolean isFull() {
+        return start != null ? true : false;
+    }
+
+    @Override
+    public NotasCliente indexOf(int index) {
+        NodeQueue aux = start;
+
+        // indice para recorrer la cola por medio de la 
+        //variable indice
+        for (int i = -1; i < index - 1; i++) {
+
+            // método de la clase NODO para llevar al siguiente
+            // elemento.
+            aux = aux.seeNext();
+        }
+        // instancia del método para ver el elemento actual
+        // (el metodo está en la clase NODO)
+        return aux.seeElement();
+    }
+    
+//    public boolean search(String a){
+//        NodeQueue current = start;   
+//        while (current != null) {
+//            
+//            if (current.element.getFechaHistorial().equals(a) ||current.element.getNombreCliente().equals(a) ||current.element.getPeso().equals(a) || current.element.getGrasa().equals(a)
+//                    || current.element.getMasaMusc().equals(a) || current.element.getAgua().equals(a)
+//                    || current.element.getTipoPlan().equals(a) || current.element.getkCal().equals(a)) {
+//                return true;
+//            }
+//            current = current.next;
+//        }
+//        return false;    //data not found 
+//    }
     
 }

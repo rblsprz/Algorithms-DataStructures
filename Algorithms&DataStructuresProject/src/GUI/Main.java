@@ -1,6 +1,7 @@
 package GUI;
 
 import Logic.Logic;
+import Logic.encriptado;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
@@ -20,9 +21,6 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         ButtonGroup grupoDeBotones = new ButtonGroup();
-        grupoDeBotones.add(jRadioButtonSuperAdministrador);
-        grupoDeBotones.add(jRadioButtonAdministrador);
-        grupoDeBotones.add(jRadioButtonCustomer);
         this.setExtendedState(Main.MAXIMIZED_BOTH);
     }//End Main
 
@@ -31,59 +29,26 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         lbLogin = new javax.swing.JLabel();
-        jRadioButtonAdministrador = new javax.swing.JRadioButton();
-        jRadioButtonCustomer = new javax.swing.JRadioButton();
         lbNombreUsuario = new javax.swing.JLabel();
         lbContraseña = new javax.swing.JLabel();
         tFnombredeUsuario = new javax.swing.JTextField();
         btnIniciarSesion = new javax.swing.JButton();
-        jRadioButtonSuperAdministrador = new javax.swing.JRadioButton();
         tfpassword = new javax.swing.JPasswordField();
         lbAutenticacion = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
-        lbLogin.setForeground(new java.awt.Color(0, 0, 0));
         lbLogin.setText("LOGIN");
-        getContentPane().add(lbLogin);
-        lbLogin.setBounds(970, 50, 35, 16);
 
-        jRadioButtonAdministrador.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButtonAdministrador.setText("2. ADMINISTRATOR");
-        jRadioButtonAdministrador.setOpaque(false);
-        jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonAdministradorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jRadioButtonAdministrador);
-        jRadioButtonAdministrador.setBounds(910, 110, 140, 28);
-
-        jRadioButtonCustomer.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButtonCustomer.setText("3. CUSTOMER");
-        jRadioButtonCustomer.setOpaque(false);
-        getContentPane().add(jRadioButtonCustomer);
-        jRadioButtonCustomer.setBounds(1190, 110, 110, 28);
-
-        lbNombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbNombreUsuario.setText("USERNAME:");
-        getContentPane().add(lbNombreUsuario);
-        lbNombreUsuario.setBounds(810, 240, 67, 16);
 
-        lbContraseña.setForeground(new java.awt.Color(0, 0, 0));
         lbContraseña.setText("PASSWORD:");
-        getContentPane().add(lbContraseña);
-        lbContraseña.setBounds(810, 290, 72, 16);
 
         tFnombredeUsuario.setBackground(new java.awt.Color(204, 204, 204));
         tFnombredeUsuario.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        getContentPane().add(tFnombredeUsuario);
-        tFnombredeUsuario.setBounds(910, 240, 216, 24);
 
         btnIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
-        btnIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         btnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         btnIniciarSesion.setText("LOGIN");
         btnIniciarSesion.setBorderPainted(false);
@@ -93,36 +58,73 @@ public class Main extends javax.swing.JFrame {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(930, 360, 170, 60);
-
-        jRadioButtonSuperAdministrador.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButtonSuperAdministrador.setText("1. SUPER ADMINISTRATOR");
-        jRadioButtonSuperAdministrador.setFocusPainted(false);
-        jRadioButtonSuperAdministrador.setOpaque(false);
-        getContentPane().add(jRadioButtonSuperAdministrador);
-        jRadioButtonSuperAdministrador.setBounds(600, 110, 182, 28);
 
         tfpassword.setBackground(new java.awt.Color(204, 204, 204));
         tfpassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        getContentPane().add(tfpassword);
-        tfpassword.setBounds(910, 290, 216, 22);
+
+        jToggleButton2.setText("Super admin");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(970, 970, 970)
+                .addComponent(lbLogin))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(950, 950, 950)
+                .addComponent(lbNombreUsuario))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(880, 880, 880)
+                .addComponent(tFnombredeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(950, 950, 950)
+                .addComponent(lbContraseña))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(880, 880, 880)
+                .addComponent(tfpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(870, 870, 870)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbAutenticacion, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(lbLogin)
+                .addGap(60, 60, 60)
+                .addComponent(lbNombreUsuario)
+                .addGap(30, 30, 30)
+                .addComponent(tFnombredeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(lbContraseña)
+                .addGap(20, 20, 20)
+                .addComponent(tfpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbAutenticacion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         tfpassword.getAccessibleContext().setAccessibleName("");
-
-        getContentPane().add(lbAutenticacion);
-        lbAutenticacion.setBounds(870, 440, 337, 24);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(-10, 0, 2020, 1000);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRadioButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdministradorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonAdministradorActionPerformed
     public ArrayList activo() {
 
         ArrayList<String> usuarioActivo = new ArrayList<String>();
@@ -132,71 +134,33 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        String superAdministradorNombre = "r";
-        String superAdministradorContrasena = "u";
+
         Logic Lf = new Logic();
+         encriptado encode = new encriptado();
 
-        int rol = 0;
-
-        if ((tfpassword.getText().length() == 0 && tfpassword.getText().length() == 0) && (!jRadioButtonSuperAdministrador.isSelected() && !jRadioButtonAdministrador.isSelected() && !jRadioButtonCustomer.isSelected())) {
-            lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-        }//End if
-        else if ((tfpassword.getText().length() == 0 || tfpassword.getText().length() == 0) || (!jRadioButtonSuperAdministrador.isSelected() && !jRadioButtonAdministrador.isSelected() && !jRadioButtonCustomer.isSelected())) {
-            lbAutenticacion.setText("INVALID USERNAME OR PASSWORD!");
-        }//End else if 
-//End else if
-
-        if (jRadioButtonSuperAdministrador.isSelected()) {
-            rol = 1;
-        } else if (jRadioButtonAdministrador.isSelected()) {
-            rol = 2;
-        } else if (jRadioButtonCustomer.isSelected()) {
-            rol = 3;
-        }
-
-        try {
-            if (rol == 1) {
-                tFnombredeUsuario.setText(superAdministradorNombre);
-                tfpassword.setText(superAdministradorContrasena);
-
-                if (tFnombredeUsuario.getText().equals(superAdministradorNombre) && tfpassword.getText().equals(superAdministradorContrasena)) {
-                    SuperAdministrator sA = new SuperAdministrator();
-                    sA.setVisible(true);
-                    dispose();
-                }//End if
-            } else if (Lf.searchAdministratorID(tFnombredeUsuario.getText(), tfpassword.getText(), rol) == false) {
-                JOptionPane.showMessageDialog(null, "NO DATA FOUND"); //No encuentra al usuario
-                tFnombredeUsuario.setText("");
-                tfpassword.setText("");
-            } else {
-
-                if (rol == 2) {
-                    JOptionPane.showMessageDialog(null, "Administrador Aceptado"); //Usuario tipo Admin
-
+         try {
+           //Lf.searchAdminID(txtNombre.getText(),jPasswordField1.getText(), rol)
+                if(Lf.searchActivo(tFnombredeUsuario.getText(), tfpassword.getText()) == false){
+                    JOptionPane.showMessageDialog(null, "Usuario no encontrado"); //No encuentra al usuario
+                    tFnombredeUsuario.setText("");
+                    tfpassword.setText("");   
+                }
+                else{
                     Lf.searchCliente(tFnombredeUsuario.getText(), tfpassword.getText());
                     tFnombredeUsuario.setText("");
-                    tfpassword.setText("");
-
-                    Administrator A = new Administrator();
+                    tfpassword.setText("");   
                     dispose();
-                    A.setVisible(true);
-
-                }
-                if (rol == 3) {
-                    JOptionPane.showMessageDialog(null, "Usuario Aceptado"); //Usuario tipo Cliente
-                    Lf.searchCliente(tFnombredeUsuario.getText(), tfpassword.getText());
-                    tFnombredeUsuario.setText("");
-                    tfpassword.setText("");
-                    Customer C = new Customer();
-                    dispose();
-                    C.setVisible(true);
-
-                }
+                }   
+       } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, ex);
             }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+
+                    SuperAdministrator nS = new SuperAdministrator();
+                    nS.setVisible (true);
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,10 +199,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButtonAdministrador;
-    private javax.swing.JRadioButton jRadioButtonCustomer;
-    private javax.swing.JRadioButton jRadioButtonSuperAdministrador;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lbAutenticacion;
     private javax.swing.JLabel lbContraseña;
     private javax.swing.JLabel lbLogin;

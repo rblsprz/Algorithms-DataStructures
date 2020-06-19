@@ -276,9 +276,9 @@ public class AdministratorNotes extends javax.swing.JFrame {
         }//End if 
         else {
             try {
-                NotasCliente cita = new NotasCliente(tfID.getText(), tfName.getText(), tANotes.getText(), Double.parseDouble(txtPeso.getText()), Double.parseDouble(tfMuscleMass.getText()), Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()), Double.parseDouble(tfBodyMassIndex.getText()), Double.parseDouble(tfBodyWater.getText()), tfDate.getText());
-                queueQ.Enqueue(cita, 1);
-                queue.notasPacienteInsertar(tfID.getText(), tfName.getText(), tANotes.getText(), Double.parseDouble(txtPeso.getText()), Double.parseDouble(tfMuscleMass.getText()), Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()), Double.parseDouble(tfBodyMassIndex.getText()), Double.parseDouble(tfBodyWater.getText()), tfDate.getText());
+                NotasCliente cita = new NotasCliente(tfID.getText(), tfName.getText(), tANotes.getText(), Double.parseDouble(txtPeso.getText()), Double.parseDouble(tfMuscleMass.getText()), Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()) , Double.parseDouble(tfBodyMassIndex.getText()), Double.parseDouble(tfBodyWater.getText()) , tfDate.getText());
+                    //queueQ.Enqueue(cita, 1);
+                    queue.notasPacienteInsertar(tfID.getText(), tfName.getText(), tANotes.getText(), Double.parseDouble(txtPeso.getText()), Double.parseDouble(tfMuscleMass.getText()), Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()), Double.parseDouble(tfBodyMassIndex.getText()), Double.parseDouble(tfBodyWater.getText()), tfDate.getText());
                 tANotes.setText("");
                 tfHeight.setText("");
                 tfID.setText("");

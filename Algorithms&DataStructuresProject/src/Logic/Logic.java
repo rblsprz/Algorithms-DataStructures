@@ -5,6 +5,9 @@
  */
 package Logic;
 
+import GUI.Administrator;
+import GUI.Customer;
+import GUI.SuperAdministrator;
 import Interfaces.LinkedList;
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,7 +32,7 @@ import javax.swing.JOptionPane;
  * @author pc
  */
 public class Logic {
-
+encriptado encripta = new encriptado();
     //Método de lectura general
     public BufferedReader getBufferedReader() {
         File fileAdmin = new File("clientes.txt");
@@ -251,7 +254,7 @@ public class Logic {
      public void searchCliente(String nombre, String contraseña) throws FileNotFoundException{
         Roles[] c = readRegistersFiles();
         for (int i = 0; i < c.length; i++) {
-            if (c[i].getContraseña().equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)){
+            if (encripta.deecnode("Algoritmos", c[i].getContraseña()).equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)){
                 File f2 = new File ("temporal.txt");
                 FileOutputStream fos = new FileOutputStream(f2); //Elimina los datos cada vez que guarda
                 PrintStream ps = new PrintStream(fos);
@@ -527,43 +530,27 @@ try {
         }//endCatch
         return array;
     }//endCountry[]
-     
-    public String ecnode(String secretKey, String cadena){
     
-        String encriptacion= "";
-        try{
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            byte[] llavePassword = md5.digest(secretKey.getBytes("utf-8"));
-            byte[] BytesKey = Arrays.copyOf(llavePassword, 24);
-            SecretKey key = new SecretKeySpec(BytesKey,"DESede");
-            Cipher cifrado = Cipher.getInstance("DESede");
-            cifrado.init(Cipher.ENCRYPT_MODE, key);
-            byte[] plainTextBytes = cadena.getBytes("utf-8");
-            byte[] buf= cifrado.doFinal(plainTextBytes);
-            byte[] base64Bytes = Base64.getEncoder().encode(buf);
-            encriptacion = new String(base64Bytes);
-        }catch(Exception ex){
-        JOptionPane.showMessageDialog(null, "Problemas");
+    
+     public boolean searchActivo(String nombre, String contraseña) throws FileNotFoundException{
+        Roles[] c = readRegistersFiles();
+        for (int i = 0; i < c.length; i++) {
+            if (encripta.deecnode("Algoritmos", c[i].getContraseña()).equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)){
+                    
+                if (c[i].getTipoRol() == 2){
+                    JOptionPane.showMessageDialog(null, "Administrador Aceptado");
+                    Administrator nS = new Administrator();
+                    nS.setVisible (true);  
+                } else {
+                    JOptionPane.showMessageDialog(null, "Cliente Aceptado");
+                    Customer nS = new Customer();
+                    nS.setVisible (true);  
+                } 
+                return true; //Existe
+            }
         }
-        return encriptacion;
+        return false;
     }
     
-     public String deecnode(String secretKey, String cadena){
-      String desencriptacion= "";
-         try {
-             byte[] message = Base64.getDecoder().decode(cadena.getBytes("utf-8"));
-             MessageDigest md5 = MessageDigest.getInstance("MD5");
-             byte[] digestofPassword = md5.digest(secretKey.getBytes("utf-8"));
-             byte[] BytesKey = Arrays.copyOf(digestofPassword, 24);
-             SecretKey key = new SecretKeySpec(BytesKey,"DESede");
-             Cipher decipher = Cipher.getInstance("DESede");
-             decipher.init(Cipher.DECRYPT_MODE,key);
-             byte[] plainTextBytes = decipher.doFinal(message);
-             desencriptacion = new String(plainTextBytes,"UTF-8");
-         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Problemas");
-         }
-       return desencriptacion;
-     }
     }//End Roles[]
 

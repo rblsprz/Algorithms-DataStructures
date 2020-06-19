@@ -45,17 +45,13 @@ public class SuperAdministrator extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         lbSuperAdministrator = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAdd = new javax.swing.JMenu();
         menuItemNewRol = new javax.swing.JMenuItem();
-        menuItemNewDate = new javax.swing.JMenuItem();
         menuCrud = new javax.swing.JMenu();
         menuItemCRUDRoles = new javax.swing.JMenuItem();
-        menuItemCRUDDates = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
-        menuItemAdvances = new javax.swing.JMenuItem();
-        menuItemDatingHistory = new javax.swing.JMenuItem();
-        menuItemFoodPlans = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
@@ -83,6 +79,15 @@ public class SuperAdministrator extends javax.swing.JFrame {
         getContentPane().add(lbSuperAdministrator);
         lbSuperAdministrator.setBounds(880, 0, 248, 108);
 
+        jToggleButton1.setText("retroceso");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1);
+        jToggleButton1.setBounds(20, 30, 97, 29);
+
         menuAdd.setText("ADD");
 
         menuItemNewRol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
@@ -94,15 +99,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
         menuAdd.add(menuItemNewRol);
-
-        menuItemNewDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
-        menuItemNewDate.setText("NEW DATE");
-        menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemNewDateActionPerformed(evt);
-            }
-        });
-        menuAdd.add(menuItemNewDate);
 
         jMenuBar1.add(menuAdd);
 
@@ -118,46 +114,9 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuCrud.add(menuItemCRUDRoles);
 
-        menuItemCRUDDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
-        menuItemCRUDDates.setText("CRUD DATES");
-        menuItemCRUDDates.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemCRUDDatesActionPerformed(evt);
-            }
-        });
-        menuCrud.add(menuItemCRUDDates);
-
         jMenuBar1.add(menuCrud);
 
         menuInformation.setText("INFORMATION");
-
-        menuItemAdvances.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food.png"))); // NOI18N
-        menuItemAdvances.setText("ADVANCES");
-        menuItemAdvances.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemAdvancesActionPerformed(evt);
-            }
-        });
-        menuInformation.add(menuItemAdvances);
-
-        menuItemDatingHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
-        menuItemDatingHistory.setText("DATING HISTORY");
-        menuItemDatingHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemDatingHistoryActionPerformed(evt);
-            }
-        });
-        menuInformation.add(menuItemDatingHistory);
-
-        menuItemFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/food2.png"))); // NOI18N
-        menuItemFoodPlans.setText("FOOD PLANS");
-        menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemFoodPlansActionPerformed(evt);
-            }
-        });
-        menuInformation.add(menuItemFoodPlans);
-
         jMenuBar1.add(menuInformation);
 
         menuOptions.setText("OPTIONS");
@@ -214,45 +173,12 @@ public class SuperAdministrator extends javax.swing.JFrame {
         //dispose();
     }//GEN-LAST:event_menuItemCRUDRolesActionPerformed
 
-    private void menuItemNewDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewDateActionPerformed
-        AdministratorDates aD = new AdministratorDates();
-        aD.show();
-        aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        SuperAdministrator sA = new SuperAdministrator();
-        sA.setVisible(false);
-        //dispose();
-    }//GEN-LAST:event_menuItemNewDateActionPerformed
-
-    private void menuItemCRUDDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDDatesActionPerformed
-        CRUDAdministratorDates cA = new CRUDAdministratorDates();
-        cA.show();
-        cA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        SuperAdministrator sA = new SuperAdministrator();
-        sA.setVisible(false);
-        //dispose();
-    }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
-
-    private void menuItemFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFoodPlansActionPerformed
-        FoodPlans fP = new FoodPlans();
-        fP.show();
-        fP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);    }//GEN-LAST:event_menuItemFoodPlansActionPerformed
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        Main m=new Main();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
  
-    private void menuItemAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdvancesActionPerformed
-        AdministratorNotes aN = new AdministratorNotes();
-        aN.show();
-        aN.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemAdvancesActionPerformed
-
-    private void menuItemDatingHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDatingHistoryActionPerformed
-        DatingHistory dH = new DatingHistory();
-        dH.show();
-        dH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
-        SuperAdministrator sA = new SuperAdministrator();
-        sA.setVisible(false);
-        //dispose();
-    }//GEN-LAST:event_menuItemDatingHistoryActionPerformed
-
 
     /**
      * @param args the command line arguments
@@ -299,16 +225,12 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbSuperAdministrator;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCrud;
     private javax.swing.JMenu menuInformation;
-    private javax.swing.JMenuItem menuItemAdvances;
-    private javax.swing.JMenuItem menuItemCRUDDates;
     private javax.swing.JMenuItem menuItemCRUDRoles;
-    private javax.swing.JMenuItem menuItemDatingHistory;
-    private javax.swing.JMenuItem menuItemFoodPlans;
-    private javax.swing.JMenuItem menuItemNewDate;
     private javax.swing.JMenuItem menuItemNewRol;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;

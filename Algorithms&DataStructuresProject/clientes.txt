@@ -1,9 +1,4 @@
+
 mano;Prueba00.;2
-vale;Prueba01.;3
-maguilar;Prueba02.;3
-david2001;Prueba.2020;2
-niarobles;Prueba.2005;3
-melissa;Prueba.2019;2
-karlap;Prueba.2018;3
-jesus123;Prueba01.;3
-rblsprz;Prueba.2001;2
+maguilar;Prueba01.;3
+mano;Prueba00.;2

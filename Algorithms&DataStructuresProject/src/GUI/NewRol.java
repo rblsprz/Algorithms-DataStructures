@@ -6,6 +6,7 @@ import Logic.Roles;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 import Logic.Logic;
+import Logic.encriptado;
 
 /**
  *
@@ -17,7 +18,7 @@ public class NewRol extends javax.swing.JFrame {
      * Creates new form nuevoUsuario
      */
     Logic lo = new Logic();
-
+    encriptado encode = new encriptado();
     public NewRol() {
         initComponents();
         this.setExtendedState(NewRol.MAXIMIZED_BOTH);
@@ -172,7 +173,8 @@ public class NewRol extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
         String passw = tfPassword.getText().trim();
-
+        int count=0;
+        
         if (lo.validatePassword(passw)) {
             Roles p = new Roles();
 
@@ -232,7 +234,7 @@ public class NewRol extends javax.swing.JFrame {
             Roles r = new Roles(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
             cU.add(r);
             try {
-                if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
+                if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), encode.ecnode("Algoritmos",tfPassword.getText()), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
                     l.insertCustomer(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
                     lbMensajes.setText("SUCCESFUL PROCEDURE!");
                     tfID.setText("");

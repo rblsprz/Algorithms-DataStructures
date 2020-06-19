@@ -21,130 +21,204 @@ import Interfaces.Stacks;
  * @author pc
  */
 
- class NodeCita {
+class NodeCita {
 
-         String numCel;
-         String nombre, cedula, fecha, hora;
-         NodeCita sgte;
+    // variables de la clase nodo
+    Cita element;
+    NodeCita next;
 
-    public NodeCita(String nombre, String cedula, String fecha, String hora) {
-        this.nombre = nombre;
-        this.cedula = cedula;
-        this.fecha = fecha;
-        this.hora = hora;
-        sgte = null;
+    // constructor del nodo
+    public NodeCita(Cita n) {
+
+        this.element = n;
+        next = null;
     }
-        public String getNombre() {
-            return this.nombre;
-        }
 
-        public String getCedula() {
-            return this.cedula;
-        }
+    Cita seeElement() {
 
-        public String getNumCel() {
-            return this.numCel;
-        }
-    }
+        return this.element;
+    }// end seeElement
+    // me permite ver el elemento
+    // método utilizado para el indexOf
+
+    NodeCita seeNext() {
+
+        return this.next;
+    }// ver siguiente
+}// end class Node()
+
 public class NodeStacks implements Stacks{
+    
+    NodeCita start, end;// nodos para utilizar y mover las pilas
 
-     NodeCita inicio;
+    // constructor vacio
+    public NodeStacks() {
 
-        @Override
-        public int size() {
-            int salida = 1; //Contador
-            NodeCita aux = inicio; //Inicia la lista
+    }
 
-            while (aux.sgte != null) { // Recorre la lista hasta llegar al ultimo nodo
-                salida++; //Cada recorrido incrementa el contador
-                aux = aux.sgte; //Cada nodo va cambiando por el sgte hasta llegar a null
-            }
-            return salida; //retorna el tamaño de la lista
+    @Override
+    public int size() {
+        int Tam = 1;
+        NodeCita aux = start;
+        // pila vacia
+        if (aux == null) {
+            return 0;
+        } else {
+            do {
+                // aumenta el tamaño mientras en el recorrido
+                // el elemento sea diferente de nulo
+                Tam++;
+                aux = aux.next;
+            } while (aux.next != null);
+        }
+        return Tam;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return start == null ? true : false;
+    }
+
+    @Override
+    public boolean isFull() {
+        return start != null ? true : false;
+    }
+
+    @Override
+    public void push(Cita n) {
+        NodeCita aux = start;
+
+        if (aux == null) {
+            aux = new NodeCita(n);
+            start = aux;
+            System.out.println(n);
+        }// end if
+        else {
+            while (aux.next != null) {//para encontrar el ultimo elemento
+                aux = aux.next;
+            }// end while
+
+            aux.next = new NodeCita(n);
+            // end = aux.next;
+            System.out.println(n);
+        }// end else
+    }
+
+    @Override
+    public Cita peek() {
+        NodeCita aux = start;
+        Cita pokiNode = null;
+        if (aux == null) {
+            // si la pila esta vacia entonces
+            // retorna null
+            return null;
+        } else {
+            do {
+                // si el nodo siguiente está vacio
+                // entonces signfica que el actual es el ultimo
+                if (aux.next == null) {
+                    // entonces el nodo actual pasa
+                    // a ser pokiNode
+                    pokiNode = aux.element;
+                }
+                // para recorrer la pila
+                aux = aux.next;
+            } while (aux != null);// todo mientras el auxiliar sea diferente de nulo
         }
 
-        @Override
-        public boolean isEmpty() {
-            return inicio == null;
+        return pokiNode;
+    }
+
+    @Override
+    public Cita pop(Cita c) {
+        NodeCita aux = start;// nodos auxiliares
+        NodeCita temporal = null;
+        Cita pokiNode = null;
+        if (aux == null) {
+            return null;
+        } else {
+            do {
+                if (aux.next == null) {
+                    temporal = aux;
+                    pokiNode = aux.element;
+                }
+                aux = aux.next;
+            } while (aux != null);
         }
 
-        @Override
-        public boolean isFull() {
-            if (!isEmpty()) {
+        if (!isEmpty()) { //usa el metodo "isEmpty" para saber si está vacío
+            if (start.equals(end) && temporal.equals(start.element)) { //si el inicio es igual al final y el elemento es igual al inicio.elemento
+                start = end = null; //inicio es igual a fin y ambos son iguales a nulo
+            }//end if
+            else if (temporal.equals(start.element)) { //else if
+                start = start.next; //recorre toda la lista
+
+            }// end else if
+            else { //else
+                NodeCita aux1, aux3; //nodos auxiliares
+                aux1 = start; //auxiliar1 es inicio
+                aux3 = start.next; //auxiliar es el siguiente de inicio
+                while (!(aux3.equals(null)) && !(aux3 == (temporal))) { //mientras auxiliar sea diferente de nulo y el elemento de exiñiar sea diferente de elemento
+                    aux1 = aux1.next; //siguiente
+                    aux3 = aux3.next; //siguiente del siguiente
+                }//end while
+                if (aux3 != null) { //si el auxiliar (siguiente) es diferente de nulo
+                    aux1.next = aux3.next; //el auxiliar1 siguiente es igual al auxiliar siguiente del siguiente
+                    if (aux3.equals(end)) { ////si auxiliar es igual a fin
+                        end = aux1; //fin es igual a auxiliar1
+                    }//end if
+                }//end if
+            }//end else
+
+        }//end IF
+
+        return pokiNode;
+    }
+
+    @Override
+    public Cita IndexOf(int index) {
+        NodeCita aux = start;
+
+        // indice para recorrer la lista por medio de la 
+        //variable indice
+        for (int i = -1; i < index - 1; i++) {
+
+            // método de la clase NODO para llevar al siguiente
+            // elemento.
+            aux = aux.seeNext();
+        }
+        // instancia del método para ver el elemento actual
+        // (el metodo está en la clase NODO)
+        return aux.seeElement();
+    }
+    
+    public void display() {
+        NodeCita current = start;
+
+        if (start == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("linked list: ");
+        while (current != null) {
+            System.out.print(current.element.getCedula()+ " ");
+            current = current.next;
+        }
+        System.out.println();
+    }// end display
+
+    public boolean search(String x) {
+        NodeCita current = start;
+        while (current != null) {
+
+            if (current.element.getFecha().equals(x) || current.element.getHora().equals(x) || current.element.getCedula().equals(x) || current.element.getNombre().equals(x)) {
                 return true;
-            } else {
-                return false;
             }
+            current = current.next;
         }
-
-        public int peek() {
-            NodeCita aux = inicio;
-            int lastNodo = 0;
-            if (aux == null) { //Si no tiene nada, retorna una salida
-            } else {
-                while (aux != null) { //Cuando sigt sea null quiere decir que es el ultimo nodo 
-                    lastNodo = aux.hashCode(); //Como va a salir cuando encuentre el null entonces obtenemos el valor antes de que salga del ciclo
-                    aux = aux.sgte; //recorre toda lista hasta que encuentre el null    
-                }
-            }//endElse
-            return lastNodo;
-        }
-
-//        @Override
-//        public Object pop() {
-//            NodeCita actual = inicio; //Inicializa la lista 
-//            if (inicio == null) //Si la lista esta vacia entonces muestra un mensaje
-//            {
-//                return "La pila esta vacia";
-//            } else if (inicio.nombre == peek()) //Si el inicio es igual al final
-//            {
-//                return inicio = null;
-//            } else {
-//                while (actual.sgte.nombre != peek()) { //Recorre la lista hasta llegar al ultimo valor, cuando llega al ultimo rompe el ciclo
-//                    actual = actual.sgte; //Recorre 
-//                }
-//            }
-//            //Remueve el ultimo valor 
-//            return actual.sgte = null;
-//        }
-
-        public void push(String fecha, String hora, String nombre, String cedula) {
-            NodeCita aux = inicio; //Para iniciar, si es el primer recorrido es null sino va hacer igual a n
-
-            if (aux == null) { //Si no tiene nada,crea el primer objeto
-                aux = new NodeCita(fecha, hora,cedula,nombre ); //Le asigno el objecto
-                inicio = aux; //Como inicio ya tiene un valor n entonces en el proximo insert saltara directo al while
-            } else {
-                while (aux.sgte != null) { //Cuando sigt sea null quiere decir que es el ultimo nodo    
-                    aux = aux.sgte; //recorre toda lista hasta que encuentre el null
-                }
-                aux.sgte = new NodeCita(fecha, hora, cedula,nombre); //Si es igual a null ingresa
-            }//endElse
-        }
-
-        public String printPila() {
-            NodeCita aux = inicio;
-            String output = "";
-            while (aux != null) {
-                String dato1 = aux.getNumCel();
-                String dato2 = aux.getNombre();
-                String dato3 = aux.getNombre();
-                output += "[" + dato1 + "," + dato2 + "," + dato3 + "," + "]" + "->";
-                aux = aux.sgte;
-            }
-            return output;
-        }
-        
-        
-   
-    @Override
-    public void push(int x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object pop() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        return false;    //data not found 
+    }// end search()
+     
 }
     
 
