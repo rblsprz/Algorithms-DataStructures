@@ -1,6 +1,5 @@
 package GUI;
 
-import static GUI.CRUDCustomerDates.jTable3;
 import Logic.Cita;
 import Logic.Delete;
 import Logic.Logic;
@@ -13,6 +12,7 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static GUI.CRUDCustomerDates.jTableCustom;
 
 /**
  *

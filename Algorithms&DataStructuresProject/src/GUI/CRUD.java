@@ -7,6 +7,7 @@ package GUI;
 
 import Logic.Logic;
 import Logic.Delete;
+import Logic.ExportarExcel;
 import Logic.Roles;
 import Logic.Update;
 import java.awt.Graphics;
@@ -17,13 +18,13 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import java.io.*;
+import javax.swing.*;
+
 
 /**
  *
@@ -40,7 +41,7 @@ public class CRUD extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(CRUD.MAXIMIZED_BOTH);
     }
-
+String Ruta;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,6 +76,7 @@ public class CRUD extends javax.swing.JFrame {
         tfPassword = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -195,6 +197,15 @@ public class CRUD extends javax.swing.JFrame {
         getContentPane().add(jToggleButton1);
         jToggleButton1.setBounds(1100, 620, 61, 29);
 
+        jToggleButton2.setText("Excel");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton2);
+        jToggleButton2.setBounds(1200, 620, 69, 29);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -294,6 +305,21 @@ MessageFormat header=new MessageFormat("Registro");
         System.err.format("error de impresion", ex.getMessage());
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+void impresion() {
+        JFileChooser seleccionar = new JFileChooser();
+        File archivo;
+        
+                if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
+            archivo = seleccionar.getSelectedFile();
+            String imagen = archivo + ".xls";
+            File file = new File(imagen);
+            ExportarExcel excel = new ExportarExcel(jTable3, file, "" + "tablaimporte");
+            excel.export(); 
+        }
+    }
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+         impresion();
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     public void mostrarRegistros() {
         Logic lC = new Logic();
@@ -372,6 +398,7 @@ MessageFormat header=new MessageFormat("Registro");
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable3;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbID;
