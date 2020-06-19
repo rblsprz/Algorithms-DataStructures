@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import static java.nio.file.Files.delete;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,6 +34,7 @@ import javax.swing.JOptionPane;
  */
 public class Logic {
 encriptado encripta = new encriptado();
+Delete delete = new Delete();
     //Método de lectura general
     public BufferedReader getBufferedReader() {
         File fileAdmin = new File("clientes.txt");
@@ -551,6 +553,87 @@ try {
         }
         return false;
     }
+    public int getFileRegistersHoras() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileCountries = new File("horasConsulta.txt");
+        int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+    
+     /**
+     * Leemos los elementos en el archivo
+     *
+     * @return array[] con los elementos del archivo
+     */
+    public String [] readRegistersFilesHoras() {
+
+        String array[] = new String[getFileRegistersHoras()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCountries = new File("horasConsulta.txt");
+
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                array[indexArray] = actualRegister;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+
+        return array;
+    }//endCountry[]
+    
+    public void borrarHora(String archivo,String hora) throws IOException {
+        String array[] = readRegistersFilesHoras();
+        PrintStream ps = delete.getPrintStream(archivo, false);
+        
+        for(int i = 0; i < array.length; i++){
+            if(!array[i].equalsIgnoreCase(hora)){
+                ps.println(array[i]);
+            }   
+        } 
+    }
+    
+     public boolean searchHora(String hora) {
+        String[] c = readRegistersFilesHoras();
+        for (int i = 0; i < c.length; i++) {
+            if (c[i].equalsIgnoreCase(hora)){
+                return true; //Si la encuentra
+            }
+        }
+        return false;
+     }
+    
     
     }//End Roles[]
 

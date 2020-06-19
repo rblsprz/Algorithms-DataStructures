@@ -14,8 +14,10 @@ import Logic.Roles;
 import Logic.Update;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.print.PrinterException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -23,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import jdk.nashorn.internal.ir.BreakNode;
 
 /**
@@ -64,7 +67,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         tfID = new javax.swing.JTextField();
         lbDate = new javax.swing.JLabel();
         lbTime = new javax.swing.JLabel();
-        tfTime = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         lbDatesRegisters = new javax.swing.JLabel();
         dateChooser = new com.toedter.calendar.JDateChooser();
@@ -72,8 +74,11 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        comboHoras3 = new javax.swing.JComboBox<>();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,12 +95,17 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(28, 91, 438, 164);
+
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDelete);
+        btnDelete.setBounds(152, 301, 89, 29);
 
         btnShowDates.setText("SHOW DATES");
         btnShowDates.addActionListener(new java.awt.event.ActionListener() {
@@ -103,8 +113,14 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                 btnShowDatesActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShowDates);
+        btnShowDates.setBounds(293, 301, 133, 29);
 
         lbName.setText("NAME:");
+        getContentPane().add(lbName);
+        lbName.setBounds(556, 94, 49, 20);
+        getContentPane().add(tfDate);
+        tfDate.setBounds(556, 287, 178, 26);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,14 +128,24 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                 tfNameMouseClicked(evt);
             }
         });
+        getContentPane().add(tfName);
+        tfName.setBounds(623, 91, 181, 26);
 
         lbID.setText("ID:");
+        getContentPane().add(lbID);
+        lbID.setBounds(556, 143, 23, 20);
 
         tfID.setEditable(false);
+        getContentPane().add(tfID);
+        tfID.setBounds(623, 140, 181, 26);
 
         lbDate.setText("DATE:");
+        getContentPane().add(lbDate);
+        lbDate.setBounds(556, 191, 45, 20);
 
         lbTime.setText("TIME:");
+        getContentPane().add(lbTime);
+        lbTime.setBounds(556, 238, 43, 20);
 
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -127,115 +153,44 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
+        getContentPane().add(btnUpdate);
+        btnUpdate.setBounds(28, 301, 93, 29);
 
         lbDatesRegisters.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDatesRegisters.setText("DATES REGISTERS");
+        getContentPane().add(lbDatesRegisters);
+        lbDatesRegisters.setBounds(590, 20, 215, 37);
+        getContentPane().add(dateChooser);
+        dateChooser.setBounds(627, 194, 178, 26);
+        getContentPane().add(lbMessages);
+        lbMessages.setBounds(144, 348, 282, 22);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(546, 348, 0, 0);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(637, 16, 0, 0);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon1.png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        getContentPane().add(jButton2);
+        jButton2.setBounds(462, 398, 194, 193);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbName)
-                                    .addComponent(lbID))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfName, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                                    .addComponent(tfID)))
-                            .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbDatesRegisters, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbTime))
-                                    .addGap(26, 26, 26)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tfTime, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                                        .addComponent(dateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addContainerGap(928, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(btnUpdate)
-                                .addGap(31, 31, 31)
-                                .addComponent(btnDelete)
-                                .addGap(52, 52, 52)
-                                .addComponent(btnShowDates)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(120, 120, 120)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(211, 211, 211)
-                                .addComponent(jLabel2)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(462, 462, 462)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(lbDatesRegisters, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnUpdate)
-                                    .addComponent(btnDelete)
-                                    .addComponent(btnShowDates)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbName)
-                                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbID)
-                                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addComponent(lbDate)
-                                        .addGap(27, 27, 27))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbTime)
-                                    .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))))
-                .addGap(28, 28, 28)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1118, Short.MAX_VALUE))
-        );
+        comboHoras3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboHoras3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(comboHoras3);
+        comboHoras3.setBounds(620, 240, 120, 26);
+
+        jToggleButton1.setText("PDF");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1);
+        jToggleButton1.setBounds(30, 380, 61, 29);
 
         pack();
         setLocationRelativeTo(null);
@@ -243,10 +198,10 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         int seleccion = jTable3.getSelectedRow();
-        tfTime.setText(jTable3.getValueAt(seleccion, 1).toString());
+       // tfTime.setText(jTable3.getValueAt(seleccion, 1).toString());
         tfID.setText(jTable3.getValueAt(seleccion, 3).toString());
         tfName.setText(jTable3.getValueAt(seleccion, 2).toString());
-        tfDate.setText(jTable3.getValueAt(seleccion, 0).toString());
+       // tfDate.setText(jTable3.getValueAt(seleccion, 0).toString());
         // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
     }//GEN-LAST:event_jTable3MouseClicked
     
@@ -292,17 +247,15 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         }   
     }
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+          int seleccion = jTable3.getSelectedRow();
         try {
             int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText()+ " ?");
             if(d == 0){
-                 stack.removeLinesPila(tfDate.getText(), tfTime.getText());
-                 searchClienteIndividual(tfID.getText());
-                lbMessages.setText("SUCCESSFULLY DELETED!");
+                stack.removeLinesPila(jTable3.getValueAt(seleccion, 0).toString(), jTable3.getValueAt(seleccion, 1).toString());
+                searchClienteIndividual(tfID.getText());
+                JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
                 tfID.setText("");
-                tfDate.setText("");
-                tfTime.setText("");
                 tfName.setText("");
-                tfDate.setText("");
             }
         }catch (IOException ex) {
             lbMessages.setText("DELETE ERROR!");
@@ -329,11 +282,11 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             Update em = new Update();
             int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText()+ " ?");
             if(edit == 0){
-                if(Stack.searchCita(fecha, tfTime.getText()) == false){
-                    Cita cita1 = new Cita(tfDate.getText(), jTable3.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
-                    Cita cita2 = new Cita(fecha, tfTime.getText(), tfID.getText(), tfName.getText());
+                 if(Stack.searchCita(fecha, jTable3.getValueAt(seleccion, 1).toString()) == false){
+                    Cita cita1 = new Cita(jTable3.getValueAt(seleccion, 0).toString(), jTable3.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
+                    Cita cita2 = new Cita(fecha, comboHoras3.getSelectedItem().toString(), tfID.getText(), tfName.getText());
                     stack1.insertCita(cita2);
-                    em.ModifuUse(cita1, fecha, tfTime.getText());
+                    em.ModifuUse(cita1, fecha, comboHoras3.getSelectedItem().toString());
                     stack.removeLinesPila(tfDate.getText(), jTable3.getValueAt(seleccion, 1).toString());
                     //em.actualizarCita2(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
                     searchClienteIndividual(tfID.getText());
@@ -341,8 +294,8 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                     lbMessages.setText("SUCCESSFULLY UPDATED!");
                     tfID.setText("");
                     tfName.setText("");
-                    tfTime.setText("");
-                    tfDate.setText("");
+//                    tfTime.setText("");
+//                    tfDate.setText("");
                 } else {
                     JOptionPane.showMessageDialog(null, "THE DATA AND TIME AREN'T AVAILABLE!");
                 }
@@ -355,6 +308,20 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
         mostrarNombre();
     }//GEN-LAST:event_tfNameMouseClicked
+
+    private void comboHoras3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboHoras3MouseClicked
+
+    }//GEN-LAST:event_comboHoras3MouseClicked
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+MessageFormat header=new MessageFormat("Citas personal");
+        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
+        try{
+            jTable3.print(JTable.PrintMode.NORMAL, header, footer);
+        } catch (PrinterException ex) {
+        System.err.format("error de impresion", ex.getMessage());
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,12 +365,14 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnShowDates;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboHoras3;
     private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable3;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbDatesRegisters;
     private javax.swing.JLabel lbID;
@@ -413,7 +382,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private javax.swing.JTextField tfDate;
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfName;
-    private javax.swing.JTextField tfTime;
     // End of variables declaration//GEN-END:variables
 
     class FondoPanel extends JPanel {
