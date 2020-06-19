@@ -54,6 +54,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         menuInformation = new javax.swing.JMenu();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -136,6 +137,15 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuOptions.add(menuItemSignOff);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
+        jMenuItem1.setText("Change Time");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuOptions.add(jMenuItem1);
+
         jMenuBar1.add(menuOptions);
 
         setJMenuBar(jMenuBar1);
@@ -178,6 +188,15 @@ public class SuperAdministrator extends javax.swing.JFrame {
         m.setVisible(true);
         dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ClinicTime cT=new ClinicTime();
+        cT.show();
+        cT.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        SuperAdministrator sA = new SuperAdministrator();
+//        sA.setVisible(false);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
  
 
     /**
@@ -225,6 +244,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbSuperAdministrator;
     private javax.swing.JMenu menuAdd;

@@ -59,30 +59,34 @@ public class AdministratorDates extends javax.swing.JFrame {
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(910, 440, 32, 24);
+        lbName.setBounds(910, 440, 49, 24);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(920, 400, 37, 14);
+        lbID.setBounds(920, 400, 37, 20);
 
         tfName.setBackground(new java.awt.Color(0, 102, 102));
         tfName.setOpaque(false);
+        tfName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfNameMouseClicked(evt);
+            }
+        });
         getContentPane().add(tfName);
-        tfName.setBounds(950, 440, 170, 20);
+        tfName.setBounds(950, 440, 170, 26);
 
         tfID.setBackground(new java.awt.Color(0, 102, 102));
         tfID.setOpaque(false);
         tfID.setSelectionColor(new java.awt.Color(204, 204, 204));
         getContentPane().add(tfID);
-        tfID.setBounds(950, 400, 171, 20);
+        tfID.setBounds(950, 400, 171, 26);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(910, 530, 28, 20);
+        lbTime.setBounds(910, 530, 43, 20);
 
         cBTime.setBackground(new java.awt.Color(204, 204, 204));
         cBTime.setEditable(true);
-        cBTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00 a.m", "09:00 a.m", "10:00 a.m", "11:00 a.m", "12:00 p.m", "13:00 p.m", "14:00 p.m", "15:00 p.m", "16:00 p.m", "17:00 p.m" }));
         cBTime.setToolTipText("");
         cBTime.setOpaque(false);
         cBTime.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +95,7 @@ public class AdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cBTime);
-        cBTime.setBounds(950, 530, 120, 20);
+        cBTime.setBounds(950, 530, 120, 26);
 
         btnRequest.setBackground(new java.awt.Color(255, 255, 255));
         btnRequest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
@@ -110,11 +114,11 @@ public class AdministratorDates extends javax.swing.JFrame {
         dateChooser.setForeground(new java.awt.Color(255, 255, 255));
         dateChooser.setOpaque(false);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(950, 480, 170, 20);
+        dateChooser.setBounds(950, 480, 170, 26);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(910, 490, 30, 14);
+        lbDate.setBounds(910, 490, 47, 20);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -170,6 +174,15 @@ public class AdministratorDates extends javax.swing.JFrame {
     private void cBTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBTimeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cBTimeActionPerformed
+
+    private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
+         Logic lC = new Logic();       
+        String tempCountries[] = lC.readRegistersFilesHoras();
+
+       for(String num : tempCountries){
+           cBTime.addItem(num);
+       }
+    }//GEN-LAST:event_tfNameMouseClicked
 
     /**
      * @param args the command line arguments

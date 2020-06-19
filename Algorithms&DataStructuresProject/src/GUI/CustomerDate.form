@@ -48,19 +48,7 @@
     <Component class="javax.swing.JComboBox" name="cbmHora">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="11">
-            <StringItem index="0" value="08:00 a.m"/>
-            <StringItem index="1" value="09:00 a.m"/>
-            <StringItem index="2" value="10:00 a.m"/>
-            <StringItem index="3" value="11:00 a.m"/>
-            <StringItem index="4" value="12:00 p.m"/>
-            <StringItem index="5" value="13:00 p.m"/>
-            <StringItem index="6" value="14:00 p.m"/>
-            <StringItem index="7" value="15:00 p.m"/>
-            <StringItem index="8" value="16:00 p.m"/>
-            <StringItem index="9" value="17:00 p.m"/>
-            <StringItem index="10" value=" "/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -133,6 +121,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfNameMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNameActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

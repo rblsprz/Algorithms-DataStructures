@@ -138,6 +138,18 @@ public class FileStacks {
         }//end catch
 
     }// end removeLines()
-    
+    public void insertHora(String c) {
+        File mainFileE = new File("horasConsulta.txt");
+        try {
+            //                                                  
+            FileOutputStream fos = new FileOutputStream(mainFileE, true);
+            PrintStream ps = new PrintStream(fos);
+             ps.println(c);
+
+        } catch (FileNotFoundException fnfe) {
+
+            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+        }// end catch()
+    }
     
 }
