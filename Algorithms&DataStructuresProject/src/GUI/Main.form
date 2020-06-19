@@ -119,6 +119,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LOGIN"/>
         <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="doubleBuffered" type="boolean" value="true"/>
       </Properties>
       <Events>
@@ -143,6 +144,8 @@
     <Component class="javax.swing.JToggleButton" name="jToggleButton2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Super admin"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton2ActionPerformed"/>

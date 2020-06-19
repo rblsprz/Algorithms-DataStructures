@@ -1,5 +1,7 @@
 package GUI;
 
+import Logic.ColaMetodos;
+import Logic.NotasCliente;
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,9 +9,9 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Logic.QueueMethods;
-import Logic.CustomerNotes;
+
 import Logic.UserNotes;
+
 
 /**
  *
@@ -25,7 +27,7 @@ public class AdministratorNotes extends javax.swing.JFrame {
     }
 
     UserNotes queue = new UserNotes();
-    QueueMethods queueQ = new QueueMethods();
+    ColaMetodos queueQ = new ColaMetodos();
 
     /**
      * This method is called from within the constructor to initialize the form.

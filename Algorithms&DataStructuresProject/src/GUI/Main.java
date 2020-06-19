@@ -52,6 +52,7 @@ public class Main extends javax.swing.JFrame {
         btnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         btnIniciarSesion.setText("LOGIN");
         btnIniciarSesion.setBorderPainted(false);
+        btnIniciarSesion.setContentAreaFilled(false);
         btnIniciarSesion.setDoubleBuffered(true);
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +64,8 @@ public class Main extends javax.swing.JFrame {
         tfpassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jToggleButton2.setText("Super admin");
+        jToggleButton2.setBorderPainted(false);
+        jToggleButton2.setContentAreaFilled(false);
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
@@ -139,6 +142,8 @@ public class Main extends javax.swing.JFrame {
          encriptado encode = new encriptado();
 
          try {
+            
+             
            //Lf.searchAdminID(txtNombre.getText(),jPasswordField1.getText(), rol)
                 if(Lf.searchActivo(tFnombredeUsuario.getText(), tfpassword.getText()) == false){
                     JOptionPane.showMessageDialog(null, "Usuario no encontrado"); //No encuentra al usuario
@@ -150,7 +155,10 @@ public class Main extends javax.swing.JFrame {
                     tFnombredeUsuario.setText("");
                     tfpassword.setText("");   
                     dispose();
-                }   
+//                    Main m = new Main();
+//                    m.setVisible(false);
+                } 
+             
        } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
@@ -160,6 +168,9 @@ public class Main extends javax.swing.JFrame {
 
                     SuperAdministrator nS = new SuperAdministrator();
                     nS.setVisible (true);
+                    dispose();
+                     Main m = new Main();
+                     m.setVisible(false);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**

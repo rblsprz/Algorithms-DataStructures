@@ -127,6 +127,9 @@ public class Customer extends javax.swing.JFrame {
         Main m = new Main();
         m.show();
         m.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        dispose();
+        Customer n = new Customer();
+        n.setVisible(false);
     }//GEN-LAST:event_menuItemSignOffActionPerformed
 
     private void menuItemMyCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMyCRUDActionPerformed
