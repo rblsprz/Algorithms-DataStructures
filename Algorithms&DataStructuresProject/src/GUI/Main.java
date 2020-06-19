@@ -36,6 +36,7 @@ public class Main extends javax.swing.JFrame {
         tfpassword = new javax.swing.JPasswordField();
         lbAutenticacion = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
+        lbMessages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +64,7 @@ public class Main extends javax.swing.JFrame {
         tfpassword.setBackground(new java.awt.Color(204, 204, 204));
         tfpassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jToggleButton2.setText("Super admin");
+        jToggleButton2.setText("SUPER ADMINISTRATOR");
         jToggleButton2.setBorderPainted(false);
         jToggleButton2.setContentAreaFilled(false);
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,9 +90,6 @@ public class Main extends javax.swing.JFrame {
                 .addGap(950, 950, 950)
                 .addComponent(lbContraseña))
             .addGroup(layout.createSequentialGroup()
-                .addGap(880, 880, 880)
-                .addComponent(tfpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(870, 870, 870)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbAutenticacion, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -100,6 +98,11 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                             .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(880, 880, 880)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfpassword, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +117,9 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(lbContraseña)
                 .addGap(20, 20, 20)
                 .addComponent(tfpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
+                .addGap(66, 66, 66)
+                .addComponent(lbMessages)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbAutenticacion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -146,7 +151,7 @@ public class Main extends javax.swing.JFrame {
              
            //Lf.searchAdminID(txtNombre.getText(),jPasswordField1.getText(), rol)
                 if(Lf.searchActivo(tFnombredeUsuario.getText(), tfpassword.getText()) == false){
-                    JOptionPane.showMessageDialog(null, "Usuario no encontrado"); //No encuentra al usuario
+                    lbMessages.setText("USER NOT FOUND"); //No encuentra al usuario
                     tFnombredeUsuario.setText("");
                     tfpassword.setText("");   
                 }
@@ -214,6 +219,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lbAutenticacion;
     private javax.swing.JLabel lbContraseña;
     private javax.swing.JLabel lbLogin;
+    private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbNombreUsuario;
     private javax.swing.JTextField tFnombredeUsuario;
     private javax.swing.JPasswordField tfpassword;

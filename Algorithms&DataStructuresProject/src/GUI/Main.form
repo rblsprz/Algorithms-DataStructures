@@ -40,10 +40,6 @@
               <Component id="lbContraseña" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="880" pref="880" max="-2" attributes="0"/>
-              <Component id="tfpassword" min="-2" pref="216" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
               <EmptySpace min="870" pref="870" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbAutenticacion" min="-2" pref="337" max="-2" attributes="0"/>
@@ -54,6 +50,13 @@
                           <Component id="jToggleButton2" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="880" pref="880" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="tfpassword" pref="216" max="32767" attributes="0"/>
+                  <Component id="lbMessages" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -71,7 +74,9 @@
               <Component id="lbContraseña" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Component id="tfpassword" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="124" pref="124" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <Component id="lbMessages" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbAutenticacion" min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="btnIniciarSesion" min="-2" pref="60" max="-2" attributes="0"/>
@@ -143,13 +148,15 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="jToggleButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Super admin"/>
+        <Property name="text" type="java.lang.String" value="SUPER ADMINISTRATOR"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton2ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbMessages">
     </Component>
   </SubComponents>
 </Form>
