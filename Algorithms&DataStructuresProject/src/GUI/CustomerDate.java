@@ -28,8 +28,9 @@ public class CustomerDate extends javax.swing.JFrame {
      * Creates new form CitaCliente
      */
 
+
     FondoPanel fondo = new FondoPanel();
-    
+
     public CustomerDate() {
          this.setContentPane(fondo);
 
@@ -113,42 +114,44 @@ public class CustomerDate extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-   Main uR = new Main();
+
+    Main uR = new Main();
     FileStacks stack = new FileStacks();
     Logic Stack = new Logic();
-   
-     public void mostrarNombre(){
+
+    public void mostrarNombre() {
         Logic lC = new Logic();
         ArrayList<Roles> array = new ArrayList();
-        
+
         Roles tempCountries[] = lC.readRegistersFilesIndividual();
-        for(int i = 0; i < tempCountries.length; i++){
+        for (int i = 0; i < tempCountries.length; i++) {
             array.add(tempCountries[i]);
         }//endfor
         for (int j = 0; j < 1; j++) {
             tfID.setText(array.get(j).getCedula().trim());
-        tfName.setText(array.get(j).getNombre().trim());
-        
+            tfName.setText(array.get(j).getNombre().trim());
+
         }
-    } 
- 
-    
+    }
+
+
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         //Campos vacios validacion
-        String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
-        String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
-        String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
-        String fecha=(year+"-"+mes+"-"+dia);
+        String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
+        String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+        String fecha = (year + "-" + mes + "-" + dia);
 
         if (tfID.getText().equals("") || tfName.getText().equals("") || cbmHora.getSelectedItem().equals("") || dateChooser.getDate().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellene todos los espacios en blanco");
         }//End if
         else {
-            if(Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false){
+            if (Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false) {
                 NodeStacks pila = new NodeStacks();
                 Cita cita = new Cita(fecha, cbmHora.getSelectedItem().toString(), tfID.getText(), tfName.getText());
+
                 //pila.push(fecha,cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
+
                 stack.insertCita(cita);
                 JOptionPane.showMessageDialog(null, "Cita Registrada");
             } else {
@@ -175,7 +178,7 @@ public class CustomerDate extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

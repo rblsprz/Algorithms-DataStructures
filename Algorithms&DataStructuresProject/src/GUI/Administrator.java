@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import Logic.NotasCliente;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -14,7 +13,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author HELLO
+ * @author David Robles
  */
 public class Administrator extends javax.swing.JFrame {
 

@@ -7,9 +7,9 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Logic.ColaMetodos;
-import Logic.NotasCliente;
-import Logic.NotasPaciente;
+import Logic.QueueMethods;
+import Logic.CustomerNotes;
+import Logic.UserNotes;
 
 /**
  *
@@ -24,8 +24,8 @@ public class AdministratorNotes extends javax.swing.JFrame {
         initComponents();
     }
 
-    NotasPaciente queue = new NotasPaciente();
-    ColaMetodos queueQ = new ColaMetodos();
+    UserNotes queue = new UserNotes();
+    QueueMethods queueQ = new QueueMethods();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -273,12 +273,14 @@ public class AdministratorNotes extends javax.swing.JFrame {
 
         if (tfID.getText().equals("") || tfName.getText().equals("") || tfHeight.getText().equals("") || tfAge.getText().equals("") || tfGrease.getText().equals("") || tfBodyMassIndex.getText().equals("") || txtPeso.getText().equals("") || tfBodyWater.getText().equals("")) {
             lbMessages.setText("PLEASE FILL THE DATA!");
-        }//End if 
+        }//End if
         else {
             try {
+
                 NotasCliente cita = new NotasCliente(tfID.getText(), tfName.getText(), tANotes.getText(), Double.parseDouble(txtPeso.getText()), Double.parseDouble(tfMuscleMass.getText()), Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()) , Double.parseDouble(tfBodyMassIndex.getText()), Double.parseDouble(tfBodyWater.getText()) , tfDate.getText());
                     //queueQ.Enqueue(cita, 1);
                     queue.notasPacienteInsertar(tfID.getText(), tfName.getText(), tANotes.getText(), Double.parseDouble(txtPeso.getText()), Double.parseDouble(tfMuscleMass.getText()), Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()), Double.parseDouble(tfBodyMassIndex.getText()), Double.parseDouble(tfBodyWater.getText()), tfDate.getText());
+
                 tANotes.setText("");
                 tfHeight.setText("");
                 tfID.setText("");
@@ -299,9 +301,9 @@ public class AdministratorNotes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddNutritionalInformationActionPerformed
 
     private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
-        Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
-        String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
-        SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+        Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate
+        String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado
+        SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto
         tfDate.setText(objSDF.format(objDate)); // El formato de fecha se aplica a la fecha actual
     }//GEN-LAST:event_tfNameMouseClicked
 
@@ -316,7 +318,7 @@ public class AdministratorNotes extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
