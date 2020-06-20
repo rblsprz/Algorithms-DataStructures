@@ -13,14 +13,17 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import Logic.Cita;
 import Logic.Delete;
+import Logic.ExportarExcel;
 import Logic.FileStacks;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.print.PrinterException;
+import java.io.File;
 import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import static GUI.CRUDCustomerDates.jTable3;
@@ -58,7 +61,9 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane3 = new javax.swing.JScrollPane();
-        JTable2 = new javax.swing.JTable();
+
+        jTableAdmin = new javax.swing.JTable();
+
         lbName = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
         lbID = new javax.swing.JLabel();
@@ -73,13 +78,18 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         lbMessages = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         comboHoras = new javax.swing.JComboBox<>();
-        btnPDF = new javax.swing.JToggleButton();
+
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(null);
 
-        JTable2.setModel(new javax.swing.table.DefaultTableModel(
+
+        jTableAdmin.setModel(new javax.swing.table.DefaultTableModel(
+
             new Object [][] {
 
             },
@@ -87,12 +97,14 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 "DATE", "TIME", "NAME", "ID"
             }
         ));
-        JTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        jTableAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTable2MouseClicked(evt);
+                jTableAdminMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(JTable2);
+        jScrollPane3.setViewportView(jTableAdmin);
+
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(160, 210, 438, 360);
@@ -179,18 +191,29 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         getContentPane().add(btnPDF);
         btnPDF.setBounds(660, 530, 51, 23);
 
+        jToggleButton2.setText("Excel");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton2);
+        jToggleButton2.setBounds(790, 530, 141, 29);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTable2MouseClicked
-        int seleccion = JTable2.getSelectedRow();
+
+    private void jTableAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAdminMouseClicked
+        int seleccion = jTableAdmin.getSelectedRow();
 //        tfDate.setText(jTable3.getValueAt(seleccion, 0).toString());
 //        tfTime.setText(jTable3.getValueAt(seleccion, 1).toString());
-        tfName.setText(JTable2.getValueAt(seleccion, 2).toString());
-        tfID.setText(JTable2.getValueAt(seleccion, 3).toString());
+        tfName.setText(jTableAdmin.getValueAt(seleccion, 2).toString());
+        tfID.setText(jTableAdmin.getValueAt(seleccion, 3).toString());
         // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
-    }//GEN-LAST:event_JTable2MouseClicked
+    }//GEN-LAST:event_jTableAdminMouseClicked
+
 
     public void mostrarCitas() {
         Logic lC = new Logic();
@@ -210,7 +233,9 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             matriz[i][2] = array.get(i).getNombre();
             matriz[i][3] = array.get(i).getCedula();
 
-            JTable2.setModel(new javax.swing.table.DefaultTableModel(
+
+            jTableAdmin.setModel(new javax.swing.table.DefaultTableModel(
+
                     matriz,
                     new String[]{
                         "DATE", "TIME", "NAME", "ID"
@@ -228,7 +253,9 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowDatesActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        int seleccion = JTable2.getSelectedRow();
+
+         int seleccion = jTableAdmin.getSelectedRow();
+
         String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
         String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
         String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
@@ -237,13 +264,15 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         try {
             Update em = new Update();
             int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + tfName.getText() + " ?");
-            if (edit == 0) {
-                if (Stack.searchCita(fecha, comboHoras.getSelectedItem().toString()) == false) {
-                    Cita cita1 = new Cita(tfDate.getText(), JTable2.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
+
+                if(edit == 0){
+                    if(Stack.searchCita(fecha, comboHoras.getSelectedItem().toString()) == false){
+                    Cita cita1 = new Cita(tfDate.getText(), jTableAdmin.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
                     Cita cita2 = new Cita(fecha, comboHoras.getSelectedItem().toString(), tfID.getText(), tfName.getText());
                     stack1.insertCita(cita2);
                     em.ModifuUse(cita1, fecha, comboHoras.getSelectedItem().toString());
-                    stack.removeLinesPila(tfDate.getText(), JTable2.getValueAt(seleccion, 1).toString());
+                    stack.removeLinesPila(tfDate.getText(), jTableAdmin.getValueAt(seleccion, 1).toString());
+
                     //em.actualizarCita(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
                     JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
                     mostrarCitas();
@@ -260,13 +289,14 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        try {
-            int seleccion = JTable2.getSelectedRow();
+
+        try { int seleccion = jTableAdmin.getSelectedRow();
             Delete stack = new Delete();
             int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE THE DATE FROM " + tfID.getText() + " ?");
             if (d == 0) {
-                stack.removeLinesPila(JTable2.getValueAt(seleccion, 0).toString(), JTable2.getValueAt(seleccion, 1).toString());
-                //stack.borrarCita("citas.txt", txtFecha.getText(), txtHora.getText());
+                  stack.removeLinesPila(jTableAdmin.getValueAt(seleccion, 0).toString(), jTableAdmin.getValueAt(seleccion, 1).toString()); 
+                    //stack.borrarCita("citas.txt", txtFecha.getText(), txtHora.getText());
+
                 lbMessages.setText("SUCCESSFULLY DELETED!");
                 mostrarCitas();
                 tfID.setText("");
@@ -283,15 +313,33 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
 
     }//GEN-LAST:event_comboHorasMouseClicked
 
-    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
-MessageFormat header = new MessageFormat("Citas personal");
-        MessageFormat footer = new MessageFormat("Page{0,number,integer}");
-        try {
-            JTable2.print(JTable.PrintMode.NORMAL, header, footer);
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        MessageFormat header=new MessageFormat("Registro de citas");
+        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
+        try{
+            jTableAdmin.print(JTable.PrintMode.NORMAL, header, footer);
+
         } catch (PrinterException ex) {
             System.err.format("error de impresion", ex.getMessage());
         }
-    }//GEN-LAST:event_btnPDFActionPerformed
+
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+void impresion() {
+        JFileChooser seleccionar = new JFileChooser();
+        File archivo;
+        if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
+            archivo = seleccionar.getSelectedFile();
+            String imagen = archivo + ".xls";
+            File file = new File(imagen);
+            ExportarExcel excel = new ExportarExcel(jTableAdmin, file, "" + "tablaimporte");
+            excel.export(); 
+        }
+    }
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        impresion();
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -340,6 +388,11 @@ MessageFormat header = new MessageFormat("Citas personal");
     private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane3;
+
+    public static javax.swing.JTable jTableAdmin;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbMessages;

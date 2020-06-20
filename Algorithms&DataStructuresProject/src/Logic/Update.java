@@ -188,5 +188,21 @@ public class Update {
         return pilaTemp.search(s);
 
     }
+    
+    public void actualizarNotaPersona(String cedula, String name, String notas, double peso,
+    double musculo,double grasa, double altura, int edad, double masaCorporal, double agua, String fecha) throws IOException{
+        String[] arregloArchivo = getArregloArchivo("notasPaciente.txt");
+
+        PrintStream ps = getPrintStream("notasPaciente.txt", false);
+        for (int i = 0; i < arregloArchivo.length; i++) {
+
+            if (!getNameFile(arregloArchivo[i], 0).equals(cedula) || !getNameFile(arregloArchivo[i], 10).equals(fecha)) {
+                ps.println(arregloArchivo[i]);
+            } else {
+                ps.println(cedula+ ";" +name + ";" + notas + ";" + peso + ";" + musculo + ";" + grasa + ";"+ altura+ ";" +edad+";"
+                +masaCorporal+";"+agua+";"+fecha);
+            }
+        }//End for
+    }//End actualizarPaises
 
 }//End Update

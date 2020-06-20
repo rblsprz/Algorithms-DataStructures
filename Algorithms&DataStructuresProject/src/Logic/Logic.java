@@ -731,7 +731,126 @@ public class Logic {
             }
         }
         return false;
-    }
 
-}//End Logic
+     }
+    
+    public BufferedReader getBufferedReaderNotas() {
+        File fileAdmin = new File("notasPaciente.txt");
+        BufferedReader br = null;
+        try {
+
+            FileInputStream fis = new FileInputStream(fileAdmin);
+            InputStreamReader isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+        } catch (FileNotFoundException fnfe) {
+            JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);
+        }
+        return br;
+    }
+    /**
+     * Obtiene la cantidad de lineas del archivo
+     *
+     * @return countRegisters el numero total de lineas
+     */
+    public int getFileRegistersNotas() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileCountries = new File("notasPaciente.txt");
+        int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+    
+    public NotasCliente[] readRegistersFilesNotas() {
+
+        NotasCliente array[] = new NotasCliente[getFileRegistersNotas()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCountries = new File("notasPaciente.txt");
+
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                 String cedula="";
+                    String nombre = "";
+                    String notas = "";
+                    double peso = 0;
+                    double musculo = 0;
+                    double grasa = 0;
+                    double altura = 0;
+                    int edad = 0;
+                    double masaCorporal = 0;
+                    double agua = 0;
+                    String fecha = "";
+
+                //Se pone dentro del ciclo para que se resetee
+                int controlTokens = 1;
+                StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
+
+                while (st.hasMoreTokens()) {
+
+                    if (controlTokens == 1) {
+                        cedula = st.nextToken();
+                    } else if (controlTokens == 2) {
+                        nombre = st.nextToken();
+                    } else if (controlTokens == 3) {
+                        notas = st.nextToken();
+                    } else if (controlTokens == 4) {
+                        peso = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 5) {
+                        musculo = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 6) {
+                        grasa = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 7) {
+                        altura = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 8) {
+                        edad = Integer.parseInt(st.nextToken());
+                    } else if (controlTokens == 9) {
+                        masaCorporal = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 10) {
+                        agua = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 11) {
+                        fecha = st.nextToken();
+                    } 
+                    controlTokens++;
+                }//endWhileInterno
+
+                NotasCliente c = new NotasCliente(cedula,nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
+                array[indexArray] = c;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+
+        return array;
+    }//endCountry[]
+    
+    }//End Roles[]
 
