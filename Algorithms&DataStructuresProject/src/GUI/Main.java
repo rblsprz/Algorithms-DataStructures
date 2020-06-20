@@ -1,7 +1,7 @@
 package GUI;
 
 import Logic.Logic;
-import Logic.encriptado;
+import Logic.Encrypted;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
@@ -144,7 +144,7 @@ public class Main extends javax.swing.JFrame {
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
 
         Logic Lf = new Logic();
-         encriptado encode = new encriptado();
+         Encrypted encode = new Encrypted();
 
          try {
             

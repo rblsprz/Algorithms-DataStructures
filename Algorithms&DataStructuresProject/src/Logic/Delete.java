@@ -19,7 +19,7 @@ public class Delete {
 
     public void removeLines(String l) throws IOException {
 
-        prueba listaTemp = new prueba();
+        Proof listaTemp = new Proof();
         File f = new File("registros.txt");
         try {
             // metodo para leer un archivo
@@ -282,8 +282,8 @@ public class Delete {
     }//End borrarHistorial
 
     public void removeLinesCola(String c) throws IOException {
-        //prueba colaTemp = new prueba();
-        ColaMetodos colaTemp = new ColaMetodos();
+        //prueba colaTemp = new Proof();
+        QueueMethods colaTemp = new QueueMethods();
         File f = new File("notasPaciente.txt");
         try {
             FileInputStream fis = new FileInputStream(f);
@@ -346,7 +346,7 @@ public class Delete {
                             sT.nextToken();
                         }
                     }
-                    NotasCliente cM = new NotasCliente(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);///////******************************* Modificado  DANIEL COLO
+                    CustomerNotes cM = new CustomerNotes(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);///////******************************* Modificado  DANIEL COLO
                     colaTemp.Enqueue(cM);
                 }
                 linesUpdate = br.readLine();

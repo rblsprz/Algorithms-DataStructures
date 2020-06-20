@@ -28,6 +28,7 @@ public class ClinicTime extends javax.swing.JFrame {
     }
     Logic fl = new Logic();
     FileStacks stack = new FileStacks();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,26 +38,27 @@ public class ClinicTime extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel5 = new javax.swing.JLabel();
+        lbClinicHours = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btnMostrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        txtHoras = new javax.swing.JTextField();
+        btnDelete = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnShowData = new javax.swing.JButton();
+        lbConsultationHours = new javax.swing.JLabel();
+        tfHours = new javax.swing.JTextField();
+        lbMessages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel5.setText("Horario Clinica ");
+        lbClinicHours.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbClinicHours.setText("CLINIC HOURS");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Horas de Consulta"
+                "CONSULTATION HOURS"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,28 +68,28 @@ public class ClinicTime extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        btnMostrar.setText("Mostrar Datos");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        btnShowData.setText("SHOW DATA");
+        btnShowData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                btnShowDataActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Horas de Consulta:");
+        lbConsultationHours.setText("CONSULTATION HOURS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,26 +99,27 @@ public class ClinicTime extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lbConsultationHours)
                         .addGap(18, 18, 18)
-                        .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfHours, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnMostrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnShowData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(lbClinicHours)
                 .addGap(223, 223, 223))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbClinicHours, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -125,81 +128,84 @@ public class ClinicTime extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbConsultationHours)
+                            .addComponent(tfHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
-                        .addComponent(btnEliminar)
+                        .addComponent(btnDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
+                        .addComponent(btnAdd)
                         .addGap(18, 18, 18)
-                        .addComponent(btnMostrar)
+                        .addComponent(btnShowData)
+                        .addGap(30, 30, 30)
+                        .addComponent(lbMessages)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void mostrarHoras(){
+    public void mostrarHoras() {
         Logic lC = new Logic();
         ArrayList<String> array = new ArrayList();
-        
+
         String tempCountries[] = lC.readRegistersFilesHoras();
-        for(int i = 0; i < tempCountries.length; i++){
+        for (int i = 0; i < tempCountries.length; i++) {
             array.add(tempCountries[i]);
         }//endfor
-       
-       String matriz[][]= new String[array.size()][1];
-       
-         for (int i = 0; i < array.size(); i++) {
-        matriz[i][0]= array.get(i);
-        
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-           matriz,
-            new String [] {
-                "Horas de Consulta"
-            }
-        ));
-         } } 
-    
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        mostrarHoras();
-    }//GEN-LAST:event_btnMostrarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String matriz[][] = new String[array.size()][1];
+
+        for (int i = 0; i < array.size(); i++) {
+            matriz[i][0] = array.get(i);
+
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz,
+                    new String[]{
+                        "CONSULTATION HOURS"
+                    }
+            ));
+        }
+    }
+
+    private void btnShowDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowDataActionPerformed
+        mostrarHoras();
+    }//GEN-LAST:event_btnShowDataActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         try {
-               Delete stack = new Delete();
-                int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar la hora " + txtHoras.getText() + " del horario de citas?");
-                if(d == 0){
-                    //stack.removeLinesPilaHoras(txtHoras.getText());
-                    fl.borrarHora("horasConsulta.txt", txtHoras.getText());
-                    JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
-                    mostrarHoras();
-                    txtHoras.setText("");
-                }
-            }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al eliminar");
-            }   
-    }//GEN-LAST:event_btnEliminarActionPerformed
+            Delete stack = new Delete();
+            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO DELETE " + tfHours.getText() + " ?");
+            if (d == 0) {
+                //stack.removeLinesPilaHoras(txtHoras.getText());
+                fl.borrarHora("horasConsulta.txt", tfHours.getText());
+                lbMessages.setText("SUCCESSFULLY DELETED!");
+                mostrarHoras();
+                tfHours.setText("");
+            }
+        } catch (IOException ex) {
+            lbMessages.setText("DELETE ERROR!");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int seleccion = jTable1.getSelectedRow();
-        txtHoras.setText(jTable1.getValueAt(seleccion, 0).toString());
+        tfHours.setText(jTable1.getValueAt(seleccion, 0).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (txtHoras.getText().equals("") ) {
-            JOptionPane.showMessageDialog(null, "Rellene el espacio en blanco");
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        if (tfHours.getText().equals("")) {
+            lbMessages.setText("FILL THE DATA!");
         }//End if
         else {
-            if(fl.searchHora(txtHoras.getText()) == false){
-                stack.insertHora(txtHoras.getText());
-                JOptionPane.showMessageDialog(null, "Hora Registrada");
+            if (fl.searchHora(tfHours.getText()) == false) {
+                stack.insertHora(tfHours.getText());
+                lbMessages.setText("REGISTRATED TIME!");
                 mostrarHoras();
             } else {
-                JOptionPane.showMessageDialog(null, "La hora que solicita se encuentran ocupadas");
+                lbMessages.setText("THE HOUR ISN'T AVAILABLE!");
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,13 +246,14 @@ public class ClinicTime extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnMostrar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnShowData;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtHoras;
+    private javax.swing.JLabel lbClinicHours;
+    private javax.swing.JLabel lbConsultationHours;
+    private javax.swing.JLabel lbMessages;
+    private javax.swing.JTextField tfHours;
     // End of variables declaration//GEN-END:variables
 }

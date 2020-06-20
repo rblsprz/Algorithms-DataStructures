@@ -25,7 +25,7 @@ public class Administrator extends javax.swing.JFrame {
     public Administrator() {
         this.setContentPane(fondo);
         initComponents();
-         this.setExtendedState(Administrator.MAXIMIZED_BOTH);
+        this.setExtendedState(Administrator.MAXIMIZED_BOTH);
     }
 
     /**
@@ -46,6 +46,7 @@ public class Administrator extends javax.swing.JFrame {
         menuCRUD = new javax.swing.JMenu();
         menuItemCRUDDates = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
+        menuItemAdvances = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
@@ -88,6 +89,15 @@ public class Administrator extends javax.swing.JFrame {
         jMenuBar1.add(menuCRUD);
 
         menuInformation.setText("INFORMATION");
+
+        menuItemAdvances.setText("ADVANCES");
+        menuItemAdvances.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAdvancesActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemAdvances);
+
         jMenuBar1.add(menuInformation);
 
         menuOptions.setText("OPTIONS");
@@ -140,10 +150,16 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-         AdministratorNotes nC = new AdministratorNotes();
-        nC.show();
-       nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        AdministratorNotes nC = new AdministratorNotes();
+//        nC.show();
+//        nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void menuItemAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdvancesActionPerformed
+        AdministratorNotes nC = new AdministratorNotes();
+        nC.show();
+        nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemAdvancesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,12 +204,12 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenu menuInformation;
+    private javax.swing.JMenuItem menuItemAdvances;
     private javax.swing.JMenuItem menuItemCRUDDates;
     private javax.swing.JMenuItem menuItemNewDate;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables
-
 
     class FondoPanel extends JPanel {
 

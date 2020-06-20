@@ -38,15 +38,17 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
      * Creates new form CRUD_CLIENTE_CITAS
      */
     FondoPanel fondo = new FondoPanel();
+
     public CRUDCustomerDates() {
         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(CRUDCustomerDates.MAXIMIZED_BOTH);
     }
     Delete stack = new Delete();
-    
-    FileStacks stack1=new FileStacks();
+
+    FileStacks stack1 = new FileStacks();
     Logic Stack = new Logic();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -198,66 +200,66 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         int seleccion = jTable3.getSelectedRow();
-       // tfTime.setText(jTable3.getValueAt(seleccion, 1).toString());
+        // tfTime.setText(jTable3.getValueAt(seleccion, 1).toString());
         tfID.setText(jTable3.getValueAt(seleccion, 3).toString());
         tfName.setText(jTable3.getValueAt(seleccion, 2).toString());
-       // tfDate.setText(jTable3.getValueAt(seleccion, 0).toString());
+        // tfDate.setText(jTable3.getValueAt(seleccion, 0).toString());
         // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
     }//GEN-LAST:event_jTable3MouseClicked
-    
-      public void mostrarNombre(){
+
+    public void mostrarNombre() {
         Logic lC = new Logic();
         ArrayList<Roles> array = new ArrayList();
-        
+
         Roles tempCountries[] = lC.readRegistersFilesIndividual();
-        for(int i = 0; i < tempCountries.length; i++){
+        for (int i = 0; i < tempCountries.length; i++) {
             array.add(tempCountries[i]);
         }//endfor
         for (int j = 0; j < 1; j++) {
-        tfID.setText(array.get(j).getCedula());
-        tfName.setText(array.get(j).getNombre());
+            tfID.setText(array.get(j).getCedula());
+            tfName.setText(array.get(j).getNombre());
         }
     }
-    
-      //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
-    public void searchClienteIndividual(String cedula) throws FileNotFoundException{
-         Logic lC = new Logic();
-        ArrayList <Cita> individual = new ArrayList();
+
+    //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
+    public void searchClienteIndividual(String cedula) throws FileNotFoundException {
+        Logic lC = new Logic();
+        ArrayList<Cita> individual = new ArrayList();
         Cita[] c = lC.readRegistersFilesCita();
         for (int i = 0; i < c.length; i++) {
-            if (c[i].getCedula().equalsIgnoreCase(cedula)){
+            if (c[i].getCedula().equalsIgnoreCase(cedula)) {
                 individual.add(c[i]);
-            } 
-        }
-        
-        String matriz[][]= new String[individual.size()][4];
-        
-        for (int i = 0; i < individual.size(); i++) {
-        matriz[i][0]= individual.get(i).getFecha();
-        matriz[i][1]= individual.get(i).getHora();
-        matriz[i][2]= individual.get(i).getNombre();
-        matriz[i][3]= individual.get(i).getCedula();
-        
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-           matriz,
-            new String [] {
-                "DATE","TIME", "NAME", "ID"
             }
-        ));
-        }   
+        }
+
+        String matriz[][] = new String[individual.size()][4];
+
+        for (int i = 0; i < individual.size(); i++) {
+            matriz[i][0] = individual.get(i).getFecha();
+            matriz[i][1] = individual.get(i).getHora();
+            matriz[i][2] = individual.get(i).getNombre();
+            matriz[i][3] = individual.get(i).getCedula();
+
+            jTable3.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz,
+                    new String[]{
+                        "DATE", "TIME", "NAME", "ID"
+                    }
+            ));
+        }
     }
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-          int seleccion = jTable3.getSelectedRow();
+        int seleccion = jTable3.getSelectedRow();
         try {
-            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText()+ " ?");
-            if(d == 0){
+            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText() + " ?");
+            if (d == 0) {
                 stack.removeLinesPila(jTable3.getValueAt(seleccion, 0).toString(), jTable3.getValueAt(seleccion, 1).toString());
                 searchClienteIndividual(tfID.getText());
                 JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
                 tfID.setText("");
                 tfName.setText("");
             }
-        }catch (IOException ex) {
+        } catch (IOException ex) {
             lbMessages.setText("DELETE ERROR!");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -273,16 +275,16 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         int seleccion = jTable3.getSelectedRow();
-        String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
-        String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
-        String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
-        String fecha=(year+"-"+mes+"-"+dia);
+        String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
+        String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+        String fecha = (year + "-" + mes + "-" + dia);
 
         try {
             Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText()+ " ?");
-            if(edit == 0){
-                 if(Stack.searchCita(fecha, jTable3.getValueAt(seleccion, 1).toString()) == false){
+            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText() + " ?");
+            if (edit == 0) {
+                if (Stack.searchCita(fecha, jTable3.getValueAt(seleccion, 1).toString()) == false) {
                     Cita cita1 = new Cita(jTable3.getValueAt(seleccion, 0).toString(), jTable3.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
                     Cita cita2 = new Cita(fecha, comboHoras3.getSelectedItem().toString(), tfID.getText(), tfName.getText());
                     stack1.insertCita(cita2);
@@ -290,7 +292,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                     stack.removeLinesPila(tfDate.getText(), jTable3.getValueAt(seleccion, 1).toString());
                     //em.actualizarCita2(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
                     searchClienteIndividual(tfID.getText());
-                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO"); 
+                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
                     lbMessages.setText("SUCCESSFULLY UPDATED!");
                     tfID.setText("");
                     tfName.setText("");
@@ -300,7 +302,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "THE DATA AND TIME AREN'T AVAILABLE!");
                 }
             }
-        }catch (IOException ex) {
+        } catch (IOException ex) {
             lbMessages.setText("UPDATE ERROR!");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -314,12 +316,12 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     }//GEN-LAST:event_comboHoras3MouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-MessageFormat header=new MessageFormat("Citas personal");
-        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
-        try{
+        MessageFormat header = new MessageFormat("Citas personal");
+        MessageFormat footer = new MessageFormat("Page{0,number,integer}");
+        try {
             jTable3.print(JTable.PrintMode.NORMAL, header, footer);
         } catch (PrinterException ex) {
-        System.err.format("error de impresion", ex.getMessage());
+            System.err.format("error de impresion", ex.getMessage());
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 

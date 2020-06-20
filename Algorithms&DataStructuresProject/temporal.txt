@@ -1,3 +1,1 @@
-
-305350721;David;Robles;rblsprz;QLx0DubfgQGKahk0kU2xPQ==;18;61122441;david.roblesperez@ucr.ac.cr;2
-
+123456789;Josue;Robles;josuerobles;QLx0DubfgQH0M1L/BOBT3A==;18;12345678;josuerobles@correo;3

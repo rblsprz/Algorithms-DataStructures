@@ -12,7 +12,7 @@ import java.util.Queue;
 class NodeQueue {
 
     //Atributos de los Nodos
-    NotasCliente element;
+    CustomerNotes element;
     NodeQueue next;
 
 
@@ -21,13 +21,13 @@ class NodeQueue {
      *
      * @param n
      */
-    public NodeQueue(NotasCliente h) {
+    public NodeQueue(CustomerNotes h) {
         element = h;
         next = null;
     }
 
 
-    NotasCliente seeElement() {
+    CustomerNotes seeElement() {
         return this.element;
     }// end seeElement
     // me permite ver el elemento
@@ -39,7 +39,7 @@ class NodeQueue {
 
 }//end class NodeQueue
 
-public class ColaMetodos implements Queues{
+public class QueueMethods implements Queues{
 
     //Atributos de las Queue
     NodeQueue start;
@@ -58,7 +58,7 @@ public class ColaMetodos implements Queues{
     }
 
     @Override
-    public void Enqueue(NotasCliente h) {
+    public void Enqueue(CustomerNotes h) {
         NodeQueue aux = start;
 
 
@@ -93,8 +93,8 @@ public class ColaMetodos implements Queues{
 
 
     @Override
-    public void Dequeue(NotasCliente h) {
-        NotasCliente element = start.element;//dato= elemento
+    public void Dequeue(CustomerNotes h) {
+        CustomerNotes element = start.element;//dato= elemento
         if (start == end) { // siguiente= sgte
             start = null;
             end = null;
@@ -104,7 +104,7 @@ public class ColaMetodos implements Queues{
     }
 
     @Override
-    public NotasCliente startQueue() {
+    public CustomerNotes startQueue() {
          return start.element;
     }
 
@@ -114,7 +114,7 @@ public class ColaMetodos implements Queues{
     }
 
     @Override
-    public NotasCliente indexOf(int index) {
+    public CustomerNotes indexOf(int index) {
         NodeQueue aux = start;
 
         // indice para recorrer la cola por medio de la

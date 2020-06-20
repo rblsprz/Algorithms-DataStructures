@@ -23,147 +23,164 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="lbMyAdvances" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbPersonalInformation" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbPhone" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfPhone" min="-2" pref="129" max="-2" attributes="0"/>
-                                      <Component id="tfEmail" min="-2" pref="129" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="lbID" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfID" alignment="1" min="-2" pref="129" max="-2" attributes="0"/>
-                                      <Component id="tfName" alignment="1" min="-2" pref="129" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbHydration" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbNutritionalInformation" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbFatLevel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbWeight" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbMuscle" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lbID" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="tfID" min="-2" pref="129" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane1" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lbAge" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="tfAge" min="-2" pref="129" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lbWeight" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="tfWeight" min="-2" pref="129" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="tfHeight" min="-2" pref="129" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lbGrease" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lbBodyWater" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lbBodyMassIndex" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lbMuscleMass" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tfBodyWater" min="-2" pref="129" max="-2" attributes="0"/>
+                                          <Component id="tfGrease" min="-2" pref="129" max="-2" attributes="0"/>
+                                          <Component id="tfBodyMassIndex" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                                          <Component id="tfMuscleMass" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfUserName1" min="-2" pref="129" max="-2" attributes="0"/>
-                                  <Component id="lbShowCharts" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfUserName3" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                                  <Component id="tfUserName2" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                                  <Component id="tfUserName4" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="tfName" min="-2" pref="129" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lbLastName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tfLastName" min="-2" pref="129" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lbUserName" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tfUserName" min="-2" pref="129" max="-2" attributes="0"/>
+                      <Component id="lbPersonalInformation" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="lbNutritionalInfoemation" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                      <Component id="lbShowCharts" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lbNotes" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="352" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
+                  <Component id="lbMyAdvances1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="479" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="lbMyAdvances" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbNutritionalInformation" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbPersonalInformation" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbPersonalInformation" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="lbNutritionalInfoemation" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="lbShowCharts" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbFatLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfUserName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfWeight" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfHeight" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbWeight" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfUserName3" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbGrease" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfGrease" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbBodyWater" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfBodyWater" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbBodyMassIndex" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfBodyMassIndex" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbMuscleMass" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfMuscleMass" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="lbNotes" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="116" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbLastName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="lbMyAdvances1" min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace pref="436" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbMuscle" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfUserName2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbUserName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfUserName" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbHydration" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfUserName4" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbPhone" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfPhone" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbShowCharts" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lbMyAdvances">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="MY ADVANCES"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="NAME:"/>
@@ -172,61 +189,6 @@
     <Component class="javax.swing.JLabel" name="lbID">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbLastName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="LAST NAME:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbUserName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="USERNAME:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbPhone">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PHONE:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbEmail">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="EMAIL:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbPersonalInformation">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PERSONAL INFORMATION"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbNutritionalInformation">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="NUTRITIONAL INFORMATION"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbFatLevel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="FAT LEVEL:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbWeight">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="WEIGHT:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbMuscle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="MUSCLE:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbHydration">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="HYDRATION:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbShowCharts">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="SHOW CHARTS"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfID">
@@ -245,68 +207,150 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfNameMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfLastName">
+    <Component class="javax.swing.JLabel" name="lbNutritionalInfoemation">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Berlin Sans FB" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="NUTRITIONAL INFORMATION"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbPersonalInformation">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Berlin Sans FB" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PERSONAL INFORMATION"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbMyAdvances1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Berlin Sans FB" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="MY ADVANCES"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbWeight">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="WEIGHT:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfHeight">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfLastNameMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfHeightMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfUserName">
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="HEIGHT:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfWeight">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfUserNameMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfWeightMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPhone">
+    <Component class="javax.swing.JLabel" name="lbGrease">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="% GREASE:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfGrease">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfPhoneMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfGreaseMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfEmail">
+    <Component class="javax.swing.JLabel" name="lbBodyWater">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="% BODY WATER:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfBodyWater">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfEmailMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfBodyWaterMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfBodyWaterActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfUserName1">
+    <Component class="javax.swing.JLabel" name="lbBodyMassIndex">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="BODY MASS INDEX:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfBodyMassIndex">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfUserName1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfBodyMassIndexMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfBodyMassIndexActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfUserName2">
+    <Component class="javax.swing.JLabel" name="lbMuscleMass">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="MUSCLE MASS:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfMuscleMass">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfUserName2MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfMuscleMassMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfMuscleMassActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfUserName3">
+    <Component class="javax.swing.JLabel" name="lbShowCharts">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Berlin Sans FB" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="SHOW CHARTS"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfUserName3MouseClicked"/>
-      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfUserName4">
+    <Component class="javax.swing.JLabel" name="lbNotes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NOTES:"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="tANotes">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="lbAge">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="AGE:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfAge">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfUserName4MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfAgeMouseClicked"/>
       </Events>
     </Component>
   </SubComponents>

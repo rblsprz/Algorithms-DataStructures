@@ -11,7 +11,7 @@ import java.io.PrintStream;
  */
 public class UserNotes {
     
-   NotasCliente cola = new NotasCliente();
+   CustomerNotes cola = new CustomerNotes();
     
     //Inserta las notas tomadas por paciente
      public void notasPacienteInsertar(String cedula, String name, String notas, double peso, double musculo, double grasa, double altura, int edad, double masaCorporal, double agua,String fecha) throws FileNotFoundException{

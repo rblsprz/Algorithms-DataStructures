@@ -53,8 +53,8 @@ public class SuperAdministrator extends javax.swing.JFrame {
         menuItemCRUDRoles = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
         menuOptions = new javax.swing.JMenu();
-        menuItemSignOff = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        menuItemSignOff = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -87,7 +87,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(20, 30, 97, 29);
+        jToggleButton1.setBounds(20, 30, 79, 23);
 
         menuAdd.setText("ADD");
 
@@ -127,6 +127,15 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
+        jMenuItem1.setText("CHANGE TIME");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuOptions.add(jMenuItem1);
+
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuItemSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         menuItemSignOff.setText("SIGN OFF");
@@ -136,15 +145,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
         menuOptions.add(menuItemSignOff);
-
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
-        jMenuItem1.setText("Change Time");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        menuOptions.add(jMenuItem1);
 
         jMenuBar1.add(menuOptions);
 

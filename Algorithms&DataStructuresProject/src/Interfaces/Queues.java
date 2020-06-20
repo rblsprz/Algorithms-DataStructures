@@ -1,7 +1,7 @@
 
 package Interfaces;
 
-import Logic.NotasCliente;
+import Logic.CustomerNotes;
 
 /**
  *
@@ -12,13 +12,13 @@ public interface Queues {
     
     public boolean isEmpty();
     
-    public void Enqueue(NotasCliente h);//adiciona un elemento
+    public void Enqueue(CustomerNotes h);//adiciona un elemento
     
-    public void Dequeue(NotasCliente h);//remueve el primer elemento de la cola
+    public void Dequeue(CustomerNotes h);//remueve el primer elemento de la cola
     
-    public NotasCliente startQueue();//Trae el primer elemento de la cola
+    public CustomerNotes startQueue();//Trae el primer elemento de la cola
     
     public boolean isFull();
     
-    public NotasCliente indexOf(int index); //Busca elemento en especifico
+    public CustomerNotes indexOf(int index); //Busca elemento en especifico
 }//End Queues

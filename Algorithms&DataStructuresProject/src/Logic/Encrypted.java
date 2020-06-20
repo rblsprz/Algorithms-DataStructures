@@ -12,7 +12,7 @@ import org.apache.commons.codec.binary.Base64;
  *
  * @author pc
  */
-public class encriptado {
+public class Encrypted {
     
     public String ecnode(String secretKey, String cadena) {
         String encriptacion = "";

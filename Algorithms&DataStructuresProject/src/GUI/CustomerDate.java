@@ -56,17 +56,18 @@ public class CustomerDate extends javax.swing.JFrame {
         lbName = new javax.swing.JLabel();
         lbID = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
+        lbMessages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(220, 80, 171, 26);
+        tfID.setBounds(220, 80, 171, 20);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(150, 240, 60, 20);
+        lbTime.setBounds(150, 240, 60, 14);
 
         cbmHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +75,7 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmHora);
-        cbmHora.setBounds(230, 240, 79, 26);
+        cbmHora.setBounds(230, 240, 79, 20);
 
         btnRequest.setText("REQUEST");
         btnRequest.setBorderPainted(false);
@@ -85,13 +86,13 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(200, 310, 130, 29);
+        btnRequest.setBounds(200, 330, 130, 23);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(220, 180, 160, 26);
+        dateChooser.setBounds(220, 180, 160, 20);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(150, 190, 50, 20);
+        lbDate.setBounds(150, 190, 50, 14);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
@@ -99,7 +100,7 @@ public class CustomerDate extends javax.swing.JFrame {
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(150, 90, 50, 20);
+        lbID.setBounds(150, 90, 50, 14);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,7 +114,9 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(220, 130, 170, 26);
+        tfName.setBounds(220, 130, 170, 20);
+        getContentPane().add(lbMessages);
+        lbMessages.setBounds(150, 300, 310, 0);
 
         pack();
         setLocationRelativeTo(null);
@@ -147,7 +150,7 @@ public class CustomerDate extends javax.swing.JFrame {
         String fecha = (year + "-" + mes + "-" + dia);
 
         if (tfID.getText().equals("") || tfName.getText().equals("") || cbmHora.getSelectedItem().equals("") || dateChooser.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Rellene todos los espacios en blanco");
+           lbMessages.setText("FILL THE DATA!");
         }//End if
         else {
             if (Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false) {
@@ -157,9 +160,9 @@ public class CustomerDate extends javax.swing.JFrame {
                 //pila.push(fecha,cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
 
                 stack.insertCita(cita);
-                JOptionPane.showMessageDialog(null, "Cita Registrada");
+                lbMessages.setText("REGISTRATED DATE!");
             } else {
-                JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
+                lbMessages.setText("THE DATE AND TIME AREN'T AVAILABLE!");
             }
         }
 
@@ -229,6 +232,7 @@ public class CustomerDate extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTime;
     private javax.swing.JTextField tfID;

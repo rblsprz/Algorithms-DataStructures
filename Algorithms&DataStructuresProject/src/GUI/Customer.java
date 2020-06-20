@@ -40,6 +40,8 @@ public class Customer extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         lbCustomer = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuAdd = new javax.swing.JMenu();
         menuItemNewDate = new javax.swing.JMenuItem();
         menuCRUD = new javax.swing.JMenu();
@@ -54,6 +56,18 @@ public class Customer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbCustomer.setText("CUSTOMER");
+
+        jMenu3.setText("MY PROFILE");
+
+        jMenuItem1.setText("MY ADVANCES");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu3);
 
         menuAdd.setText("ADD");
 
@@ -138,6 +152,12 @@ public class Customer extends javax.swing.JFrame {
         cS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemMyCRUDActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        MyAdvances mA = new MyAdvances();
+        mA.show();
+        mA.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -176,7 +196,9 @@ public class Customer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lbCustomer;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;

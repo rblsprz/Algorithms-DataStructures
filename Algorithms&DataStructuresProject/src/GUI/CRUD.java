@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.CRUDCustomerDates.jTable3;
 import Logic.Logic;
 import Logic.Delete;
 import Logic.Roles;
@@ -34,12 +35,14 @@ public class CRUD extends javax.swing.JFrame {
     /**
      * Creates new form CRUD
      */
-     FondoPanel fondo = new FondoPanel();
+    FondoPanel fondo = new FondoPanel();
+
     public CRUD() {
         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(CRUD.MAXIMIZED_BOTH);
     }
+    //ExportExcel obj;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,7 +54,7 @@ public class CRUD extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        JTable1 = new javax.swing.JTable();
         btnshowRoles = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         tfName = new javax.swing.JTextField();
@@ -74,12 +77,12 @@ public class CRUD extends javax.swing.JFrame {
         lbPassword = new javax.swing.JLabel();
         tfPassword = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnPDF = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        JTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -87,12 +90,12 @@ public class CRUD extends javax.swing.JFrame {
                 "ID", "NAME", "LAST NAME", "USERNAME", "PASSWORD", "AGE", "PHONE", "EMAIL", "ROL"
             }
         ));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+                JTable1MouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(JTable1);
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(1070, 40, 600, 440);
@@ -104,7 +107,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(1100, 550, 170, 29);
+        btnshowRoles.setBounds(1100, 550, 170, 23);
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +116,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(1440, 550, 110, 29);
+        btnDelete.setBounds(1440, 550, 110, 23);
         getContentPane().add(tfName);
         tfName.setBounds(880, 100, 150, 30);
 
@@ -158,7 +161,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(1300, 550, 110, 29);
+        btnUpdate.setBounds(1300, 550, 110, 23);
 
         lbID.setText("ID");
         getContentPane().add(lbID);
@@ -186,30 +189,30 @@ public class CRUD extends javax.swing.JFrame {
         getContentPane().add(lbMensajes);
         lbMensajes.setBounds(1070, 510, 350, 28);
 
-        jToggleButton1.setText("PDF");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPDF.setText("PDF");
+        btnPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnPDFActionPerformed(evt);
             }
         });
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(1100, 620, 61, 29);
+        getContentPane().add(btnPDF);
+        btnPDF.setBounds(1100, 620, 51, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        int seleccion = jTable3.getSelectedRow();
-        tfID.setText(jTable3.getValueAt(seleccion, 0).toString());
-        tfName.setText(jTable3.getValueAt(seleccion, 1).toString());
-        tfLastName.setText(jTable3.getValueAt(seleccion, 2).toString());
-        tfUserName.setText(jTable3.getValueAt(seleccion,3).toString());
-        tfPassword.setText(jTable3.getValueAt(seleccion, 4).toString());
-        tfAge.setText(jTable3.getValueAt(seleccion, 5).toString());
-        tfPhone.setText(jTable3.getValueAt(seleccion, 6).toString());
-        tfEmail.setText(jTable3.getValueAt(seleccion, 7).toString());
-        tfRol.setText(jTable3.getValueAt(seleccion, 8).toString());
-    }//GEN-LAST:event_jTable3MouseClicked
+    private void JTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTable1MouseClicked
+        int seleccion = JTable1.getSelectedRow();
+        tfID.setText(JTable1.getValueAt(seleccion, 0).toString());
+        tfName.setText(JTable1.getValueAt(seleccion, 1).toString());
+        tfLastName.setText(JTable1.getValueAt(seleccion, 2).toString());
+        tfUserName.setText(JTable1.getValueAt(seleccion, 3).toString());
+        tfPassword.setText(JTable1.getValueAt(seleccion, 4).toString());
+        tfAge.setText(JTable1.getValueAt(seleccion, 5).toString());
+        tfPhone.setText(JTable1.getValueAt(seleccion, 6).toString());
+        tfEmail.setText(JTable1.getValueAt(seleccion, 7).toString());
+        tfRol.setText(JTable1.getValueAt(seleccion, 8).toString());
+    }//GEN-LAST:event_JTable1MouseClicked
 
     private void btnshowRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowRolesActionPerformed
 
@@ -218,28 +221,28 @@ public class CRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_btnshowRolesActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-          try {
-        Delete em = new Delete();
-        int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText()+ " ?");
-        if (d == 0) {
-          
-            em.removeLines(tfID.getText());
-            lbMensajes.setText("SUCCESSFULLY REMOVED!");
-            mostrarRegistros();
-            tfID.setText("");
-            tfName.setText("");
-            tfLastName.setText("");
-            tfUserName.setText("");
-            tfPassword.setText("");
-            tfAge.setText("");
-            tfPhone.setText("");
-            tfEmail.setText("");
-            tfRol.setText("");
-            
+        try {
+            Delete em = new Delete();
+            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText() + " ?");
+            if (d == 0) {
+
+                em.removeLines(tfID.getText());
+                lbMensajes.setText("SUCCESSFULLY REMOVED!");
+                mostrarRegistros();
+                tfID.setText("");
+                tfName.setText("");
+                tfLastName.setText("");
+                tfUserName.setText("");
+                tfPassword.setText("");
+                tfAge.setText("");
+                tfPhone.setText("");
+                tfEmail.setText("");
+                tfRol.setText("");
+
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "DELETE ERROR!");
         }
-            }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "DELETE ERROR!");
-            }   
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -261,9 +264,9 @@ public class CRUD extends javax.swing.JFrame {
             }
 
             Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText()+ " ?");
+            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText() + " ?");
             if (edit == 0) {
-                em.actualizarPersona(tfID.getText(), tfName.getText(), tfLastName.getText(),tfUserName.getText(), tfPassword.getText(),Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()),tfEmail.getText(), Integer.parseInt(tfRol.getText()));
+                em.actualizarPersona(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), Integer.parseInt(tfRol.getText()));
                 lbMensajes.setText("SUCCESSFULLY UPDATED!");
                 mostrarRegistros();
                 tfID.setText("");
@@ -272,7 +275,7 @@ public class CRUD extends javax.swing.JFrame {
                 tfUserName.setText("");
                 tfPassword.setText("");
                 tfAge.setText("");
-                tfPhone.setText(""); 
+                tfPhone.setText("");
                 tfEmail.setText("");
                 tfRol.setText("");
             }
@@ -285,15 +288,15 @@ public class CRUD extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPhoneActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-MessageFormat header=new MessageFormat("Registro");
-        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
-        try{
-            jTable3.print(JTable.PrintMode.NORMAL, header, footer);
+    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
+MessageFormat header = new MessageFormat("Citas personal");
+        MessageFormat footer = new MessageFormat("Page{0,number,integer}");
+        try {
+            JTable1.print(JTable.PrintMode.NORMAL, header, footer);
         } catch (PrinterException ex) {
-        System.err.format("error de impresion", ex.getMessage());
+            System.err.format("error de impresion", ex.getMessage());
         }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_btnPDFActionPerformed
 
     public void mostrarRegistros() {
         Logic lC = new Logic();
@@ -310,7 +313,7 @@ MessageFormat header=new MessageFormat("Registro");
             int edad = array.get(i).getEdad();
             int tipoRol = array.get(i).getTipoRol();
             int telefono = array.get(i).getTelefono();
-            
+
             matriz[i][0] = array.get(i).getCedula();
             matriz[i][1] = array.get(i).getNombre();
             matriz[i][2] = array.get(i).getApellido();
@@ -321,10 +324,10 @@ MessageFormat header=new MessageFormat("Registro");
             matriz[i][7] = array.get(i).getCorreo();
             matriz[i][8] = String.valueOf(tipoRol);
 
-            jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            JTable1.setModel(new javax.swing.table.DefaultTableModel(
                     matriz,
                     new String[]{
-                        "ID", "NAME", "LAST NAME", "USERNAME", "PASSWORD","AGE", "PHONE","EMAIL","ROL"
+                        "ID", "NAME", "LAST NAME", "USERNAME", "PASSWORD", "AGE", "PHONE", "EMAIL", "ROL"
                     }
             ));
         }
@@ -366,12 +369,12 @@ MessageFormat header=new MessageFormat("Registro");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTable JTable1;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JToggleButton btnPDF;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnshowRoles;
     private javax.swing.JScrollPane jScrollPane3;
-    public static javax.swing.JTable jTable3;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbID;
@@ -393,7 +396,7 @@ MessageFormat header=new MessageFormat("Registro");
     private javax.swing.JTextField tfUserName;
     // End of variables declaration//GEN-END:variables
 
-     class FondoPanel extends JPanel {
+    class FondoPanel extends JPanel {
 
         private Image imagen;
 

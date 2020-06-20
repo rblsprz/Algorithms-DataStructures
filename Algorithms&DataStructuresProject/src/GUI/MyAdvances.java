@@ -5,9 +5,9 @@
  */
 package GUI;
 
+import Logic.CustomerNotes;
 import Logic.Logic;
 import Logic.NodeTrees;
-import Logic.Roles;
 import java.util.ArrayList;
 
 /**
@@ -24,22 +24,34 @@ public class MyAdvances extends javax.swing.JFrame {
         this.setExtendedState(MyAdvances.MAXIMIZED_BOTH);
     }
 
-    public void mostrarNombreCliente() {
+    public void mostrarDatosCliente() {
         NodeTrees nT;
         Logic lC = new Logic();
-        ArrayList<Roles> array = new ArrayList();
-
-        Roles tempCountries[] = lC.readRegistersFilesIndividual();
+        ArrayList<CustomerNotes> array = new ArrayList();
+        CustomerNotes tempCountries[] = lC.readRegistersFilesCustomer();
         for (int i = 0; i < tempCountries.length; i++) {
             array.add(tempCountries[i]);
         }//End for
-        for (int j = 0; j < 1; j++) {
-            tfID.setText(array.get(j).getCedula());
-            tfName.setText(array.get(j).getNombre());
-            tfLastName.setText(array.get(j).getApellido());
-            tfUserName.setText(array.get(j).getNombreUsuario());
-            //tfPhone.setText();
-            tfEmail.setText(array.get(j).getCorreo());
+        for (int j = 0; j < tempCountries.length; j++) {
+            String edad = array.get(j).getEdad() + "";
+            String peso = array.get(j).getPeso() + "";
+            String altura = array.get(j).getAltura() + "";
+            String grasa = array.get(j).getGrasa() + "";
+            String agua = array.get(j).getAgua() + "";
+            String masa = array.get(j).getMasaCorporal() + "";
+            String musculo = array.get(j).getMusculo() + "";
+
+            tfID.setText(array.get(j).getCedula().trim());
+            tfName.setText(array.get(j).getNombre().trim());
+            tANotes.setText(array.get(j).getNotas().trim());
+            tANotes.setEditable(false);
+            tfAge.setText(edad);
+            tfWeight.setText(peso);
+            tfHeight.setText(altura);
+            tfGrease.setText(grasa);
+            tfBodyWater.setText(agua);
+            tfBodyMassIndex.setText(masa);
+            tfMuscleMass.setText(musculo);
         }//End for
     }//End mostrarDatosCliente
 
@@ -47,60 +59,37 @@ public class MyAdvances extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbMyAdvances = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbID = new javax.swing.JLabel();
-        lbLastName = new javax.swing.JLabel();
-        lbUserName = new javax.swing.JLabel();
-        lbPhone = new javax.swing.JLabel();
-        lbEmail = new javax.swing.JLabel();
-        lbPersonalInformation = new javax.swing.JLabel();
-        lbNutritionalInformation = new javax.swing.JLabel();
-        lbFatLevel = new javax.swing.JLabel();
-        lbWeight = new javax.swing.JLabel();
-        lbMuscle = new javax.swing.JLabel();
-        lbHydration = new javax.swing.JLabel();
-        lbShowCharts = new javax.swing.JLabel();
         tfID = new javax.swing.JTextField();
         tfName = new javax.swing.JTextField();
-        tfLastName = new javax.swing.JTextField();
-        tfUserName = new javax.swing.JTextField();
-        tfPhone = new javax.swing.JTextField();
-        tfEmail = new javax.swing.JTextField();
-        tfUserName1 = new javax.swing.JTextField();
-        tfUserName2 = new javax.swing.JTextField();
-        tfUserName3 = new javax.swing.JTextField();
-        tfUserName4 = new javax.swing.JTextField();
+        lbNutritionalInfoemation = new javax.swing.JLabel();
+        lbPersonalInformation = new javax.swing.JLabel();
+        lbMyAdvances1 = new javax.swing.JLabel();
+        lbWeight = new javax.swing.JLabel();
+        tfHeight = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfWeight = new javax.swing.JTextField();
+        lbGrease = new javax.swing.JLabel();
+        tfGrease = new javax.swing.JTextField();
+        lbBodyWater = new javax.swing.JLabel();
+        tfBodyWater = new javax.swing.JTextField();
+        lbBodyMassIndex = new javax.swing.JLabel();
+        tfBodyMassIndex = new javax.swing.JTextField();
+        lbMuscleMass = new javax.swing.JLabel();
+        tfMuscleMass = new javax.swing.JTextField();
+        lbShowCharts = new javax.swing.JLabel();
+        lbNotes = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tANotes = new javax.swing.JTextArea();
+        lbAge = new javax.swing.JLabel();
+        tfAge = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lbMyAdvances.setText("MY ADVANCES");
 
         jLabel1.setText("NAME:");
 
         lbID.setText("ID:");
-
-        lbLastName.setText("LAST NAME:");
-
-        lbUserName.setText("USERNAME:");
-
-        lbPhone.setText("PHONE:");
-
-        lbEmail.setText("EMAIL:");
-
-        lbPersonalInformation.setText("PERSONAL INFORMATION");
-
-        lbNutritionalInformation.setText("NUTRITIONAL INFORMATION");
-
-        lbFatLevel.setText("FAT LEVEL:");
-
-        lbWeight.setText("WEIGHT:");
-
-        lbMuscle.setText("MUSCLE:");
-
-        lbHydration.setText("HYDRATION:");
-
-        lbShowCharts.setText("SHOW CHARTS");
 
         tfID.setEditable(false);
         tfID.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,59 +105,99 @@ public class MyAdvances extends javax.swing.JFrame {
             }
         });
 
-        tfLastName.setEditable(false);
-        tfLastName.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbNutritionalInfoemation.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbNutritionalInfoemation.setText("NUTRITIONAL INFORMATION");
+
+        lbPersonalInformation.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbPersonalInformation.setText("PERSONAL INFORMATION");
+
+        lbMyAdvances1.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbMyAdvances1.setText("MY ADVANCES");
+
+        lbWeight.setText("WEIGHT:");
+
+        tfHeight.setEditable(false);
+        tfHeight.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfLastNameMouseClicked(evt);
+                tfHeightMouseClicked(evt);
             }
         });
 
-        tfUserName.setEditable(false);
-        tfUserName.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel2.setText("HEIGHT:");
+
+        tfWeight.setEditable(false);
+        tfWeight.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfUserNameMouseClicked(evt);
+                tfWeightMouseClicked(evt);
             }
         });
 
-        tfPhone.setEditable(false);
-        tfPhone.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbGrease.setText("% GREASE:");
+
+        tfGrease.setEditable(false);
+        tfGrease.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfPhoneMouseClicked(evt);
+                tfGreaseMouseClicked(evt);
             }
         });
 
-        tfEmail.setEditable(false);
-        tfEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbBodyWater.setText("% BODY WATER:");
+
+        tfBodyWater.setEditable(false);
+        tfBodyWater.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfEmailMouseClicked(evt);
+                tfBodyWaterMouseClicked(evt);
+            }
+        });
+        tfBodyWater.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfBodyWaterActionPerformed(evt);
             }
         });
 
-        tfUserName1.setEditable(false);
-        tfUserName1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbBodyMassIndex.setText("BODY MASS INDEX:");
+
+        tfBodyMassIndex.setEditable(false);
+        tfBodyMassIndex.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfUserName1MouseClicked(evt);
+                tfBodyMassIndexMouseClicked(evt);
+            }
+        });
+        tfBodyMassIndex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfBodyMassIndexActionPerformed(evt);
             }
         });
 
-        tfUserName2.setEditable(false);
-        tfUserName2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbMuscleMass.setText("MUSCLE MASS:");
+
+        tfMuscleMass.setEditable(false);
+        tfMuscleMass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfUserName2MouseClicked(evt);
+                tfMuscleMassMouseClicked(evt);
+            }
+        });
+        tfMuscleMass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfMuscleMassActionPerformed(evt);
             }
         });
 
-        tfUserName3.setEditable(false);
-        tfUserName3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfUserName3MouseClicked(evt);
-            }
-        });
+        lbShowCharts.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbShowCharts.setText("SHOW CHARTS");
 
-        tfUserName4.setEditable(false);
-        tfUserName4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbNotes.setText("NOTES:");
+
+        tANotes.setColumns(20);
+        tANotes.setRows(5);
+        jScrollPane1.setViewportView(tANotes);
+
+        lbAge.setText("AGE:");
+
+        tfAge.setEditable(false);
+        tfAge.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfUserName4MouseClicked(evt);
+                tfAgeMouseClicked(evt);
             }
         });
 
@@ -176,152 +205,175 @@ public class MyAdvances extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbMyAdvances)
-                .addGap(261, 261, 261))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbPersonalInformation)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbPhone)
-                                        .addComponent(lbEmail))
-                                    .addGap(38, 38, 38)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(lbID)
-                                    .addGap(61, 61, 61)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbHydration)
-                                    .addComponent(lbNutritionalInformation)
-                                    .addComponent(lbFatLevel)
-                                    .addComponent(lbWeight)
-                                    .addComponent(lbMuscle)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbID)
+                                        .addGap(61, 61, 61)
+                                        .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbAge)
+                                        .addGap(52, 52, 52)
+                                        .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbWeight)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(tfWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(tfHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lbGrease)
+                                                    .addComponent(lbBodyWater)
+                                                    .addComponent(lbBodyMassIndex)
+                                                    .addComponent(lbMuscleMass))
+                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(157, 157, 157)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tfBodyWater, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfGrease, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfBodyMassIndex, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(254, 254, 254)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfUserName1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbShowCharts)
-                                    .addComponent(tfUserName3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfUserName2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfUserName4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jLabel1)
+                                .addComponent(jLabel1)
+                                .addGap(44, 44, 44)
+                                .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbLastName)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbPersonalInformation)
+                        .addGap(115, 115, 115)
+                        .addComponent(lbNutritionalInfoemation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                        .addComponent(lbShowCharts)
+                        .addGap(89, 89, 89))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(352, Short.MAX_VALUE))
+                        .addComponent(lbNotes)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(342, 342, 342)
+                    .addComponent(lbMyAdvances1)
+                    .addContainerGap(479, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lbMyAdvances)
-                .addGap(49, 49, 49)
+                .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNutritionalInformation)
-                    .addComponent(lbPersonalInformation))
-                .addGap(41, 41, 41)
+                    .addComponent(lbPersonalInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNutritionalInfoemation, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbShowCharts, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbID)
-                    .addComponent(lbFatLevel)
                     .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfUserName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                    .addComponent(lbWeight)
+                    .addComponent(tfWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbWeight)
-                    .addComponent(tfUserName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbLastName)
-                    .addComponent(tfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbMuscle)
-                    .addComponent(tfUserName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbUserName)
-                    .addComponent(tfUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbHydration)
-                    .addComponent(tfUserName4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbPhone)
-                    .addComponent(tfPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEmail)
-                    .addComponent(lbShowCharts)
-                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
+                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(tfHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbGrease)
+                            .addComponent(tfGrease, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbBodyWater)
+                            .addComponent(tfBodyWater, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbBodyMassIndex)
+                            .addComponent(tfBodyMassIndex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbMuscleMass)
+                            .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbAge)
+                            .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
+                        .addComponent(lbNotes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(lbMyAdvances1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(436, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfIDMouseClicked
-        mostrarNombreCliente();
+        mostrarDatosCliente();
     }//GEN-LAST:event_tfIDMouseClicked
 
     private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNameMouseClicked
 
-    private void tfLastNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfLastNameMouseClicked
+    private void tfHeightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfHeightMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfLastNameMouseClicked
+    }//GEN-LAST:event_tfHeightMouseClicked
 
-    private void tfUserNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUserNameMouseClicked
+    private void tfWeightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfWeightMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfUserNameMouseClicked
+    }//GEN-LAST:event_tfWeightMouseClicked
 
-    private void tfPhoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfPhoneMouseClicked
+    private void tfGreaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfGreaseMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfPhoneMouseClicked
+    }//GEN-LAST:event_tfGreaseMouseClicked
 
-    private void tfEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfEmailMouseClicked
+    private void tfBodyWaterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfBodyWaterMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfEmailMouseClicked
+    }//GEN-LAST:event_tfBodyWaterMouseClicked
 
-    private void tfUserName1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUserName1MouseClicked
+    private void tfBodyWaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBodyWaterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfUserName1MouseClicked
+    }//GEN-LAST:event_tfBodyWaterActionPerformed
 
-    private void tfUserName2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUserName2MouseClicked
+    private void tfBodyMassIndexMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfBodyMassIndexMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfUserName2MouseClicked
+    }//GEN-LAST:event_tfBodyMassIndexMouseClicked
 
-    private void tfUserName3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUserName3MouseClicked
+    private void tfBodyMassIndexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBodyMassIndexActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfUserName3MouseClicked
+    }//GEN-LAST:event_tfBodyMassIndexActionPerformed
 
-    private void tfUserName4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUserName4MouseClicked
+    private void tfMuscleMassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfMuscleMassMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfUserName4MouseClicked
+    }//GEN-LAST:event_tfMuscleMassMouseClicked
+
+    private void tfMuscleMassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMuscleMassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfMuscleMassActionPerformed
+
+    private void tfAgeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfAgeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfAgeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -360,28 +412,29 @@ public class MyAdvances extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lbEmail;
-    private javax.swing.JLabel lbFatLevel;
-    private javax.swing.JLabel lbHydration;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbAge;
+    private javax.swing.JLabel lbBodyMassIndex;
+    private javax.swing.JLabel lbBodyWater;
+    private javax.swing.JLabel lbGrease;
     private javax.swing.JLabel lbID;
-    private javax.swing.JLabel lbLastName;
-    private javax.swing.JLabel lbMuscle;
-    private javax.swing.JLabel lbMyAdvances;
-    private javax.swing.JLabel lbNutritionalInformation;
+    private javax.swing.JLabel lbMuscleMass;
+    private javax.swing.JLabel lbMyAdvances1;
+    private javax.swing.JLabel lbNotes;
+    private javax.swing.JLabel lbNutritionalInfoemation;
     private javax.swing.JLabel lbPersonalInformation;
-    private javax.swing.JLabel lbPhone;
     private javax.swing.JLabel lbShowCharts;
-    private javax.swing.JLabel lbUserName;
     private javax.swing.JLabel lbWeight;
-    private javax.swing.JTextField tfEmail;
+    private javax.swing.JTextArea tANotes;
+    private javax.swing.JTextField tfAge;
+    private javax.swing.JTextField tfBodyMassIndex;
+    private javax.swing.JTextField tfBodyWater;
+    private javax.swing.JTextField tfGrease;
+    private javax.swing.JTextField tfHeight;
     private javax.swing.JTextField tfID;
-    private javax.swing.JTextField tfLastName;
+    private javax.swing.JTextField tfMuscleMass;
     private javax.swing.JTextField tfName;
-    private javax.swing.JTextField tfPhone;
-    private javax.swing.JTextField tfUserName;
-    private javax.swing.JTextField tfUserName1;
-    private javax.swing.JTextField tfUserName2;
-    private javax.swing.JTextField tfUserName3;
-    private javax.swing.JTextField tfUserName4;
+    private javax.swing.JTextField tfWeight;
     // End of variables declaration//GEN-END:variables
 }

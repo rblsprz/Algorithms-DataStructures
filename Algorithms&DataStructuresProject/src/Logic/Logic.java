@@ -33,8 +33,10 @@ import javax.swing.JOptionPane;
  * @author pc
  */
 public class Logic {
-encriptado encripta = new encriptado();
-Delete delete = new Delete();
+
+    Encrypted encripta = new Encrypted();
+    Delete delete = new Delete();
+
     //Método de lectura general
     public BufferedReader getBufferedReader() {
         File fileAdmin = new File("clientes.txt");
@@ -57,10 +59,10 @@ Delete delete = new Delete();
      * @return true si existe el valor en la lista o false si no existe el valor
      * en la lista
      */
-    public boolean searchAdministratorID(String nombreUsuario, String contraseña,int tipoRol) throws IOException {
+    public boolean searchAdministratorID(String nombreUsuario, String contraseña, int tipoRol) throws IOException {
         BufferedReader br = getBufferedReader();
         String Acounts = "";
-        String AcFind = nombreUsuario + ";" +  contraseña + ";" + tipoRol;
+        String AcFind = nombreUsuario + ";" + contraseña + ";" + tipoRol;
 
         while (Acounts != null) {
 
@@ -125,7 +127,7 @@ Delete delete = new Delete();
             PrintStream ps = new PrintStream(fos);
 
             if (searchAdministrator(nombre) == -1) {
-                ps.println(nombreUsuario + ";" + contraseña  + ";" + tipoRol);
+                ps.println(nombreUsuario + ";" + contraseña + ";" + tipoRol);
             }
         } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!" + fnfe);
@@ -208,7 +210,7 @@ Delete delete = new Delete();
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                String cedula = "",nombre = "", apellido = "", nombreUsuario = "", contraseña = "", correo = "";
+                String cedula = "", nombre = "", apellido = "", nombreUsuario = "", contraseña = "", correo = "";
                 int edad = 0, telefono = 0, tipoRol = 0;
 
                 //Se pone dentro del ciclo para que se resetee
@@ -216,7 +218,7 @@ Delete delete = new Delete();
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
 
                 while (st.hasMoreTokens()) {
-                    
+
                     if (controlTokens == 1) {
                         cedula = st.nextToken();
                     } else if (controlTokens == 2) {
@@ -252,22 +254,20 @@ Delete delete = new Delete();
         }//endCatch
         return array;
     }//endCountry[]
-    
-     public void searchCliente(String nombre, String contraseña) throws FileNotFoundException{
+
+    public void searchCliente(String nombre, String contraseña) throws FileNotFoundException {
         Roles[] c = readRegistersFiles();
         for (int i = 0; i < c.length; i++) {
-            if (encripta.deecnode("Algoritmos", c[i].getContraseña()).equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)){
-                File f2 = new File ("temporal.txt");
+            if (encripta.deecnode("Algoritmos", c[i].getContraseña()).equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)) {
+                File f2 = new File("temporal.txt");
                 FileOutputStream fos = new FileOutputStream(f2); //Elimina los datos cada vez que guarda
                 PrintStream ps = new PrintStream(fos);
-                
-                ps.println(c[i].getCedula()+";"+c[i].getNombre()+";"+c[i].getApellido()+";"+c[i].getNombreUsuario()+";"+c[i].getContraseña()+";"+c[i].getEdad()+";"+c[i].getTelefono()+";"+c[i].getCorreo()+";"+c[i].getTipoRol());
+
+                ps.println(c[i].getCedula() + ";" + c[i].getNombre() + ";" + c[i].getApellido() + ";" + c[i].getNombreUsuario() + ";" + c[i].getContraseña() + ";" + c[i].getEdad() + ";" + c[i].getTelefono() + ";" + c[i].getCorreo() + ";" + c[i].getTipoRol());
             }
         }
     }
-     
-     
-    
+
     public BufferedReader getBufferedReaderCita() {
         File fileAdmin = new File("citas.txt");
         BufferedReader br = null;
@@ -281,6 +281,7 @@ Delete delete = new Delete();
         }
         return br;
     }
+
     /**
      * Obtiene la cantidad de lineas del archivo
      *
@@ -311,7 +312,7 @@ Delete delete = new Delete();
         }//endCatch
         return countRegisters;
     }//endInt
-    
+
     public Cita[] readRegistersFilesCita() {
 
         Cita array[] = new Cita[getFileRegistersCita()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
@@ -327,9 +328,8 @@ Delete delete = new Delete();
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                 String fecha = "", hora = "", cedula = "", nombre = "";
+                String fecha = "", hora = "", cedula = "", nombre = "";
 
-               
                 //Se pone dentro del ciclo para que se resetee
                 int controlTokens = 1;
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
@@ -344,11 +344,11 @@ Delete delete = new Delete();
                         cedula = st.nextToken();
                     } else if (controlTokens == 4) {
                         nombre = st.nextToken();
-                    } 
+                    }
                     controlTokens++;
                 }//endWhileInterno
 
-                Cita c = new Cita(fecha,hora, cedula, nombre);
+                Cita c = new Cita(fecha, hora, cedula, nombre);
                 array[indexArray] = c;
                 indexArray++;
 
@@ -362,11 +362,11 @@ Delete delete = new Delete();
 
         return array;
     }//endCountry[]
-    
-     public boolean searchCita(String fecha, String hora) {
+
+    public boolean searchCita(String fecha, String hora) {
         Cita[] c = readRegistersFilesCita();
         for (int i = 0; i < c.length; i++) {
-            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)){
+            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)) {
                 return true;
             }
         }
@@ -433,18 +433,19 @@ Delete delete = new Delete();
         }
         return validateID(cadena);
     }
-    
-    public boolean validateCed(String datos){
-    return datos.matches("[0-9]*");
+
+    public boolean validateCed(String datos) {
+        return datos.matches("[0-9]*");
     }
-    
-    public boolean validateAge(String datos){
-    return datos.matches("[0-9]*");
+
+    public boolean validateAge(String datos) {
+        return datos.matches("[0-9]*");
     }
-public int getFileRegistersIndividual() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+    public int getFileRegistersIndividual() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
         File fileCountries = new File("temporal.txt");
-       int countRegisters = 0;
+        int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -466,8 +467,8 @@ public int getFileRegistersIndividual() { //Ocupamos este metodo para asignarle 
         }//endCatch
         return countRegisters;
     }//endInt
-    
-     /**
+
+    /**
      * Leemos los elementos en el archivo
      *
      * @return array[] con los elementos del archivo
@@ -476,7 +477,7 @@ public int getFileRegistersIndividual() { //Ocupamos este metodo para asignarle 
 
         Roles array[] = new Roles[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
         File fileCountries = new File("temporal.txt");
-try {
+        try {
             FileInputStream fis = new FileInputStream(fileCountries);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
@@ -486,7 +487,7 @@ try {
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                String cedula = "",nombre = "", apellido = "", nombreUsuario = "", contraseña = "";
+                String cedula = "", nombre = "", apellido = "", nombreUsuario = "", contraseña = "";
                 int edad = 0, telefono = 0;
                 String correo = "";
                 int tipoRol = 0;
@@ -496,7 +497,7 @@ try {
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
 
                 while (st.hasMoreTokens()) {
-                    
+
                     if (controlTokens == 1) {
                         cedula = st.nextToken();
                     } else if (controlTokens == 2) {
@@ -532,27 +533,125 @@ try {
         }//endCatch
         return array;
     }//endCountry[]
+    //************************************************//
+
+    public int getFileRegistersCustomer() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileCountries = new File("notasPaciente.txt");
+        int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+
+    /**
+     * Leemos los elementos en el archivo
+     *
+     * @return array[] con los elementos del archivo
+     */
+    public CustomerNotes[] readRegistersFilesCustomer() {
+
+        CustomerNotes array[] = new CustomerNotes[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCountries = new File("notasPaciente.txt");
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                String cedula = "", nombre = "", notas = "", fecha = "";
+                int edad = 0;
+                double peso = 0, musculo = 0, grasa = 0, altura = 0, masaCorporal = 0, agua = 0;
+
+                //Se pone dentro del ciclo para que se resetee
+                int controlTokens = 1;
+                StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
+
+                while (st.hasMoreTokens()) {
+
+                    if (controlTokens == 1) {
+                        cedula = st.nextToken();
+                    } else if (controlTokens == 2) {
+                        nombre = st.nextToken();
+                    } else if (controlTokens == 3) {
+                        notas = st.nextToken();
+                    } else if (controlTokens == 4) {
+                        peso = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 5) {
+                        musculo = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 6) {
+                        grasa = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 7) {
+                        altura = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 8) {
+                        edad = Integer.parseInt(st.nextToken());
+                    } else if (controlTokens == 9) {
+                        masaCorporal = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 10) {
+                        agua = Double.parseDouble(st.nextToken());
+                    } else if (controlTokens == 11) {
+                        fecha = st.nextToken();
+                    }
+                    controlTokens++;
+                }//endWhileInterno
+
+                CustomerNotes r = new CustomerNotes(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
+                array[indexArray] = r;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "¡PROBLEMAS DE ARCHIVO!");
+        }//endCatch
+        return array;
+    }//endCountry[]
     
-    
-     public boolean searchActivo(String nombre, String contraseña) throws FileNotFoundException{
+    //************************************************// 
+
+    public boolean searchActivo(String nombre, String contraseña) throws FileNotFoundException {
         Roles[] c = readRegistersFiles();
         for (int i = 0; i < c.length; i++) {
-            if (encripta.deecnode("Algoritmos", c[i].getContraseña()).equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)){
-                    
-                if (c[i].getTipoRol() == 2){
-                    JOptionPane.showMessageDialog(null, "Administrador Aceptado");
+            if (encripta.deecnode("Algoritmos", c[i].getContraseña()).equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)) {
+
+                if (c[i].getTipoRol() == 2) {
+                    //JOptionPane.showMessageDialog(null, "Administrador Aceptado");
                     Administrator nS = new Administrator();
-                    nS.setVisible (true);  
+                    nS.setVisible(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Cliente Aceptado");
+                    //JOptionPane.showMessageDialog(null, "Cliente Aceptado");
                     Customer nS = new Customer();
-                    nS.setVisible (true);  
-                } 
+                    nS.setVisible(true);
+                }
                 return true; //Existe
             }
         }
         return false;
     }
+
     public int getFileRegistersHoras() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
         File fileCountries = new File("horasConsulta.txt");
@@ -578,13 +677,13 @@ try {
         }//endCatch
         return countRegisters;
     }//endInt
-    
-     /**
+
+    /**
      * Leemos los elementos en el archivo
      *
      * @return array[] con los elementos del archivo
      */
-    public String [] readRegistersFilesHoras() {
+    public String[] readRegistersFilesHoras() {
 
         String array[] = new String[getFileRegistersHoras()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
         File fileCountries = new File("horasConsulta.txt");
@@ -612,28 +711,27 @@ try {
 
         return array;
     }//endCountry[]
-    
-    public void borrarHora(String archivo,String hora) throws IOException {
+
+    public void borrarHora(String archivo, String hora) throws IOException {
         String array[] = readRegistersFilesHoras();
         PrintStream ps = delete.getPrintStream(archivo, false);
-        
-        for(int i = 0; i < array.length; i++){
-            if(!array[i].equalsIgnoreCase(hora)){
+
+        for (int i = 0; i < array.length; i++) {
+            if (!array[i].equalsIgnoreCase(hora)) {
                 ps.println(array[i]);
-            }   
-        } 
+            }
+        }
     }
-    
-     public boolean searchHora(String hora) {
+
+    public boolean searchHora(String hora) {
         String[] c = readRegistersFilesHoras();
         for (int i = 0; i < c.length; i++) {
-            if (c[i].equalsIgnoreCase(hora)){
+            if (c[i].equalsIgnoreCase(hora)) {
                 return true; //Si la encuentra
             }
         }
         return false;
-     }
-    
-    
-    }//End Roles[]
+    }
+
+}//End Logic
 

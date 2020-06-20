@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import Logic.Roles;
 import java.util.ArrayList;
 
 /**
@@ -42,7 +43,7 @@ class Node {
 
 }// end NODE CLASS()
 
-public class prueba {
+public class Proof {
 
     // se define el nodo inicio y final
     Node start, end;
@@ -50,7 +51,7 @@ public class prueba {
 //    Node help; 
     //int size;
     // constructor vacío de la clase
-    public prueba() {
+    public Proof() {
 
     }
 

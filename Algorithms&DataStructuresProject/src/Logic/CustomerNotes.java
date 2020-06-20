@@ -4,13 +4,13 @@ package Logic;
  *
  * @author pc
  */
-public class NotasCliente {
+public class CustomerNotes {
     
     private String cedula, nombre, notas, fecha;
     private double peso, musculo, grasa, altura, masaCorporal, agua;
     private int edad;
 
-    public NotasCliente(String cedula, String nombre, String notas, double peso, double musculo, double grasa, double altura, int edad, double masaCorporal,double agua,String fecha) {
+    public CustomerNotes(String cedula, String nombre, String notas, double peso, double musculo, double grasa, double altura, int edad, double masaCorporal,double agua,String fecha) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.notas = notas;
@@ -24,7 +24,7 @@ public class NotasCliente {
         this.agua = agua;
     }
     
-    public NotasCliente(){}
+    public CustomerNotes(){}
 
     public String getCedula() {
         return cedula;

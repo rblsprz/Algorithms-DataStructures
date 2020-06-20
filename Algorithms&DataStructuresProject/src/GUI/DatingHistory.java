@@ -1,6 +1,5 @@
 package GUI;
 
-import static GUI.CRUD.jTable3;
 import Logic.Cita;
 import Logic.Logic;
 import Logic.Roles;
@@ -8,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static GUI.CRUD.JTable1;
 
 /**
  *

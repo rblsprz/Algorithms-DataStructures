@@ -6,7 +6,7 @@ import Logic.Roles;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 import Logic.Logic;
-import Logic.encriptado;
+import Logic.Encrypted;
 
 /**
  *
@@ -18,7 +18,7 @@ public class NewRol extends javax.swing.JFrame {
      * Creates new form nuevoUsuario
      */
     Logic lo = new Logic();
-    encriptado encode = new encriptado();
+    Encrypted encode = new Encrypted();
     public NewRol() {
         initComponents();
         this.setExtendedState(NewRol.MAXIMIZED_BOTH);
