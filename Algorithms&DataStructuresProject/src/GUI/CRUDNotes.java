@@ -5,12 +5,13 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Logic.Logic;
-import Logic.NotasCliente;
+
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Logic.ColaMetodos;
+
 import Logic.ColaFilesLog;
+import Logic.CustomerNotes;
 import Logic.Delete;
 import Logic.ExportarExcel;
 import Logic.Update;
@@ -390,9 +391,9 @@ void impresion() {
          //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
     public void searchClienteIndividual(String cedula) throws FileNotFoundException{
         Logic lC = new Logic();
-        ArrayList <NotasCliente> individual = new ArrayList();
+        ArrayList <CustomerNotes> individual = new ArrayList();
         
-        NotasCliente tempCountries[] = lC.readRegistersFilesNotas();
+        CustomerNotes tempCountries[] = lC.readRegistersFilesCustomer();
         for (int i = 0; i < tempCountries.length; i++) {
             if (tempCountries[i].getCedula().equalsIgnoreCase(cedula)){
                 individual.add(tempCountries[i]);
@@ -434,9 +435,9 @@ void impresion() {
 
         public void mostrarNotas(){
         Logic lC = new Logic();
-        ArrayList<NotasCliente> array = new ArrayList();
+        ArrayList<CustomerNotes> array = new ArrayList();
         
-        NotasCliente tempCountries[] = lC.readRegistersFilesNotas();
+        CustomerNotes tempCountries[] = lC.readRegistersFilesCustomer();
         for(int i = 0; i < tempCountries.length; i++){
             array.add(tempCountries[i]);
         }//endfor

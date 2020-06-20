@@ -778,9 +778,9 @@ public class Logic {
         return countRegisters;
     }//endInt
     
-    public NotasCliente[] readRegistersFilesNotas() {
+    public CustomerNotes[] readRegistersFilesNotas() {
 
-        NotasCliente array[] = new NotasCliente[getFileRegistersNotas()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        CustomerNotes array[] = new CustomerNotes[getFileRegistersNotas()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
         File fileCountries = new File("notasPaciente.txt");
 
         try {
@@ -837,7 +837,7 @@ public class Logic {
                     controlTokens++;
                 }//endWhileInterno
 
-                NotasCliente c = new NotasCliente(cedula,nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
+                CustomerNotes c = new CustomerNotes(cedula,nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
                 array[indexArray] = c;
                 indexArray++;
 

@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import static GUI.CRUDCustomerDates.jTable3;
 import Logic.Logic;
 import Logic.Delete;
 import Logic.ExportarExcel;
@@ -26,7 +25,6 @@ import javax.swing.JTable;
 import java.io.*;
 import javax.swing.*;
 
-
 /**
  *
  * @author pc
@@ -44,7 +42,7 @@ public class CRUD extends javax.swing.JFrame {
         this.setExtendedState(CRUD.MAXIMIZED_BOTH);
     }
 
-String Ruta;
+    String Ruta;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,10 +77,7 @@ String Ruta;
         lbPassword = new javax.swing.JLabel();
         tfPassword = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
-
-        jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
-
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -194,15 +189,6 @@ String Ruta;
         getContentPane().add(lbMensajes);
         lbMensajes.setBounds(1070, 510, 350, 28);
 
-        btnPDF.setText("PDF");
-        btnPDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPDFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPDF);
-        btnPDF.setBounds(1100, 620, 51, 23);
-
         jToggleButton2.setText("Excel");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +196,7 @@ String Ruta;
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(1200, 620, 69, 29);
+        jToggleButton2.setBounds(1200, 620, 57, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -302,8 +288,8 @@ String Ruta;
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPhoneActionPerformed
 
-    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
-MessageFormat header = new MessageFormat("Citas personal");
+    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {
+        MessageFormat header = new MessageFormat("Citas personal");
         MessageFormat footer = new MessageFormat("Page{0,number,integer}");
         try {
             JTable1.print(JTable.PrintMode.NORMAL, header, footer);
@@ -311,21 +297,22 @@ MessageFormat header = new MessageFormat("Citas personal");
             System.err.format("error de impresion", ex.getMessage());
         }
 
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-void impresion() {
+    }
+
+    void impresion() {
         JFileChooser seleccionar = new JFileChooser();
         File archivo;
-        
-                if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
+
+        if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
             archivo = seleccionar.getSelectedFile();
             String imagen = archivo + ".xls";
             File file = new File(imagen);
-            ExportarExcel excel = new ExportarExcel(jTable3, file, "" + "tablaimporte");
-            excel.export(); 
+            ExportarExcel excel = new ExportarExcel(JTable1, file, "" + "tablaimporte");
+            excel.export();
         }
     }
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-         impresion();
+        impresion();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     public void mostrarRegistros() {
@@ -401,13 +388,9 @@ void impresion() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTable JTable1;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JToggleButton btnPDF;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnshowRoles;
     private javax.swing.JScrollPane jScrollPane3;
-
-    public static javax.swing.JTable jTable3;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;

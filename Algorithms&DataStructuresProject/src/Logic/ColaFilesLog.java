@@ -5,7 +5,7 @@
  */
 package Logic;
 
-import Logic.NotasCliente;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
  */
 public class ColaFilesLog {
     
-    public ColaMetodos queue = new ColaMetodos();
+    public QueueMethods queue = new QueueMethods();
     
     /**
      * metodo que lee el archivo y mientras lo va leyendo agrega a la pila
@@ -92,7 +92,7 @@ public class ColaFilesLog {
                     }// end else   
                 }// end while pequeño
 
-                NotasCliente cliente = new NotasCliente(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
+                CustomerNotes cliente = new CustomerNotes(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
                 queue.Enqueue(cliente);
                 linesUpdate = bR.readLine();
             }// end while grande()

@@ -26,7 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import static GUI.CRUDCustomerDates.jTable3;
+
 import static GUI.CRUD.JTable1;
 
 /**
@@ -61,9 +61,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane3 = new javax.swing.JScrollPane();
-
         jTableAdmin = new javax.swing.JTable();
-
         lbName = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
         lbID = new javax.swing.JLabel();
@@ -78,18 +76,14 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         lbMessages = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         comboHoras = new javax.swing.JComboBox<>();
-
-        jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
-
+        btnPDF = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(null);
 
-
         jTableAdmin.setModel(new javax.swing.table.DefaultTableModel(
-
             new Object [][] {
 
             },
@@ -97,14 +91,12 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                 "DATE", "TIME", "NAME", "ID"
             }
         ));
-
         jTableAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableAdminMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(jTableAdmin);
-
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(160, 210, 438, 360);
@@ -182,15 +174,6 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         getContentPane().add(comboHoras);
         comboHoras.setBounds(770, 420, 90, 20);
 
-        btnPDF.setText("PDF");
-        btnPDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPDFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPDF);
-        btnPDF.setBounds(660, 530, 51, 23);
-
         jToggleButton2.setText("Excel");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +181,11 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(790, 530, 141, 29);
+        jToggleButton2.setBounds(790, 530, 141, 23);
+
+        btnPDF.setText("PDF");
+        getContentPane().add(btnPDF);
+        btnPDF.setBounds(670, 530, 73, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -379,20 +366,16 @@ void impresion() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTable JTable2;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JToggleButton btnPDF;
+    private javax.swing.JButton btnPDF;
     private javax.swing.JButton btnShowDates;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> comboHoras;
     private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane3;
-
     public static javax.swing.JTable jTableAdmin;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
-
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbMessages;

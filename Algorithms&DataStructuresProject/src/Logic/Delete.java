@@ -373,7 +373,7 @@ public class Delete {
     }//End removeLines
      public void removeLinesColaGeneral(String c) throws IOException{
         //prueba colaTemp = new prueba();
-        ColaMetodos colaTemp =  new ColaMetodos();
+        QueueMethods colaTemp =  new QueueMethods();
         File f = new File("notasPaciente.txt");
         try{
             FileInputStream fis = new FileInputStream(f);
@@ -436,7 +436,7 @@ public class Delete {
                         sT.nextToken();
                     }
                 }
-                    NotasCliente cM = new NotasCliente(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);///////******************************* Modificado  DANIEL COLO
+                    CustomerNotes cM = new CustomerNotes(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);///////******************************* Modificado  DANIEL COLO
                     colaTemp.Enqueue(cM);
                 }
                 linesUpdate = br.readLine();
