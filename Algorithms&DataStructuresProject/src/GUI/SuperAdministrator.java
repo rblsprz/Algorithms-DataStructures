@@ -7,8 +7,13 @@ package GUI;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -52,6 +57,8 @@ public class SuperAdministrator extends javax.swing.JFrame {
         menuCrud = new javax.swing.JMenu();
         menuItemCRUDRoles = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuItemSignOff = new javax.swing.JMenuItem();
@@ -80,14 +87,17 @@ public class SuperAdministrator extends javax.swing.JFrame {
         getContentPane().add(lbSuperAdministrator);
         lbSuperAdministrator.setBounds(880, 0, 248, 108);
 
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         jToggleButton1.setText("retroceso");
+        jToggleButton1.setBorderPainted(false);
+        jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(20, 30, 79, 23);
+        jToggleButton1.setBounds(20, 30, 160, 40);
 
         menuAdd.setText("ADD");
 
@@ -119,6 +129,18 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         menuInformation.setText("INFORMATION");
         jMenuBar1.add(menuInformation);
+
+        jMenu7.setText("DELETE");
+
+        jMenuItem2.setText("EMPTY APP");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu7);
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
@@ -197,6 +219,44 @@ public class SuperAdministrator extends javax.swing.JFrame {
 //        sA.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+
+          int i =JOptionPane.showConfirmDialog(null, "¿ESTÁ SEGUR@ QUÉ DESEA ELIMINAR TODOS LOS DATOS DE LA APLICACIÓN?");
+            if(i==0){
+            try{
+            BufferedWriter bw = new BufferedWriter(new FileWriter("registros.txt")); //Stream de Escritura de Archivos
+            bw.write(""); //Escribe una línea vacía sobre código
+            bw.close(); //Vaciar Aplicación
+            //////////////////////////////////
+            BufferedWriter ba = new BufferedWriter(new FileWriter("citas.txt")); //Stream de Escritura de Archivos
+            ba.write(""); //Escribe una línea vacía sobre código
+            ba.close(); //Vaciar Aplicación
+            /////////////////////////////////////
+            BufferedWriter br = new BufferedWriter(new FileWriter("horasConsulta.txt")); //Stream de Escritura de Archivos
+            br.write(""); //Escribe una línea vacía sobre código
+            br.close(); //Vaciar Aplicación
+            ///////////////////////////////////////
+            BufferedWriter bs = new BufferedWriter(new FileWriter("notasPaciente.txt")); //Stream de Escritura de Archivos
+            bs.write(""); //Escribe una línea vacía sobre código
+            bs.close(); //Vaciar Aplicación
+            //////////////////////////////////////
+            BufferedWriter bt = new BufferedWriter(new FileWriter("clientes.txt")); //Stream de Escritura de Archivos
+            bt.write(""); //Escribe una línea vacía sobre código
+            bt.close(); //Vaciar Aplicación
+            ///////////////////////////////////////
+            BufferedWriter bp = new BufferedWriter(new FileWriter("temporal.txt")); //Stream de Escritura de Archivos
+            bp.write(""); //Escribe una línea vacía sobre código
+            bp.close(); //Vaciar Aplicación
+            }//End try
+              catch(FileNotFoundException fnfe){
+            JOptionPane.showMessageDialog(null,"Problemas de Archivo");
+            }//End catch
+            catch(IOException io){
+            JOptionPane.showMessageDialog(null,"Problemas de Archivo");
+            }//End catch
+            }//End if
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
  
 
     /**
@@ -241,10 +301,12 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbSuperAdministrator;
     private javax.swing.JMenu menuAdd;
