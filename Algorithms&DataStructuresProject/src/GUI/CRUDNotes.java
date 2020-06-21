@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author pc
@@ -33,46 +32,48 @@ public class CRUDNotes extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel7 = new javax.swing.JLabel();
-        txtBuscar = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
+        tfSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        btnModificar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        lbName = new javax.swing.JLabel();
+        tfID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtAltura = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        tfHeight = new javax.swing.JTextField();
+        lbNotes = new javax.swing.JLabel();
+        lbWeight = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtPaciente = new javax.swing.JTextField();
-        txtMuscular = new javax.swing.JTextField();
-        txtGrasa = new javax.swing.JTextField();
+        tfName = new javax.swing.JTextField();
+        tfMuscleMass = new javax.swing.JTextField();
+        tfGrease = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        txtPeso = new javax.swing.JTextField();
-        txtEdad = new javax.swing.JTextField();
+        lbAge = new javax.swing.JLabel();
+        lbBodyMassIndex = new javax.swing.JLabel();
+        tfWeight = new javax.swing.JTextField();
+        tfAge = new javax.swing.JTextField();
         txtCorporal = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        lbWater = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
-        txtAgua = new javax.swing.JTextField();
-        txtFecha = new javax.swing.JTextField();
+        tfWater = new javax.swing.JTextField();
+        tfDate = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtAreaNotas = new javax.swing.JTextArea();
-        btnMostrar = new javax.swing.JButton();
+        taNotes = new javax.swing.JTextArea();
+        btnShowNotes = new javax.swing.JButton();
+        lbMessages = new javax.swing.JLabel();
+        lbNotFound = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel7.setText("NOTAS REGISTRADAS");
+        jLabel7.setText("REGISTRATED NOTES");
 
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -81,7 +82,7 @@ public class CRUDNotes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cédula", "Paciente", "Notas", "Peso", "M. Muscular", "% Grasa", "Altura", "Edad", "M. Corporal", "% Agua", "Fecha"
+                "ID", "NAME", "NOTES", "WEIGHT", "MUSCLE MASS", "% GREASE", "HEIGHT", "AGE", "BODY MASS INDEX", "% BODY WATER", "DATE"
             }
         ));
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,56 +92,56 @@ public class CRUDNotes extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("Eliminar Paciente");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Paciente:");
+        lbName.setText("NAME:");
 
-        txtCedula.setEditable(false);
+        tfID.setEditable(false);
 
-        jLabel2.setText("Cédula:");
+        jLabel2.setText("ID:");
 
-        jLabel3.setText("Notas:");
+        lbNotes.setText("NOTES:");
 
-        jLabel4.setText("Peso:");
+        lbWeight.setText("WEIGHT:");
 
-        jLabel5.setText("M. Muscular:");
+        jLabel5.setText("MUSCLE MASS");
 
-        jLabel6.setText("% Grasa:");
+        jLabel6.setText("% GREASE:");
 
-        txtPaciente.setEditable(false);
+        tfName.setEditable(false);
 
-        jLabel8.setText("Altura:");
+        jLabel8.setText("HEIGHT:");
 
-        jLabel9.setText("Edad:");
+        lbAge.setText("AGE:");
 
-        jLabel10.setText("M. Corporal:");
+        lbBodyMassIndex.setText("BODY MASS INDEX:");
 
-        jLabel11.setText("% Agua:");
+        lbWater.setText("% WATER:");
 
-        lblFecha.setText("Fecha:");
+        lblFecha.setText("DATE:");
 
-        txtFecha.setEditable(false);
+        tfDate.setEditable(false);
 
-        txtAreaNotas.setColumns(20);
-        txtAreaNotas.setRows(5);
-        jScrollPane1.setViewportView(txtAreaNotas);
+        taNotes.setColumns(20);
+        taNotes.setRows(5);
+        jScrollPane1.setViewportView(taNotes);
 
-        btnMostrar.setText("Mostrar Notas");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        btnShowNotes.setText("SHOW NOTES");
+        btnShowNotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                btnShowNotesActionPerformed(evt);
             }
         });
 
@@ -149,132 +150,151 @@ public class CRUDNotes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnShowNotes))
+                        .addGap(0, 132, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
+                            .addComponent(lbNotes)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbName)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel5)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lbWeight)
+                                .addGap(255, 255, 255)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblFecha)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbAge)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(45, 45, 45)
+                                        .addComponent(tfHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtMuscular, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(lblFecha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtAgua, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(375, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscar)
-                                .addGap(170, 170, 170))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(243, 243, 243))))
+                                .addComponent(jLabel6)
+                                .addGap(47, 47, 47)
+                                .addComponent(tfGrease, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbWater)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfWater, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbBodyMassIndex)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(lbNotFound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18))
+                        .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearch)))
+                .addGap(404, 404, 404))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch)
+                    .addComponent(lbNotFound))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscar))
-                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnModificar)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnUpdate)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)
+                        .addComponent(btnDelete)
                         .addGap(18, 18, 18)
-                        .addComponent(btnMostrar)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtAgua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtMuscular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFecha)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addComponent(btnShowNotes)
+                        .addGap(19, 19, 19)
+                        .addComponent(lbMessages)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfHeight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10)
-                        .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lbName)
+                        .addComponent(lbWeight)
+                        .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNotes)
+                    .addComponent(lbAge)
+                    .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(tfGrease, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFecha))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbBodyMassIndex)
+                            .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbWater)
+                    .addComponent(tfWater, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71))
         );
 
         pack();
@@ -283,200 +303,200 @@ public class CRUDNotes extends javax.swing.JFrame {
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         int seleccion = jTable3.getSelectedRow();
-        txtCedula.setText(jTable3.getValueAt(seleccion, 0).toString());
-        txtPaciente.setText(jTable3.getValueAt(seleccion, 1).toString());
-        txtAreaNotas.setText(jTable3.getValueAt(seleccion, 2).toString());
-        txtPeso.setText(jTable3.getValueAt(seleccion, 3).toString());
-        txtMuscular.setText(jTable3.getValueAt(seleccion, 4).toString());
-        txtGrasa.setText(jTable3.getValueAt(seleccion, 5).toString());
-        txtAltura.setText(jTable3.getValueAt(seleccion, 6).toString());
-        txtEdad.setText(jTable3.getValueAt(seleccion, 7).toString());
+        tfID.setText(jTable3.getValueAt(seleccion, 0).toString());
+        tfName.setText(jTable3.getValueAt(seleccion, 1).toString());
+        taNotes.setText(jTable3.getValueAt(seleccion, 2).toString());
+        tfWeight.setText(jTable3.getValueAt(seleccion, 3).toString());
+        tfMuscleMass.setText(jTable3.getValueAt(seleccion, 4).toString());
+        tfGrease.setText(jTable3.getValueAt(seleccion, 5).toString());
+        tfHeight.setText(jTable3.getValueAt(seleccion, 6).toString());
+        tfAge.setText(jTable3.getValueAt(seleccion, 7).toString());
         txtCorporal.setText(jTable3.getValueAt(seleccion, 8).toString());
-        txtAgua.setText(jTable3.getValueAt(seleccion, 9).toString());
-        txtFecha.setText(jTable3.getValueAt(seleccion, 10).toString());
+        tfWater.setText(jTable3.getValueAt(seleccion, 9).toString());
+        tfDate.setText(jTable3.getValueAt(seleccion, 10).toString());
     }//GEN-LAST:event_jTable3MouseClicked
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-         try {
-                Delete em = new Delete();
-                int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar " + txtPaciente.getText() + " de este archivo?");
-                if(d == 0){
-                    em.removeLinesColaGeneral(txtCedula.getText());
-                    mostrarNotas();
-                    JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
-                    
-                    txtCedula.setText("");
-                    txtPaciente.setText("");
-                    txtAgua.setText("");
-                    txtAltura.setText("");
-                    txtAreaNotas.setText("");
-                    txtBuscar.setText("");
-                    txtCorporal.setText("");
-                    txtEdad.setText("");
-                    txtFecha.setText("");
-                    txtGrasa.setText("");
-                    txtMuscular.setText("");
-                    txtPeso.setText("");
-                }
-            }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al eliminar");
-            }   
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try {
+            Delete em = new Delete();
+            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO DELETE " + tfID.getText() + " ?");
+            if (d == 0) {
+                em.removeLinesColaGeneral(tfID.getText());
+                mostrarNotas();
+                lbMessages.setText("SUCCESFULLY DELETED!");
+                tfID.setText("");
+                tfName.setText("");
+                tfWater.setText("");
+                tfHeight.setText("");
+                taNotes.setText("");
+                tfSearch.setText("");
+                txtCorporal.setText("");
+                tfAge.setText("");
+                tfDate.setText("");
+                tfGrease.setText("");
+                tfMuscleMass.setText("");
+                tfWeight.setText("");
+            }
+        } catch (IOException ex) {
+            lbMessages.setText("DELETE ERROR!");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+    private void btnShowNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowNotesActionPerformed
         mostrarNotas();
-        txtPaciente.setText("");
-        txtAgua.setText("");
-        txtAltura.setText("");
-        txtAreaNotas.setText("");
-        txtBuscar.setText("");
+        tfName.setText("");
+        tfWater.setText("");
+        tfHeight.setText("");
+        taNotes.setText("");
+        tfSearch.setText("");
         txtCorporal.setText("");
-        txtEdad.setText("");
-        txtFecha.setText("");
-        txtGrasa.setText("");
-        txtMuscular.setText("");
-        txtPeso.setText("");
-        txtCedula.setText("");
-    }//GEN-LAST:event_btnMostrarActionPerformed
+        tfAge.setText("");
+        tfDate.setText("");
+        tfGrease.setText("");
+        tfMuscleMass.setText("");
+        tfWeight.setText("");
+        tfID.setText("");
+    }//GEN-LAST:event_btnShowNotesActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         ColaFilesLog fl = new ColaFilesLog();
-        if(fl.readingFiles(txtBuscar.getText()) == true){          
+        if (fl.readingFiles(tfSearch.getText()) == true) {
             try {
-                searchClienteIndividual(txtBuscar.getText());
-                txtBuscar.setText("");
+                searchClienteIndividual(tfSearch.getText());
+                tfSearch.setText("");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(CRUDNotes.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else{
-        JOptionPane.showMessageDialog(null, "NO ENCONTRADO");}
-        txtPaciente.setText("");
-        txtAgua.setText("");
-        txtAltura.setText("");
-        txtAreaNotas.setText("");
-        txtBuscar.setText("");
+        } else {
+            lbNotFound.setText("NOT FOUND!");
+        }
+        tfName.setText("");
+        tfWater.setText("");
+        tfHeight.setText("");
+        taNotes.setText("");
+        tfSearch.setText("");
         txtCorporal.setText("");
-        txtEdad.setText("");
-        txtFecha.setText("");
-        txtGrasa.setText("");
-        txtMuscular.setText("");
-        txtPeso.setText("");
-        txtCedula.setText("");       
-        
-    }//GEN-LAST:event_btnBuscarActionPerformed
+        tfAge.setText("");
+        tfDate.setText("");
+        tfGrease.setText("");
+        tfMuscleMass.setText("");
+        tfWeight.setText("");
+        tfID.setText("");
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         try {
-                Update em = new Update();
-                int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + txtPaciente.getText() + " ?");
-                if(edit == 0){
-                    em.actualizarNotaPersona(txtCedula.getText(), txtPaciente.getText(), txtAreaNotas.getText(), Double.parseDouble(txtPeso.getText()), Double.parseDouble(txtMuscular.getText()), 
-                            Double.parseDouble(txtGrasa.getText()), Double.parseDouble(txtAltura.getText()), Integer.parseInt(txtEdad.getText()), Double.parseDouble(txtCorporal.getText()), Double.parseDouble(txtAgua.getText()), txtFecha.getText());
-                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
-                    mostrarNotas();
-                    txtCedula.setText("");
-                    txtPaciente.setText("");
-                    txtAgua.setText("");
-                    txtAltura.setText("");
-                    txtAreaNotas.setText("");
-                    txtBuscar.setText("");
-                    txtCorporal.setText("");
-                    txtEdad.setText("");
-                    txtFecha.setText("");
-                    txtGrasa.setText("");
-                    txtMuscular.setText("");
-                    txtPeso.setText("");
-                }
-            }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al modificar");
-            }   
-    }//GEN-LAST:event_btnModificarActionPerformed
-        
-         //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
-    public void searchClienteIndividual(String cedula) throws FileNotFoundException{
+            Update em = new Update();
+            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO UPDATE " + tfID.getText() + " ?");
+            if (edit == 0) {
+                em.actualizarNotaPersona(tfID.getText(), tfName.getText(), taNotes.getText(), Double.parseDouble(tfWeight.getText()), Double.parseDouble(tfMuscleMass.getText()),
+                        Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()), Double.parseDouble(txtCorporal.getText()), Double.parseDouble(tfWater.getText()), tfDate.getText());
+                lbMessages.setText("SUCCESFULLY UPDATED!");
+                mostrarNotas();
+                tfID.setText("");
+                tfName.setText("");
+                tfWater.setText("");
+                tfHeight.setText("");
+                taNotes.setText("");
+                tfSearch.setText("");
+                txtCorporal.setText("");
+                tfAge.setText("");
+                tfDate.setText("");
+                tfGrease.setText("");
+                tfMuscleMass.setText("");
+                tfWeight.setText("");
+            }
+        } catch (IOException ex) {
+           lbMessages.setText("UPDATE ERROR!");
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
+    public void searchClienteIndividual(String cedula) throws FileNotFoundException {
         Logic lC = new Logic();
-        ArrayList <CustomerNotes> individual = new ArrayList();
-        
+        ArrayList<CustomerNotes> individual = new ArrayList();
+
         CustomerNotes tempCountries[] = lC.readRegistersFilesNotas();
         for (int i = 0; i < tempCountries.length; i++) {
-            if (tempCountries[i].getCedula().equalsIgnoreCase(cedula)){
+            if (tempCountries[i].getCedula().equalsIgnoreCase(cedula)) {
                 individual.add(tempCountries[i]);
-            } 
+            }
         }
 
-        String matriz[][]= new String[individual.size()][11];
-        
+        String matriz[][] = new String[individual.size()][11];
+
         for (int i = 0; i < individual.size(); i++) {
-            
-        int edad = individual.get(i).getEdad();
-        double peso = individual.get(i).getPeso();
-        double musculo = individual.get(i).getMusculo();
-        double grasa = individual.get(i).getGrasa();
-        double altura = individual.get(i).getAltura();
-        double masaCorporal = individual.get(i).getMasaCorporal();
-        double agua = individual.get(i).getAgua();
-        
-        matriz[i][0]= individual.get(i).getCedula();
-        matriz[i][1]= individual.get(i).getNombre();
-        matriz[i][2]= individual.get(i).getNotas();
-        matriz[i][3]= String.valueOf(peso);
-        matriz[i][4]= String.valueOf(musculo);
-        matriz[i][5]= String.valueOf(grasa);
-        matriz[i][6]= String.valueOf(altura);
-        matriz[i][7]= String.valueOf(edad);
-        matriz[i][8]= String.valueOf(masaCorporal);
-        matriz[i][9]= String.valueOf(agua);
-        matriz[i][10]= individual.get(i).getFecha();
-        
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-           matriz,
-            new String [] {
-                "Cedula","Paciente", "Notas", "Peso", "M.Musculo", "% Grasa", "Altura", "Edad", "M.Corporal", "% Agua", "Fecha"
-            }
-        ));
-        }   
+
+            int edad = individual.get(i).getEdad();
+            double peso = individual.get(i).getPeso();
+            double musculo = individual.get(i).getMusculo();
+            double grasa = individual.get(i).getGrasa();
+            double altura = individual.get(i).getAltura();
+            double masaCorporal = individual.get(i).getMasaCorporal();
+            double agua = individual.get(i).getAgua();
+
+            matriz[i][0] = individual.get(i).getCedula();
+            matriz[i][1] = individual.get(i).getNombre();
+            matriz[i][2] = individual.get(i).getNotas();
+            matriz[i][3] = String.valueOf(peso);
+            matriz[i][4] = String.valueOf(musculo);
+            matriz[i][5] = String.valueOf(grasa);
+            matriz[i][6] = String.valueOf(altura);
+            matriz[i][7] = String.valueOf(edad);
+            matriz[i][8] = String.valueOf(masaCorporal);
+            matriz[i][9] = String.valueOf(agua);
+            matriz[i][10] = individual.get(i).getFecha();
+
+            jTable3.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz,
+                    new String[]{
+                        "ID", "NAME", "NOTES", "WEIGHT", "MUSCLE MASS", "% GREASE", "HEIGHT", "AGE", "BODY MASS INDEX", "% WATER", "DATE"
+                    }
+            ));
+        }
     }
 
-        public void mostrarNotas(){
+    public void mostrarNotas() {
         Logic lC = new Logic();
         ArrayList<CustomerNotes> array = new ArrayList();
-        
+
         CustomerNotes tempCountries[] = lC.readRegistersFilesNotas();
-        for(int i = 0; i < tempCountries.length; i++){
+        for (int i = 0; i < tempCountries.length; i++) {
             array.add(tempCountries[i]);
         }//endfor
-       
-       String matriz[][]= new String[array.size()][11];
-       
-         for (int i = 0; i < array.size(); i++) {
-        int edad = array.get(i).getEdad();
-        double peso = array.get(i).getPeso();
-        double musculo = array.get(i).getMusculo();
-        double grasa = array.get(i).getGrasa();
-        double altura = array.get(i).getAltura();
-        double masaCorporal = array.get(i).getMasaCorporal();
-        double agua = array.get(i).getAgua();
-        
-        matriz[i][0]= array.get(i).getCedula();
-        matriz[i][1]= array.get(i).getNombre();
-        matriz[i][2]= array.get(i).getNotas();
-        matriz[i][3]= String.valueOf(peso);
-        matriz[i][4]= String.valueOf(musculo);
-        matriz[i][5]= String.valueOf(grasa);
-        matriz[i][6]= String.valueOf(altura);
-        matriz[i][7]= String.valueOf(edad);
-        matriz[i][8]= String.valueOf(masaCorporal);
-        matriz[i][9]= String.valueOf(agua);
-        matriz[i][10]= array.get(i).getFecha();
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-           matriz,
-            new String [] {
-                "Cedula","Paciente", "Notas", "Peso", "M.Musculo", "% Grasa", "Altura", "Edad", "M.Corporal", "% Agua", "Fecha"
-            }
-        ));
-         } 
+
+        String matriz[][] = new String[array.size()][11];
+
+        for (int i = 0; i < array.size(); i++) {
+            int edad = array.get(i).getEdad();
+            double peso = array.get(i).getPeso();
+            double musculo = array.get(i).getMusculo();
+            double grasa = array.get(i).getGrasa();
+            double altura = array.get(i).getAltura();
+            double masaCorporal = array.get(i).getMasaCorporal();
+            double agua = array.get(i).getAgua();
+
+            matriz[i][0] = array.get(i).getCedula();
+            matriz[i][1] = array.get(i).getNombre();
+            matriz[i][2] = array.get(i).getNotas();
+            matriz[i][3] = String.valueOf(peso);
+            matriz[i][4] = String.valueOf(musculo);
+            matriz[i][5] = String.valueOf(grasa);
+            matriz[i][6] = String.valueOf(altura);
+            matriz[i][7] = String.valueOf(edad);
+            matriz[i][8] = String.valueOf(masaCorporal);
+            matriz[i][9] = String.valueOf(agua);
+            matriz[i][10] = array.get(i).getFecha();
+            jTable3.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz,
+                    new String[]{
+                        "ID", "NAME", "NOTES", "WEIGHT", "MUSCLE MASS", "% GREASE", "HEIGHT", "AGE", "BODY MASS INDEX", "% WATER", "DATE"
+                    }
+            ));
+        }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -514,36 +534,38 @@ public class CRUDNotes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnMostrar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnShowNotes;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTable3;
+    private javax.swing.JLabel lbAge;
+    private javax.swing.JLabel lbBodyMassIndex;
+    private javax.swing.JLabel lbMessages;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbNotFound;
+    private javax.swing.JLabel lbNotes;
+    private javax.swing.JLabel lbWater;
+    private javax.swing.JLabel lbWeight;
     private javax.swing.JLabel lblFecha;
-    private javax.swing.JTextField txtAgua;
-    private javax.swing.JTextField txtAltura;
-    private javax.swing.JTextArea txtAreaNotas;
-    private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextArea taNotes;
+    private javax.swing.JTextField tfAge;
+    private javax.swing.JTextField tfDate;
+    private javax.swing.JTextField tfGrease;
+    private javax.swing.JTextField tfHeight;
+    private javax.swing.JTextField tfID;
+    private javax.swing.JTextField tfMuscleMass;
+    private javax.swing.JTextField tfName;
+    private javax.swing.JTextField tfSearch;
+    private javax.swing.JTextField tfWater;
+    private javax.swing.JTextField tfWeight;
     private javax.swing.JTextField txtCorporal;
-    private javax.swing.JTextField txtEdad;
-    private javax.swing.JTextField txtFecha;
-    private javax.swing.JTextField txtGrasa;
-    private javax.swing.JTextField txtMuscular;
-    private javax.swing.JTextField txtPaciente;
-    private javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
 }

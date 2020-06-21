@@ -33,13 +33,13 @@ public class MyAdvances extends javax.swing.JFrame {
             array.add(tempCountries[i]);
         }//End for
         for (int j = 0; j < tempCountries.length; j++) {
-            String edad = array.get(j).getEdad() + "";
-            String peso = array.get(j).getPeso() + "";
-            String altura = array.get(j).getAltura() + "";
-            String grasa = array.get(j).getGrasa() + "";
-            String agua = array.get(j).getAgua() + "";
-            String masa = array.get(j).getMasaCorporal() + "";
-            String musculo = array.get(j).getMusculo() + "";
+            String edad = String.valueOf(array.get(j).getEdad());
+            String peso = String.valueOf(array.get(j).getPeso());
+            String altura = String.valueOf(array.get(j).getAltura());
+            String grasa = String.valueOf(array.get(j).getGrasa());
+            String agua = String.valueOf(array.get(j).getAgua());
+            String masa = String.valueOf(array.get(j).getMasaCorporal());
+            String musculo = String.valueOf(array.get(j).getMusculo());
 
             tfID.setText(array.get(j).getCedula().trim());
             tfName.setText(array.get(j).getNombre().trim());
