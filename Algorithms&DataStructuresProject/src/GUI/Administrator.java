@@ -45,8 +45,8 @@ public class Administrator extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         menuCRUD = new javax.swing.JMenu();
         menuItemCRUDDates = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
-        menuItemAdvances = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
@@ -86,18 +86,17 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuCRUD.add(menuItemCRUDDates);
 
+        jMenuItem2.setText("CRUD NOTES");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuCRUD.add(jMenuItem2);
+
         jMenuBar1.add(menuCRUD);
 
         menuInformation.setText("INFORMATION");
-
-        menuItemAdvances.setText("ADVANCES");
-        menuItemAdvances.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemAdvancesActionPerformed(evt);
-            }
-        });
-        menuInformation.add(menuItemAdvances);
-
         jMenuBar1.add(menuInformation);
 
         menuOptions.setText("OPTIONS");
@@ -150,17 +149,17 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-//        AdministratorNotes nC = new AdministratorNotes();
-//        nC.show();
-//        nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-
-    private void menuItemAdvancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdvancesActionPerformed
         AdministratorNotes nC = new AdministratorNotes();
         nC.show();
         nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemAdvancesActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        CRUDNotes cn=new CRUDNotes();
+        cn.show();
+        cn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
 
     /**
@@ -203,10 +202,10 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenu menuInformation;
-    private javax.swing.JMenuItem menuItemAdvances;
     private javax.swing.JMenuItem menuItemCRUDDates;
     private javax.swing.JMenuItem menuItemNewDate;
     private javax.swing.JMenuItem menuItemSignOff;

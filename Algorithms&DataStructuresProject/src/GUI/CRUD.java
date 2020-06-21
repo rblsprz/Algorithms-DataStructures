@@ -78,6 +78,7 @@ public class CRUD extends javax.swing.JFrame {
         tfPassword = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -107,7 +108,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(1100, 550, 170, 23);
+        btnshowRoles.setBounds(1100, 550, 170, 29);
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +117,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(1440, 550, 110, 23);
+        btnDelete.setBounds(1440, 550, 110, 29);
         getContentPane().add(tfName);
         tfName.setBounds(880, 100, 150, 30);
 
@@ -161,7 +162,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(1300, 550, 110, 23);
+        btnUpdate.setBounds(1300, 550, 110, 29);
 
         lbID.setText("ID");
         getContentPane().add(lbID);
@@ -196,7 +197,16 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(1200, 620, 57, 23);
+        jToggleButton2.setBounds(1200, 620, 69, 29);
+
+        jToggleButton1.setText("PDF");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1);
+        jToggleButton1.setBounds(1320, 620, 61, 29);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,6 +325,16 @@ public class CRUD extends javax.swing.JFrame {
         impresion();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        MessageFormat header=new MessageFormat("Registro de citas");
+        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
+        try{
+            JTable1.print(JTable.PrintMode.NORMAL, header, footer);
+        } catch (PrinterException ex) {
+            System.err.format("error de impresion", ex.getMessage());
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     public void mostrarRegistros() {
         Logic lC = new Logic();
         ArrayList<Roles> array = new ArrayList();
@@ -391,6 +411,7 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnshowRoles;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;

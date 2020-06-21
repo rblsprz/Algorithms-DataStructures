@@ -4,21 +4,11 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import Logic.Logic;
-
+import Logic.*;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Logic.ColaFilesLog;
-import Logic.CustomerNotes;
-import Logic.Delete;
-import Logic.ExportarExcel;
-import Logic.Update;
-import java.awt.print.PrinterException;
-import java.io.File;
-import javax.swing.JFileChooser;
-import javax.swing.JTable;
 
 /**
  *
@@ -46,7 +36,7 @@ public class CRUDNotes extends javax.swing.JFrame {
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTableNotes = new javax.swing.JTable();
+        jTable3 = new javax.swing.JTable();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -73,19 +63,11 @@ public class CRUDNotes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaNotas = new javax.swing.JTextArea();
         btnMostrar = new javax.swing.JButton();
-        btnBorrarEspecifico = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel7.setText("NOTAS REGISTRADAS");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(422, 18, 199, 37);
-        getContentPane().add(txtBuscar);
-        txtBuscar.setBounds(375, 77, 222, 26);
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,10 +75,8 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar);
-        btnBuscar.setBounds(615, 76, 79, 29);
 
-        jTableNotes.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -104,15 +84,12 @@ public class CRUDNotes extends javax.swing.JFrame {
                 "Cédula", "Paciente", "Notas", "Peso", "M. Muscular", "% Grasa", "Altura", "Edad", "M. Corporal", "% Agua", "Fecha"
             }
         ));
-        jTableNotes.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableNotesMouseClicked(evt);
+                jTable3MouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(jTableNotes);
-
-        getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(35, 123, 803, 163);
+        jScrollPane3.setViewportView(jTable3);
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,8 +97,6 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnModificar);
-        btnModificar.setBounds(864, 174, 153, 29);
 
         btnEliminar.setText("Eliminar Paciente");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -129,85 +104,38 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(864, 221, 153, 29);
 
         jLabel1.setText("Paciente:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(55, 318, 64, 20);
 
         txtCedula.setEditable(false);
-        getContentPane().add(txtCedula);
-        txtCedula.setBounds(137, 359, 121, 26);
 
         jLabel2.setText("Cédula:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(55, 362, 54, 20);
-        getContentPane().add(txtAltura);
-        txtAltura.setBounds(570, 315, 121, 26);
 
         jLabel3.setText("Notas:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(55, 403, 46, 20);
 
         jLabel4.setText("Peso:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(291, 318, 39, 20);
 
         jLabel5.setText("M. Muscular:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(291, 362, 90, 20);
 
         jLabel6.setText("% Grasa:");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(291, 403, 67, 20);
 
         txtPaciente.setEditable(false);
-        getContentPane().add(txtPaciente);
-        txtPaciente.setBounds(137, 315, 121, 26);
-        getContentPane().add(txtMuscular);
-        txtMuscular.setBounds(396, 359, 121, 26);
-        getContentPane().add(txtGrasa);
-        txtGrasa.setBounds(364, 403, 121, 26);
 
         jLabel8.setText("Altura:");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(503, 318, 49, 20);
 
         jLabel9.setText("Edad:");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(532, 362, 41, 20);
 
         jLabel10.setText("M. Corporal:");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(532, 406, 89, 20);
-        getContentPane().add(txtPeso);
-        txtPeso.setBounds(348, 315, 121, 26);
-        getContentPane().add(txtEdad);
-        txtEdad.setBounds(588, 359, 121, 26);
-        getContentPane().add(txtCorporal);
-        txtCorporal.setBounds(636, 403, 121, 26);
 
         jLabel11.setText("% Agua:");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(709, 318, 64, 20);
 
         lblFecha.setText("Fecha:");
-        getContentPane().add(lblFecha);
-        lblFecha.setBounds(739, 362, 46, 20);
-        getContentPane().add(txtAgua);
-        txtAgua.setBounds(788, 315, 121, 26);
 
         txtFecha.setEditable(false);
-        getContentPane().add(txtFecha);
-        txtFecha.setBounds(800, 359, 121, 26);
 
         txtAreaNotas.setColumns(20);
         txtAreaNotas.setRows(5);
         jScrollPane1.setViewportView(txtAreaNotas);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(119, 403, 166, 96);
 
         btnMostrar.setText("Mostrar Notas");
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -215,54 +143,158 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnMostrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMostrar);
-        btnMostrar.setBounds(864, 268, 153, 29);
 
-        btnBorrarEspecifico.setText("Eliminar Nota");
-        btnBorrarEspecifico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarEspecificoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBorrarEspecifico);
-        btnBorrarEspecifico.setBounds(735, 23, 129, 29);
-
-        jToggleButton1.setText("PDF");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(50, 30, 61, 29);
-
-        jToggleButton2.setText("Excel");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(180, 30, 141, 29);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtMuscular, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(lblFecha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtAgua, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(375, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBuscar)
+                                .addGap(170, 170, 170))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(243, 243, 243))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMostrar)
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtAgua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtMuscular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFecha)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
+                        .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTableNotesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableNotesMouseClicked
-        int seleccion = jTableNotes.getSelectedRow();
-        txtCedula.setText(jTableNotes.getValueAt(seleccion, 0).toString());
-        txtPaciente.setText(jTableNotes.getValueAt(seleccion, 1).toString());
-        txtAreaNotas.setText(jTableNotes.getValueAt(seleccion, 2).toString());
-        txtPeso.setText(jTableNotes.getValueAt(seleccion, 3).toString());
-        txtMuscular.setText(jTableNotes.getValueAt(seleccion, 4).toString());
-        txtGrasa.setText(jTableNotes.getValueAt(seleccion, 5).toString());
-        txtAltura.setText(jTableNotes.getValueAt(seleccion, 6).toString());
-        txtEdad.setText(jTableNotes.getValueAt(seleccion, 7).toString());
-        txtCorporal.setText(jTableNotes.getValueAt(seleccion, 8).toString());
-        txtAgua.setText(jTableNotes.getValueAt(seleccion, 9).toString());
-        txtFecha.setText(jTableNotes.getValueAt(seleccion, 10).toString());
-    }//GEN-LAST:event_jTableNotesMouseClicked
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        int seleccion = jTable3.getSelectedRow();
+        txtCedula.setText(jTable3.getValueAt(seleccion, 0).toString());
+        txtPaciente.setText(jTable3.getValueAt(seleccion, 1).toString());
+        txtAreaNotas.setText(jTable3.getValueAt(seleccion, 2).toString());
+        txtPeso.setText(jTable3.getValueAt(seleccion, 3).toString());
+        txtMuscular.setText(jTable3.getValueAt(seleccion, 4).toString());
+        txtGrasa.setText(jTable3.getValueAt(seleccion, 5).toString());
+        txtAltura.setText(jTable3.getValueAt(seleccion, 6).toString());
+        txtEdad.setText(jTable3.getValueAt(seleccion, 7).toString());
+        txtCorporal.setText(jTable3.getValueAt(seleccion, 8).toString());
+        txtAgua.setText(jTable3.getValueAt(seleccion, 9).toString());
+        txtFecha.setText(jTable3.getValueAt(seleccion, 10).toString());
+    }//GEN-LAST:event_jTable3MouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
          try {
@@ -333,10 +365,6 @@ public class CRUDNotes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnBorrarEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarEspecificoActionPerformed
-        
-    }//GEN-LAST:event_btnBorrarEspecificoActionPerformed
-
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         try {
                 Update em = new Update();
@@ -363,37 +391,13 @@ public class CRUDNotes extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error al modificar");
             }   
     }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        MessageFormat header=new MessageFormat("Registro de citas");
-        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
-        try{
-            jTableNotes.print(JTable.PrintMode.NORMAL, header, footer);
-        } catch (PrinterException ex) {
-            System.err.format("error de impresion", ex.getMessage());
-        }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-void impresion() {
-        JFileChooser seleccionar = new JFileChooser();
-        File archivo;
-        if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
-            archivo = seleccionar.getSelectedFile();
-            String imagen = archivo + ".xls";
-            File file = new File(imagen);
-            ExportarExcel excel = new ExportarExcel(jTableNotes, file, "" + "tablaimporte");
-            excel.export(); 
-        }
-    }
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        impresion();
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
         
          //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
     public void searchClienteIndividual(String cedula) throws FileNotFoundException{
         Logic lC = new Logic();
         ArrayList <CustomerNotes> individual = new ArrayList();
         
-        CustomerNotes tempCountries[] = lC.readRegistersFilesCustomer();
+        CustomerNotes tempCountries[] = lC.readRegistersFilesNotas();
         for (int i = 0; i < tempCountries.length; i++) {
             if (tempCountries[i].getCedula().equalsIgnoreCase(cedula)){
                 individual.add(tempCountries[i]);
@@ -424,7 +428,7 @@ void impresion() {
         matriz[i][9]= String.valueOf(agua);
         matriz[i][10]= individual.get(i).getFecha();
         
-        jTableNotes.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
            matriz,
             new String [] {
                 "Cedula","Paciente", "Notas", "Peso", "M.Musculo", "% Grasa", "Altura", "Edad", "M.Corporal", "% Agua", "Fecha"
@@ -437,7 +441,7 @@ void impresion() {
         Logic lC = new Logic();
         ArrayList<CustomerNotes> array = new ArrayList();
         
-        CustomerNotes tempCountries[] = lC.readRegistersFilesCustomer();
+        CustomerNotes tempCountries[] = lC.readRegistersFilesNotas();
         for(int i = 0; i < tempCountries.length; i++){
             array.add(tempCountries[i]);
         }//endfor
@@ -464,7 +468,7 @@ void impresion() {
         matriz[i][8]= String.valueOf(masaCorporal);
         matriz[i][9]= String.valueOf(agua);
         matriz[i][10]= array.get(i).getFecha();
-        jTableNotes.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
            matriz,
             new String [] {
                 "Cedula","Paciente", "Notas", "Peso", "M.Musculo", "% Grasa", "Altura", "Edad", "M.Corporal", "% Agua", "Fecha"
@@ -510,7 +514,6 @@ void impresion() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBorrarEspecifico;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
@@ -528,9 +531,7 @@ void impresion() {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    public static javax.swing.JTable jTableNotes;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    public static javax.swing.JTable jTable3;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JTextField txtAgua;
     private javax.swing.JTextField txtAltura;

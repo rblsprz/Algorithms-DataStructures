@@ -461,4 +461,95 @@ public class Delete {
             JOptionPane.showMessageDialog(null, "PROBLEMAS");
         }
     }//End removeLines
+//      public void removeLinesColaNota(String id, String date) throws IOException{
+//        //prueba colaTemp = new prueba();
+//        QueueMethods colaTemp =  new QueueMethods();
+//        File f = new File("notasPaciente.txt");
+//        try{
+//            FileInputStream fis = new FileInputStream(f);
+//            InputStreamReader isr = new InputStreamReader(fis);
+//            BufferedReader br = new BufferedReader(isr);
+//        
+//            String linesUpdate = br.readLine();
+//
+//            while (linesUpdate != null) {
+//                if (!linesUpdate.contains(id) || !linesUpdate.contains(date)) {
+//                    StringTokenizer sT = new StringTokenizer(linesUpdate,";");
+//                    int counterTok = 0;
+//                    String cedula="";
+//                    String nombre = "";
+//                    String notas = "";
+//                    double peso = 0;
+//                    double musculo = 0;
+//                    double grasa = 0;
+//                    double altura = 0;
+//                    int edad = 0;
+//                    double masaCorporal = 0;
+//                    double agua = 0;
+//                    String fecha = "";
+//                    
+//                    while (sT.hasMoreTokens()) {
+//                          if (counterTok == 0) {
+//                        cedula= sT.nextToken();
+//                        counterTok++;
+//                    } else if (counterTok == 1) {
+//                        nombre = sT.nextToken();
+//                        counterTok++;
+//                    } else if (counterTok == 2) {
+//                        notas = sT.nextToken();
+//                        counterTok++;
+//                    } else if (counterTok == 3) {
+//                        peso = Double.parseDouble(sT.nextToken());
+//                        counterTok++;
+//                    }else if (counterTok == 4){
+//                        musculo = Double.parseDouble(sT.nextToken());
+//                        counterTok++;
+//                    }else if (counterTok == 5){
+//                       grasa = Double.parseDouble(sT.nextToken());
+//                        counterTok++;
+//                    }else if (counterTok == 6){
+//                          altura = Double.parseDouble(sT.nextToken());
+//                         counterTok++;
+//                    }else if (counterTok == 7){
+//                         edad = Integer.parseInt(sT.nextToken());
+//                         counterTok++;
+//                    }else if (counterTok == 8){
+//                         masaCorporal = Double.parseDouble(sT.nextToken());
+//                         counterTok++;
+//                    }else if (counterTok == 9){
+//                         agua = Double.parseDouble(sT.nextToken());
+//                         counterTok++;  
+//                    }else if (counterTok == 10){
+//                         fecha = sT.nextToken();
+//                         counterTok++;  
+//                    }else{
+//                        sT.nextToken();
+//                    }
+//                }
+//                    CustomerNotes cM = new CustomerNotes(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);///////******************************* Modificado  DANIEL COLO
+//                    colaTemp.Enqueue(cM);
+//                }
+//                linesUpdate = br.readLine();
+//            }
+//        }catch(FileNotFoundException fnfe){
+//            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+//        }catch(IOException ioe){
+//            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+//        }
+//        
+//        File fNuevo = new File("notasPaciente.txt");
+//        try{
+//            FileOutputStream fos = new FileOutputStream(fNuevo);
+//            PrintStream ps = new PrintStream(fos);
+//            for (int i = 0; i < colaTemp.Size(); i++) {
+//                ps.println(colaTemp.start.element.getCedula()+";"+colaTemp.start.element.getNombre()+";"+colaTemp.start.element.getNotas()+";"+colaTemp.start.element.getPeso()+";"
+//                        +colaTemp.start.element.getMusculo()+";"+colaTemp.start.element.getGrasa()+";"
+//                        +colaTemp.start.element.getAltura()+";"+colaTemp.start.element.getEdad()+";"+colaTemp.start.element.getMasaCorporal()+";"
+//                        +colaTemp.start.element.getAgua()+";"+colaTemp.start.element.getFecha());
+//            }
+//        }catch(FileNotFoundException fnfe){
+//            JOptionPane.showMessageDialog(null, "PROBLEMAS");
+//        }
+//    }//End removeLines
+     
 }
