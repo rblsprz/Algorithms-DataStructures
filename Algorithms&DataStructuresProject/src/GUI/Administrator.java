@@ -87,6 +87,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuCRUD.add(menuItemCRUDDates);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         jMenuItem2.setText("CRUD NOTES");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +96,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuCRUD.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
         jMenuItem3.setText("CRUD Plan Comida");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

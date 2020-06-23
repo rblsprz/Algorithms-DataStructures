@@ -60,6 +60,7 @@ public class Customer extends javax.swing.JFrame {
 
         jMenu3.setText("MY PROFILE");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         jMenuItem1.setText("MY ADVANCES");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +69,7 @@ public class Customer extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
         jMenuItem2.setText("MY PLANS");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

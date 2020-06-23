@@ -98,7 +98,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(20, 30, 160, 33);
+        jToggleButton1.setBounds(20, 30, 160, 40);
 
         menuAdd.setText("ADD");
 
@@ -130,6 +130,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         menuInformation.setText("INFORMATION");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
         jMenuItem3.setText("Historial");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +143,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         jMenu7.setText("DELETE");
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         jMenuItem2.setText("EMPTY APP");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

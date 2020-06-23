@@ -29,6 +29,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/ejercicio.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="MY ADVANCES"/>
               </Properties>
               <Events>
@@ -37,6 +40,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/plans.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="MY PLANS"/>
               </Properties>
               <Events>

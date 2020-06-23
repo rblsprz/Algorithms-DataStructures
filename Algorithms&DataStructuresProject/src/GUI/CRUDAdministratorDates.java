@@ -103,24 +103,25 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(680, 240, 32, 14);
+        lbName.setBounds(680, 240, 36, 16);
         getContentPane().add(tfName);
-        tfName.setBounds(770, 230, 219, 20);
+        tfName.setBounds(770, 230, 219, 24);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(680, 280, 15, 14);
+        lbID.setBounds(680, 280, 14, 16);
         getContentPane().add(tfID);
-        tfID.setBounds(770, 280, 219, 20);
+        tfID.setBounds(770, 280, 219, 24);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(680, 340, 72, 14);
+        lbDate.setBounds(680, 340, 72, 16);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(680, 420, 70, 14);
+        lbTime.setBounds(680, 420, 70, 16);
 
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
         btnUpdate.setBorderPainted(false);
         btnUpdate.setContentAreaFilled(false);
@@ -130,8 +131,9 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(800, 470, 110, 23);
+        btnUpdate.setBounds(800, 470, 130, 48);
 
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
         btnDelete.setBorderPainted(false);
         btnDelete.setContentAreaFilled(false);
@@ -141,8 +143,9 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(920, 470, 120, 23);
+        btnDelete.setBounds(950, 470, 120, 48);
 
+        btnShowDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowDates.setText("SHOW DATES");
         btnShowDates.setBorderPainted(false);
         btnShowDates.setContentAreaFilled(false);
@@ -152,11 +155,11 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(640, 470, 140, 23);
+        btnShowDates.setBounds(640, 470, 140, 48);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(770, 330, 219, 20);
+        dateChooser.setBounds(770, 330, 219, 29);
         getContentPane().add(tfDate);
-        tfDate.setBounds(770, 370, 97, 20);
+        tfDate.setBounds(770, 370, 97, 24);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(560, 370, 290, 0);
 
@@ -172,20 +175,25 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboHoras);
-        comboHoras.setBounds(770, 420, 90, 20);
+        comboHoras.setBounds(770, 420, 90, 26);
 
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
         jToggleButton2.setText("Excel");
+        jToggleButton2.setBorderPainted(false);
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(790, 530, 141, 23);
+        jToggleButton2.setBounds(850, 530, 141, 50);
 
+        btnPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         btnPDF.setText("PDF");
+        btnPDF.setBorderPainted(false);
+        btnPDF.setContentAreaFilled(false);
         getContentPane().add(btnPDF);
-        btnPDF.setBounds(670, 530, 73, 23);
+        btnPDF.setBounds(730, 530, 100, 48);
 
         pack();
         setLocationRelativeTo(null);

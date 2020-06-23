@@ -148,6 +148,9 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="jToggleButton2">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="SUPER ADMINISTRATOR"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
