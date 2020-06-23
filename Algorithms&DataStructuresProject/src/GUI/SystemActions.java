@@ -27,7 +27,7 @@ public class SystemActions extends javax.swing.JFrame {
      */
     public SystemActions() {
         initComponents();
-         this.setExtendedState(systemRegist.MAXIMIZED_BOTH);
+         this.setExtendedState(SystemActions.MAXIMIZED_BOTH);
     }
 
     /**
@@ -54,6 +54,7 @@ public class SystemActions extends javax.swing.JFrame {
 
         lbSystemActions.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbSystemActions.setText("SYSTEM ACTIONS");
+        getContentPane().add(lbSystemActions);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,17 +66,20 @@ public class SystemActions extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1);
 
-        btnMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
-        btnMostrar.setText("Mostrar Historial");
-        btnMostrar.setBorderPainted(false);
-        btnMostrar.setContentAreaFilled(false);
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
-
+        btnShowHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
+        btnShowHistory.setText("SHOW HISTORY");
+        btnShowHistory.setBorderPainted(false);
+        btnShowHistory.setContentAreaFilled(false);
+        btnShowHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowHistoryActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShowHistory);
+        getContentPane().add(tfSearch);
+        getContentPane().add(lbMessages);
 
         menuPDF.setText("PDF EXPORT");
         menuPDF.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,46 +101,6 @@ public class SystemActions extends javax.swing.JFrame {
         jMenuBar1.add(menuWord);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-
-                .addContainerGap(743, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(588, 588, 588))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnMostrar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(116, 116, 116)))
-                        .addGap(753, 753, 753))))
-
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-
-                .addGap(20, 20, 20)
-                .addComponent(lbSystemActions, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnShowHistory)
-                    .addComponent(lbMessages))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(570, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

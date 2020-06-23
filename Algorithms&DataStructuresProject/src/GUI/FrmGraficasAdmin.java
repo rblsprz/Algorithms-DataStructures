@@ -1,8 +1,6 @@
 package GUI;
 
-import GUI.MenuAdmin;
-import GUI.NotasAdmin;
-import GUI.PlanAlimenticioCRUD;
+
 import com.placeholder.PlaceHolder;
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,7 +12,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-import proyectofinal.LogicaGraficas;
+
 
 /**
  *

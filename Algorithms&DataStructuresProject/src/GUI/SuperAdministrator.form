@@ -118,7 +118,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-
         <Menu class="javax.swing.JMenu" name="menuOptions">
           <Properties>
             <Property name="text" type="java.lang.String" value="OPTIONS"/>
@@ -154,12 +153,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemMainDocumentActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemEmptyApp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="EMPTY APP"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemEmptyAppActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemSignOff">

@@ -64,7 +64,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         menuItemUserManual = new javax.swing.JMenuItem();
         menuItemMainDocument = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuItemEmptyApp = new javax.swing.JMenuItem();
         menuItemSignOff = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
@@ -90,7 +90,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
         lbSuperAdministrator.setText("SUPER ADMINISTRATOR");
         getContentPane().add(lbSuperAdministrator);
         lbSuperAdministrator.setBounds(880, 0, 248, 108);
-
 
         menuAdd.setText("ADD");
 
@@ -133,21 +132,6 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         jMenuBar1.add(menuInformation);
 
-
-        jMenu7.setText("DELETE");
-
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
-        jMenuItem2.setText("EMPTY APP");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu7);
-
-
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,13 +164,13 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuOptions.add(menuItemMainDocument);
 
-        jMenuItem2.setText("EMPTY APP");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemEmptyApp.setText("EMPTY APP");
+        menuItemEmptyApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuItemEmptyAppActionPerformed(evt);
             }
         });
-        menuOptions.add(jMenuItem2);
+        menuOptions.add(menuItemEmptyApp);
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuItemSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
@@ -244,7 +228,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuItemEmptyAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEmptyAppActionPerformed
 
         int i = JOptionPane.showConfirmDialog(null, "¿ESTÁ SEGUR@ QUÉ DESEA ELIMINAR TODOS LOS DATOS DE LA APLICACIÓN?");
         if (i == 0) {
@@ -280,7 +264,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Problemas de Archivo");
             }//End catch
         }//End if
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuItemEmptyAppActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         SystemActions sR = new SystemActions();
@@ -354,13 +338,13 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel lbSuperAdministrator;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCrud;
     private javax.swing.JMenu menuInformation;
     private javax.swing.JMenuItem menuItemCRUDRoles;
+    private javax.swing.JMenuItem menuItemEmptyApp;
     private javax.swing.JMenuItem menuItemMainDocument;
     private javax.swing.JMenuItem menuItemNewRol;
     private javax.swing.JMenuItem menuItemSignOff;

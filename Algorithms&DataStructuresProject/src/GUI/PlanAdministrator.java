@@ -1,6 +1,6 @@
 package GUI;
 
-import Logic.Hist;
+import Logic.History;
 import Logic.Roles;
 import Logic.Plans;
 import java.awt.print.PrinterException;
@@ -19,26 +19,26 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import Logic.ExportarExcel;
 import Logic.Logic;
-import Logic.PlanNo;
 import Logic.Delete;
 import Logic.Update;
-import Logic.ColaFilesLog;
+import Logic.FileQueuesLog;
+import Logic.PlanNotes;
 
 /**
  *
  * @author pc
  */
-public class CRUDPlanA extends javax.swing.JFrame {
+public class PlanAdministrator extends javax.swing.JFrame {
 
     /**
      * Creates new form PlanAlimenticioCRUD
      */
-    public CRUDPlanA() {
+    public PlanAdministrator() {
         initComponents();
-         this.setExtendedState(CRUDPlanA.MAXIMIZED_BOTH);
+         this.setExtendedState(PlanAdministrator.MAXIMIZED_BOTH);
     }
     
-    PlanNo queue = new PlanNo();
+    PlanNotes queue = new PlanNotes();
     Logic Fl = new Logic();
     /**
      * This method is called from within the constructor to initialize the form.
@@ -305,7 +305,7 @@ public class CRUDPlanA extends javax.swing.JFrame {
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    Hist c = new Hist(objSDF.format(objDate), hora , "Nuevo plan para " + txtCedula.getText(), getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Nuevo plan para " + txtCedula.getText(), getPersona());
                     Fl.insertHistorialAcciones(c);
                     txtCedula.setText("");
                     txtAlmuerzo.setText("");
@@ -339,7 +339,7 @@ public class CRUDPlanA extends javax.swing.JFrame {
         if(txtBuscar.getText().equals("")){
             mostrarPlanes();
         } else{ 
-            ColaFilesLog fl = new ColaFilesLog();
+            FileQueuesLog fl = new FileQueuesLog();
             if(fl.readingFilesPlanes(txtBuscar.getText()) == true){          
             try {
                 searchClienteIndividual(txtBuscar.getText());
@@ -376,7 +376,7 @@ public class CRUDPlanA extends javax.swing.JFrame {
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    Hist c = new Hist(objSDF.format(objDate), hora , "Modifico el plan de " +  txtCedula.getText(), getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Modifico el plan de " +  txtCedula.getText(), getPersona());
                     Fl.insertHistorialAcciones(c);
                     txtCedula.setText("");
                     txtAlmuerzo.setText("");
@@ -408,7 +408,7 @@ public class CRUDPlanA extends javax.swing.JFrame {
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    Hist c = new Hist(objSDF.format(objDate), hora , "Elimino el plan de " +  txtCedula.getText(), getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Elimino el plan de " +  txtCedula.getText(), getPersona());
                     Fl.insertHistorialAcciones(c);
                     
                     txtCedula.setText("");
@@ -533,21 +533,23 @@ public class CRUDPlanA extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CRUDPlanA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CRUDPlanA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CRUDPlanA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CRUDPlanA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CRUDPlanA().setVisible(true);
+                new PlanAdministrator().setVisible(true);
             }
         });
     }

@@ -32,7 +32,7 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
      */
     public PersonalFoodPlans() {
         initComponents();
-         this.setExtendedState(SeePlanCustom.MAXIMIZED_BOTH);
+        
     }
 
     /**
@@ -66,26 +66,35 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel7.setText("PERSONAL FOOD PLAN");
+        getContentPane().add(jLabel7);
 
         lbBreakFast.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbBreakFast.setText("BREAKFAST");
+        getContentPane().add(lbBreakFast);
 
         tfBreakFast.setEditable(false);
+        getContentPane().add(tfBreakFast);
 
         lbLunch.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbLunch.setText("LUNCH");
+        getContentPane().add(lbLunch);
 
         tfLunch.setEditable(false);
+        getContentPane().add(tfLunch);
 
         lbDinner.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDinner.setText("DINNER");
+        getContentPane().add(lbDinner);
 
         tfDinner.setEditable(false);
+        getContentPane().add(tfDinner);
 
         lbSnacks.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbSnacks.setText("SNACKS");
+        getContentPane().add(lbSnacks);
 
         tfSnacks.setEditable(false);
+        getContentPane().add(tfSnacks);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,17 +111,18 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane4);
 
-        btnMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
-        btnMostrar.setText("Mostrar Plan");
-        btnMostrar.setBorderPainted(false);
-        btnMostrar.setContentAreaFilled(false);
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
-
+        btnShow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
+        btnShow.setBorderPainted(false);
+        btnShow.setContentAreaFilled(false);
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShow);
+        getContentPane().add(lbMessages);
 
         menuPDF.setText("PDF EXPORT");
         menuPDF.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,74 +144,6 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
         jMenuBar1.add(menuWord);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-
-                        .addGap(446, 446, 446))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnShow)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)))
-                        .addGap(22, 22, 22))))
-
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(7, 7, 7)
-                        .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-
-                        .addGap(9, 9, 9)
-                        .addComponent(btnMostrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(577, Short.MAX_VALUE))
-
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
