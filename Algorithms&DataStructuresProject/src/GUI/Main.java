@@ -144,38 +144,36 @@ public class Main extends javax.swing.JFrame {
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
 
         Logic Lf = new Logic();
-         Encrypted encode = new Encrypted();
+        Encrypted encode = new Encrypted();
 
-         try {
-            
-             
-           //Lf.searchAdminID(txtNombre.getText(),jPasswordField1.getText(), rol)
-                if(Lf.searchActivo(tFnombredeUsuario.getText(), tfpassword.getText()) == false){
-                    lbMessages.setText("USER NOT FOUND"); //No encuentra al usuario
-                    tFnombredeUsuario.setText("");
-                    tfpassword.setText("");   
-                }
-                else{
-                    Lf.searchCliente(tFnombredeUsuario.getText(), tfpassword.getText());
-                    tFnombredeUsuario.setText("");
-                    tfpassword.setText("");   
-                    dispose();
+        try {
+
+            //Lf.searchAdminID(txtNombre.getText(),jPasswordField1.getText(), rol)
+            if (Lf.searchActivo(tFnombredeUsuario.getText(), tfpassword.getText()) == false) {
+                lbMessages.setText("USER NOT FOUND"); //No encuentra al usuario
+                tFnombredeUsuario.setText("");
+                tfpassword.setText("");
+            } else {
+                Lf.searchCliente(tFnombredeUsuario.getText(), tfpassword.getText());
+                tFnombredeUsuario.setText("");
+                tfpassword.setText("");
+                dispose();
 //                    Main m = new Main();
 //                    m.setVisible(false);
-                } 
-             
-       } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, ex);
             }
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
 
-                    SuperAdministrator nS = new SuperAdministrator();
-                    nS.setVisible (true);
-                    dispose();
-                     Main m = new Main();
-                     m.setVisible(false);
+        SuperAdministrator nS = new SuperAdministrator();
+        nS.setVisible(true);
+        dispose();
+        Main m = new Main();
+        m.setVisible(false);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**

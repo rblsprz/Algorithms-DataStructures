@@ -111,7 +111,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(152, 301, 89, 29);
+        btnDelete.setBounds(152, 301, 69, 23);
 
         btnShowDates.setText("SHOW DATES");
         btnShowDates.addActionListener(new java.awt.event.ActionListener() {
@@ -120,13 +120,13 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(293, 301, 133, 29);
+        btnShowDates.setBounds(293, 301, 99, 23);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(556, 94, 49, 20);
+        lbName.setBounds(556, 94, 32, 14);
         getContentPane().add(tfDate);
-        tfDate.setBounds(556, 287, 178, 26);
+        tfDate.setBounds(620, 280, 178, 20);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,23 +135,23 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(623, 91, 181, 26);
+        tfName.setBounds(623, 91, 181, 20);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(556, 143, 23, 20);
+        lbID.setBounds(556, 143, 15, 14);
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(623, 140, 181, 26);
+        tfID.setBounds(623, 140, 181, 20);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(556, 191, 45, 20);
+        lbDate.setBounds(556, 191, 45, 14);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(556, 238, 43, 20);
+        lbTime.setBounds(556, 238, 28, 14);
 
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -160,14 +160,14 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(28, 301, 93, 29);
+        btnUpdate.setBounds(28, 301, 71, 23);
 
         lbDatesRegisters.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDatesRegisters.setText("DATES REGISTERS");
         getContentPane().add(lbDatesRegisters);
         lbDatesRegisters.setBounds(590, 20, 215, 37);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(627, 194, 178, 26);
+        dateChooser.setBounds(627, 194, 178, 20);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(144, 348, 282, 22);
         getContentPane().add(jLabel1);
@@ -187,7 +187,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboHoras3);
-        comboHoras3.setBounds(620, 240, 120, 26);
+        comboHoras3.setBounds(620, 240, 120, 20);
 
         jToggleButton1.setText("PDF");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +196,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(30, 380, 61, 29);
+        jToggleButton1.setBounds(30, 380, 51, 23);
 
         jToggleButton2.setText("Excel");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +205,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(120, 380, 69, 29);
+        jToggleButton2.setBounds(120, 380, 57, 23);
 
         pack();
         setLocationRelativeTo(null);
