@@ -16,21 +16,37 @@ import javax.swing.JOptionPane;
  * @author pc
  */
 public class FileStacks {
-     NodeStacks pilaTemp = new NodeStacks();
+
+    NodeStacks pilaTemp = new NodeStacks();
+
+    /**
+     * Inserta una cita del usuario con pilas
+     *
+     * @param Cita c
+     * @return void
+     *
+     */
     public void insertCita(Cita c) {
         File mainFileE = new File("citas.txt");
         try {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);
             PrintStream ps = new PrintStream(fos);
-             ps.println(c.getFecha()+";"+c.getHora()+";"+c.getCedula()+";"+c.getNombre());
+            ps.println(c.getFecha() + ";" + c.getHora() + ";" + c.getCedula() + ";" + c.getNombre());
 
         } catch (FileNotFoundException fnfe) {
 
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }// end catch()
     }
-    
+
+    /**
+     * Lee los datos de la persona en el archivo
+     *
+     * @param void
+     * @return void
+     *
+     */
     public void readingFiles() {
 
         File f = new File("citas.txt");
@@ -65,7 +81,7 @@ public class FileStacks {
                         nombre = sT.nextToken();
                         counterTok++;
                     } else {
-                       sT.nextToken();  
+                        sT.nextToken();
                     }// end else   
                 }// end while pequeño
 
@@ -73,7 +89,7 @@ public class FileStacks {
                 pilaTemp.push(cita);
                 linesUpdate = bR.readLine();
             }// end while grande()
-           
+
         }// end while grande
         catch (FileNotFoundException fnfe) {
             System.out.println("PROBLEMAS ");
@@ -86,6 +102,13 @@ public class FileStacks {
 
     }// end showMeTheFiles()     
 
+    /**
+     * Busca los datos de la cita del usuario
+     *
+     * @param void
+     * @return void
+     *
+     */
     public void buscarCita() throws IOException {
 
         NodeStacks pilaTemp = new NodeStacks();
@@ -100,34 +123,34 @@ public class FileStacks {
             // creacion de un objeto StringTokenizer
             while (linesUpdate != null) {
 
-                    StringTokenizer sT = new StringTokenizer(linesUpdate, ";");
-                    String fecha = "", hora = "", cedula = "", nombre = "";
+                StringTokenizer sT = new StringTokenizer(linesUpdate, ";");
+                String fecha = "", hora = "", cedula = "", nombre = "";
                 int counterTok = 0;
 
-                    // va a controlar cada separador
-                    while (sT.hasMoreTokens()) {
-                        if (counterTok == 0) {
-                            fecha = sT.nextToken();
-                            counterTok++;
-                        } else if (counterTok == 1) {
-                            hora = sT.nextToken();
-                            counterTok++;
-                        } else if (counterTok == 2) {
-                            cedula = sT.nextToken();
-                            counterTok++;
-                        } else if (counterTok == 3) {
-                            nombre = sT.nextToken();
-                            counterTok++;
-                        } else {
-                            sT.nextToken();
-                        }
-                    }// end while pequeño()
-                    Cita usu = new Cita(fecha,hora, cedula, nombre);
-                   // pilaTemp.push(fecha,hora, nombre, cedula);// crea al usuario y lo agrega
+                // va a controlar cada separador
+                while (sT.hasMoreTokens()) {
+                    if (counterTok == 0) {
+                        fecha = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 1) {
+                        hora = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 2) {
+                        cedula = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 3) {
+                        nombre = sT.nextToken();
+                        counterTok++;
+                    } else {
+                        sT.nextToken();
+                    }
+                }// end while pequeño()
+                Cita usu = new Cita(fecha, hora, cedula, nombre);
+                // pilaTemp.push(fecha,hora, nombre, cedula);// crea al usuario y lo agrega
                 linesUpdate = bR.readLine();
 
             }// end while grande
-            
+
         } catch (FileNotFoundException fnfe) {
 
             System.out.println("PROBLEMAS ");
@@ -138,18 +161,26 @@ public class FileStacks {
         }//end catch
 
     }// end removeLines()
+
+    /**
+     * Ingresa la hora en el archivo
+     *
+     * @param String c
+     * @return void
+     * 
+     */
     public void insertHora(String c) {
         File mainFileE = new File("horasConsulta.txt");
         try {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);
             PrintStream ps = new PrintStream(fos);
-             ps.println(c);
+            ps.println(c);
 
         } catch (FileNotFoundException fnfe) {
 
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }// end catch()
     }
-    
+
 }

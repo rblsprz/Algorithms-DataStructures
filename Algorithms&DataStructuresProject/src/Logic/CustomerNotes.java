@@ -4,6 +4,7 @@ package Logic;
  *
  * @author pc
  */
+
 public class CustomerNotes {
     
     private String cedula, nombre, notas, fecha;

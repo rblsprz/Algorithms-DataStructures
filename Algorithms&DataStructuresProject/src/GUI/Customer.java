@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author HELLO
+ * @author David Robles
  */
 public class Customer extends javax.swing.JFrame {
 
@@ -162,13 +162,13 @@ public class Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemMyCRUDActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       NotesCustom nC=new NotesCustom();
+       NotesCustomer nC=new NotesCustomer();
         nC.show();
         nC.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       SeePlanCustom sP=new SeePlanCustom();
+       PersonalFoodPlans sP=new PersonalFoodPlans();
         sP.show();
         sP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem2ActionPerformed

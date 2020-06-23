@@ -48,22 +48,23 @@ public class AdministratorDates extends javax.swing.JFrame {
         btnRequest = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
         lbDate = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lbMessages = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(910, 440, 49, 24);
+        lbName.setBounds(910, 440, 32, 24);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(920, 400, 37, 20);
+        lbID.setBounds(920, 400, 37, 14);
 
         tfName.setBackground(new java.awt.Color(0, 102, 102));
         tfName.setOpaque(false);
@@ -73,17 +74,17 @@ public class AdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(950, 440, 170, 26);
+        tfName.setBounds(950, 440, 170, 20);
 
         tfID.setBackground(new java.awt.Color(0, 102, 102));
         tfID.setOpaque(false);
         tfID.setSelectionColor(new java.awt.Color(204, 204, 204));
         getContentPane().add(tfID);
-        tfID.setBounds(950, 400, 171, 26);
+        tfID.setBounds(950, 400, 171, 20);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(910, 530, 43, 20);
+        lbTime.setBounds(910, 530, 28, 20);
 
         cBTime.setBackground(new java.awt.Color(204, 204, 204));
         cBTime.setEditable(true);
@@ -95,7 +96,7 @@ public class AdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cBTime);
-        cBTime.setBounds(950, 530, 120, 26);
+        cBTime.setBounds(950, 530, 120, 20);
 
         btnRequest.setBackground(new java.awt.Color(255, 255, 255));
         btnRequest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
@@ -114,15 +115,15 @@ public class AdministratorDates extends javax.swing.JFrame {
         dateChooser.setForeground(new java.awt.Color(255, 255, 255));
         dateChooser.setOpaque(false);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(950, 480, 170, 26);
+        dateChooser.setBounds(950, 480, 170, 20);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(910, 490, 47, 20);
+        lbDate.setBounds(910, 490, 30, 14);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 200, 2350, 560);
+        lbMessages.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
+        getContentPane().add(lbMessages);
+        lbMessages.setBounds(0, 200, 2350, 560);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/frutas7.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -140,6 +141,10 @@ public class AdministratorDates extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(1300, 760, 930, 240);
 
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(910, 640, 240, 14);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -153,7 +158,7 @@ public class AdministratorDates extends javax.swing.JFrame {
             String fecha=(year+"-"+mes+"-"+dia);
             
         if (tfID.getText().equals("") || tfName.getText().equals("") || cBTime.getSelectedItem().equals("")) {
-            JOptionPane.showMessageDialog(null, "Rellene todos los espacios en blanco");
+            lbMessages.setText("FILL THE DATA!");
         }//End if 
         else {
             if(Stack.searchCita(fecha, cBTime.getSelectedItem().toString()) == false){
@@ -161,9 +166,9 @@ public class AdministratorDates extends javax.swing.JFrame {
             Cita cita = new Cita(fecha, cBTime.getSelectedItem().toString(), tfID.getText(), tfName.getText());            
 //            pila.push(fecha,cbmHora.getSelectedItem().toString(), txtNombre.getText(), txtCedula.getText());
             stack.insertCita(cita);
-            JOptionPane.showMessageDialog(null, "Cita Registrada");
+            lbMessages.setText("REGISTRATED DATE!");
             } else {
-                JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
+                lbMessages.setText("THE DATA AND TIME AREN'T AVAILABLE!");
             }
         } 
         
@@ -230,10 +235,11 @@ public class AdministratorDates extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTime;
     private javax.swing.JTextField tfID;

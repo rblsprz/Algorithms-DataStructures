@@ -15,8 +15,22 @@ import javax.swing.JOptionPane;
  *
  * @author pc
  */
+/**
+ * Elimina los datos del archivo
+ *
+ * @param Delete
+ * @return void
+ *
+ */
 public class Delete {
 
+    /**
+     * Elimina los datos del archivo
+     *
+     * @param String l
+     * @return file
+     *
+     */
     public void removeLines(String l) throws IOException {
 
         Proof listaTemp = new Proof();
@@ -106,9 +120,16 @@ public class Delete {
 
     }// end removeLines()
 
+    /**
+     * Elimina los datos del archivo
+     *
+     * @param String fe, h
+     * @return file
+     *
+     */
     public void removeLinesPila(String fe, String h) throws IOException {
 
-         NodeStacks pilaTemp = new NodeStacks();
+        NodeStacks pilaTemp = new NodeStacks();
         File f = new File("citas.txt");
         try {
             // metodo para leer un archivo
@@ -169,7 +190,7 @@ public class Delete {
             for (int i = 0; i < pilaTemp.size(); i++) {
                 ps.println(pilaTemp.IndexOf(i).getFecha() + ";"
                         + pilaTemp.IndexOf(i).getHora() + ";"
-                        + pilaTemp.IndexOf(i).getCedula()+ ";" + pilaTemp.IndexOf(i).getNombre()+ ";");
+                        + pilaTemp.IndexOf(i).getCedula() + ";" + pilaTemp.IndexOf(i).getNombre() + ";");
             }
         } catch (FileNotFoundException fnfe) {
 
@@ -179,6 +200,13 @@ public class Delete {
 
     }// end removeLines()
 
+    /**
+     * Imprime los datos del archivo
+     *
+     * @param nombreArchivo, editable
+     * @return contador
+     *
+     */
     public PrintStream getPrintStream(String nombreArchivo, boolean editable) {
 
         File archivo = new File(nombreArchivo);
@@ -259,6 +287,13 @@ public class Delete {
         return nombreArchivo;
     }//Fin getNombreArchivo
 
+    /**
+     * Elimina las citas del cliente
+     *
+     * @param archivo, fecha, hora
+     * @return file
+     *
+     */
     public void borrarCita(String archivo, String fecha, String hora) throws IOException {
         String[] arregloArchivo = getArregloArchivo(archivo);
 
@@ -270,6 +305,13 @@ public class Delete {
         }
     }//End borrarCita
 
+    /**
+     * Elimina el historial del archivo
+     *
+     * @param String l
+     * @return file
+     *
+     */
     public void borrarHistorial(String archivo, String fecha, String hora) throws IOException {
         String[] arregloArchivo = getArregloArchivo(archivo);
 
@@ -281,6 +323,13 @@ public class Delete {
         }//End for 
     }//End borrarHistorial
 
+    /**
+     * Elimina los datos del archivo
+     *
+     * @param String l
+     * @return file
+     *
+     */
     public void removeLinesCola(String c) throws IOException {
         //prueba colaTemp = new Proof();
         QueueMethods colaTemp = new QueueMethods();
@@ -371,22 +420,30 @@ public class Delete {
             JOptionPane.showMessageDialog(null, "PROBLEMAS");
         }
     }//End removeLines
-     public void removeLinesColaGeneral(String c) throws IOException{
+
+    /**
+     * Elimina los datos del archivo
+     *
+     * @param String c
+     * @return file
+     * 
+     */
+    public void removeLinesColaGeneral(String c) throws IOException {
         //prueba colaTemp = new prueba();
-        QueueMethods colaTemp =  new QueueMethods();
+        QueueMethods colaTemp = new QueueMethods();
         File f = new File("notasPaciente.txt");
-        try{
+        try {
             FileInputStream fis = new FileInputStream(f);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
-        
+
             String linesUpdate = br.readLine();
 
             while (linesUpdate != null) {
                 if (!linesUpdate.contains(c)) {
-                    StringTokenizer sT = new StringTokenizer(linesUpdate,";");
+                    StringTokenizer sT = new StringTokenizer(linesUpdate, ";");
                     int counterTok = 0;
-                    String cedula="";
+                    String cedula = "";
                     String nombre = "";
                     String notas = "";
                     double peso = 0;
@@ -397,144 +454,149 @@ public class Delete {
                     double masaCorporal = 0;
                     double agua = 0;
                     String fecha = "";
-                    
+
                     while (sT.hasMoreTokens()) {
-                          if (counterTok == 0) {
-                        cedula= sT.nextToken();
-                        counterTok++;
-                    } else if (counterTok == 1) {
-                        nombre = sT.nextToken();
-                        counterTok++;
-                    } else if (counterTok == 2) {
-                        notas = sT.nextToken();
-                        counterTok++;
-                    } else if (counterTok == 3) {
-                        peso = Double.parseDouble(sT.nextToken());
-                        counterTok++;
-                    }else if (counterTok == 4){
-                        musculo = Double.parseDouble(sT.nextToken());
-                        counterTok++;
-                    }else if (counterTok == 5){
-                       grasa = Double.parseDouble(sT.nextToken());
-                        counterTok++;
-                    }else if (counterTok == 6){
-                          altura = Double.parseDouble(sT.nextToken());
-                         counterTok++;
-                    }else if (counterTok == 7){
-                         edad = Integer.parseInt(sT.nextToken());
-                         counterTok++;
-                    }else if (counterTok == 8){
-                         masaCorporal = Double.parseDouble(sT.nextToken());
-                         counterTok++;
-                    }else if (counterTok == 9){
-                         agua = Double.parseDouble(sT.nextToken());
-                         counterTok++;  
-                    }else if (counterTok == 10){
-                         fecha = sT.nextToken();
-                         counterTok++;  
-                    }else{
-                        sT.nextToken();
+                        if (counterTok == 0) {
+                            cedula = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 1) {
+                            nombre = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 2) {
+                            notas = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 3) {
+                            peso = Double.parseDouble(sT.nextToken());
+                            counterTok++;
+                        } else if (counterTok == 4) {
+                            musculo = Double.parseDouble(sT.nextToken());
+                            counterTok++;
+                        } else if (counterTok == 5) {
+                            grasa = Double.parseDouble(sT.nextToken());
+                            counterTok++;
+                        } else if (counterTok == 6) {
+                            altura = Double.parseDouble(sT.nextToken());
+                            counterTok++;
+                        } else if (counterTok == 7) {
+                            edad = Integer.parseInt(sT.nextToken());
+                            counterTok++;
+                        } else if (counterTok == 8) {
+                            masaCorporal = Double.parseDouble(sT.nextToken());
+                            counterTok++;
+                        } else if (counterTok == 9) {
+                            agua = Double.parseDouble(sT.nextToken());
+                            counterTok++;
+                        } else if (counterTok == 10) {
+                            fecha = sT.nextToken();
+                            counterTok++;
+                        } else {
+                            sT.nextToken();
+                        }
                     }
-                }
                     CustomerNotes cM = new CustomerNotes(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);///////******************************* Modificado  DANIEL COLO
                     colaTemp.Enqueue(cM);
                 }
                 linesUpdate = br.readLine();
             }
-        }catch(FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
-        }catch(IOException ioe){
+        } catch (IOException ioe) {
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }
-        
+
         File fNuevo = new File("notasPaciente.txt");
-        try{
+        try {
             FileOutputStream fos = new FileOutputStream(fNuevo);
             PrintStream ps = new PrintStream(fos);
             for (int i = 0; i < colaTemp.Size(); i++) {
-                ps.println(colaTemp.start.element.getCedula()+";"+colaTemp.start.element.getNombre()+";"+colaTemp.start.element.getNotas()+";"+colaTemp.start.element.getPeso()+";"
-                        +colaTemp.start.element.getMusculo()+";"+colaTemp.start.element.getGrasa()+";"
-                        +colaTemp.start.element.getAltura()+";"+colaTemp.start.element.getEdad()+";"+colaTemp.start.element.getMasaCorporal()+";"
-                        +colaTemp.start.element.getAgua()+";"+colaTemp.start.element.getFecha());
+                ps.println(colaTemp.start.element.getCedula() + ";" + colaTemp.start.element.getNombre() + ";" + colaTemp.start.element.getNotas() + ";" + colaTemp.start.element.getPeso() + ";"
+                        + colaTemp.start.element.getMusculo() + ";" + colaTemp.start.element.getGrasa() + ";"
+                        + colaTemp.start.element.getAltura() + ";" + colaTemp.start.element.getEdad() + ";" + colaTemp.start.element.getMasaCorporal() + ";"
+                        + colaTemp.start.element.getAgua() + ";" + colaTemp.start.element.getFecha());
             }
-        }catch(FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "PROBLEMAS");
         }
-        
-        
-        
+
     }//End removeLines
-     
-      public void removeLinesColaPlan(String fe , String id) throws IOException{
+
+    /**
+     * Elimina los datos del archivo
+     *
+     * @param String fe, id
+     * @return file
+     * 
+     */
+    public void removeLinesColaPlan(String fe, String id) throws IOException {
         //prueba colaTemp = new prueba();
-        QueueMethods colaTemp =  new QueueMethods();
+        QueueMethods colaTemp = new QueueMethods();
         File f = new File("planesAlimenticiosPacientes.txt");
-        try{
+        try {
             FileInputStream fis = new FileInputStream(f);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
-        
+
             String linesUpdate = br.readLine();
 
             while (linesUpdate != null) {
                 if (!linesUpdate.contains(id) || !linesUpdate.contains(fe)) {
-                    StringTokenizer sT = new StringTokenizer(linesUpdate,";");
+                    StringTokenizer sT = new StringTokenizer(linesUpdate, ";");
                     int counterTok = 0;
-                    String cedula="";
+                    String cedula = "";
                     String fecha = "";
                     String desayuno = "";
                     String almuerzo = "";
                     String cena = "";
                     String meriendas = "";
-                    
+
                     while (sT.hasMoreTokens()) {
-                          if (counterTok == 0) {
-                        cedula= sT.nextToken();
-                        counterTok++;
-                    } else if (counterTok == 1) {
-                        fecha = sT.nextToken();
-                        counterTok++;
-                    } else if (counterTok == 2) {
-                        desayuno = sT.nextToken();
-                        counterTok++;
-                    } else if (counterTok == 3) {
-                        almuerzo = sT.nextToken();
-                        counterTok++;
-                    }else if (counterTok == 4){
-                        cena = sT.nextToken();
-                        counterTok++;
-                    }else if (counterTok == 5){
-                       meriendas = sT.nextToken();
-                        counterTok++;
-                    }else{
-                        sT.nextToken();
+                        if (counterTok == 0) {
+                            cedula = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 1) {
+                            fecha = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 2) {
+                            desayuno = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 3) {
+                            almuerzo = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 4) {
+                            cena = sT.nextToken();
+                            counterTok++;
+                        } else if (counterTok == 5) {
+                            meriendas = sT.nextToken();
+                            counterTok++;
+                        } else {
+                            sT.nextToken();
+                        }
                     }
-                }
                     Plans cM = new Plans(cedula, fecha, desayuno, almuerzo, cena, meriendas);
                     colaTemp.Enqueue(cM);
                 }
                 linesUpdate = br.readLine();
             }
-        }catch(FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
-        }catch(IOException ioe){
+        } catch (IOException ioe) {
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }
-        
+
         File fNuevo = new File("planesAlimenticiosPacientes.txt");
-        try{
+        try {
             FileOutputStream fos = new FileOutputStream(fNuevo);
             PrintStream ps = new PrintStream(fos);
             for (int i = 0; i < colaTemp.size2(); i++) {
-                ps.println(colaTemp.start2.element.getCedula()+";"+colaTemp.start2.element.getFecha()+";"+colaTemp.start2.element.getDesayuno()+";"
-                        +colaTemp.start2.element.getAlmuerzo()+";"
-                        +colaTemp.start2.element.getCena()+";"+colaTemp.start2.element.getMeriendas());
+                ps.println(colaTemp.start2.element.getCedula() + ";" + colaTemp.start2.element.getFecha() + ";" + colaTemp.start2.element.getDesayuno() + ";"
+                        + colaTemp.start2.element.getAlmuerzo() + ";"
+                        + colaTemp.start2.element.getCena() + ";" + colaTemp.start2.element.getMeriendas());
             }
-        }catch(FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "PROBLEMAS");
         }
     }//End removeLines
-     
+
 //      public void removeLinesColaNota(String id, String date) throws IOException{
 //        //prueba colaTemp = new prueba();
 //        QueueMethods colaTemp =  new QueueMethods();
@@ -625,5 +687,4 @@ public class Delete {
 //            JOptionPane.showMessageDialog(null, "PROBLEMAS");
 //        }
 //    }//End removeLines
-     
 }

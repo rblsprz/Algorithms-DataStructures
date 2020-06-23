@@ -117,7 +117,13 @@ public class Logic {
         return found;
     }
 
-    //Escritura-output
+    /**
+     * Ingresa un nuevo cliente en el archivo
+     *
+     * @param constructor Roles
+     * @return file
+     *
+     */
     public void insertCustomer(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) {
 
         File fileCustomer = new File("clientes.txt");
@@ -255,6 +261,13 @@ public class Logic {
         return array;
     }//endCountry[]
 
+    /**
+     * Busca los datos del cliente en el archivo
+     *
+     * @param constructor
+     * @return file
+     *
+     */
     public void searchCliente(String nombre, String contraseña) throws FileNotFoundException {
         Roles[] c = readRegistersFiles();
         for (int i = 0; i < c.length; i++) {
@@ -313,6 +326,13 @@ public class Logic {
         return countRegisters;
     }//endInt
 
+    /**
+     * Lee los datos de las citas en el archivo
+     *
+     * @param Cita[]
+     * @return file
+     *
+     */
     public Cita[] readRegistersFilesCita() {
 
         Cita array[] = new Cita[getFileRegistersCita()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
@@ -363,6 +383,13 @@ public class Logic {
         return array;
     }//endCountry[]
 
+    /**
+     * Busca la cita de la persona en el archivo
+     *
+     * @param fecha, hora
+     * @return file
+     *
+     */
     public boolean searchCita(String fecha, String hora) {
         Cita[] c = readRegistersFilesCita();
         for (int i = 0; i < c.length; i++) {
@@ -373,6 +400,13 @@ public class Logic {
         return false;
     }
 
+    /**
+     * Validaciones de entradas de datos
+     *
+     * @param datos
+     * @return datos.matches
+     *
+     */
     public boolean validateTel(String datos) {
         return datos.matches("[0-9]*");
     }
@@ -442,6 +476,13 @@ public class Logic {
         return datos.matches("[0-9]*");
     }
 
+    /**
+     * Obtiene los datos del archivo de forma individual
+     *
+     * @param void
+     * @return file
+     *
+     */
     public int getFileRegistersIndividual() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
         File fileCountries = new File("temporal.txt");
@@ -535,6 +576,13 @@ public class Logic {
     }//endCountry[]
     //************************************************//
 
+    /**
+     * Obtiene los datos del cliente en el archivo
+     *
+     * @param void
+     * @return file
+     *
+     */
     public int getFileRegistersCustomer() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
         File fileCountries = new File("notasPaciente.txt");
@@ -629,9 +677,15 @@ public class Logic {
         }//endCatch
         return array;
     }//endCountry[]
-    
-    //************************************************// 
 
+    //************************************************// 
+    /**
+     * Verifica que tipo de usuario ingresó al sistema
+     *
+     * @param nombre, contraseña
+     * @return file
+     *
+     */
     public boolean searchActivo(String nombre, String contraseña) throws FileNotFoundException {
         Roles[] c = readRegistersFiles();
         for (int i = 0; i < c.length; i++) {
@@ -652,6 +706,13 @@ public class Logic {
         return false;
     }
 
+    /**
+     * Obtiene las horas registradas en el archivo
+     *
+     * @param String l
+     * @return file
+     *
+     */
     public int getFileRegistersHoras() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
         File fileCountries = new File("horasConsulta.txt");
@@ -712,6 +773,13 @@ public class Logic {
         return array;
     }//endCountry[]
 
+    /**
+     * Borra la hora del archivo
+     *
+     * @param archivo, hora
+     * @return file
+     *
+     */
     public void borrarHora(String archivo, String hora) throws IOException {
         String array[] = readRegistersFilesHoras();
         PrintStream ps = delete.getPrintStream(archivo, false);
@@ -732,8 +800,15 @@ public class Logic {
         }
         return false;
 
-     }
-    
+    }
+
+    /**
+     * Obtiene las notas del cliente
+     *
+     * @param String l
+     * @return file
+     *
+     */
     public BufferedReader getBufferedReaderNotas() {
         File fileAdmin = new File("notasPaciente.txt");
         BufferedReader br = null;
@@ -747,6 +822,7 @@ public class Logic {
         }
         return br;
     }
+
     /**
      * Obtiene la cantidad de lineas del archivo
      *
@@ -777,7 +853,14 @@ public class Logic {
         }//endCatch
         return countRegisters;
     }//endInt
-    
+
+    /**
+     * Lee los registros de las notas de cada cliente
+     *
+     * @param CustomerNotes[]
+     * @return file
+     *
+     */
     public CustomerNotes[] readRegistersFilesNotas() {
 
         CustomerNotes array[] = new CustomerNotes[getFileRegistersNotas()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
@@ -793,17 +876,17 @@ public class Logic {
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                 String cedula="";
-                    String nombre = "";
-                    String notas = "";
-                    double peso = 0;
-                    double musculo = 0;
-                    double grasa = 0;
-                    double altura = 0;
-                    int edad = 0;
-                    double masaCorporal = 0;
-                    double agua = 0;
-                    String fecha = "";
+                String cedula = "";
+                String nombre = "";
+                String notas = "";
+                double peso = 0;
+                double musculo = 0;
+                double grasa = 0;
+                double altura = 0;
+                int edad = 0;
+                double masaCorporal = 0;
+                double agua = 0;
+                String fecha = "";
 
                 //Se pone dentro del ciclo para que se resetee
                 int controlTokens = 1;
@@ -833,11 +916,11 @@ public class Logic {
                         agua = Double.parseDouble(st.nextToken());
                     } else if (controlTokens == 11) {
                         fecha = st.nextToken();
-                    } 
+                    }
                     controlTokens++;
                 }//endWhileInterno
 
-                CustomerNotes c = new CustomerNotes(cedula,nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
+                CustomerNotes c = new CustomerNotes(cedula, nombre, notas, peso, musculo, grasa, altura, edad, masaCorporal, agua, fecha);
                 array[indexArray] = c;
                 indexArray++;
 
@@ -851,22 +934,29 @@ public class Logic {
 
         return array;
     }//endCountry[]
-    
-     public void insertHistorialAcciones(Hist c) {
+
+    /**
+     * Ingresa el historial de acciones al archivo
+     *
+     * @param History c
+     * @return file
+     * 
+     */
+    public void insertHistorialAcciones(History c) {
         File mainFileE = new File("HistorialAcciones.txt");
         try {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);
             PrintStream ps = new PrintStream(fos);
-             ps.println(c.getFecha()+";"+c.getHora()+";"+c.getAccion()+";"+c.getPersona());
+            ps.println(c.getFecha() + ";" + c.getHora() + ";" + c.getAccion() + ";" + c.getPersona());
 
         } catch (FileNotFoundException fnfe) {
 
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }// end catch()
     }
-    
-   /**
+
+    /**
      * Obtiene la cantidad de lineas del archivo
      *
      * @return countRegisters el numero total de lineas
@@ -896,15 +986,15 @@ public class Logic {
         }//endCatch
         return countRegisters;
     }//endInt
-    
-     /**
+
+    /**
      * Leemos los elementos en el archivo
      *
      * @return array[] con los elementos del archivo
      */
-    public Hist[] readRegistersFilesHistorialAcciones() {
+    public History[] readRegistersFilesHistorialAcciones() {
 
-        Hist array[] = new Hist[getFileRegistersHistorialAcciones()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        History array[] = new History[getFileRegistersHistorialAcciones()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
         File fileCountries = new File("HistorialAcciones.txt");
 
         try {
@@ -918,7 +1008,7 @@ public class Logic {
 
             while (actualRegister != null) { //Cuando sea null va a parar
                 String fecha = "", hora = "", accion = "", persona = "";
-               
+
                 //Se pone dentro del ciclo para que se resetee
                 int controlTokens = 1;
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
@@ -933,12 +1023,12 @@ public class Logic {
                         accion = st.nextToken();
                     } else if (controlTokens == 4) {
                         persona = st.nextToken();
-                    } 
+                    }
 
                     controlTokens++;
                 }//endWhileInterno
 
-                Hist c = new Hist(fecha,hora, accion, persona);
+                History c = new History(fecha, hora, accion, persona);
                 array[indexArray] = c;
                 indexArray++;
 
@@ -952,7 +1042,14 @@ public class Logic {
 
         return array;
     }//endCountry[]
-    
+
+    /**
+     * Obtiene planes de alimentación de los clientes
+     *
+     * @param void
+     * @return file
+     * 
+     */
     public BufferedReader getBufferedReaderPlanes() {
         File fileAdmin = new File("planesAlimenticiosPacientes.txt");
         BufferedReader br = null;
@@ -966,6 +1063,7 @@ public class Logic {
         }
         return br;
     }
+
     /**
      * Obtiene la cantidad de lineas del archivo
      *
@@ -997,6 +1095,14 @@ public class Logic {
         return countRegisters;
     }//endInt
     
+    /**
+     * Lee los planes de alimentación
+     *
+     * @param void
+     * @return file
+     * 
+     */
+
     public Plans[] readRegistersFilesPlanes() {
 
         Plans array[] = new Plans[getFileRegistersPlanes()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
@@ -1012,9 +1118,8 @@ public class Logic {
             int indexArray = 0;
 
             while (actualRegister != null) { //Cuando sea null va a parar
-                 String fecha =  "",cedula = "", desayuno = "", almuerzo = "", cena = "" , meriendas = "";
+                String fecha = "", cedula = "", desayuno = "", almuerzo = "", cena = "", meriendas = "";
 
-               
                 //Se pone dentro del ciclo para que se resetee
                 int controlTokens = 1;
                 StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
@@ -1033,7 +1138,7 @@ public class Logic {
                         cena = st.nextToken();
                     } else if (controlTokens == 6) {
                         meriendas = st.nextToken();
-                    } 
+                    }
                     controlTokens++;
                 }//endWhileInterno
 
@@ -1051,7 +1156,6 @@ public class Logic {
 
         return array;
     }//endCountry[]
-    
-    
-    }//End Roles[]
+
+}//End Roles[]
 

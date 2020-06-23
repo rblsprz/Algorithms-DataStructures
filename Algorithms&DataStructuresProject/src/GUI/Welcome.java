@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
+import java.applet.AudioClip;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,29 +13,44 @@ import javax.swing.Timer;
  */
 public class Welcome extends javax.swing.JFrame {
 private Timer time;
-
+AudioClip sonido;
     public Welcome() {
         initComponents();
         lbEnter.setCursor(new Cursor(HAND_CURSOR));
         setLocation(900, 500); 
         this.setExtendedState(Welcome.MAXIMIZED_BOTH);
+        //AudioClip sonido;
+        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Images/Sonidos Pacman.wav"));
+        sonido.play();//Reproduce el audio
+        start();//Infinito
     }//End Welcome
-
+    
+    public void start() { //Hilo de infinito
+        int i = 0;
+        while (i != 100) {
+            i++;
+            sonido.loop(); //Reproduce audio
+        }//End while
+    }//End start
+    
     public class progress implements ActionListener{
         public void actionPerformed(ActionEvent evt){
             int n = jProgressBar.getValue();
             if (n < 100) {
                 n++;
-                jProgressBar.setValue(n);             
+                jProgressBar.setValue(n); 
         }//End if
             else{
                time.stop();
+               sonido.stop();//Detiene al audio en la clase Main
                Main m = new Main();
                m.show(true);
                show(false);
             }//End else
         }//End actionEvent   
     }//End progress
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

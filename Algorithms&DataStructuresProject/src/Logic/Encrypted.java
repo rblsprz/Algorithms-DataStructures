@@ -13,7 +13,13 @@ import org.apache.commons.codec.binary.Base64;
  * @author pc
  */
 public class Encrypted {
-    
+    /**
+     * Encripta la contraseña de los usuarios
+     *
+     * @param String secretKey, cadena
+     * @return encriptacion
+     * 
+     */
     public String ecnode(String secretKey, String cadena) {
         String encriptacion = "";
         try {
@@ -32,7 +38,13 @@ public class Encrypted {
         }
         return encriptacion;
     }
-    
+    /**
+     * Desencripta la contraseña del usuario
+     *
+     * @param secretKey, cadenaEncriptada
+     * @return desencriptacion
+     * 
+     */
     public String deecnode(String secretKey, String cadenaEncriptada) {
         String desencriptacion = "";
         try {

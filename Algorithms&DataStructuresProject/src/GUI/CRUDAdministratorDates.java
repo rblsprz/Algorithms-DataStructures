@@ -181,11 +181,11 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(790, 530, 141, 23);
+        jToggleButton2.setBounds(760, 560, 141, 23);
 
         btnPDF.setText("PDF");
         getContentPane().add(btnPDF);
-        btnPDF.setBounds(670, 530, 73, 23);
+        btnPDF.setBounds(660, 560, 73, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -250,7 +250,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
 
         try {
             Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + tfName.getText() + " ?");
+            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO UPDATE THE DATE FROM " + tfName.getText() + " ?");
 
                 if(edit == 0){
                     if(Stack.searchCita(fecha, comboHoras.getSelectedItem().toString()) == false){
@@ -261,17 +261,17 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
                     stack.removeLinesPila(tfDate.getText(), jTableAdmin.getValueAt(seleccion, 1).toString());
 
                     //em.actualizarCita(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
-                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
+                    lbMessages.setText("SUCCESFULLY UPDATED!");
                     mostrarCitas();
                     tfID.setText("");
                     tfName.setText("");
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
+                    lbMessages.setText("THE DATA AND TIME AREN'T AVAILABLE!");
                 }
             }
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error al modificar");
+            lbMessages.setText("UPDATE ERROR!");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 

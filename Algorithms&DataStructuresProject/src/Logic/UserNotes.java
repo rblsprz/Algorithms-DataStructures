@@ -14,6 +14,13 @@ public class UserNotes {
    CustomerNotes cola = new CustomerNotes();
     
     //Inserta las notas tomadas por paciente
+   /**
+     * Ingresa las notas del paciente
+     *
+     * @param void
+     * @return file
+     * 
+     */
      public void notasPacienteInsertar(String cedula, String name, String notas, double peso, double musculo, double grasa, double altura, int edad, double masaCorporal, double agua,String fecha) throws FileNotFoundException{
          
          cola.setCedula(cedula);

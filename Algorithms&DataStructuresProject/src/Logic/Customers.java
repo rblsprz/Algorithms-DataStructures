@@ -226,6 +226,13 @@ public class Customers implements LinkedList {
         }
     }
 
+    /**
+     * Crea un nuevo cliente y lo agrega al archivo
+     *
+     * @param constructor
+     * @return boolean true, en caso de afirmativo, false en caso contrario
+     * 
+     */
     //Busca a un Customer en un archivo txt. Si no existe es agregado, de otra forma no.
     public boolean createCliente(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) throws FileNotFoundException {
 
@@ -257,6 +264,13 @@ public class Customers implements LinkedList {
         }
     }//end createEmployee()
 
+    /**
+     * Muestra los datos del cliente
+     *
+     * @param mostrarClientes
+     * @return lista de los clientes
+     * 
+     */
     public Customers showCustomers() {
 
         Customers list = new Customers();

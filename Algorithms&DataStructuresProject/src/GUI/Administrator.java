@@ -171,7 +171,7 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       CRUDPlanA cn=new CRUDPlanA();
+       FoodPlans cn=new FoodPlans();
         cn.show();
         cn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem3ActionPerformed

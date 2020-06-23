@@ -11,12 +11,20 @@ import jxl.write.*;
 import jxl.*;
 
 public class ExportarExcel {
+    
 
     private File file;// archivo que manejaremos
     private JTable table; //la tabla que recibira
     private String nombreTab; //nombre del archivo
 //constructor ( inicializa las variables)
 
+    /**
+     * Exporta los datos de las tablas a formato excel
+     *
+     * @param table,file,nombreTab
+     * @return void
+     * 
+     */
     public ExportarExcel(JTable table, File file, String nombreTab) {
         this.file = file;
         this.table = table;
@@ -24,6 +32,13 @@ public class ExportarExcel {
     }
 //metodo para exportar
     
+    /**
+     * Exporta los datos de las tablas a formato excel
+     *
+     * @param void
+     * @return void
+     * 
+     */
     public boolean export() {
         try {
     

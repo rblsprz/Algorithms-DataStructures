@@ -359,7 +359,7 @@ public class CRUDNotes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowNotesActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        ColaFilesLog fl = new ColaFilesLog();
+        FileQueuesLog fl = new FileQueuesLog();
         if (fl.readingFiles(tfSearch.getText()) == true) {
             try {
                 searchClienteIndividual(tfSearch.getText());
@@ -408,7 +408,7 @@ public class CRUDNotes extends javax.swing.JFrame {
                 tfWeight.setText("");
             }
         } catch (IOException ex) {
-           lbMessages.setText("UPDATE ERROR!");
+            lbMessages.setText("UPDATE ERROR!");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 

@@ -150,6 +150,13 @@ public class Update {
         }//End for
     }//End actualizarCita2
 
+    /**
+     * Inserta una nueva cita al cliente
+     *
+     * @param Cita
+     * @return file
+     * 
+     */
     public Cita newDate(Cita element, String fecha, String hora) {
         Cita u = element;
         Cita cita = new Cita(fecha, hora, u.getCedula(), u.getNombre());
@@ -205,6 +212,13 @@ public class Update {
         }//End for
     }//End actualizarPaises
     
+    /**
+     * Actualiza el plan de la persona
+     *
+     * @param void
+     * @return file
+     * 
+     */
      public void actualizarPlanPersona(String cedula, String fecha ,String desayuno, String almuerzo, String cena, String meriendas) throws IOException{
         String[] arregloArchivo = getArregloArchivo("planesAlimenticiosPacientes.txt");
 
@@ -218,5 +232,4 @@ public class Update {
             }
         }//End for
     }//End
-
 }//End Update
