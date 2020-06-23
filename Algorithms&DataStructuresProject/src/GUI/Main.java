@@ -64,6 +64,7 @@ public class Main extends javax.swing.JFrame {
         tfpassword.setBackground(new java.awt.Color(204, 204, 204));
         tfpassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         jToggleButton2.setText("SUPER ADMINISTRATOR");
         jToggleButton2.setBorderPainted(false);
         jToggleButton2.setContentAreaFilled(false);
@@ -96,7 +97,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(880, 880, 880)

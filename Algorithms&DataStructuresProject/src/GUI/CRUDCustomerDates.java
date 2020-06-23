@@ -104,29 +104,35 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(28, 91, 438, 164);
 
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
+        btnDelete.setBorderPainted(false);
+        btnDelete.setContentAreaFilled(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(152, 301, 69, 23);
+        btnDelete.setBounds(152, 301, 110, 48);
 
+        btnShowDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowDates.setText("SHOW DATES");
+        btnShowDates.setBorderPainted(false);
+        btnShowDates.setContentAreaFilled(false);
         btnShowDates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowDatesActionPerformed(evt);
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(293, 301, 99, 23);
+        btnShowDates.setBounds(293, 301, 160, 48);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(556, 94, 32, 14);
+        lbName.setBounds(556, 94, 36, 16);
         getContentPane().add(tfDate);
-        tfDate.setBounds(620, 280, 178, 20);
+        tfDate.setBounds(620, 280, 178, 24);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,39 +141,42 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(623, 91, 181, 20);
+        tfName.setBounds(623, 91, 181, 24);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(556, 143, 15, 14);
+        lbID.setBounds(556, 143, 14, 16);
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(623, 140, 181, 20);
+        tfID.setBounds(623, 140, 181, 24);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(556, 191, 45, 14);
+        lbDate.setBounds(556, 191, 45, 16);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(556, 238, 28, 14);
+        lbTime.setBounds(556, 238, 30, 16);
 
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
+        btnUpdate.setBorderPainted(false);
+        btnUpdate.setContentAreaFilled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(28, 301, 71, 23);
+        btnUpdate.setBounds(20, 300, 120, 48);
 
         lbDatesRegisters.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDatesRegisters.setText("DATES REGISTERS");
         getContentPane().add(lbDatesRegisters);
         lbDatesRegisters.setBounds(590, 20, 215, 37);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(627, 194, 178, 20);
+        dateChooser.setBounds(627, 194, 178, 29);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(144, 348, 282, 22);
         getContentPane().add(jLabel1);
@@ -187,25 +196,36 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboHoras3);
-        comboHoras3.setBounds(620, 240, 120, 20);
+        comboHoras3.setBounds(620, 240, 120, 26);
 
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF");
+        jToggleButton1.setBorderPainted(false);
+        jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(30, 390, 51, 23);
 
-        jToggleButton2.setText("EXCEL");
+        jToggleButton1.setBounds(90, 380, 100, 48);
+
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
+        jToggleButton2.setText("Excel");
+        jToggleButton2.setBorderPainted(false);
+        jToggleButton2.setContentAreaFilled(false);
+        jToggleButton2.setFocusPainted(false);
+
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(120, 390, 70, 23);
+
+        jToggleButton2.setBounds(230, 380, 110, 48);
+
 
         pack();
         setLocationRelativeTo(null);

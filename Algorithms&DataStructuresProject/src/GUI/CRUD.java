@@ -101,6 +101,7 @@ public class CRUD extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(1070, 40, 600, 440);
 
+        btnshowRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnshowRoles.setText("SHOW ROLES");
         btnshowRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,8 +109,9 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(1100, 550, 170, 29);
+        btnshowRoles.setBounds(1100, 550, 170, 48);
 
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +119,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(1440, 550, 110, 29);
+        btnDelete.setBounds(1470, 550, 120, 48);
         getContentPane().add(tfName);
         tfName.setBounds(880, 100, 150, 30);
 
@@ -155,6 +157,7 @@ public class CRUD extends javax.swing.JFrame {
         getContentPane().add(lbPhone);
         lbPhone.setBounds(880, 450, 50, 20);
 
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +165,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(1300, 550, 110, 29);
+        btnUpdate.setBounds(1300, 550, 130, 48);
 
         lbID.setText("ID");
         getContentPane().add(lbID);
@@ -185,11 +188,18 @@ public class CRUD extends javax.swing.JFrame {
         lbPassword.setText("PASSWORD");
         getContentPane().add(lbPassword);
         lbPassword.setBounds(880, 310, 80, 20);
+
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPasswordActionPerformed(evt);
+            }
+        });
         getContentPane().add(tfPassword);
         tfPassword.setBounds(880, 340, 150, 30);
         getContentPane().add(lbMensajes);
         lbMensajes.setBounds(1070, 510, 350, 28);
 
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
         jToggleButton2.setText("Excel");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,8 +207,9 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(1200, 620, 69, 29);
+        jToggleButton2.setBounds(1200, 620, 120, 48);
 
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +217,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(1320, 620, 61, 29);
+        jToggleButton1.setBounds(1390, 620, 110, 48);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -334,6 +345,11 @@ public class CRUD extends javax.swing.JFrame {
             System.err.format("error de impresion", ex.getMessage());
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
+
+        tfPassword.setEditable(false);
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     public void mostrarRegistros() {
         Logic lC = new Logic();

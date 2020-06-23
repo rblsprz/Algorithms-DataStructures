@@ -63,11 +63,11 @@ public class CustomerDate extends javax.swing.JFrame {
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(220, 80, 171, 20);
+        tfID.setBounds(220, 80, 171, 24);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(150, 240, 60, 14);
+        lbTime.setBounds(150, 240, 60, 16);
 
         cbmHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,8 +75,9 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmHora);
-        cbmHora.setBounds(230, 240, 79, 20);
+        cbmHora.setBounds(230, 240, 79, 26);
 
+        btnRequest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnRequest.setText("REQUEST");
         btnRequest.setBorderPainted(false);
         btnRequest.setContentAreaFilled(false);
@@ -86,13 +87,13 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(200, 330, 130, 23);
+        btnRequest.setBounds(200, 330, 130, 48);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(220, 180, 160, 20);
+        dateChooser.setBounds(220, 180, 160, 29);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(150, 190, 50, 14);
+        lbDate.setBounds(150, 190, 50, 16);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
@@ -100,7 +101,7 @@ public class CustomerDate extends javax.swing.JFrame {
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(150, 90, 50, 14);
+        lbID.setBounds(150, 90, 50, 16);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,7 +115,7 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(220, 130, 170, 20);
+        tfName.setBounds(220, 130, 170, 24);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(150, 300, 310, 0);
 

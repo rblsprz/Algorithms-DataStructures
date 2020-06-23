@@ -91,6 +91,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         getContentPane().add(lbSuperAdministrator);
         lbSuperAdministrator.setBounds(880, 0, 248, 108);
 
+
         menuAdd.setText("ADD");
 
         menuItemNewRol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
@@ -121,6 +122,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         menuInformation.setText("INFORMATION");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
         jMenuItem3.setText("Historial");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +132,21 @@ public class SuperAdministrator extends javax.swing.JFrame {
         menuInformation.add(jMenuItem3);
 
         jMenuBar1.add(menuInformation);
+
+
+        jMenu7.setText("DELETE");
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
+        jMenuItem2.setText("EMPTY APP");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu7);
+
 
         menuOptions.setText("OPTIONS");
         menuOptions.addActionListener(new java.awt.event.ActionListener() {

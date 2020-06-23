@@ -32,6 +32,7 @@ public class NotesCustomer extends javax.swing.JFrame {
      */
     public NotesCustomer() {
         initComponents();
+         this.setExtendedState(NotesCustom.MAXIMIZED_BOTH);
     }
 
     /**
@@ -67,8 +68,13 @@ public class NotesCustomer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnNotes.setText("SHOW NOTES");
-        btnNotes.addActionListener(new java.awt.event.ActionListener() {
+
+        btnNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
+        btnNotas.setText("Mostrar Notas");
+        btnNotas.setBorderPainted(false);
+        btnNotas.setContentAreaFilled(false);
+        btnNotas.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNotesActionPerformed(evt);
             }
@@ -96,27 +102,32 @@ public class NotesCustomer extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+
             .addGroup(layout.createSequentialGroup()
                 .addGap(418, 418, 418)
                 .addComponent(lbRegistratedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(799, 799, 799))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(650, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+
                         .addComponent(btnNotes)
                         .addGap(463, 463, 463))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(337, 337, 337))))
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+
                 .addGap(19, 19, 19)
                 .addComponent(lbRegistratedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -126,6 +137,7 @@ public class NotesCustomer extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbMessages)
                 .addContainerGap(48, Short.MAX_VALUE))
+
         );
 
         pack();

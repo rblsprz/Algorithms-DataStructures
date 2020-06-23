@@ -65,23 +65,36 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
                               <Component id="tfSearch" min="-2" pref="279" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="btnShowFoodPlans" min="-2" max="-2" attributes="0"/>
+
                           </Group>
+                          <Component id="jScrollPane4" alignment="0" min="-2" pref="835" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
+
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane4" min="-2" pref="835" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
                               <Component id="lbFoodPlans" min="-2" pref="194" max="-2" attributes="0"/>
+
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                      <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="btnEliminar" min="-2" pref="132" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -98,6 +111,7 @@
                       <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="737" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -142,6 +156,7 @@
                       <Component id="jScrollPane4" min="-2" pref="302" max="-2" attributes="0"/>
                   </Group>
               </Group>
+
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtMeriendas" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
@@ -152,6 +167,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbMessages" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="31" max="32767" attributes="0"/>
+
           </Group>
       </Group>
     </DimensionLayout>
@@ -256,7 +272,14 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAddFoodPlan">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ADD FOOD PLAN"/>
+
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/add.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Add Plan"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddFoodPlanActionPerformed"/>
@@ -264,7 +287,13 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDeleteFoodPlan">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DELETE FOOD PLAN"/>
+
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/delete2.png"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteFoodPlanActionPerformed"/>
@@ -272,7 +301,15 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdateFoodPlan">
       <Properties>
+
         <Property name="text" type="java.lang.String" value="UPDATE FOOD PLAN"/>
+
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/modify.png"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateFoodPlanActionPerformed"/>
@@ -280,7 +317,15 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnShowFoodPlans">
       <Properties>
+
         <Property name="text" type="java.lang.String" value="SHOW FOOD PLANS"/>
+
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/show.png"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowFoodPlansActionPerformed"/>
