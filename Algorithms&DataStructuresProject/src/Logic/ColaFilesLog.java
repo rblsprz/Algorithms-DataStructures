@@ -120,6 +120,76 @@ public class ColaFilesLog {
     public int tamaño(){
         return queue.Size();
     }
-    
+     public boolean readingFilesPlanes(String cedula1) {
+        
+
+        File f = new File("planesAlimenticiosPacientes.txt");
+        try {
+            // metodo para leer un archivo
+            FileInputStream fis = new FileInputStream(f);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader bR = new BufferedReader(isr);
+
+            String linesUpdate = bR.readLine();
+            // creacion de un objeto StringTokenizer
+            while (linesUpdate != null) {
+                StringTokenizer sT = new StringTokenizer(linesUpdate, ";");
+                int counterTok = 0;
+                String cedula = "";
+                String fecha = "";
+                String desayuno = "";
+                String almuerzo = "";
+                String cena = "";
+                String meriendas = "";
+
+                // va a controlar cada separador
+                while (sT.hasMoreTokens()) {
+                    if (counterTok == 0) {
+                        cedula = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 1) {
+                        fecha = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 2) {
+                        desayuno = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 3) {
+                        almuerzo = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 4) {
+                        cena = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 5) {
+                        meriendas = sT.nextToken();
+                        counterTok++;
+                    } else {
+                       sT.nextToken();  
+                    }// end else   
+                }// end while pequeño
+
+                Plans cliente = new Plans(cedula, fecha, desayuno, almuerzo, cena, meriendas);
+                queue.Enqueue(cliente);
+                linesUpdate = bR.readLine();
+            }// end while grande()
+           
+        }// end while grande
+        catch (FileNotFoundException fnfe) {
+            System.out.println("PROBLEMAS ");
+        } catch (IOException ioe) {
+
+            System.out.println("PROBLEMAS ");
+
+        }//end catch
+        //-------------------------------------------------------
+
+        boolean encuentra = false;
+        
+        if(queue.search3(cedula1)== true){
+            encuentra = true;
+        }
+        
+        return encuentra;
+        
+    }// end showMeTheFiles() 
     
 }

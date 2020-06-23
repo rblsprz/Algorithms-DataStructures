@@ -46,6 +46,7 @@ public class Administrator extends javax.swing.JFrame {
         menuCRUD = new javax.swing.JMenu();
         menuItemCRUDDates = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
@@ -93,6 +94,14 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
         menuCRUD.add(jMenuItem2);
+
+        jMenuItem3.setText("CRUD Plan Comida");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuCRUD.add(jMenuItem3);
 
         jMenuBar1.add(menuCRUD);
 
@@ -161,6 +170,12 @@ public class Administrator extends javax.swing.JFrame {
         cn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       CRUDPlanA cn=new CRUDPlanA();
+        cn.show();
+        cn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -203,6 +218,7 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu menuAdd;
     private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenu menuInformation;

@@ -57,6 +57,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         menuCrud = new javax.swing.JMenu();
         menuItemCRUDRoles = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
@@ -97,7 +98,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(20, 30, 160, 40);
+        jToggleButton1.setBounds(20, 30, 160, 33);
 
         menuAdd.setText("ADD");
 
@@ -128,6 +129,15 @@ public class SuperAdministrator extends javax.swing.JFrame {
         jMenuBar1.add(menuCrud);
 
         menuInformation.setText("INFORMATION");
+
+        jMenuItem3.setText("Historial");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuInformation.add(jMenuItem3);
+
         jMenuBar1.add(menuInformation);
 
         jMenu7.setText("DELETE");
@@ -257,6 +267,12 @@ public class SuperAdministrator extends javax.swing.JFrame {
             }//End catch
             }//End if
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+      systemRegist sR=new systemRegist();
+      sR.show();
+      sR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
  
 
     /**
@@ -307,6 +323,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbSuperAdministrator;
     private javax.swing.JMenu menuAdd;

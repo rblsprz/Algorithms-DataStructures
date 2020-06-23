@@ -204,5 +204,19 @@ public class Update {
             }
         }//End for
     }//End actualizarPaises
+    
+     public void actualizarPlanPersona(String cedula, String fecha ,String desayuno, String almuerzo, String cena, String meriendas) throws IOException{
+        String[] arregloArchivo = getArregloArchivo("planesAlimenticiosPacientes.txt");
+
+        PrintStream ps = getPrintStream("planesAlimenticiosPacientes.txt", false);
+        for (int i = 0; i < arregloArchivo.length; i++) {
+
+            if (!getNameFile(arregloArchivo[i], 0).equals(cedula) || !getNameFile(arregloArchivo[i], 1).equals(fecha)) {
+                ps.println(arregloArchivo[i]);
+            } else {
+                ps.println(cedula+ ";" +fecha + ";" + desayuno + ";" + almuerzo + ";" + cena + ";" + meriendas);
+            }
+        }//End for
+    }//End
 
 }//End Update

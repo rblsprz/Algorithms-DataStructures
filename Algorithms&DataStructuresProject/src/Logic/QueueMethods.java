@@ -24,11 +24,8 @@ class NodeQueue {
         element = h;
         next = null;
     }
-
-
-
+    
     CustomerNotes seeElement() {
-
         return this.element;
     }// end seeElement
     // me permite ver el elemento
@@ -40,15 +37,49 @@ class NodeQueue {
     
 }//end class NodeQueue
 
+//SE USA PARA LOS PLANES ALIMENTICIOS 
+class NodeQueue2 {
+
+    //Atributos de los Nodos
+    Plans element;
+    NodeQueue2 next;
+
+    /**
+     * Construye objetos tipo NodeQueue
+     *
+     * @param n
+     */
+    public NodeQueue2(Plans h) {
+        element = h;
+        next = null;
+    }
+    
+    Plans seeElement() {
+        return this.element;
+    }// end seeElement
+    // me permite ver el elemento
+    // método utilizado para el indexOf
+
+    NodeQueue2 seeNext() {
+        return this.next;
+    }// ver siguiente
+    
+}//end class NodeQueue
 
 public class QueueMethods implements Queues{
-
-
-
+    
     //Atributos de las Queue
     NodeQueue start;
     NodeQueue end;
     int size=0;
+    
+    NodeQueue2 start2;
+    NodeQueue2 end2;
+    int size2 =0;
+    
+    public int size2(){
+        return size2;
+    }
 
     @Override
     public int Size() {
@@ -86,6 +117,39 @@ public class QueueMethods implements Queues{
 
             }// end while
             aux.next = new NodeQueue(h);
+            size++;
+            // se hace un system.out.println para que 
+            //se pueda mostrar el resultado por consola
+            //resultado del resto de elementos de la lista
+           // System.out.println(n);
+        }// end else 
+    }
+    
+    public void Enqueue(Plans h) {
+        NodeQueue2 aux = start2;
+
+        // se pregunta si la lista está vacia
+        if (aux == null) {
+
+            // se crea mi primer objeto
+            aux = new NodeQueue2(h);
+            start2 = aux;
+            size2++;
+            // se hace un system.out.println para que 
+            //se pueda mostrar el resultado por consola   
+            //resultado del primer elemento de la lista
+           // System.out.println(n);
+        } else {
+            // se hará una busqueda, recorre mi lista
+            // preguntando si el siguiente elemento es diferente
+            //de vacío o sea, si existe o no
+            while (aux.next != null) {
+
+                // se le asigna la variable aux al resto de nodos 
+                aux = aux.next;
+
+            }// end while
+            aux.next = new NodeQueue2(h);
             size++;
             // se hace un system.out.println para que 
             //se pueda mostrar el resultado por consola
@@ -158,5 +222,19 @@ public class QueueMethods implements Queues{
             num++;
         }
         return num;    //data not found 
+    }
+    
+    public boolean search3(String a){
+        
+        NodeQueue2 current = start2;   
+        int num = 0;
+        while (current != null) {
+            if (current.element.getCedula().equals(a)){
+                return true;
+            }
+            current = current.next;
+            num++;
+        }
+        return false;    //data not found 
     }
 }

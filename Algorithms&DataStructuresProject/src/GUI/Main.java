@@ -169,11 +169,9 @@ public class Main extends javax.swing.JFrame {
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
 
-        SuperAdministrator nS = new SuperAdministrator();
-        nS.setVisible(true);
+        ValidSupAd vS=new ValidSupAd();
         dispose();
-        Main m = new Main();
-        m.setVisible(false);
+        vS.show(true);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**

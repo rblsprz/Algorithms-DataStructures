@@ -460,7 +460,81 @@ public class Delete {
         }catch(FileNotFoundException fnfe){
             JOptionPane.showMessageDialog(null, "PROBLEMAS");
         }
+        
+        
+        
     }//End removeLines
+     
+      public void removeLinesColaPlan(String fe , String id) throws IOException{
+        //prueba colaTemp = new prueba();
+        QueueMethods colaTemp =  new QueueMethods();
+        File f = new File("planesAlimenticiosPacientes.txt");
+        try{
+            FileInputStream fis = new FileInputStream(f);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+        
+            String linesUpdate = br.readLine();
+
+            while (linesUpdate != null) {
+                if (!linesUpdate.contains(id) || !linesUpdate.contains(fe)) {
+                    StringTokenizer sT = new StringTokenizer(linesUpdate,";");
+                    int counterTok = 0;
+                    String cedula="";
+                    String fecha = "";
+                    String desayuno = "";
+                    String almuerzo = "";
+                    String cena = "";
+                    String meriendas = "";
+                    
+                    while (sT.hasMoreTokens()) {
+                          if (counterTok == 0) {
+                        cedula= sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 1) {
+                        fecha = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 2) {
+                        desayuno = sT.nextToken();
+                        counterTok++;
+                    } else if (counterTok == 3) {
+                        almuerzo = sT.nextToken();
+                        counterTok++;
+                    }else if (counterTok == 4){
+                        cena = sT.nextToken();
+                        counterTok++;
+                    }else if (counterTok == 5){
+                       meriendas = sT.nextToken();
+                        counterTok++;
+                    }else{
+                        sT.nextToken();
+                    }
+                }
+                    Plans cM = new Plans(cedula, fecha, desayuno, almuerzo, cena, meriendas);
+                    colaTemp.Enqueue(cM);
+                }
+                linesUpdate = br.readLine();
+            }
+        }catch(FileNotFoundException fnfe){
+            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+        }catch(IOException ioe){
+            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+        }
+        
+        File fNuevo = new File("planesAlimenticiosPacientes.txt");
+        try{
+            FileOutputStream fos = new FileOutputStream(fNuevo);
+            PrintStream ps = new PrintStream(fos);
+            for (int i = 0; i < colaTemp.size2(); i++) {
+                ps.println(colaTemp.start2.element.getCedula()+";"+colaTemp.start2.element.getFecha()+";"+colaTemp.start2.element.getDesayuno()+";"
+                        +colaTemp.start2.element.getAlmuerzo()+";"
+                        +colaTemp.start2.element.getCena()+";"+colaTemp.start2.element.getMeriendas());
+            }
+        }catch(FileNotFoundException fnfe){
+            JOptionPane.showMessageDialog(null, "PROBLEMAS");
+        }
+    }//End removeLines
+     
 //      public void removeLinesColaNota(String id, String date) throws IOException{
 //        //prueba colaTemp = new prueba();
 //        QueueMethods colaTemp =  new QueueMethods();

@@ -852,5 +852,206 @@ public class Logic {
         return array;
     }//endCountry[]
     
+     public void insertHistorialAcciones(Hist c) {
+        File mainFileE = new File("HistorialAcciones.txt");
+        try {
+            //                                                  
+            FileOutputStream fos = new FileOutputStream(mainFileE, true);
+            PrintStream ps = new PrintStream(fos);
+             ps.println(c.getFecha()+";"+c.getHora()+";"+c.getAccion()+";"+c.getPersona());
+
+        } catch (FileNotFoundException fnfe) {
+
+            JOptionPane.showMessageDialog(null, "Problemas con el archivo");
+        }// end catch()
+    }
+    
+   /**
+     * Obtiene la cantidad de lineas del archivo
+     *
+     * @return countRegisters el numero total de lineas
+     */
+    public int getFileRegistersHistorialAcciones() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileCountries = new File("HistorialAcciones.txt");
+        int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+    
+     /**
+     * Leemos los elementos en el archivo
+     *
+     * @return array[] con los elementos del archivo
+     */
+    public Hist[] readRegistersFilesHistorialAcciones() {
+
+        Hist array[] = new Hist[getFileRegistersHistorialAcciones()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCountries = new File("HistorialAcciones.txt");
+
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                String fecha = "", hora = "", accion = "", persona = "";
+               
+                //Se pone dentro del ciclo para que se resetee
+                int controlTokens = 1;
+                StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
+
+                while (st.hasMoreTokens()) {
+
+                    if (controlTokens == 1) {
+                        fecha = st.nextToken();
+                    } else if (controlTokens == 2) {
+                        hora = st.nextToken();
+                    } else if (controlTokens == 3) {
+                        accion = st.nextToken();
+                    } else if (controlTokens == 4) {
+                        persona = st.nextToken();
+                    } 
+
+                    controlTokens++;
+                }//endWhileInterno
+
+                Hist c = new Hist(fecha,hora, accion, persona);
+                array[indexArray] = c;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+
+        return array;
+    }//endCountry[]
+    
+    public BufferedReader getBufferedReaderPlanes() {
+        File fileAdmin = new File("planesAlimenticiosPacientes.txt");
+        BufferedReader br = null;
+        try {
+
+            FileInputStream fis = new FileInputStream(fileAdmin);
+            InputStreamReader isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+        } catch (FileNotFoundException fnfe) {
+            JOptionPane.showMessageDialog(null, "Troubles with the archive" + fnfe);
+        }
+        return br;
+    }
+    /**
+     * Obtiene la cantidad de lineas del archivo
+     *
+     * @return countRegisters el numero total de lineas
+     */
+    public int getFileRegistersPlanes() { //Ocupamos este metodo para asignarle el tamaño al arreglo
+
+        File fileCountries = new File("planesAlimenticiosPacientes.txt");
+        int countRegisters = 0;
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                if (actualRegister != null) {
+                    countRegisters++; //Cuenta cuantos espacios estan ocupados en el archivo
+                }
+                actualRegister = br.readLine(); //Vuelve a leer
+            }//endWhile
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+        return countRegisters;
+    }//endInt
+    
+    public Plans[] readRegistersFilesPlanes() {
+
+        Plans array[] = new Plans[getFileRegistersPlanes()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
+        File fileCountries = new File("planesAlimenticiosPacientes.txt");
+
+        try {
+            FileInputStream fis = new FileInputStream(fileCountries);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String actualRegister = br.readLine(); //Lee el archivo 
+
+            int indexArray = 0;
+
+            while (actualRegister != null) { //Cuando sea null va a parar
+                 String fecha =  "",cedula = "", desayuno = "", almuerzo = "", cena = "" , meriendas = "";
+
+               
+                //Se pone dentro del ciclo para que se resetee
+                int controlTokens = 1;
+                StringTokenizer st = new StringTokenizer(actualRegister, ";"); //Busca los toques, en nuestra caso los % y asi separa la informacion
+
+                while (st.hasMoreTokens()) {
+
+                    if (controlTokens == 1) {
+                        cedula = st.nextToken();
+                    } else if (controlTokens == 2) {
+                        fecha = st.nextToken();
+                    } else if (controlTokens == 3) {
+                        desayuno = st.nextToken();
+                    } else if (controlTokens == 4) {
+                        almuerzo = st.nextToken();
+                    } else if (controlTokens == 5) {
+                        cena = st.nextToken();
+                    } else if (controlTokens == 6) {
+                        meriendas = st.nextToken();
+                    } 
+                    controlTokens++;
+                }//endWhileInterno
+
+                Plans c = new Plans(cedula, fecha, desayuno, almuerzo, cena, meriendas);
+                array[indexArray] = c;
+                indexArray++;
+
+                actualRegister = br.readLine(); //Vuelve a leer, es como el incremento
+            }//endWhile
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Fallas en el archivo");
+        }//endCatch
+
+        return array;
+    }//endCountry[]
+    
+    
     }//End Roles[]
 
