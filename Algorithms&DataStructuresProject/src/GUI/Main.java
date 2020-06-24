@@ -2,12 +2,17 @@ package GUI;
 
 import Logic.Logic;
 import Logic.Encrypted;
+import java.awt.Color;
+import java.awt.Event;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.Action;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -22,6 +27,9 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         ButtonGroup grupoDeBotones = new ButtonGroup();
         this.setExtendedState(Main.MAXIMIZED_BOTH);
+         //Color JFrame
+        this.getContentPane().setBackground(Color.WHITE);
+
     }//End Main
 
     @SuppressWarnings("unchecked")
@@ -144,6 +152,9 @@ public class Main extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
 
+       
+  
+        
         Logic Lf = new Logic();
         Encrypted encode = new Encrypted();
 

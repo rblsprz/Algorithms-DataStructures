@@ -13,6 +13,7 @@ import Logic.FileStacks;
 import Logic.Logic;
 import Logic.Roles;
 import Logic.Update;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.print.PrinterException;
@@ -40,12 +41,15 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     /**
      * Creates new form CRUD_CLIENTE_CITAS
      */
-    FondoPanel fondo = new FondoPanel();
+    
     
     public CRUDCustomerDates() {
-        this.setContentPane(fondo);
+        
         initComponents();
         this.setExtendedState(CRUDCustomerDates.MAXIMIZED_BOTH);
+        
+         //Color JFrame
+        this.getContentPane().setBackground(Color.GREEN);
     }
     Delete stack = new Delete();
     
@@ -441,18 +445,4 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables
 
-    class FondoPanel extends JPanel {
-        
-        private Image imagen;
-        
-        @Override
-        public void paint(Graphics g) {
-            
-            imagen = new ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg")).getImage();
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            setOpaque(false);
-            
-            super.paint(g);
-        }
-    }
 }
