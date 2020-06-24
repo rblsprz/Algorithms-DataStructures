@@ -48,6 +48,7 @@ public class Administrator extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
+        menuItemGraficas = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
@@ -108,6 +109,15 @@ public class Administrator extends javax.swing.JFrame {
         jMenuBar1.add(menuCRUD);
 
         menuInformation.setText("INFORMATION");
+
+        menuItemGraficas.setText("GRAFICAS");
+        menuItemGraficas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemGraficasActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemGraficas);
+
         jMenuBar1.add(menuInformation);
 
         menuOptions.setText("OPTIONS");
@@ -173,10 +183,14 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       FoodPlans cn=new FoodPlans();
-        cn.show();
-        cn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void menuItemGraficasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGraficasActionPerformed
+        GraficasforAdmin cR = new GraficasforAdmin();
+        cR.show();
+        cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemGraficasActionPerformed
 
 
     /**
@@ -225,6 +239,7 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenu menuInformation;
     private javax.swing.JMenuItem menuItemCRUDDates;
+    private javax.swing.JMenuItem menuItemGraficas;
     private javax.swing.JMenuItem menuItemNewDate;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;

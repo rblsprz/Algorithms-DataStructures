@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import GUI.SuperAdministrator;
 import Logic.History;
 import java.awt.print.PrinterException;
 import java.io.File;
@@ -27,7 +28,6 @@ public class SystemActions extends javax.swing.JFrame {
      */
     public SystemActions() {
         initComponents();
-         this.setExtendedState(SystemActions.MAXIMIZED_BOTH);
     }
 
     /**
@@ -46,15 +46,14 @@ public class SystemActions extends javax.swing.JFrame {
         tfSearch = new javax.swing.JTextField();
         lbMessages = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuPDF = new javax.swing.JMenu();
-        menuExcel = new javax.swing.JMenu();
-        menuWord = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbSystemActions.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbSystemActions.setText("SYSTEM ACTIONS");
-        getContentPane().add(lbSystemActions);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,46 +65,76 @@ public class SystemActions extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1);
-
-        btnShowHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowHistory.setText("SHOW HISTORY");
-        btnShowHistory.setBorderPainted(false);
-        btnShowHistory.setContentAreaFilled(false);
         btnShowHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowHistoryActionPerformed(evt);
             }
         });
-        getContentPane().add(btnShowHistory);
-        getContentPane().add(tfSearch);
-        getContentPane().add(lbMessages);
 
-        menuPDF.setText("PDF EXPORT");
-        menuPDF.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbMessages.setText("jLabel1");
+
+        jMenu1.setText("PDF EXPORT");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuPDFMouseClicked(evt);
+                jMenu1MouseClicked(evt);
             }
         });
-        jMenuBar1.add(menuPDF);
+        jMenuBar1.add(jMenu1);
 
-        menuExcel.setText("EXCEL EXPORT");
-        menuExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu2.setText("EXCEL EXPORT");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuExcelMouseClicked(evt);
+                jMenu2MouseClicked(evt);
             }
         });
-        jMenuBar1.add(menuExcel);
+        jMenuBar1.add(jMenu2);
 
-        menuWord.setText("WORD EXPORT");
-        jMenuBar1.add(menuWord);
+        jMenu3.setText("WORD EXPORT");
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(91, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbSystemActions, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(311, 311, 311))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnShowHistory)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lbSystemActions, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowHistory)
+                    .addComponent(lbMessages))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuPDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuPDFMouseClicked
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         MessageFormat header = new MessageFormat("Planes Alimenticios");
         MessageFormat footer = new MessageFormat("Página{0,number,integer}");
         try {
@@ -114,9 +143,9 @@ public class SystemActions extends javax.swing.JFrame {
         } catch (PrinterException ex) {
             System.err.format("Error de impresion", ex.getMessage());
         }
-    }//GEN-LAST:event_menuPDFMouseClicked
+    }//GEN-LAST:event_jMenu1MouseClicked
 
-    private void menuExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuExcelMouseClicked
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         JFileChooser seleccionar = new JFileChooser();
         File archivo;
         if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
@@ -127,7 +156,7 @@ public class SystemActions extends javax.swing.JFrame {
             excel.export();
             JOptionPane.showMessageDialog(null, "Exportado correctamente");
         }
-    }//GEN-LAST:event_menuExcelMouseClicked
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     private void btnShowHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowHistoryActionPerformed
         if (tfSearch.getText().equals("")) {
@@ -233,14 +262,14 @@ public class SystemActions extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShowHistory;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbSystemActions;
-    private javax.swing.JMenu menuExcel;
-    private javax.swing.JMenu menuPDF;
-    private javax.swing.JMenu menuWord;
     private javax.swing.JTextField tfSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI.Administrator;
+import GUI.CRUDNotes;
 import Logic.History;
 import Logic.Roles;
 import Logic.Plans;
@@ -19,23 +21,22 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import Logic.ExportarExcel;
 import Logic.Logic;
+import Logic.PlanNotes;
 import Logic.Delete;
 import Logic.Update;
 import Logic.FileQueuesLog;
-import Logic.PlanNotes;
 
 /**
  *
  * @author pc
  */
-public class PlanAdministrator extends javax.swing.JFrame {
+public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
 
     /**
      * Creates new form PlanAlimenticioCRUD
      */
-    public PlanAdministrator() {
+    public CRUDFoodPlanAdministrator() {
         initComponents();
-         this.setExtendedState(PlanAdministrator.MAXIMIZED_BOTH);
     }
     
     PlanNotes queue = new PlanNotes();
@@ -49,49 +50,49 @@ public class PlanAdministrator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lbSnacks = new javax.swing.JLabel();
+        lbFoodPlans = new javax.swing.JLabel();
+        lbDinner = new javax.swing.JLabel();
+        lbLunch = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel10 = new javax.swing.JLabel();
-        btnAgregar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
-        btnMostrar = new javax.swing.JButton();
+        lbBreakFast = new javax.swing.JLabel();
+        btnAddFoodPlan = new javax.swing.JButton();
+        btnDeleteFoodPlan = new javax.swing.JButton();
+        btnUpdateFoodPlan = new javax.swing.JButton();
+        btnShowFoodPlans = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
-        txtBuscar = new javax.swing.JTextField();
-        txtMeriendas = new javax.swing.JTextField();
-        txtDesayuno = new javax.swing.JTextField();
-        txtAlmuerzo = new javax.swing.JTextField();
-        txtCena = new javax.swing.JTextField();
+        tfID = new javax.swing.JTextField();
+        tfSearch = new javax.swing.JTextField();
+        tfSnacks = new javax.swing.JTextField();
+        tfBreakFast = new javax.swing.JTextField();
+        tfLunch = new javax.swing.JTextField();
+        tfDinner = new javax.swing.JTextField();
+        lbMessages = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jAtras = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel6.setText("Meriendas");
+        lbSnacks.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbSnacks.setText("SNACKS");
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel7.setText("PLAN ALIMENTICIO");
+        lbFoodPlans.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbFoodPlans.setText("FOOD PLANS");
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel8.setText("Cena");
+        lbDinner.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbDinner.setText("DINNER");
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel9.setText("Almuerzo");
+        lbLunch.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbLunch.setText("LUNCH");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Cédula", "Desayuno", "Almuerzo", "Cena", "Meriendas"
+                "ID", "BREAKFAST", "LUNCH", "DINNER", "SNACKS"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,53 +102,47 @@ public class PlanAdministrator extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable1);
 
-        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel10.setText("Desayuno");
+        lbBreakFast.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbBreakFast.setText("BREAKFAST");
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/add.png"))); // NOI18N
-        btnAgregar.setText("Add Plan");
-        btnAgregar.setBorderPainted(false);
-        btnAgregar.setContentAreaFilled(false);
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAddFoodPlan.setText("ADD FOOD PLAN");
+        btnAddFoodPlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnAddFoodPlanActionPerformed(evt);
             }
         });
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
-        btnEliminar.setText("Delete Plan");
-        btnEliminar.setBorderPainted(false);
-        btnEliminar.setContentAreaFilled(false);
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteFoodPlan.setText("DELETE FOOD PLAN");
+        btnDeleteFoodPlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnDeleteFoodPlanActionPerformed(evt);
             }
         });
 
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
-        btnModificar.setText("Modify Plan");
-        btnModificar.setBorderPainted(false);
-        btnModificar.setContentAreaFilled(false);
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateFoodPlan.setText("UPDATE FOOD PLAN");
+        btnUpdateFoodPlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnUpdateFoodPlanActionPerformed(evt);
             }
         });
 
-        btnMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
-        btnMostrar.setText("Show Plans");
-        btnMostrar.setBorderPainted(false);
-        btnMostrar.setContentAreaFilled(false);
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        btnShowFoodPlans.setText("SHOW FOOD PLAN");
+        btnShowFoodPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                btnShowFoodPlansActionPerformed(evt);
             }
         });
 
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel11.setText("Cédula Paciente");
+        jLabel11.setText("ID");
 
-        jMenu1.setText("Exportar PDF");
+        tfSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSearchActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("PDF EXPORT");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -155,21 +150,13 @@ public class PlanAdministrator extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Exportar Excel");
+        jMenu2.setText("EXCEL EXPORT");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
             }
         });
         jMenuBar1.add(jMenu2);
-
-        jAtras.setText("Atras");
-        jAtras.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jAtrasMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jAtras);
 
         setJMenuBar(jMenuBar1);
 
@@ -180,41 +167,46 @@ public class PlanAdministrator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDesayuno, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtMeriendas, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtAlmuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtCedula)
-                            .addGap(3, 3, 3))))
+                            .addComponent(tfID)
+                            .addGap(3, 3, 3)))
+                    .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(218, 218, 218)
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(224, 224, 224)
+                                .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
-                                .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnShowFoodPlans))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(273, 273, 273)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(btnAgregar)
-                        .addGap(60, 60, 60)
-                        .addComponent(btnModificar)
-                        .addGap(53, 53, 53)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(737, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(279, 279, 279)
+                                .addComponent(lbFoodPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAddFoodPlan)
+                                .addGap(60, 60, 60)
+                                .addComponent(btnUpdateFoodPlan)
+                                .addGap(53, 53, 53)
+                                .addComponent(btnDeleteFoodPlan)))
+                        .addGap(132, 132, 132))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,44 +214,42 @@ public class PlanAdministrator extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbFoodPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMostrar))
+                    .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowFoodPlans))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(txtDesayuno, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAlmuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(7, 7, 7)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCena, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtMeriendas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregar)
-                            .addComponent(btnModificar)
-                            .addComponent(btnEliminar))))
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddFoodPlan)
+                    .addComponent(btnUpdateFoodPlan)
+                    .addComponent(btnDeleteFoodPlan))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbMessages)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -277,13 +267,7 @@ public class PlanAdministrator extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu1MouseClicked
 
-    private void jAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jAtrasMouseClicked
-        Administrator i = new Administrator();
-        i.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jAtrasMouseClicked
-
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnAddFoodPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFoodPlanActionPerformed
         Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
         String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
         SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
@@ -291,81 +275,82 @@ public class PlanAdministrator extends javax.swing.JFrame {
        //---------------------------------------------VALIDACION CEDULA--------------------------------------------------------- 
         
         int count = 0;
-        if (Fl.validateCed(txtCedula.getText()) && txtCedula.getText().length() == 9) {
-            if (txtCedula.getText().equals("") || txtAlmuerzo.getText().equals("") || txtDesayuno.getText().equals("") || txtMeriendas.getText().equals("") || txtCena.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Rellene todos los espacios en blanco");
+        if (Fl.validateCed(tfID.getText()) && tfID.getText().length() == 9) {
+            if (tfID.getText().equals("") || tfLunch.getText().equals("") || tfBreakFast.getText().equals("") || tfSnacks.getText().equals("") || tfDinner.getText().equals("")) {
+                lbMessages.setText("FILL THE DATA!");
             }//End if 
             else {
                 try {
-                    Plans plan = new Plans(txtCedula.getText(), objSDF.format(objDate), txtDesayuno.getText(), txtAlmuerzo.getText(), txtCena.getText(), txtMeriendas.getText());
-                    queue.planesPacienteInsertar(txtCedula.getText(), objSDF.format(objDate), txtDesayuno.getText(), txtAlmuerzo.getText(), txtCena.getText(), txtMeriendas.getText());
+                    Plans plan = new Plans(tfID.getText(), objSDF.format(objDate), tfBreakFast.getText(), tfLunch.getText(), tfDinner.getText(), tfSnacks.getText());
+                    queue.planesPacienteInsertar(tfID.getText(), objSDF.format(objDate), tfBreakFast.getText(), tfLunch.getText(), tfDinner.getText(), tfSnacks.getText());
                     mostrarPlanes();
 
                     //-----------------------------------------HORA-------------------------------
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    History c = new History(objSDF.format(objDate), hora , "Nuevo plan para " + txtCedula.getText(), getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Nuevo plan para " + tfID.getText(), getPersona());
                     Fl.insertHistorialAcciones(c);
-                    txtCedula.setText("");
-                    txtAlmuerzo.setText("");
-                    txtDesayuno.setText("");
-                    txtCena.setText("");
-                    txtMeriendas.setText("");
-                    txtBuscar.setText("");
+                    tfID.setText("");
+                    tfLunch.setText("");
+                    tfBreakFast.setText("");
+                    tfDinner.setText("");
+                    tfSnacks.setText("");
+                    tfSearch.setText("");
                 } catch (FileNotFoundException ex) {
-                    JOptionPane.showMessageDialog(null, "Error al insertar el plan del paciente");
+                    lbMessages.setText("WE CAN'T ADD THE FOOD PLAN!");
                 }
-                JOptionPane.showMessageDialog(null, "Plan guardado");
+                lbMessages.setText("SAVED FOOD PLAN!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "La cedula debe tener 9 digitos");
+            lbMessages.setText("THE ID MUST HAVE 9 NUMBERS!");
             count++;
         }
        
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnAddFoodPlanActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int seleccion = jTable1.getSelectedRow();
         //(jTable1.getValueAt(seleccion, 0).toString()); ESPACIO DE FECHA 
-        txtCedula.setText(jTable1.getValueAt(seleccion, 1).toString());
-        txtDesayuno.setText(jTable1.getValueAt(seleccion, 2).toString());
-        txtAlmuerzo.setText(jTable1.getValueAt(seleccion, 3).toString());
-        txtCena.setText(jTable1.getValueAt(seleccion, 4).toString());
-        txtMeriendas.setText(jTable1.getValueAt(seleccion, 5).toString());
+        tfID.setText(jTable1.getValueAt(seleccion, 1).toString());
+        tfBreakFast.setText(jTable1.getValueAt(seleccion, 2).toString());
+        tfLunch.setText(jTable1.getValueAt(seleccion, 3).toString());
+        tfDinner.setText(jTable1.getValueAt(seleccion, 4).toString());
+        tfSnacks.setText(jTable1.getValueAt(seleccion, 5).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        if(txtBuscar.getText().equals("")){
+    private void btnShowFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowFoodPlansActionPerformed
+        if(tfSearch.getText().equals("")){
             mostrarPlanes();
         } else{ 
             FileQueuesLog fl = new FileQueuesLog();
-            if(fl.readingFilesPlanes(txtBuscar.getText()) == true){          
+            if(fl.readingFilesPlanes(tfSearch.getText()) == true){          
             try {
-                searchClienteIndividual(txtBuscar.getText());
-                txtBuscar.setText("");
+                searchClienteIndividual(tfSearch.getText());
+                tfSearch.setText("");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(CRUDNotes.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else{
-        JOptionPane.showMessageDialog(null, "NO ENCONTRADO");}
-        txtAlmuerzo.setText("");
-        txtCena.setText("");
-        txtDesayuno.setText("");
-        txtMeriendas.setText("");
-        txtBuscar.setText("");
-        txtCedula.setText("");       
+      lbMessages.setText("NOT FOUND!");
+            }
+        tfLunch.setText("");
+        tfDinner.setText("");
+        tfBreakFast.setText("");
+        tfSnacks.setText("");
+        tfSearch.setText("");
+        tfID.setText("");       
         }
-    }//GEN-LAST:event_btnMostrarActionPerformed
+    }//GEN-LAST:event_btnShowFoodPlansActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnUpdateFoodPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateFoodPlanActionPerformed
        int seleccion = jTable1.getSelectedRow();
         try {
                 Update em = new Update();
-                int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar el plan de " + txtCedula.getText() + " ?");
+                int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO UPDATE THE FOOD PLAN FROM " + tfID.getText() + " ?");
                 if(edit == 0){ //cedula y luego sigue fecha
-                    em.actualizarPlanPersona(txtCedula.getText(), jTable1.getValueAt(seleccion, 0).toString(), txtDesayuno.getText(), txtAlmuerzo.getText(), txtCena.getText(), txtMeriendas.getText());
-                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
+                    em.actualizarPlanPersona(tfID.getText(), jTable1.getValueAt(seleccion, 0).toString(), tfBreakFast.getText(), tfLunch.getText(), tfDinner.getText(), tfSnacks.getText());
+                   lbMessages.setText("SUCCESSFULLY UPDATED!");
                     mostrarPlanes();
                     //-------------------------------------------FECHA-----------------------------
                     Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
@@ -376,29 +361,29 @@ public class PlanAdministrator extends javax.swing.JFrame {
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    History c = new History(objSDF.format(objDate), hora , "Modifico el plan de " +  txtCedula.getText(), getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Modifico el plan de " +  tfID.getText(), getPersona());
                     Fl.insertHistorialAcciones(c);
-                    txtCedula.setText("");
-                    txtAlmuerzo.setText("");
-                    txtBuscar.setText("");
-                    txtCena.setText("");
-                    txtDesayuno.setText("");
-                    txtMeriendas.setText("");
+                    tfID.setText("");
+                    tfLunch.setText("");
+                    tfSearch.setText("");
+                    tfDinner.setText("");
+                    tfBreakFast.setText("");
+                    tfSnacks.setText("");
                 }
             }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al modificar");
+                lbMessages.setText("UPDATE ERROR!");
             }   
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnUpdateFoodPlanActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void btnDeleteFoodPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteFoodPlanActionPerformed
         int seleccion = jTable1.getSelectedRow();
         try {
                 Delete em = new Delete();
-                int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar el plan de " + txtCedula.getText() + " ?");
+                int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO DELETE THE FOOD PLAN FROM " + tfID.getText() + " ?");
                 if(d == 0){
-                    em.removeLinesColaPlan(jTable1.getValueAt(seleccion, 0).toString() , txtCedula.getText());
+                    em.removeLinesColaPlan(jTable1.getValueAt(seleccion, 0).toString() , tfID.getText());
                     mostrarPlanes();
-                    JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
+                    lbMessages.setText("SUCCESSFULLY DELETED!");
                     //-------------------------------------------FECHA-----------------------------
                     Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
                     String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
@@ -408,20 +393,20 @@ public class PlanAdministrator extends javax.swing.JFrame {
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    History c = new History(objSDF.format(objDate), hora , "Elimino el plan de " +  txtCedula.getText(), getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Elimino el plan de " +  tfID.getText(), getPersona());
                     Fl.insertHistorialAcciones(c);
                     
-                    txtCedula.setText("");
-                    txtAlmuerzo.setText("");
-                    txtCena.setText("");
-                    txtDesayuno.setText("");
-                    txtMeriendas.setText("");
-                    txtBuscar.setText("");
+                    tfID.setText("");
+                    tfLunch.setText("");
+                    tfDinner.setText("");
+                    tfBreakFast.setText("");
+                    tfSnacks.setText("");
+                    tfSearch.setText("");
                 }
             }catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al eliminar");
+                lbMessages.setText("DELETE ERROR!");
             }   
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    }//GEN-LAST:event_btnDeleteFoodPlanActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         JFileChooser seleccionar = new JFileChooser();
@@ -435,6 +420,10 @@ public class PlanAdministrator extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Exportado correctamente");
         }
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSearchActionPerformed
     
 
     /**
@@ -465,7 +454,7 @@ public class PlanAdministrator extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
            matriz,
             new String [] {
-                "Fecha","Cedula","Desayuno", "Almuerzo", "Cena", "Meriendas"
+                "DATE","ID","BREAKFAST", "LUNCH", "DINNER", "SNACKS"
             }
         ));
          } 
@@ -497,7 +486,7 @@ public class PlanAdministrator extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
            matriz,
             new String [] {
-                "Fecha","Cedula","Desayuno", "Almuerzo", "Cena", "Meriendas"
+                "DATE","ID","BREAKFAST", "LUNCH", "DINNER", "SNACKS"
             }
         ));
          }   
@@ -533,13 +522,13 @@ public class PlanAdministrator extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDFoodPlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDFoodPlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDFoodPlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CRUDFoodPlanAdministrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -549,33 +538,33 @@ public class PlanAdministrator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PlanAdministrator().setVisible(true);
+                new CRUDFoodPlanAdministrator().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnMostrar;
-    private javax.swing.JMenu jAtras;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JButton btnAddFoodPlan;
+    private javax.swing.JButton btnDeleteFoodPlan;
+    private javax.swing.JButton btnShowFoodPlans;
+    private javax.swing.JButton btnUpdateFoodPlan;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtAlmuerzo;
-    private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCena;
-    private javax.swing.JTextField txtDesayuno;
-    private javax.swing.JTextField txtMeriendas;
+    private javax.swing.JLabel lbBreakFast;
+    private javax.swing.JLabel lbDinner;
+    private javax.swing.JLabel lbFoodPlans;
+    private javax.swing.JLabel lbLunch;
+    private javax.swing.JLabel lbMessages;
+    private javax.swing.JLabel lbSnacks;
+    private javax.swing.JTextField tfBreakFast;
+    private javax.swing.JTextField tfDinner;
+    private javax.swing.JTextField tfID;
+    private javax.swing.JTextField tfLunch;
+    private javax.swing.JTextField tfSearch;
+    private javax.swing.JTextField tfSnacks;
     // End of variables declaration//GEN-END:variables
 }

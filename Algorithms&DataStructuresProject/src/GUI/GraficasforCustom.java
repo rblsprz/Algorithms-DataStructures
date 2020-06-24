@@ -1,7 +1,9 @@
 package GUI;
 
-
-import com.placeholder.PlaceHolder;
+import GUI.Customer;
+import GUI.NotesCustomer;
+import Logic.GraficsLogic;
+import Logic.Roles;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -12,21 +14,20 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import Logic.Logic;
 
 
 /**
  *
  * @author Rachel
  */
-public class FrmGraficasAdmin extends javax.swing.JFrame {
+public class GraficasforCustom extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmGraficasAdmin
+     * Creates new form FrmGraficas
      */
-    PlaceHolder holder;
-    public FrmGraficasAdmin() {
+    public GraficasforCustom() {
         initComponents();
-        holder = new PlaceHolder(txtCedula, "Digite la cedula");
     }
 
     /**
@@ -47,16 +48,14 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblConsultas = new javax.swing.JTable();
         cmbConsultas = new javax.swing.JComboBox<>();
-        txtCedula = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnEjecutar.setText("Buscar");
+        btnEjecutar.setText("Ejecutar");
         btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEjecutarActionPerformed(evt);
@@ -88,37 +87,22 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblConsultas);
 
-        cmbConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecciona una consulta --", "% Grasa", "% Músculo", "% Hidratación", "Peso", " ", " " }));
+        cmbConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecciona una consulta --", "% Grasa", "% Músculo", "% Hidratación", "Peso", " ", " ", " " }));
         cmbConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbConsultasActionPerformed(evt);
             }
         });
 
-        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel7.setText("GRÁFICAS DE AVANCES");
+
+        jMenu1.setText("Ver Notas");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtCedulaMouseClicked(evt);
+                jMenu1MouseClicked(evt);
             }
         });
-
-        jMenu1.setText("Notas");
-
-        jMenuItem1.setText("Nueva Nota");
-        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem1MouseClicked(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Configurar Notas");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Atrás");
@@ -136,50 +120,55 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 89, 89)
-                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(cmbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(rb3D)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rb2D)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbBarra)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbCircular)))
-                .addContainerGap(664, Short.MAX_VALUE))
+                        .addGap(91, 91, 91)
+                        .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81)
+                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 683, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rb3D)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb2D)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbBarra)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbCircular))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(cmbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rb3D)
                     .addComponent(rb2D)
                     .addComponent(rbBarra)
                     .addComponent(rbCircular))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,35 +176,30 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
-        if (txtCedula.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Digite el número de cedula que desea buscar");
-        } else {
-            DefaultTableModel miModelo;
-
-            LogicaGraficas miGrafica = new LogicaGraficas();
-            int op = cmbConsultas.getSelectedIndex(); //Elección del combo box
-
-            switch (op) {
-                case 1:
-                    miModelo = miGrafica.mostrarGrasa(txtCedula.getText());
-                    tblConsultas.setModel(miModelo);
-                    break;
-                case 2:
-                    miModelo = miGrafica.mostrarMusculo(txtCedula.getText());
-                    tblConsultas.setModel(miModelo);
-                    break;
-                case 3:
-                    miModelo = miGrafica.mostrarHidratacion(txtCedula.getText());
-                    tblConsultas.setModel(miModelo);
-                    break;
-                case 4:
-                    miModelo = miGrafica.mostrarPeso(txtCedula.getText());
-                    tblConsultas.setModel(miModelo);
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(rootPane, "Seleccione una opción de la lista");
-            }
-        }
+        // TODO add your handling code here:
+        DefaultTableModel miModelo;
+        
+        GraficsLogic miGrafica = new GraficsLogic();
+        int op = cmbConsultas.getSelectedIndex();
+        switch(op){
+            case 1:
+                miModelo = miGrafica.mostrarGrasa(obtenerCliente());
+                tblConsultas.setModel(miModelo);
+                break;
+            case 2:
+                miModelo = miGrafica.mostrarMusculo(obtenerCliente());
+                tblConsultas.setModel(miModelo); 
+                break;
+            case 3:
+                miModelo = miGrafica.mostrarHidratacion(obtenerCliente());
+                tblConsultas.setModel(miModelo); 
+                break; 
+            case 4:
+                miModelo = miGrafica.mostrarPeso(obtenerCliente());
+                tblConsultas.setModel(miModelo); 
+                break; 
+            default: JOptionPane.showMessageDialog(rootPane, "Seleccione una opción de la lista");
+        }    
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void btnGraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficarActionPerformed
@@ -274,33 +258,36 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnGraficarActionPerformed
+        public String obtenerCliente(){
+             Logic lC = new Logic();
+            ArrayList<Roles> array = new ArrayList();
+            String cedula = "";
 
+            Roles tempCountries[] = lC.readRegistersFilesIndividual();
+            for(int i = 0; i < tempCountries.length; i++){
+                array.add(tempCountries[i]);
+            }//endfor
+            for (int j = 0; j < 1; j++) {
+                cedula = array.get(j).getCedula(); //Obtengo la cedula del usuario activo
+            }
+            return cedula;
+        }
+        
     private void cmbConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsultasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbConsultasActionPerformed
 
-    private void txtCedulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMouseClicked
-        txtCedula.setText("");
-        //holder = new PlaceHolder(txtCedula, "Digite la cedula");
-    }//GEN-LAST:event_txtCedulaMouseClicked
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        NotesCustomer v = new NotesCustomer();
+        v.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        MenuAdmin mA = new MenuAdmin();
-        mA.setVisible(true);
+        Customer mc = new Customer();
+        mc.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
-        NotasAdmin nA = new NotasAdmin();
-        nA.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItem1MouseClicked
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        PlanAlimenticioCRUD pl = new PlanAlimenticioCRUD();
-        pl.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,14 +306,42 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmGraficasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficasforCustom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmGraficasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficasforCustom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmGraficasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficasforCustom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmGraficasAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficasforCustom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -335,7 +350,7 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmGraficasAdmin().setVisible(true);
+                new GraficasforCustom().setVisible(true);
                 
             }
         });
@@ -345,17 +360,15 @@ public class FrmGraficasAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnEjecutar;
     private javax.swing.JButton btnGraficar;
     private javax.swing.JComboBox<String> cmbConsultas;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton rb2D;
     private javax.swing.JRadioButton rb3D;
     private javax.swing.JRadioButton rbBarra;
     private javax.swing.JRadioButton rbCircular;
     private javax.swing.JTable tblConsultas;
-    private javax.swing.JTextField txtCedula;
     // End of variables declaration//GEN-END:variables
 }

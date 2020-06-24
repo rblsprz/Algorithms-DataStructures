@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import GUI.CRUDNotes;
+import GUI.Customer;
 import Logic.Roles;
 import Logic.Plans;
 import java.awt.print.PrinterException;
@@ -25,14 +27,13 @@ import Logic.FileQueuesLog;
  *
  * @author pc
  */
-public class PersonalFoodPlans extends javax.swing.JFrame {
+public class FoodPlanCustomer extends javax.swing.JFrame {
 
     /**
      * Creates new form PlanAlimenCliente
      */
-    public PersonalFoodPlans() {
+    public FoodPlanCustomer() {
         initComponents();
-        
     }
 
     /**
@@ -44,7 +45,7 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel7 = new javax.swing.JLabel();
+        lbPersonalFoodPlan = new javax.swing.JLabel();
         lbBreakFast = new javax.swing.JLabel();
         tfBreakFast = new javax.swing.JTextField();
         lbLunch = new javax.swing.JLabel();
@@ -55,47 +56,39 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
         tfSnacks = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnShow = new javax.swing.JButton();
+        btnShowPlans = new javax.swing.JButton();
         lbMessages = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuPDF = new javax.swing.JMenu();
-        menuExcel = new javax.swing.JMenu();
-        menuWord = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel7.setText("PERSONAL FOOD PLAN");
-        getContentPane().add(jLabel7);
+        lbPersonalFoodPlan.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        lbPersonalFoodPlan.setText("PERSONAL FOOD PLAN");
 
         lbBreakFast.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbBreakFast.setText("BREAKFAST");
-        getContentPane().add(lbBreakFast);
 
         tfBreakFast.setEditable(false);
-        getContentPane().add(tfBreakFast);
 
         lbLunch.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbLunch.setText("LUNCH");
-        getContentPane().add(lbLunch);
 
         tfLunch.setEditable(false);
-        getContentPane().add(tfLunch);
 
         lbDinner.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDinner.setText("DINNER");
-        getContentPane().add(lbDinner);
 
         tfDinner.setEditable(false);
-        getContentPane().add(tfDinner);
 
         lbSnacks.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbSnacks.setText("SNACKS");
-        getContentPane().add(lbSnacks);
 
         tfSnacks.setEditable(false);
-        getContentPane().add(tfSnacks);
 
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -104,6 +97,7 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
                 "ID", "BREAKFAST", "LUNCH", "DINNER", "SNACKS"
             }
         ));
+        jTable1.setFocusCycleRoot(true);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -111,44 +105,108 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane4);
-
-        btnShow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
-        btnShow.setBorderPainted(false);
-        btnShow.setContentAreaFilled(false);
-        btnShow.addActionListener(new java.awt.event.ActionListener() {
+        btnShowPlans.setText("SHOW FOOD PLAN");
+        btnShowPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowActionPerformed(evt);
+                btnShowPlansActionPerformed(evt);
             }
         });
-        getContentPane().add(btnShow);
-        getContentPane().add(lbMessages);
 
-        menuPDF.setText("PDF EXPORT");
-        menuPDF.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu1.setText("PDF EXPORT");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuPDFMouseClicked(evt);
+                jMenu1MouseClicked(evt);
             }
         });
-        jMenuBar1.add(menuPDF);
+        jMenuBar1.add(jMenu1);
 
-        menuExcel.setText("EXCEL EXPORT");
-        menuExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu2.setText("EXCEL EXPORT");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuExcelMouseClicked(evt);
+                jMenu2MouseClicked(evt);
             }
         });
-        jMenuBar1.add(menuExcel);
+        jMenuBar1.add(jMenu2);
 
-        menuWord.setText("WORD EXPORT");
-        jMenuBar1.add(menuWord);
+        jMenu3.setText("WORD EXPORT");
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lbPersonalFoodPlan)
+                                        .addGap(446, 446, 446))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(22, 22, 22))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(278, 278, 278)
+                                .addComponent(btnShowPlans))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(376, 376, 376))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbPersonalFoodPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(7, 7, 7)
+                        .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnShowPlans)))
+                .addGap(18, 18, 18)
+                .addComponent(lbMessages)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuPDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuPDFMouseClicked
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         MessageFormat header=new MessageFormat("Planes Alimenticios");
         MessageFormat footer=new MessageFormat("Página{0,number,integer}");
         try{
@@ -157,7 +215,7 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
         } catch (PrinterException ex) {
             System.err.format("Error de impresion", ex.getMessage());
         }
-    }//GEN-LAST:event_menuPDFMouseClicked
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int seleccion = jTable1.getSelectedRow();
@@ -169,7 +227,7 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
         tfSnacks.setText(jTable1.getValueAt(seleccion, 5).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+    private void btnShowPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowPlansActionPerformed
         
         Logic lC = new Logic();
         ArrayList<Roles> array = new ArrayList();
@@ -191,11 +249,11 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
                 Logger.getLogger(CRUDNotes.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else{
-       lbMessages.setText("NOT FOUND!");
+        lbMessages.setText("NOT FOUND!");
             }
-    }//GEN-LAST:event_btnShowActionPerformed
+    }//GEN-LAST:event_btnShowPlansActionPerformed
 
-    private void menuExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuExcelMouseClicked
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         JFileChooser seleccionar = new JFileChooser();
         File archivo;
         if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
@@ -206,7 +264,7 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
             excel.export(); 
             JOptionPane.showMessageDialog(null, "Exportado correctamente");
         }
-    }//GEN-LAST:event_menuExcelMouseClicked
+    }//GEN-LAST:event_jMenu2MouseClicked
         //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
     public void searchClienteIndividual(String cedula) throws FileNotFoundException{
         Logic lC = new Logic();
@@ -255,13 +313,13 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonalFoodPlans.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FoodPlanCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonalFoodPlans.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FoodPlanCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonalFoodPlans.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FoodPlanCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonalFoodPlans.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FoodPlanCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -271,14 +329,16 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonalFoodPlans().setVisible(true);
+                new FoodPlanCustomer().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnShow;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton btnShowPlans;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
@@ -286,10 +346,8 @@ public class PersonalFoodPlans extends javax.swing.JFrame {
     private javax.swing.JLabel lbDinner;
     private javax.swing.JLabel lbLunch;
     private javax.swing.JLabel lbMessages;
+    private javax.swing.JLabel lbPersonalFoodPlan;
     private javax.swing.JLabel lbSnacks;
-    private javax.swing.JMenu menuExcel;
-    private javax.swing.JMenu menuPDF;
-    private javax.swing.JMenu menuWord;
     private javax.swing.JTextField tfBreakFast;
     private javax.swing.JTextField tfDinner;
     private javax.swing.JTextField tfLunch;
