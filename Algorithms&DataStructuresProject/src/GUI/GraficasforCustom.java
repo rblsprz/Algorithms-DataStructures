@@ -15,7 +15,11 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import Logic.Logic;
-
+import com.orsonpdf.PDFDocument;
+import com.orsonpdf.PDFGraphics2D;
+import com.orsonpdf.Page;
+import java.awt.Rectangle;
+import java.io.File;
 
 /**
  *
@@ -39,16 +43,20 @@ public class GraficasforCustom extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         btnEjecutar = new javax.swing.JButton();
         btnGraficar = new javax.swing.JButton();
-        rb3D = new javax.swing.JRadioButton();
-        rb2D = new javax.swing.JRadioButton();
         rbBarra = new javax.swing.JRadioButton();
         rbCircular = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblConsultas = new javax.swing.JTable();
-        cmbConsultas = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -69,12 +77,10 @@ public class GraficasforCustom extends javax.swing.JFrame {
             }
         });
 
-        rb3D.setText("3D");
-
-        rb2D.setText("2D");
-
+        buttonGroup2.add(rbBarra);
         rbBarra.setText("Barra");
 
+        buttonGroup2.add(rbCircular);
         rbCircular.setText("Circular");
 
         tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,15 +93,32 @@ public class GraficasforCustom extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblConsultas);
 
-        cmbConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecciona una consulta --", "% Grasa", "% Músculo", "% Hidratación", "Peso", " ", " ", " " }));
-        cmbConsultas.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel7.setText("GRÁFICAS DE AVANCES");
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Grasa");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbConsultasActionPerformed(evt);
+                jRadioButton1ActionPerformed(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel7.setText("GRÁFICAS DE AVANCES");
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Musculo");
+
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Hidratacion");
+
+        buttonGroup1.add(jRadioButton4);
+        jRadioButton4.setText("Peso");
+
+        jToggleButton1.setText("Exportar pdf");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Ver Notas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,33 +143,36 @@ public class GraficasforCustom extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
                         .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)
-                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(33, 33, 33)
+                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 683, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rb3D)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rb2D)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbBarra)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbCircular))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton4)
+                                .addGap(117, 117, 117)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbBarra)
+                                    .addComponent(rbCircular))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,21 +180,25 @@ public class GraficasforCustom extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cmbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rb3D)
-                    .addComponent(rb2D)
-                    .addComponent(rbBarra)
-                    .addComponent(rbCircular))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton3))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbCircular)
+                    .addComponent(jRadioButton4)
+                    .addComponent(jRadioButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbBarra)
+                .addGap(4, 4, 4)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -178,104 +208,91 @@ public class GraficasforCustom extends javax.swing.JFrame {
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
         DefaultTableModel miModelo;
-        
+
         GraficsLogic miGrafica = new GraficsLogic();
-        int op = cmbConsultas.getSelectedIndex();
-        switch(op){
-            case 1:
-                miModelo = miGrafica.mostrarGrasa(obtenerCliente());
-                tblConsultas.setModel(miModelo);
-                break;
-            case 2:
-                miModelo = miGrafica.mostrarMusculo(obtenerCliente());
-                tblConsultas.setModel(miModelo); 
-                break;
-            case 3:
-                miModelo = miGrafica.mostrarHidratacion(obtenerCliente());
-                tblConsultas.setModel(miModelo); 
-                break; 
-            case 4:
-                miModelo = miGrafica.mostrarPeso(obtenerCliente());
-                tblConsultas.setModel(miModelo); 
-                break; 
-            default: JOptionPane.showMessageDialog(rootPane, "Seleccione una opción de la lista");
-        }    
+
+
+        if (jRadioButton1.isSelected()) {
+
+            miModelo = miGrafica.mostrarGrasa(obtenerCliente());
+            tblConsultas.setModel(miModelo);
+        }
+        if (jRadioButton2.isSelected()) {
+
+            miModelo = miGrafica.mostrarMusculo(obtenerCliente());
+            tblConsultas.setModel(miModelo);
+        }
+
+        if (jRadioButton3.isSelected()) {
+            miModelo = miGrafica.mostrarHidratacion(obtenerCliente());
+            tblConsultas.setModel(miModelo);
+        }
+        if (jRadioButton4.isSelected()) {
+            miModelo = miGrafica.mostrarPeso(obtenerCliente());
+            tblConsultas.setModel(miModelo);
+        }
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void btnGraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficarActionPerformed
         // TODO add your handling code here:   
-        if(rb3D.isSelected() && rbBarra.isSelected()){
-            DefaultCategoryDataset dtsc = new DefaultCategoryDataset();
-            
-            for(int i = 0; i < tblConsultas.getRowCount(); i++){
-               
-            dtsc.addValue(Double.parseDouble(tblConsultas.getValueAt(i, 1).toString()), tblConsultas.getValueAt(i, 0).toString(), tblConsultas.getValueAt(i, 1).toString());
-            }
-            JFreeChart ch = ChartFactory.createBarChart3D("Grafica de barras 3D", "Porcentajes Obtenidos", "Cantidad", dtsc,PlotOrientation.HORIZONTAL, true, true, false);
-            ChartPanel cp = new ChartPanel(ch);
-            add(cp);
-            cp.setBounds(500,40,500,400);
-            
+        String name="";
+        if(jRadioButton1.isSelected()){
+            name="Grasa";
         }
-        if(rb2D.isSelected() && rbBarra.isSelected()){
+        if(jRadioButton2.isSelected()){
+            name="Musculo";
+        }
+
+        if(jRadioButton3.isSelected()){
+            name="Hidratación";
+        }
+        if(jRadioButton4.isSelected()){
+            name="Peso";
+        }
+        
+        if (rbBarra.isSelected()) {
             DefaultCategoryDataset dtsc = new DefaultCategoryDataset();
-            
-            for(int i = 0; i < tblConsultas.getRowCount(); i++){
-            
+
+            for (int i = 0; i < tblConsultas.getRowCount(); i++) {
+
                 dtsc.addValue(Double.parseDouble(tblConsultas.getValueAt(i, 1).toString()), tblConsultas.getValueAt(i, 0).toString(), tblConsultas.getValueAt(i, 1).toString());
             }
-            JFreeChart ch = ChartFactory.createBarChart("Grafica de barras 2D", "Porcentajes Obtenidos", "Cantidad", dtsc,PlotOrientation.HORIZONTAL, true, true, false);
+            JFreeChart ch = ChartFactory.createBarChart3D("Grafica de barras de " +obtenerCliente(), "Porcentajes Obtenidos", "Cantidad", dtsc, PlotOrientation.HORIZONTAL, true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500,40,500,400);
-            
-        }        
-        
-        if(rb3D.isSelected() && rbCircular.isSelected()){
-            DefaultPieDataset dtsc = new DefaultPieDataset();
-            
-            for(int i = 0; i < tblConsultas.getRowCount(); i++){
-                dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Double.parseDouble(tblConsultas.getValueAt(i, 1).toString()));
-            }
-            JFreeChart ch = ChartFactory.createPieChart3D("Grafica Circular 3D", dtsc,true, true, false);
-            ChartPanel cp = new ChartPanel(ch);
-            add(cp);
-            cp.setBounds(500,40,500,400);
-            
-        }        
-        if(rb2D.isSelected() && rbCircular.isSelected()){
-            DefaultPieDataset dtsc = new DefaultPieDataset();
-            
-            for(int i = 0; i < tblConsultas.getRowCount(); i++){
-                dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Double.parseDouble(tblConsultas.getValueAt(i, 1).toString()));
-            }
-            JFreeChart ch = ChartFactory.createPieChart("Grafica Circular 2D", dtsc,true, true, false);
-            ChartPanel cp = new ChartPanel(ch);
-            add(cp);
-            cp.setBounds(500,40,500,400);
-            
-        }           
-        
-        
-    }//GEN-LAST:event_btnGraficarActionPerformed
-        public String obtenerCliente(){
-             Logic lC = new Logic();
-            ArrayList<Roles> array = new ArrayList();
-            String cedula = "";
+            cp.setBounds(500, 40, 500, 400);
 
-            Roles tempCountries[] = lC.readRegistersFilesIndividual();
-            for(int i = 0; i < tempCountries.length; i++){
-                array.add(tempCountries[i]);
-            }//endfor
-            for (int j = 0; j < 1; j++) {
-                cedula = array.get(j).getCedula(); //Obtengo la cedula del usuario activo
-            }
-            return cedula;
         }
-        
-    private void cmbConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsultasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbConsultasActionPerformed
+
+        if (rbCircular.isSelected()) {
+            DefaultPieDataset dtsc = new DefaultPieDataset();
+
+            for (int i = 0; i < tblConsultas.getRowCount(); i++) {
+                dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Double.parseDouble(tblConsultas.getValueAt(i, 1).toString()));
+            }
+            JFreeChart ch = ChartFactory.createPieChart3D("Grafica Circular de " +obtenerCliente(), dtsc, true, true, false);
+            ChartPanel cp = new ChartPanel(ch);
+            add(cp);
+            cp.setBounds(500, 40, 500, 400);
+
+        }
+
+
+    }//GEN-LAST:event_btnGraficarActionPerformed
+    public String obtenerCliente() {
+        Logic lC = new Logic();
+        ArrayList<Roles> array = new ArrayList();
+        String cedula = "";
+
+        Roles tempCountries[] = lC.readRegistersFilesIndividual();
+        for (int i = 0; i < tempCountries.length; i++) {
+            array.add(tempCountries[i]);
+        }//endfor
+        for (int j = 0; j < 1; j++) {
+            cedula = array.get(j).getCedula(); //Obtengo la cedula del usuario activo
+        }
+        return cedula;
+    }
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         NotesCustomer v = new NotesCustomer();
@@ -288,6 +305,78 @@ public class GraficasforCustom extends javax.swing.JFrame {
         mc.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+         String name="";
+        if(jRadioButton1.isSelected()){
+            name="Grasa";
+        }
+        if(jRadioButton2.isSelected()){
+            name="Musculo";
+        }
+
+        if(jRadioButton3.isSelected()){
+            name="Hidratación";
+        }
+        if(jRadioButton4.isSelected()){
+            name="Peso";
+        }
+
+        if(rbBarra.isSelected()){
+            DefaultCategoryDataset dts = new DefaultCategoryDataset();
+
+            for(int i = 0; i < tblConsultas.getRowCount(); i++){
+
+                dts.addValue(Double.parseDouble(tblConsultas.getValueAt(i, 1).toString()), tblConsultas.getValueAt(i, 0).toString(), tblConsultas.getValueAt(i, 1).toString());
+            }
+            JFreeChart ch = ChartFactory.createBarChart3D("Grafica de " +obtenerCliente()+ " sobre " +name, "Porcentajes Obtenidos", "Cantidad", dts,PlotOrientation.HORIZONTAL, true, true, false);
+            ChartPanel cp = new ChartPanel(ch);
+            add(cp);
+            cp.setBounds(500,40,500,400);
+            //        JFreeChart chart = createChart(createDataset());
+
+            PDFDocument pdfDoc = new PDFDocument();
+            pdfDoc.setTitle("Grafica de " +obtenerCliente()+ " sobre " +name);
+            pdfDoc.setAuthor("Erick");
+
+            Page page = pdfDoc.createPage(new Rectangle(612, 468));
+            PDFGraphics2D g2 = page.getGraphics2D();
+
+            ch.draw(g2, new Rectangle(0, 0, 612, 468));
+            pdfDoc.writeToFile(new File("C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\Algorithms-DataStructures\\Barras-de-"+obtenerCliente()+"-"+name+".pdf"));
+
+            System.out.println("archivo pdf generado correctamente...");
+        }else
+
+        if(rbCircular.isSelected()){
+            DefaultPieDataset dtsc = new DefaultPieDataset();
+
+            for(int i = 0; i < tblConsultas.getRowCount(); i++){
+                dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Double.parseDouble(tblConsultas.getValueAt(i, 1).toString()));
+            }
+            JFreeChart ch = ChartFactory.createPieChart3D("Grafica circular de " +obtenerCliente()+ " sobre " +name, dtsc,true, true, false);
+            ChartPanel cp = new ChartPanel(ch);
+            add(cp);
+            cp.setBounds(500,40,500,400);
+            //        JFreeChart chart = createChart(createDataset());
+
+            PDFDocument pdfDoc = new PDFDocument();
+            pdfDoc.setTitle("Grafica circular de " +obtenerCliente()+ " sobre " +name);
+            pdfDoc.setAuthor("Erick");
+
+            Page page = pdfDoc.createPage(new Rectangle(612, 468));
+            PDFGraphics2D g2 = page.getGraphics2D();
+
+            ch.draw(g2, new Rectangle(0, 0, 612, 468));
+            pdfDoc.writeToFile(new File("C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\Algorithms-DataStructures\\Circular-de-"+obtenerCliente()+"-"+name+".pdf"));
+
+            System.out.println("archivo pdf generado correctamente...");
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,7 +440,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GraficasforCustom().setVisible(true);
-                
+
             }
         });
     }
@@ -359,14 +448,18 @@ public class GraficasforCustom extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEjecutar;
     private javax.swing.JButton btnGraficar;
-    private javax.swing.JComboBox<String> cmbConsultas;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton rb2D;
-    private javax.swing.JRadioButton rb3D;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JRadioButton rbBarra;
     private javax.swing.JRadioButton rbCircular;
     private javax.swing.JTable tblConsultas;
