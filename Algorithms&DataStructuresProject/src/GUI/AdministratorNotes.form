@@ -23,30 +23,46 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="412" max="-2" attributes="0"/>
+              <Component id="lbMessages" pref="1241" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="347" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbCustomerNotes" min="-2" pref="204" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="689" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lbCustomerNotes2" min="-2" pref="204" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbID" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lbNotes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="lbName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbDate" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbNotes" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lbName" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="lbID" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lbDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tfAge" min="-2" pref="189" max="-2" attributes="0"/>
-                          <Component id="tfName" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
-                          <Component id="tfID" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
                           <Component id="tfDate" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="tfName" min="-2" pref="189" max="-2" attributes="0"/>
+                              <Component id="tfAge" min="-2" pref="189" max="-2" attributes="0"/>
+                              <Component id="tfID" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -94,16 +110,6 @@
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="412" max="-2" attributes="0"/>
-              <Component id="lbMessages" pref="1241" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="347" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="lbCustomerNotes" min="-2" pref="204" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="689" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,21 +164,23 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lbCustomerNotes2" min="-2" pref="37" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="tfID" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="tfName" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="tfID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Component id="tfAge" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="tfAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace pref="56" max="-2" attributes="0"/>
-                                      <Component id="lbID" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="lbName" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tfName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbName" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
@@ -189,7 +197,7 @@
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="btnAddNutritionalInformation" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="236" max="32767" attributes="0"/>
+              <EmptySpace pref="218" max="32767" attributes="0"/>
               <Component id="lbMessages" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
           </Group>

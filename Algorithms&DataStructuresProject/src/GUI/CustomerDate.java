@@ -57,17 +57,21 @@ public class CustomerDate extends javax.swing.JFrame {
         lbID = new javax.swing.JLabel();
         tfName = new javax.swing.JTextField();
         lbMessages = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(220, 80, 171, 24);
+        tfID.setBounds(960, 360, 171, 30);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(150, 240, 60, 16);
+        lbTime.setBounds(890, 520, 60, 20);
 
         cbmHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +79,7 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmHora);
-        cbmHora.setBounds(230, 240, 79, 26);
+        cbmHora.setBounds(970, 520, 79, 30);
 
         btnRequest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnRequest.setText("REQUEST");
@@ -87,21 +91,21 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(200, 330, 130, 48);
+        btnRequest.setBounds(940, 610, 130, 60);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(220, 180, 160, 29);
+        dateChooser.setBounds(960, 460, 160, 40);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(150, 190, 50, 16);
+        lbDate.setBounds(890, 470, 50, 20);
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(150, 130, 60, 24);
+        lbName.setBounds(890, 410, 60, 30);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(150, 90, 50, 16);
+        lbID.setBounds(890, 370, 50, 20);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,9 +119,25 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(220, 130, 170, 24);
+        tfName.setBounds(960, 410, 170, 30);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(150, 300, 310, 0);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/frutas7.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 720, 1300, 360);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/frutas7.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(1300, 720, 740, 360);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/frutas7.jpg"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 0, 1300, 320);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/frutas7.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(1300, 0, 750, 320);
 
         pack();
         setLocationRelativeTo(null);
@@ -231,6 +251,10 @@ public class CustomerDate extends javax.swing.JFrame {
     private javax.swing.JButton btnRequest;
     private javax.swing.JComboBox<String> cbmHora;
     private com.toedter.calendar.JDateChooser dateChooser;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbMessages;

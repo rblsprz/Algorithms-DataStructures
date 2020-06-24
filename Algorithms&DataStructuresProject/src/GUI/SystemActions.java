@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import Logic.ExportarExcel;
 import Logic.Logic;
+import java.awt.Color;
 
 /**
  *
@@ -28,6 +29,9 @@ public class SystemActions extends javax.swing.JFrame {
      */
     public SystemActions() {
         initComponents();
+        this.setExtendedState(SystemActions.MAXIMIZED_BOTH);
+          //Color JFrame
+        this.getContentPane().setBackground(Color.YELLOW);
     }
 
     /**
@@ -65,7 +69,10 @@ public class SystemActions extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        btnShowHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowHistory.setText("SHOW HISTORY");
+        btnShowHistory.setBorderPainted(false);
+        btnShowHistory.setContentAreaFilled(false);
         btnShowHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowHistoryActionPerformed(evt);
@@ -74,6 +81,12 @@ public class SystemActions extends javax.swing.JFrame {
 
         lbMessages.setText("jLabel1");
 
+        jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
+
+        jMenu1.setBackground(new java.awt.Color(153, 153, 153));
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("PDF EXPORT");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -82,6 +95,8 @@ public class SystemActions extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBackground(new java.awt.Color(153, 153, 153));
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("EXCEL EXPORT");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -90,6 +105,8 @@ public class SystemActions extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setBackground(new java.awt.Color(153, 153, 153));
+        jMenu3.setForeground(new java.awt.Color(255, 255, 255));
         jMenu3.setText("WORD EXPORT");
         jMenuBar1.add(jMenu3);
 
@@ -100,35 +117,35 @@ public class SystemActions extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(91, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbSystemActions, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(311, 311, 311))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(734, 734, 734)
+                        .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnShowHistory)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                        .addComponent(btnShowHistory))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(835, 835, 835)
+                        .addComponent(lbSystemActions, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(608, 608, 608)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(722, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(lbSystemActions, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnShowHistory)
                     .addComponent(lbMessages))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGap(61, 61, 61)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(606, Short.MAX_VALUE))
         );
 
         pack();

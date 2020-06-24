@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import java.awt.Color;
+
 /**
  *
  * @author manit
@@ -17,6 +19,8 @@ public class SuperAdministratorWindow extends javax.swing.JFrame {
     public SuperAdministratorWindow() {
         initComponents();
         this.setExtendedState(SuperAdministratorWindow.MAXIMIZED_BOTH);
+         //Color JFrame
+        this.getContentPane().setBackground(Color.WHITE);
     }
 
     /**
