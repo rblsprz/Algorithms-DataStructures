@@ -27,12 +27,10 @@ public class CustomerDate extends javax.swing.JFrame {
     /**
      * Creates new form CitaCliente
      */
-
-
     FondoPanel fondo = new FondoPanel();
 
     public CustomerDate() {
-         this.setContentPane(fondo);
+        this.setContentPane(fondo);
 
         initComponents();
         this.setExtendedState(CustomerDate.MAXIMIZED_BOTH);
@@ -61,6 +59,7 @@ public class CustomerDate extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        lbClickHere = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -139,6 +138,10 @@ public class CustomerDate extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(1300, 0, 750, 320);
 
+        lbClickHere.setText("CLICK HERE");
+        getContentPane().add(lbClickHere);
+        lbClickHere.setBounds(1140, 420, 60, 14);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -164,14 +167,15 @@ public class CustomerDate extends javax.swing.JFrame {
 
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
-        //Campos vacios validacion
+
+//Campos vacios validacion
         String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
         String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
         String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
         String fecha = (year + "-" + mes + "-" + dia);
 
         if (tfID.getText().equals("") || tfName.getText().equals("") || cbmHora.getSelectedItem().equals("") || dateChooser.getDate().equals("")) {
-           lbMessages.setText("FILL THE DATA!");
+            lbMessages.setText("FILL THE DATA!");
         }//End if
         else {
             if (Stack.searchCita(fecha, cbmHora.getSelectedItem().toString()) == false) {
@@ -179,7 +183,6 @@ public class CustomerDate extends javax.swing.JFrame {
                 Cita cita = new Cita(fecha, cbmHora.getSelectedItem().toString(), tfID.getText(), tfName.getText());
 
                 //pila.push(fecha,cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
-
                 stack.insertCita(cita);
                 lbMessages.setText("REGISTRATED DATE!");
             } else {
@@ -193,12 +196,12 @@ public class CustomerDate extends javax.swing.JFrame {
 
     private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
         mostrarNombre();
-        Logic lC = new Logic();       
+        Logic lC = new Logic();
         String tempCountries[] = lC.readRegistersFilesHoras();
 
-       for(String num : tempCountries){
-           cbmHora.addItem(num);
-       }
+        for (String num : tempCountries) {
+            cbmHora.addItem(num);
+        }
     }//GEN-LAST:event_tfNameMouseClicked
 
     private void cbmHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmHoraActionPerformed
@@ -255,6 +258,7 @@ public class CustomerDate extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lbClickHere;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbMessages;

@@ -56,15 +56,16 @@ public class SuperAdministrator extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAdd = new javax.swing.JMenu();
         menuItemNewRol = new javax.swing.JMenuItem();
-        menuCrud = new javax.swing.JMenu();
-        menuItemCRUDRoles = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        menuOptions = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        menuItemUserManual = new javax.swing.JMenuItem();
-        menuItemMainDocument = new javax.swing.JMenuItem();
+        menuItemCRUDRoles = new javax.swing.JMenuItem();
+        menuItemSystemActions = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        menuItemChangeTime = new javax.swing.JMenuItem();
         menuItemEmptyApp = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        menuItemMainDocument = new javax.swing.JMenuItem();
+        menuItemUserManual = new javax.swing.JMenuItem();
+        menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
@@ -105,64 +106,39 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAdd);
 
-        menuCrud.setText("CRUD");
+        menuInformation.setText("INFORMATION");
 
         menuItemCRUDRoles.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         menuItemCRUDRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
-        menuItemCRUDRoles.setText("CRUD ROLES");
+        menuItemCRUDRoles.setText("ROLES");
         menuItemCRUDRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemCRUDRolesActionPerformed(evt);
             }
         });
-        menuCrud.add(menuItemCRUDRoles);
+        menuInformation.add(menuItemCRUDRoles);
 
-        jMenuBar1.add(menuCrud);
-
-        menuInformation.setText("INFORMATION");
-
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
-        jMenuItem3.setText("Historial");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuItemSystemActions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
+        menuItemSystemActions.setText("SYSTEM ACTIONS");
+        menuItemSystemActions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuItemSystemActionsActionPerformed(evt);
             }
         });
-        menuInformation.add(jMenuItem3);
+        menuInformation.add(menuItemSystemActions);
 
         jMenuBar1.add(menuInformation);
 
-        menuOptions.setText("OPTIONS");
-        menuOptions.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuOptionsActionPerformed(evt);
-            }
-        });
+        jMenu7.setText("GLOBAL SETTINGS");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
-        jMenuItem1.setText("CHANGE TIME");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemChangeTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
+        menuItemChangeTime.setText("CLINIC TIME");
+        menuItemChangeTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuItemChangeTimeActionPerformed(evt);
             }
         });
-        menuOptions.add(jMenuItem1);
-
-        menuItemUserManual.setText("USER MANUAL");
-        menuItemUserManual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemUserManualActionPerformed(evt);
-            }
-        });
-        menuOptions.add(menuItemUserManual);
-
-        menuItemMainDocument.setText("MAIN DOCUMENT");
-        menuItemMainDocument.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemMainDocumentActionPerformed(evt);
-            }
-        });
-        menuOptions.add(menuItemMainDocument);
+        jMenu7.add(menuItemChangeTime);
 
         menuItemEmptyApp.setText("EMPTY APP");
         menuItemEmptyApp.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +146,36 @@ public class SuperAdministrator extends javax.swing.JFrame {
                 menuItemEmptyAppActionPerformed(evt);
             }
         });
-        menuOptions.add(menuItemEmptyApp);
+        jMenu7.add(menuItemEmptyApp);
+
+        jMenuBar1.add(jMenu7);
+
+        jMenu8.setText("DOCUMENTS");
+
+        menuItemMainDocument.setText("MAIN DOCUMENT");
+        menuItemMainDocument.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemMainDocumentActionPerformed(evt);
+            }
+        });
+        jMenu8.add(menuItemMainDocument);
+
+        menuItemUserManual.setText("USER MANUAL");
+        menuItemUserManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemUserManualActionPerformed(evt);
+            }
+        });
+        jMenu8.add(menuItemUserManual);
+
+        jMenuBar1.add(jMenu8);
+
+        menuOptions.setText("OPTIONS");
+        menuOptions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOptionsActionPerformed(evt);
+            }
+        });
 
         menuItemSignOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuItemSignOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
@@ -219,14 +224,14 @@ public class SuperAdministrator extends javax.swing.JFrame {
         //dispose();
     }//GEN-LAST:event_menuItemCRUDRolesActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuItemChangeTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemChangeTimeActionPerformed
         ClinicTime cT = new ClinicTime();
         cT.show();
         cT.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //        SuperAdministrator sA = new SuperAdministrator();
 //        sA.setVisible(false);
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuItemChangeTimeActionPerformed
 
     private void menuItemEmptyAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEmptyAppActionPerformed
 
@@ -266,11 +271,11 @@ public class SuperAdministrator extends javax.swing.JFrame {
         }//End if
     }//GEN-LAST:event_menuItemEmptyAppActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuItemSystemActionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSystemActionsActionPerformed
         SystemActions sR = new SystemActions();
         sR.show();
         sR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuItemSystemActionsActionPerformed
 
     private void menuItemMainDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMainDocumentActionPerformed
 //        try {
@@ -334,20 +339,21 @@ public class SuperAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel lbSuperAdministrator;
     private javax.swing.JMenu menuAdd;
-    private javax.swing.JMenu menuCrud;
     private javax.swing.JMenu menuInformation;
     private javax.swing.JMenuItem menuItemCRUDRoles;
+    private javax.swing.JMenuItem menuItemChangeTime;
     private javax.swing.JMenuItem menuItemEmptyApp;
     private javax.swing.JMenuItem menuItemMainDocument;
     private javax.swing.JMenuItem menuItemNewRol;
     private javax.swing.JMenuItem menuItemSignOff;
+    private javax.swing.JMenuItem menuItemSystemActions;
     private javax.swing.JMenuItem menuItemUserManual;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables

@@ -43,12 +43,11 @@ public class Administrator extends javax.swing.JFrame {
         menuAdd = new javax.swing.JMenu();
         menuItemNewDate = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        menuCRUD = new javax.swing.JMenu();
-        menuItemCRUDDates = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuItemFoodPlans = new javax.swing.JMenuItem();
         menuInformation = new javax.swing.JMenu();
-        menuItemGraficas = new javax.swing.JMenuItem();
+        menuItemDates = new javax.swing.JMenuItem();
+        menuItemNotes = new javax.swing.JMenuItem();
+        menuItemCharts = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
 
@@ -75,48 +74,44 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuAdd.add(jMenuItem1);
 
+        menuItemFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
+        menuItemFoodPlans.setText("NEW FOOD PLAN");
+        menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemFoodPlansActionPerformed(evt);
+            }
+        });
+        menuAdd.add(menuItemFoodPlans);
+
         jMenuBar1.add(menuAdd);
-
-        menuCRUD.setText("CRUD");
-
-        menuItemCRUDDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
-        menuItemCRUDDates.setText("CRUD DATES");
-        menuItemCRUDDates.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemCRUDDatesActionPerformed(evt);
-            }
-        });
-        menuCRUD.add(menuItemCRUDDates);
-
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
-        jMenuItem2.setText("CRUD NOTES");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        menuCRUD.add(jMenuItem2);
-
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
-        jMenuItem3.setText("CRUD Plan Comida");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        menuCRUD.add(jMenuItem3);
-
-        jMenuBar1.add(menuCRUD);
 
         menuInformation.setText("INFORMATION");
 
-        menuItemGraficas.setText("GRAFICAS");
-        menuItemGraficas.addActionListener(new java.awt.event.ActionListener() {
+        menuItemDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
+        menuItemDates.setText("DATES");
+        menuItemDates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemGraficasActionPerformed(evt);
+                menuItemDatesActionPerformed(evt);
             }
         });
-        menuInformation.add(menuItemGraficas);
+        menuInformation.add(menuItemDates);
+
+        menuItemNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
+        menuItemNotes.setText("DATA");
+        menuItemNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemNotesActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemNotes);
+
+        menuItemCharts.setText("CHARTS");
+        menuItemCharts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemChartsActionPerformed(evt);
+            }
+        });
+        menuInformation.add(menuItemCharts);
 
         jMenuBar1.add(menuInformation);
 
@@ -163,11 +158,11 @@ public class Administrator extends javax.swing.JFrame {
         aD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menuItemNewDateActionPerformed
 
-    private void menuItemCRUDDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCRUDDatesActionPerformed
+    private void menuItemDatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDatesActionPerformed
         CRUDAdministratorDates cR = new CRUDAdministratorDates();
         cR.show();
         cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemCRUDDatesActionPerformed
+    }//GEN-LAST:event_menuItemDatesActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         AdministratorNotes nC = new AdministratorNotes();
@@ -176,22 +171,23 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        CRUDNotes cn=new CRUDNotes();
+    private void menuItemNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNotesActionPerformed
+        CRUDNotes cn = new CRUDNotes();
         cn.show();
         cn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuItemNotesActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuItemFoodPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFoodPlansActionPerformed
+        CRUDFoodPlanAdministrator fP = new CRUDFoodPlanAdministrator();
+        fP.show();
+        fP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuItemFoodPlansActionPerformed
 
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void menuItemGraficasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGraficasActionPerformed
+    private void menuItemChartsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemChartsActionPerformed
         GraficasforAdmin cR = new GraficasforAdmin();
         cR.show();
         cR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_menuItemGraficasActionPerformed
-
+    }//GEN-LAST:event_menuItemChartsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,14 +229,13 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu menuAdd;
-    private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenu menuInformation;
-    private javax.swing.JMenuItem menuItemCRUDDates;
-    private javax.swing.JMenuItem menuItemGraficas;
+    private javax.swing.JMenuItem menuItemCharts;
+    private javax.swing.JMenuItem menuItemDates;
+    private javax.swing.JMenuItem menuItemFoodPlans;
     private javax.swing.JMenuItem menuItemNewDate;
+    private javax.swing.JMenuItem menuItemNotes;
     private javax.swing.JMenuItem menuItemSignOff;
     private javax.swing.JMenu menuOptions;
     // End of variables declaration//GEN-END:variables

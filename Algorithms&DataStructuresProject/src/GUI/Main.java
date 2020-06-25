@@ -159,9 +159,11 @@ public class Main extends javax.swing.JFrame {
         Encrypted encode = new Encrypted();
 
         try {
-
+            if(tFnombredeUsuario.getText().equals("") || tfpassword.getText().equals("")){
+                lbMessages.setText("PLEASE FILL THE DATA!");
+            }//End if
             //Lf.searchAdminID(txtNombre.getText(),jPasswordField1.getText(), rol)
-            if (Lf.searchActivo(tFnombredeUsuario.getText(), tfpassword.getText()) == false) {
+            else if (Lf.searchActivo(tFnombredeUsuario.getText(), tfpassword.getText()) == false) {
                 lbMessages.setText("USER NOT FOUND"); //No encuentra al usuario
                 tFnombredeUsuario.setText("");
                 tfpassword.setText("");

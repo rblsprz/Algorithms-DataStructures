@@ -54,13 +54,11 @@ public class NotesCustomer extends javax.swing.JFrame {
         btnShowNotes = new javax.swing.JButton();
         lbMessages = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuPDF = new javax.swing.JMenu();
-        menuExcel = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbRegistratedNotes.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        lbRegistratedNotes.setText("REGISTRATED NOTES");
+        lbRegistratedNotes.setText("MY ADVANCES");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,23 +79,6 @@ public class NotesCustomer extends javax.swing.JFrame {
                 btnShowNotesActionPerformed(evt);
             }
         });
-
-        menuPDF.setText("PDF EXPORT");
-        menuPDF.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuPDFMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(menuPDF);
-
-        menuExcel.setText("EXCEL EXPORT");
-        menuExcel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuExcelMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(menuExcel);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,24 +114,12 @@ public class NotesCustomer extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(btnShowNotes)))
-                .addContainerGap(617, Short.MAX_VALUE))
+                .addContainerGap(636, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menuPDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuPDFMouseClicked
-
-        MessageFormat header=new MessageFormat("Historial de Notas");
-        MessageFormat footer=new MessageFormat("Página{0,number,integer}");
-        try{
-            jTable1.print(JTable.PrintMode.NORMAL, header, footer);
-            JOptionPane.showMessageDialog(null, "Exportado correctamente");
-        } catch (PrinterException ex) {
-            System.err.format("Error de impresion", ex.getMessage());
-        }
-    }//GEN-LAST:event_menuPDFMouseClicked
 
     private void btnShowNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowNotesActionPerformed
         
@@ -177,19 +146,6 @@ public class NotesCustomer extends javax.swing.JFrame {
         lbMessages.setText("NOT FOUND!");
         }
     }//GEN-LAST:event_btnShowNotesActionPerformed
-
-    private void menuExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuExcelMouseClicked
-       JFileChooser seleccionar = new JFileChooser();
-        File archivo;
-        if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
-            archivo = seleccionar.getSelectedFile();
-            String imagen = archivo + ".xls";
-            File file = new File(imagen);
-            ExportarExcel excel = new ExportarExcel(jTable1, file, "" + "tablaimporte");
-            excel.export(); 
-            JOptionPane.showMessageDialog(null, "Exportado correctamente");
-        }
-    }//GEN-LAST:event_menuExcelMouseClicked
     
     public void searchClienteIndividual(String cedula) throws FileNotFoundException{
         Logic lC = new Logic();
@@ -279,7 +235,5 @@ public class NotesCustomer extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbRegistratedNotes;
-    private javax.swing.JMenu menuExcel;
-    private javax.swing.JMenu menuPDF;
     // End of variables declaration//GEN-END:variables
 }

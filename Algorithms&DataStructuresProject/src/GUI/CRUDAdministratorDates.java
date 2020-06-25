@@ -78,6 +78,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         comboHoras = new javax.swing.JComboBox<>();
         jToggleButton2 = new javax.swing.JToggleButton();
         btnPDF = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -103,23 +104,23 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
 
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(680, 240, 36, 16);
+        lbName.setBounds(680, 240, 32, 14);
         getContentPane().add(tfName);
-        tfName.setBounds(770, 230, 219, 24);
+        tfName.setBounds(770, 230, 219, 20);
 
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(680, 280, 14, 16);
+        lbID.setBounds(680, 280, 15, 14);
         getContentPane().add(tfID);
-        tfID.setBounds(770, 280, 219, 24);
+        tfID.setBounds(770, 280, 219, 20);
 
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(680, 340, 72, 16);
+        lbDate.setBounds(680, 340, 72, 14);
 
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(680, 420, 70, 16);
+        lbTime.setBounds(680, 420, 70, 14);
 
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
@@ -131,7 +132,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(800, 470, 130, 48);
+        btnUpdate.setBounds(800, 470, 130, 41);
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
@@ -143,7 +144,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(950, 470, 120, 48);
+        btnDelete.setBounds(950, 470, 120, 41);
 
         btnShowDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowDates.setText("SHOW DATES");
@@ -155,11 +156,11 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(640, 470, 140, 48);
+        btnShowDates.setBounds(640, 470, 140, 41);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(770, 330, 219, 29);
+        dateChooser.setBounds(770, 330, 219, 20);
         getContentPane().add(tfDate);
-        tfDate.setBounds(770, 370, 97, 24);
+        tfDate.setBounds(770, 370, 97, 20);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(560, 370, 290, 0);
 
@@ -175,7 +176,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboHoras);
-        comboHoras.setBounds(770, 420, 90, 26);
+        comboHoras.setBounds(770, 420, 90, 20);
 
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
         jToggleButton2.setText("Excel");
@@ -186,18 +187,24 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-
         jToggleButton2.setBounds(850, 530, 141, 50);
-
 
         btnPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         btnPDF.setText("PDF");
         btnPDF.setBorderPainted(false);
         btnPDF.setContentAreaFilled(false);
+        btnPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPDFActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnPDF);
+        btnPDF.setBounds(730, 530, 100, 41);
 
-        btnPDF.setBounds(730, 530, 100, 48);
-
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel7.setText("DATES");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(290, 140, 56, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -339,6 +346,16 @@ void impresion() {
         impresion();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
+       MessageFormat header=new MessageFormat("Registro de citas");
+        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
+        try{
+            jTableAdmin.print(JTable.PrintMode.NORMAL, header, footer);
+        } catch (PrinterException ex) {
+            System.err.format("error de impresion", ex.getMessage());
+        }
+    }//GEN-LAST:event_btnPDFActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -385,6 +402,7 @@ void impresion() {
     private javax.swing.JComboBox<String> comboHoras;
     private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable jTableAdmin;
     private javax.swing.JToggleButton jToggleButton2;

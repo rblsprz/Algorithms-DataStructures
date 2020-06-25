@@ -66,13 +66,11 @@ public class GraficasforCustom extends javax.swing.JFrame {
         jRadioButton4 = new javax.swing.JRadioButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnEjecutar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEjecutar.setText("Ejecutar");
+        btnEjecutar.setText("RUN");
         btnEjecutar.setBorderPainted(false);
         btnEjecutar.setContentAreaFilled(false);
         btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +80,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
         });
 
         btnGraficar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGraficar.setText("Graficar");
+        btnGraficar.setText("GRAPH");
         btnGraficar.setBorderPainted(false);
         btnGraficar.setContentAreaFilled(false);
         btnGraficar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,12 +91,12 @@ public class GraficasforCustom extends javax.swing.JFrame {
 
         buttonGroup2.add(rbBarra);
         rbBarra.setForeground(new java.awt.Color(255, 255, 255));
-        rbBarra.setText("Barra");
+        rbBarra.setText("BARS");
         rbBarra.setContentAreaFilled(false);
 
         buttonGroup2.add(rbCircular);
         rbCircular.setForeground(new java.awt.Color(255, 255, 255));
-        rbCircular.setText("Circular");
+        rbCircular.setText("CIRCULAR");
         rbCircular.setContentAreaFilled(false);
 
         tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
@@ -112,11 +110,11 @@ public class GraficasforCustom extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblConsultas);
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        jLabel7.setText("GRÁFICAS DE AVANCES");
+        jLabel7.setText("MY CHARTS");
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Grasa");
+        jRadioButton1.setText("GREASE");
         jRadioButton1.setToolTipText("");
         jRadioButton1.setContentAreaFilled(false);
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,22 +125,22 @@ public class GraficasforCustom extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Musculo");
+        jRadioButton2.setText("MUSCLE");
         jRadioButton2.setContentAreaFilled(false);
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Hidratacion");
+        jRadioButton3.setText("WATER");
         jRadioButton3.setContentAreaFilled(false);
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton4.setText("Peso");
+        jRadioButton4.setText("WEIGHT");
         jRadioButton4.setContentAreaFilled(false);
 
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
-        jToggleButton1.setText("Exportar pdf");
+        jToggleButton1.setText("PDF EXPORT CHART");
         jToggleButton1.setToolTipText("");
         jToggleButton1.setBorderPainted(false);
         jToggleButton1.setContentAreaFilled(false);
@@ -155,25 +153,6 @@ public class GraficasforCustom extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu1.setText("Ver Notas");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu2.setText("Atrás");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -241,7 +220,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
                     .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(535, Short.MAX_VALUE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
 
         pack();
@@ -336,18 +315,6 @@ public class GraficasforCustom extends javax.swing.JFrame {
         }
         return cedula;
     }
-
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        NotesCustomer v = new NotesCustomer();
-        v.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenu1MouseClicked
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        Customer mc = new Customer();
-        mc.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
@@ -494,8 +461,6 @@ public class GraficasforCustom extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;

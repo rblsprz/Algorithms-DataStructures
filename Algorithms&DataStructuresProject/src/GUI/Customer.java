@@ -40,13 +40,12 @@ public class Customer extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         lbCustomer = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        menuAdd = new javax.swing.JMenu();
+        menuItemNewDate = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        menuAdd = new javax.swing.JMenu();
-        menuItemNewDate = new javax.swing.JMenuItem();
-        menuCRUD = new javax.swing.JMenu();
         menuItemMyCRUD = new javax.swing.JMenuItem();
         menuOptions = new javax.swing.JMenu();
         menuItemSignOff = new javax.swing.JMenuItem();
@@ -58,36 +57,6 @@ public class Customer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbCustomer.setText("CUSTOMER");
-
-        jMenu3.setText("MY PROFILE");
-
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
-        jMenuItem1.setText("MY ADVANCES");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem1);
-
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
-        jMenuItem2.setText("MY PLANS");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem2);
-
-        jMenuItem3.setText("GRAFICAS");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu3);
 
         menuAdd.setText("ADD");
 
@@ -102,18 +71,44 @@ public class Customer extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAdd);
 
-        menuCRUD.setText("CRUD");
+        jMenu3.setText("MY PROFILE");
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
+        jMenuItem1.setText("MY ADVANCES");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
+        jMenuItem2.setText("MY FOOD PLANS");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuItem3.setText("MY CHARTS");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
 
         menuItemMyCRUD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
-        menuItemMyCRUD.setText("MY CRUD");
+        menuItemMyCRUD.setText("MY DATING HISTORY");
         menuItemMyCRUD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemMyCRUDActionPerformed(evt);
             }
         });
-        menuCRUD.add(menuItemMyCRUD);
+        jMenu3.add(menuItemMyCRUD);
 
-        jMenuBar1.add(menuCRUD);
+        jMenuBar1.add(jMenu3);
 
         menuOptions.setText("OPTIONS");
 
@@ -235,7 +230,6 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel lbCustomer;
     private javax.swing.JMenu menuAdd;
-    private javax.swing.JMenu menuCRUD;
     private javax.swing.JMenuItem menuItemMyCRUD;
     private javax.swing.JMenuItem menuItemNewDate;
     private javax.swing.JMenuItem menuItemSignOff;

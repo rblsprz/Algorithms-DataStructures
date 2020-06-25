@@ -79,6 +79,7 @@ public class CRUD extends javax.swing.JFrame {
         lbMensajes = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -109,7 +110,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(1100, 550, 170, 48);
+        btnshowRoles.setBounds(1100, 550, 170, 41);
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
@@ -119,7 +120,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(1470, 550, 120, 48);
+        btnDelete.setBounds(1470, 550, 120, 41);
         getContentPane().add(tfName);
         tfName.setBounds(880, 100, 150, 30);
 
@@ -165,7 +166,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(1300, 550, 130, 48);
+        btnUpdate.setBounds(1300, 550, 130, 41);
 
         lbID.setText("ID");
         getContentPane().add(lbID);
@@ -207,7 +208,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(1200, 620, 120, 48);
+        jToggleButton2.setBounds(1200, 620, 120, 41);
 
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF");
@@ -217,7 +218,12 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(1390, 620, 110, 48);
+        jToggleButton1.setBounds(1390, 620, 110, 41);
+
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel7.setText("ROLES");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(660, 310, 56, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -426,6 +432,7 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnshowRoles;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;

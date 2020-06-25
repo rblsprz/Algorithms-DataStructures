@@ -1,6 +1,7 @@
 package GUI;
 
 import GUI.Administrator;
+import static GUI.CRUDAdministratorDates.jTableAdmin;
 import GUI.CRUDNotes;
 import Logic.History;
 import Logic.Roles;
@@ -69,9 +70,9 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
         tfLunch = new javax.swing.JTextField();
         tfDinner = new javax.swing.JTextField();
         lbMessages = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +80,7 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
         lbSnacks.setText("SNACKS");
 
         lbFoodPlans.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        lbFoodPlans.setText("FOOD PLANS");
+        lbFoodPlans.setText("NEW FOOD PLAN");
 
         lbDinner.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDinner.setText("DINNER");
@@ -142,22 +143,26 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("PDF EXPORT");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
+        jToggleButton1.setText("PDF");
+        jToggleButton1.setBorderPainted(false);
+        jToggleButton1.setContentAreaFilled(false);
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("EXCEL EXPORT");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
+        jToggleButton2.setText("Excel");
+        jToggleButton2.setBorderPainted(false);
+        jToggleButton2.setContentAreaFilled(false);
+        jToggleButton2.setFocusPainted(false);
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,6 +187,26 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
                             .addGap(3, 3, 3)))
                     .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAddFoodPlan))
+                                .addGap(60, 60, 60)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(btnUpdateFoodPlan)
+                                        .addGap(53, 53, 53)
+                                        .addComponent(btnDeleteFoodPlan))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(132, 132, 132))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -190,23 +215,12 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
                                 .addGap(33, 33, 33)
                                 .addComponent(btnShowFoodPlans))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(279, 279, 279)
-                                .addComponent(lbFoodPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbFoodPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAddFoodPlan)
-                                .addGap(60, 60, 60)
-                                .addComponent(btnUpdateFoodPlan)
-                                .addGap(53, 53, 53)
-                                .addComponent(btnDeleteFoodPlan)))
-                        .addGap(132, 132, 132))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,35 +251,29 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddFoodPlan)
                     .addComponent(btnUpdateFoodPlan)
                     .addComponent(btnDeleteFoodPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton1)
+                    .addComponent(jToggleButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbMessages)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        MessageFormat header=new MessageFormat("Planes Alimenticios");
-        MessageFormat footer=new MessageFormat("Página{0,number,integer}");
-        try{
-            jTable1.print(JTable.PrintMode.NORMAL, header, footer);
-            JOptionPane.showMessageDialog(null, "Exportado correctamente");
-        } catch (PrinterException ex) {
-            System.err.format("Error de impresion", ex.getMessage());
-        }
-    }//GEN-LAST:event_jMenu1MouseClicked
 
     private void btnAddFoodPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFoodPlanActionPerformed
         Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
@@ -408,22 +416,35 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
             }   
     }//GEN-LAST:event_btnDeleteFoodPlanActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSearchActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+
+        MessageFormat header = new MessageFormat("Citas personal");
+        MessageFormat footer = new MessageFormat("Page{0,number,integer}");
+        try {
+            jTable1.print(JTable.PrintMode.NORMAL, header, footer);
+
+        } catch (PrinterException ex) {
+            System.err.format("error de impresion", ex.getMessage());
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+void impresion() {
         JFileChooser seleccionar = new JFileChooser();
         File archivo;
         if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
             archivo = seleccionar.getSelectedFile();
             String imagen = archivo + ".xls";
             File file = new File(imagen);
-            ExportarExcel excel = new ExportarExcel(jTable1, file, "" + "tablaimporte");
+            ExportarExcel excel = new ExportarExcel(jTableAdmin, file, "" + "tablaimporte");
             excel.export(); 
-            JOptionPane.showMessageDialog(null, "Exportado correctamente");
         }
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSearchActionPerformed
+    }
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        impresion();
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
     
 
     /**
@@ -549,11 +570,11 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
     private javax.swing.JButton btnShowFoodPlans;
     private javax.swing.JButton btnUpdateFoodPlan;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lbBreakFast;
     private javax.swing.JLabel lbDinner;
     private javax.swing.JLabel lbFoodPlans;

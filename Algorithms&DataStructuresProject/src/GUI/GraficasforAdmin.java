@@ -56,29 +56,26 @@ public class GraficasforAdmin extends javax.swing.JFrame {
         btnGraficar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblConsultas = new javax.swing.JTable();
-        txtCedula = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        tfID = new javax.swing.JTextField();
+        lbID = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        radioButtonGrease = new javax.swing.JRadioButton();
+        radioButtonWeight = new javax.swing.JRadioButton();
+        radioButtonMuscle = new javax.swing.JRadioButton();
+        lbData = new javax.swing.JLabel();
+        radioButtonWater = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
-        rbBarra = new javax.swing.JRadioButton();
+        rbBars = new javax.swing.JRadioButton();
         rbCircular = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnEjecutar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        btnEjecutar.setText("Buscar");
+        btnEjecutar.setText("SEARCH");
         btnEjecutar.setBorderPainted(false);
         btnEjecutar.setContentAreaFilled(false);
         btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +84,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             }
         });
 
-        btnGraficar.setText("Graficar");
+        btnGraficar.setText("GRAPH");
         btnGraficar.setBorderPainted(false);
         btnGraficar.setContentAreaFilled(false);
         btnGraficar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,44 +103,44 @@ public class GraficasforAdmin extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblConsultas);
 
-        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfID.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtCedulaMouseClicked(evt);
+                tfIDMouseClicked(evt);
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cedula:");
+        lbID.setBackground(new java.awt.Color(255, 255, 255));
+        lbID.setText("ID:");
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jRadioButton1.setText("Grasa");
-        jRadioButton1.setContentAreaFilled(false);
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        radioButtonGrease.setText("GREASE");
+        radioButtonGrease.setContentAreaFilled(false);
+        radioButtonGrease.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                radioButtonGreaseActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setText("Peso");
-        jRadioButton4.setContentAreaFilled(false);
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        radioButtonWeight.setText("WEIGHT");
+        radioButtonWeight.setContentAreaFilled(false);
+        radioButtonWeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                radioButtonWeightActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Musculo");
-        jRadioButton2.setContentAreaFilled(false);
+        radioButtonMuscle.setText("MUSCLE");
+        radioButtonMuscle.setContentAreaFilled(false);
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Dato a ver");
+        lbData.setBackground(new java.awt.Color(255, 255, 255));
+        lbData.setText("DATA");
 
-        jRadioButton3.setText("Hidratacion");
-        jRadioButton3.setContentAreaFilled(false);
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        radioButtonWater.setText("WATER");
+        radioButtonWater.setContentAreaFilled(false);
+        radioButtonWater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                radioButtonWaterActionPerformed(evt);
             }
         });
 
@@ -156,43 +153,43 @@ public class GraficasforAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1))
+                            .addComponent(radioButtonMuscle)
+                            .addComponent(radioButtonGrease))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton3)))
+                            .addComponent(radioButtonWeight)
+                            .addComponent(radioButtonWater)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(jLabel2)))
+                        .addComponent(lbData)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(lbData)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton4))
+                    .addComponent(radioButtonGrease)
+                    .addComponent(radioButtonWeight))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(radioButtonMuscle)
+                    .addComponent(radioButtonWater))
                 .addGap(22, 22, 22))
         );
 
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        rbBarra.setText("Barra");
-        rbBarra.setContentAreaFilled(false);
+        rbBars.setText("BARS");
+        rbBars.setContentAreaFilled(false);
 
-        rbCircular.setText("Circular");
+        rbCircular.setText("CIRCULAR");
         rbCircular.setContentAreaFilled(false);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Tipo de grafica");
+        jLabel3.setText("CHART TYPE");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -204,7 +201,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbBarra)
+                    .addComponent(rbBars)
                     .addComponent(rbCircular))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -215,12 +212,12 @@ public class GraficasforAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(rbCircular)
                 .addGap(18, 18, 18)
-                .addComponent(rbBarra)
+                .addComponent(rbBars)
                 .addContainerGap())
         );
 
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
-        jToggleButton1.setText("Exportar Grafica");
+        jToggleButton1.setText("PDF EXPORT CHART");
         jToggleButton1.setBorderPainted(false);
         jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -229,34 +226,8 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Notas");
-
-        jMenuItem1.setText("Nueva Nota");
-        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem1MouseClicked(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Configurar Notas");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Atrás");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu2);
-
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel7.setText("CHARTS");
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -264,38 +235,45 @@ public class GraficasforAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
-                                .addComponent(jLabel1)
+                                .addComponent(lbID)
                                 .addGap(26, 26, 26)
-                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(778, 778, 778)
                         .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
+                        .addGap(18, 18, 18)
                         .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton1)))
+                        .addGap(33, 33, 33)
+                        .addComponent(jToggleButton1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(777, 777, 777))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(963, 963, 963)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel1))
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbID))
+                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,58 +285,40 @@ public class GraficasforAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(503, Short.MAX_VALUE))
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(522, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        Administrator mA = new Administrator();
-        mA.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
-        AdministratorNotes nA = new AdministratorNotes();
-        nA.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItem1MouseClicked
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        CRUDFoodPlanAdministrator pl = new CRUDFoodPlanAdministrator();
-        pl.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
-        if (txtCedula.getText().equals("")) {
+        if (tfID.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Digite el número de cedula que desea buscar");
         } else {
             DefaultTableModel miModelo;
 
             GraficsLogic miGrafica = new GraficsLogic();
 
-            if(jRadioButton1.isSelected()){
+            if(radioButtonGrease.isSelected()){
 
-                miModelo = miGrafica.mostrarGrasa(txtCedula.getText());
+                miModelo = miGrafica.mostrarGrasa(tfID.getText());
                 tblConsultas.setModel(miModelo);
             }
-            if(jRadioButton2.isSelected()){
+            if(radioButtonMuscle.isSelected()){
 
-                miModelo = miGrafica.mostrarMusculo(txtCedula.getText());
+                miModelo = miGrafica.mostrarMusculo(tfID.getText());
                 tblConsultas.setModel(miModelo);
             }
 
-            if(jRadioButton3.isSelected()){
-                miModelo = miGrafica.mostrarHidratacion(txtCedula.getText());
+            if(radioButtonWater.isSelected()){
+                miModelo = miGrafica.mostrarHidratacion(tfID.getText());
                 tblConsultas.setModel(miModelo);
             }
-            if(jRadioButton4.isSelected()){
-                miModelo = miGrafica.mostrarPeso(txtCedula.getText());
+            if(radioButtonWeight.isSelected()){
+                miModelo = miGrafica.mostrarPeso(tfID.getText());
                 tblConsultas.setModel(miModelo);
             }
         }
@@ -366,20 +326,20 @@ public class GraficasforAdmin extends javax.swing.JFrame {
 
     private void btnGraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficarActionPerformed
         String name="";
-        if(jRadioButton1.isSelected()){
+        if(radioButtonGrease.isSelected()){
             name="Grasa";
         }
-        if(jRadioButton2.isSelected()){
+        if(radioButtonMuscle.isSelected()){
             name="Musculo";
         }
 
-        if(jRadioButton3.isSelected()){
+        if(radioButtonWater.isSelected()){
             name="Hidratación";
         }
-        if(jRadioButton4.isSelected()){
+        if(radioButtonWeight.isSelected()){
             name="Peso";
         }
-        if(rbBarra.isSelected()){
+        if(rbBars.isSelected()){
             DefaultCategoryDataset dts = new DefaultCategoryDataset();
 
             for(int i = 0; i < tblConsultas.getRowCount(); i++){
@@ -408,41 +368,41 @@ public class GraficasforAdmin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGraficarActionPerformed
 
-    private void txtCedulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMouseClicked
-        txtCedula.setText("");
+    private void tfIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfIDMouseClicked
+        tfID.setText("");
         //holder = new PlaceHolder(txtCedula, "Digite la cedula");
-    }//GEN-LAST:event_txtCedulaMouseClicked
+    }//GEN-LAST:event_tfIDMouseClicked
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void radioButtonGreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonGreaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_radioButtonGreaseActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void radioButtonWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonWeightActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_radioButtonWeightActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void radioButtonWaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonWaterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_radioButtonWaterActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
 
         String name="";
-        if(jRadioButton1.isSelected()){
+        if(radioButtonGrease.isSelected()){
             name="Grasa";
         }
-        if(jRadioButton2.isSelected()){
+        if(radioButtonMuscle.isSelected()){
             name="Musculo";
         }
 
-        if(jRadioButton3.isSelected()){
+        if(radioButtonWater.isSelected()){
             name="Hidratación";
         }
-        if(jRadioButton4.isSelected()){
+        if(radioButtonWeight.isSelected()){
             name="Peso";
         }
 
-        if(rbBarra.isSelected()){
+        if(rbBars.isSelected()){
             DefaultCategoryDataset dts = new DefaultCategoryDataset();
 
             for(int i = 0; i < tblConsultas.getRowCount(); i++){
@@ -565,25 +525,22 @@ public class GraficasforAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEjecutar;
     private javax.swing.JButton btnGraficar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JRadioButton rbBarra;
+    private javax.swing.JLabel lbData;
+    private javax.swing.JLabel lbID;
+    private javax.swing.JRadioButton radioButtonGrease;
+    private javax.swing.JRadioButton radioButtonMuscle;
+    private javax.swing.JRadioButton radioButtonWater;
+    private javax.swing.JRadioButton radioButtonWeight;
+    private javax.swing.JRadioButton rbBars;
     private javax.swing.JRadioButton rbCircular;
     private javax.swing.JTable tblConsultas;
-    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField tfID;
     // End of variables declaration//GEN-END:variables
 }

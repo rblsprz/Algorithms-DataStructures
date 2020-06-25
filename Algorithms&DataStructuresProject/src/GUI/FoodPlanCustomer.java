@@ -63,14 +63,11 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
         btnShowPlans = new javax.swing.JButton();
         lbMessages = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbPersonalFoodPlan.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
-        lbPersonalFoodPlan.setText("PERSONAL FOOD PLAN");
+        lbPersonalFoodPlan.setText("MY FOOD PLANS");
 
         lbBreakFast.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbBreakFast.setText("BREAKFAST");
@@ -115,26 +112,6 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
                 btnShowPlansActionPerformed(evt);
             }
         });
-
-        jMenu1.setText("PDF EXPORT");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("EXCEL EXPORT");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("WORD EXPORT");
-        jMenuBar1.add(jMenu3);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,22 +180,11 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
                         .addComponent(btnShowPlans)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbMessages)
-                .addContainerGap(651, Short.MAX_VALUE))
+                .addContainerGap(670, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        MessageFormat header=new MessageFormat("Planes Alimenticios");
-        MessageFormat footer=new MessageFormat("Página{0,number,integer}");
-        try{
-            jTable1.print(JTable.PrintMode.NORMAL, header, footer);
-            JOptionPane.showMessageDialog(null, "Exportado correctamente");
-        } catch (PrinterException ex) {
-            System.err.format("Error de impresion", ex.getMessage());
-        }
-    }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int seleccion = jTable1.getSelectedRow();
@@ -255,19 +221,6 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
         lbMessages.setText("NOT FOUND!");
             }
     }//GEN-LAST:event_btnShowPlansActionPerformed
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        JFileChooser seleccionar = new JFileChooser();
-        File archivo;
-        if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
-            archivo = seleccionar.getSelectedFile();
-            String imagen = archivo + ".xls";
-            File file = new File(imagen);
-            ExportarExcel excel = new ExportarExcel(jTable1, file, "" + "tablaimporte");
-            excel.export(); 
-            JOptionPane.showMessageDialog(null, "Exportado correctamente");
-        }
-    }//GEN-LAST:event_jMenu2MouseClicked
         //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
     public void searchClienteIndividual(String cedula) throws FileNotFoundException{
         Logic lC = new Logic();
@@ -339,9 +292,6 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShowPlans;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
