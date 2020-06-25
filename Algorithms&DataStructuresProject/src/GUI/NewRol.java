@@ -7,6 +7,10 @@ import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 import Logic.Logic;
 import Logic.Encrypted;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,7 +23,12 @@ public class NewRol extends javax.swing.JFrame {
      */
     Logic lo = new Logic();
     Encrypted encode = new Encrypted();
+    FondoPanel fondo = new FondoPanel();
+
+    
+       
     public NewRol() {
+         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(NewRol.MAXIMIZED_BOTH);
 
@@ -56,8 +65,6 @@ public class NewRol extends javax.swing.JFrame {
         lbEmail = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
         lbMensajes = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -68,13 +75,15 @@ public class NewRol extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(40, 112, 50, 16);
+        lbName.setBounds(740, 110, 100, 16);
 
+        lbPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbPassword.setText("PASSWORD:");
         getContentPane().add(lbPassword);
-        lbPassword.setBounds(40, 276, 100, 16);
+        lbPassword.setBounds(690, 320, 150, 16);
 
         cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRATOR", "CUSTOMER" }));
         cbRoles.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,14 +97,16 @@ public class NewRol extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbRoles);
-        cbRoles.setBounds(161, 492, 293, 26);
+        cbRoles.setBounds(810, 580, 293, 40);
 
+        lbRoles.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbRoles.setText("ROLES:");
         getContentPane().add(lbRoles);
-        lbRoles.setBounds(40, 495, 70, 16);
+        lbRoles.setBounds(730, 590, 120, 16);
         getContentPane().add(tfName);
-        tfName.setBounds(161, 109, 293, 24);
+        tfName.setBounds(810, 100, 293, 40);
 
+        btnRegistrar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnRegistrar.setText("ADD NEW ROL");
         btnRegistrar.setBorderPainted(false);
@@ -106,56 +117,54 @@ public class NewRol extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRegistrar);
-        btnRegistrar.setBounds(200, 550, 160, 48);
+        btnRegistrar.setBounds(840, 660, 230, 48);
 
+        lbLastName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbLastName.setText("LAST NAME:");
         getContentPane().add(lbLastName);
-        lbLastName.setBounds(40, 168, 100, 16);
+        lbLastName.setBounds(690, 170, 150, 16);
         getContentPane().add(tfLastName);
-        tfLastName.setBounds(161, 165, 293, 24);
+        tfLastName.setBounds(810, 160, 293, 40);
 
+        lbPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbPhone.setText("PHONE:");
         getContentPane().add(lbPhone);
-        lbPhone.setBounds(40, 386, 60, 16);
+        lbPhone.setBounds(730, 450, 110, 16);
         getContentPane().add(tfPhone);
-        tfPhone.setBounds(161, 383, 293, 24);
+        tfPhone.setBounds(810, 440, 293, 40);
 
+        lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID:");
         lbID.setToolTipText("");
         getContentPane().add(lbID);
-        lbID.setBounds(40, 61, 30, 16);
+        lbID.setBounds(770, 50, 80, 16);
         getContentPane().add(tfID);
-        tfID.setBounds(161, 58, 293, 24);
+        tfID.setBounds(810, 34, 293, 40);
         getContentPane().add(tfPassword);
-        tfPassword.setBounds(161, 273, 293, 22);
+        tfPassword.setBounds(810, 300, 293, 40);
 
+        lbUserName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbUserName.setText("USERNAME:");
         getContentPane().add(lbUserName);
-        lbUserName.setBounds(40, 221, 100, 16);
+        lbUserName.setBounds(690, 240, 150, 16);
         getContentPane().add(tfUserName);
-        tfUserName.setBounds(161, 218, 293, 24);
+        tfUserName.setBounds(810, 230, 293, 40);
 
+        lbAge.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbAge.setText("AGE:");
         getContentPane().add(lbAge);
-        lbAge.setBounds(40, 330, 50, 16);
+        lbAge.setBounds(750, 380, 100, 16);
         getContentPane().add(tfAge);
-        tfAge.setBounds(161, 327, 293, 24);
+        tfAge.setBounds(810, 370, 293, 40);
 
+        lbEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbEmail.setText("EMAIL:");
         getContentPane().add(lbEmail);
-        lbEmail.setBounds(40, 440, 70, 16);
+        lbEmail.setBounds(740, 520, 120, 16);
         getContentPane().add(tfEmail);
-        tfEmail.setBounds(161, 434, 293, 24);
+        tfEmail.setBounds(810, 510, 293, 40);
         getContentPane().add(lbMensajes);
-        lbMensajes.setBounds(658, 544, 338, 27);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/busin.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(520, 260, 260, 310);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-blanco.jpg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, -240, 2130, 1480);
+        lbMensajes.setBounds(790, 620, 338, 27);
 
         pack();
         setLocationRelativeTo(null);
@@ -300,8 +309,6 @@ public class NewRol extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbRoles;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbID;
@@ -321,4 +328,18 @@ public class NewRol extends javax.swing.JFrame {
     private javax.swing.JTextField tfPhone;
     private javax.swing.JTextField tfUserName;
     // End of variables declaration//GEN-END:variables
+
+     class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos2.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

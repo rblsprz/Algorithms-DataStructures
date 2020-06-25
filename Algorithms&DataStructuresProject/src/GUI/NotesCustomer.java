@@ -21,6 +21,10 @@ import Logic.ExportarExcel;
 import Logic.Logic;
 import Logic.FileQueuesLog;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -31,12 +35,14 @@ public class NotesCustomer extends javax.swing.JFrame {
     /**
      * Creates new form VerNotasCliente
      */
+     FondoPanel fondo = new FondoPanel();
+
+       
+         
     public NotesCustomer() {
+        this.setContentPane(fondo);
         initComponents();
          this.setExtendedState(NotesCustomer.MAXIMIZED_BOTH);
-         //Color JFrame
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        
     }
 
     /**
@@ -70,6 +76,7 @@ public class NotesCustomer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        btnShowNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowNotes.setText("SHOW NOTES");
         btnShowNotes.setBorderPainted(false);
@@ -86,35 +93,34 @@ public class NotesCustomer extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(552, Short.MAX_VALUE)
+                .addGap(852, 852, 852)
+                .addComponent(lbRegistratedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(803, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnShowNotes)
-                        .addGap(262, 262, 262)
                         .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(337, 337, 337))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbRegistratedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(873, 873, 873))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(473, 473, 473))))
+                        .addGap(222, 222, 222))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnShowNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(774, 774, 774))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(111, 111, 111)
                 .addComponent(lbRegistratedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(lbMessages))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnShowNotes)))
-                .addContainerGap(636, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbMessages)
+                .addGap(18, 18, 18)
+                .addComponent(btnShowNotes)
+                .addContainerGap(595, Short.MAX_VALUE))
         );
 
         pack();
@@ -236,4 +242,18 @@ public class NotesCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbRegistratedNotes;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos11.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

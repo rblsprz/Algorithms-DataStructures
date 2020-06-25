@@ -246,7 +246,7 @@ public class Administrator extends javax.swing.JFrame {
 
         public void paint(Graphics g) {
 
-            imagen = new ImageIcon(getClass().getResource("/Images/frutas2.jpg")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos4.jpg")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
 

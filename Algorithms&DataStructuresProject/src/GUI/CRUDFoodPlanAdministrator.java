@@ -26,6 +26,10 @@ import Logic.PlanNotes;
 import Logic.Delete;
 import Logic.Update;
 import Logic.FileQueuesLog;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -36,8 +40,14 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
     /**
      * Creates new form PlanAlimenticioCRUD
      */
+    
+    FondoPanel fondo = new FondoPanel();
     public CRUDFoodPlanAdministrator() {
-        initComponents();
+         this.setContentPane(fondo);
+          initComponents();
+        this.setExtendedState(CRUDFoodPlanAdministrator.MAXIMIZED_BOTH);
+      
+        
     }
     
     PlanNotes queue = new PlanNotes();
@@ -75,18 +85,27 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         lbSnacks.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbSnacks.setText("SNACKS");
+        getContentPane().add(lbSnacks);
+        lbSnacks.setBounds(570, 860, 104, 37);
 
         lbFoodPlans.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbFoodPlans.setText("NEW FOOD PLAN");
+        getContentPane().add(lbFoodPlans);
+        lbFoodPlans.setBounds(660, 6, 194, 37);
 
         lbDinner.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDinner.setText("DINNER");
+        getContentPane().add(lbDinner);
+        lbDinner.setBounds(570, 750, 104, 37);
 
         lbLunch.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbLunch.setText("LUNCH");
+        getContentPane().add(lbLunch);
+        lbLunch.setBounds(570, 650, 104, 37);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,46 +122,88 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(940, 520, 835, 307);
+
         lbBreakFast.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbBreakFast.setText("BREAKFAST");
+        getContentPane().add(lbBreakFast);
+        lbBreakFast.setBounds(570, 550, 121, 37);
 
+        btnAddFoodPlan.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnAddFoodPlan.setText("ADD FOOD PLAN");
+        btnAddFoodPlan.setBorderPainted(false);
+        btnAddFoodPlan.setContentAreaFilled(false);
         btnAddFoodPlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFoodPlanActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAddFoodPlan);
+        btnAddFoodPlan.setBounds(950, 870, 180, 40);
 
+        btnDeleteFoodPlan.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDeleteFoodPlan.setText("DELETE FOOD PLAN");
+        btnDeleteFoodPlan.setBorderPainted(false);
+        btnDeleteFoodPlan.setContentAreaFilled(false);
         btnDeleteFoodPlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteFoodPlanActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDeleteFoodPlan);
+        btnDeleteFoodPlan.setBounds(1460, 870, 228, 40);
 
+        btnUpdateFoodPlan.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnUpdateFoodPlan.setText("UPDATE FOOD PLAN");
+        btnUpdateFoodPlan.setBorderPainted(false);
+        btnUpdateFoodPlan.setContentAreaFilled(false);
         btnUpdateFoodPlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateFoodPlanActionPerformed(evt);
             }
         });
+        getContentPane().add(btnUpdateFoodPlan);
+        btnUpdateFoodPlan.setBounds(1190, 870, 215, 40);
 
+        btnShowFoodPlans.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowFoodPlans.setText("SHOW FOOD PLAN");
+        btnShowFoodPlans.setBorderPainted(false);
+        btnShowFoodPlans.setContentAreaFilled(false);
         btnShowFoodPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowFoodPlansActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShowFoodPlans);
+        btnShowFoodPlans.setBounds(1410, 470, 218, 40);
 
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel11.setText("ID");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(570, 500, 149, 37);
+        getContentPane().add(tfID);
+        tfID.setBounds(730, 510, 197, 24);
 
         tfSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSearchActionPerformed(evt);
             }
         });
+        getContentPane().add(tfSearch);
+        tfSearch.setBounds(1100, 480, 279, 24);
+        getContentPane().add(tfSnacks);
+        tfSnacks.setBounds(570, 910, 355, 49);
+        getContentPane().add(tfBreakFast);
+        tfBreakFast.setBounds(570, 590, 352, 49);
+        getContentPane().add(tfLunch);
+        tfLunch.setBounds(570, 690, 355, 49);
+        getContentPane().add(tfDinner);
+        tfDinner.setBounds(570, 800, 355, 49);
+        getContentPane().add(lbMessages);
+        lbMessages.setBounds(1237, 526, 632, 0);
 
+        jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF");
         jToggleButton1.setBorderPainted(false);
@@ -152,7 +213,10 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jToggleButton1);
+        jToggleButton1.setBounds(1080, 910, 161, 48);
 
+        jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
         jToggleButton2.setText("Excel");
         jToggleButton2.setBorderPainted(false);
@@ -163,113 +227,9 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
                 jToggleButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jToggleButton2);
+        jToggleButton2.setBounds(1350, 910, 152, 48);
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(tfID)
-                            .addGap(3, 3, 3)))
-                    .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAddFoodPlan))
-                                .addGap(60, 60, 60)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btnUpdateFoodPlan)
-                                        .addGap(53, 53, 53)
-                                        .addComponent(btnDeleteFoodPlan))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(132, 132, 132))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(224, 224, 224)
-                                .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(btnShowFoodPlans))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(279, 279, 279)
-                                .addComponent(lbFoodPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbFoodPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnShowFoodPlans))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(tfBreakFast, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(lbLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfLunch, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(7, 7, 7)
-                        .addComponent(lbDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfDinner, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSnacks, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddFoodPlan)
-                    .addComponent(btnUpdateFoodPlan)
-                    .addComponent(btnDeleteFoodPlan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbMessages)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         pack();
         setLocationRelativeTo(null);
@@ -588,4 +548,18 @@ void impresion() {
     private javax.swing.JTextField tfSearch;
     private javax.swing.JTextField tfSnacks;
     // End of variables declaration//GEN-END:variables
+
+     class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos6.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

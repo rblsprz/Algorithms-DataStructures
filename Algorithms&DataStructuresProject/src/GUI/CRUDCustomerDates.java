@@ -42,14 +42,15 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
      * Creates new form CRUD_CLIENTE_CITAS
      */
     
-    
+    FondoPanel fondo = new FondoPanel();
+
+   
+       
     public CRUDCustomerDates() {
-        
+         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(CRUDCustomerDates.MAXIMIZED_BOTH);
-        
-         //Color JFrame
-        this.getContentPane().setBackground(Color.GREEN);
+     
     }
     Delete stack = new Delete();
     
@@ -82,7 +83,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         lbMessages = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         comboHoras3 = new javax.swing.JComboBox<>();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -107,8 +107,9 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTableCustom);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(28, 91, 438, 164);
+        jScrollPane3.setBounds(28, 91, 500, 230);
 
+        btnDelete.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
         btnDelete.setBorderPainted(false);
@@ -119,8 +120,9 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(152, 301, 110, 41);
+        btnDelete.setBounds(190, 350, 140, 48);
 
+        btnShowDates.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowDates.setText("SHOW DATES");
         btnShowDates.setBorderPainted(false);
@@ -131,13 +133,14 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(293, 301, 160, 41);
+        btnShowDates.setBounds(350, 350, 230, 48);
 
+        lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(556, 94, 32, 14);
+        lbName.setBounds(700, 120, 80, 24);
         getContentPane().add(tfDate);
-        tfDate.setBounds(620, 280, 178, 20);
+        tfDate.setBounds(770, 390, 178, 40);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -146,24 +149,28 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(623, 91, 181, 20);
+        tfName.setBounds(770, 110, 181, 40);
 
+        lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(556, 143, 15, 14);
+        lbID.setBounds(730, 190, 50, 24);
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(623, 140, 181, 20);
+        tfID.setBounds(770, 180, 181, 40);
 
+        lbDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(556, 191, 45, 14);
+        lbDate.setBounds(700, 260, 90, 24);
 
+        lbTime.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(556, 238, 28, 14);
+        lbTime.setBounds(710, 330, 70, 24);
 
+        btnUpdate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
         btnUpdate.setBorderPainted(false);
@@ -174,26 +181,20 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(20, 300, 120, 41);
+        btnUpdate.setBounds(20, 350, 150, 48);
 
         lbDatesRegisters.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDatesRegisters.setText("MY DATING HISTORY");
         getContentPane().add(lbDatesRegisters);
-        lbDatesRegisters.setBounds(590, 20, 215, 37);
+        lbDatesRegisters.setBounds(830, 10, 215, 37);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(627, 194, 178, 20);
+        dateChooser.setBounds(770, 250, 178, 40);
         getContentPane().add(lbMessages);
-        lbMessages.setBounds(144, 348, 282, 22);
+        lbMessages.setBounds(460, 420, 282, 22);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(546, 348, 0, 0);
         getContentPane().add(jLabel2);
         jLabel2.setBounds(637, 16, 0, 0);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon1.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        getContentPane().add(jButton2);
-        jButton2.setBounds(462, 398, 194, 193);
 
         comboHoras3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -201,8 +202,9 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboHoras3);
-        comboHoras3.setBounds(620, 240, 120, 20);
+        comboHoras3.setBounds(770, 320, 120, 40);
 
+        jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF");
         jToggleButton1.setBorderPainted(false);
@@ -213,8 +215,9 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(90, 380, 100, 41);
+        jToggleButton1.setBounds(110, 420, 130, 48);
 
+        jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
         jToggleButton2.setText("Excel");
         jToggleButton2.setBorderPainted(false);
@@ -226,11 +229,12 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(230, 380, 110, 40);
+        jToggleButton2.setBounds(280, 420, 140, 48);
 
+        lbClickHere.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbClickHere.setText("CLICK HERE");
         getContentPane().add(lbClickHere);
-        lbClickHere.setBounds(820, 90, 70, 14);
+        lbClickHere.setBounds(970, 120, 150, 24);
 
         pack();
         setLocationRelativeTo(null);
@@ -428,7 +432,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> comboHoras3;
     private com.toedter.calendar.JDateChooser dateChooser;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -447,4 +450,17 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables
 
+      class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos5.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

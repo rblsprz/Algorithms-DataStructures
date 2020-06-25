@@ -66,11 +66,12 @@ public class CustomerDate extends javax.swing.JFrame {
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(960, 360, 171, 30);
+        tfID.setBounds(960, 350, 171, 40);
 
+        lbTime.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbTime.setText("TIME:");
         getContentPane().add(lbTime);
-        lbTime.setBounds(890, 520, 60, 20);
+        lbTime.setBounds(820, 530, 90, 20);
 
         cbmHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +79,7 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbmHora);
-        cbmHora.setBounds(970, 520, 79, 30);
+        cbmHora.setBounds(970, 520, 90, 40);
 
         btnRequest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnRequest.setText("REQUEST");
@@ -90,21 +91,24 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(940, 610, 130, 60);
+        btnRequest.setBounds(960, 610, 130, 60);
         getContentPane().add(dateChooser);
-        dateChooser.setBounds(960, 460, 160, 40);
+        dateChooser.setBounds(960, 460, 160, 50);
 
+        lbDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbDate.setText("DATE:");
         getContentPane().add(lbDate);
-        lbDate.setBounds(890, 470, 50, 20);
+        lbDate.setBounds(820, 480, 80, 20);
 
+        lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(890, 410, 60, 30);
+        lbName.setBounds(820, 420, 90, 30);
 
+        lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(890, 370, 50, 20);
+        lbID.setBounds(820, 360, 80, 20);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -118,7 +122,7 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(960, 410, 170, 30);
+        tfName.setBounds(960, 410, 170, 40);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(150, 300, 310, 0);
 
@@ -138,9 +142,10 @@ public class CustomerDate extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(1300, 0, 750, 320);
 
+        lbClickHere.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbClickHere.setText("CLICK HERE");
         getContentPane().add(lbClickHere);
-        lbClickHere.setBounds(1140, 420, 60, 14);
+        lbClickHere.setBounds(1140, 420, 140, 24);
 
         pack();
         setLocationRelativeTo(null);

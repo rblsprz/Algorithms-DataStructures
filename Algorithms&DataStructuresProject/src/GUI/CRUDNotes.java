@@ -7,12 +7,16 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Logic.*;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
@@ -24,10 +28,14 @@ public class CRUDNotes extends javax.swing.JFrame {
     /**
      * Creates new form CRUD_NOTAS
      */
+     FondoPanel fondo = new FondoPanel();
+
+       
+        
     public CRUDNotes() {
+         this.setContentPane(fondo);
         initComponents();
          this.setExtendedState(CRUDNotes.MAXIMIZED_BOTH);
-          this.getContentPane().setBackground(Color.green);
     }
 
     /**
@@ -76,10 +84,16 @@ public class CRUDNotes extends javax.swing.JFrame {
         jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel7.setText("DATA");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(994, 35, 49, 37);
+        getContentPane().add(tfSearch);
+        tfSearch.setBounds(900, 90, 222, 40);
 
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btnSearch.setText("SEARCH");
         btnSearch.setBorderPainted(false);
@@ -89,6 +103,8 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSearch);
+        btnSearch.setBounds(1125, 84, 160, 48);
 
         jTable3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -106,6 +122,10 @@ public class CRUDNotes extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(459, 150, 803, 163);
+
+        btnUpdate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
         btnUpdate.setBorderPainted(false);
@@ -115,7 +135,10 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnUpdateActionPerformed(evt);
             }
         });
+        getContentPane().add(btnUpdate);
+        btnUpdate.setBounds(1280, 150, 145, 48);
 
+        btnDelete.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
         btnDelete.setBorderPainted(false);
@@ -125,39 +148,98 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDelete);
+        btnDelete.setBounds(1280, 216, 145, 48);
 
+        lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
+        getContentPane().add(lbName);
+        lbName.setBounds(470, 350, 80, 24);
 
         tfID.setEditable(false);
+        getContentPane().add(tfID);
+        tfID.setBounds(540, 410, 121, 40);
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("ID:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(500, 420, 60, 24);
+        getContentPane().add(tfHeight);
+        tfHeight.setBounds(1140, 380, 121, 40);
 
+        lbNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbNotes.setText("NOTES:");
+        getContentPane().add(lbNotes);
+        lbNotes.setBounds(459, 512, 80, 24);
 
+        lbWeight.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbWeight.setText("WEIGHT:");
+        getContentPane().add(lbWeight);
+        lbWeight.setBounds(820, 350, 140, 24);
 
-        jLabel5.setText("MUSCLE MASS");
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setText("MUSCLE MASS:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(770, 420, 180, 24);
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("% GREASE:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(810, 490, 160, 24);
 
         tfName.setEditable(false);
+        getContentPane().add(tfName);
+        tfName.setBounds(540, 340, 121, 40);
+        getContentPane().add(tfMuscleMass);
+        tfMuscleMass.setBounds(920, 410, 121, 40);
+        getContentPane().add(tfGrease);
+        tfGrease.setBounds(920, 480, 121, 40);
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setText("HEIGHT:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(1060, 390, 80, 24);
 
+        lbAge.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbAge.setText("AGE:");
+        getContentPane().add(lbAge);
+        lbAge.setBounds(1080, 450, 60, 24);
 
+        lbBodyMassIndex.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbBodyMassIndex.setText("BODY MASS INDEX:");
+        getContentPane().add(lbBodyMassIndex);
+        lbBodyMassIndex.setBounds(730, 560, 200, 24);
+        getContentPane().add(tfWeight);
+        tfWeight.setBounds(920, 340, 121, 40);
+        getContentPane().add(tfAge);
+        tfAge.setBounds(1140, 440, 120, 40);
+        getContentPane().add(txtCorporal);
+        txtCorporal.setBounds(920, 550, 121, 40);
 
+        lbWater.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbWater.setText("% WATER:");
+        getContentPane().add(lbWater);
+        lbWater.setBounds(820, 630, 150, 24);
 
+        lblFecha.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblFecha.setText("DATE:");
+        getContentPane().add(lblFecha);
+        lblFecha.setBounds(1070, 510, 70, 24);
+        getContentPane().add(tfWater);
+        tfWater.setBounds(920, 620, 121, 40);
 
         tfDate.setEditable(false);
+        getContentPane().add(tfDate);
+        tfDate.setBounds(1140, 500, 120, 40);
 
         taNotes.setColumns(20);
         taNotes.setRows(5);
         jScrollPane1.setViewportView(taNotes);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(460, 540, 223, 83);
+
+        btnShowNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowNotes.setText("SHOW NOTES");
         btnShowNotes.setBorderPainted(false);
@@ -167,7 +249,14 @@ public class CRUDNotes extends javax.swing.JFrame {
                 btnShowNotesActionPerformed(evt);
             }
         });
+        getContentPane().add(btnShowNotes);
+        btnShowNotes.setBounds(1280, 282, 189, 48);
+        getContentPane().add(lbMessages);
+        lbMessages.setBounds(2010, 294, 0, 0);
+        getContentPane().add(lbNotFound);
+        lbNotFound.setBounds(119, 77, 334, 0);
 
+        jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF");
         jToggleButton1.setBorderPainted(false);
@@ -177,7 +266,10 @@ public class CRUDNotes extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jToggleButton1);
+        jToggleButton1.setBounds(1290, 349, 131, 48);
 
+        jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
         jToggleButton2.setText("Excel");
         jToggleButton2.setBorderPainted(false);
@@ -188,184 +280,8 @@ public class CRUDNotes extends javax.swing.JFrame {
                 jToggleButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(lbNotFound, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(763, 763, 763))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnShowNotes)
-                                            .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(520, 520, 520))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbAge)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbNotes)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbBodyMassIndex)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(jLabel6)
-                                                        .addGap(12, 12, 12)
-                                                        .addComponent(tfGrease, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(lbWater)
-                                                        .addGap(27, 27, 27)
-                                                        .addComponent(tfWater, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(lbWeight)
-                                                .addGap(28, 28, 28)
-                                                .addComponent(tfWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbName)
-                                                    .addComponent(jLabel2))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel5))
-                                                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(118, 118, 118)
-                                                .addComponent(jLabel8)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(tfHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(130, 130, 130)
-                                                .addComponent(lblFecha)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(tfDate)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(541, 541, 541)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(lbNotFound)
-                        .addGap(217, 217, 217)
-                        .addComponent(lbMessages))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearch))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(tfHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8))
-                                        .addGap(24, 24, 24)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbAge))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(tfGrease, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel6)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(31, 31, 31)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lblFecha))))
-                                        .addGap(65, 65, 65)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(tfWater, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbWater)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(lbName)
-                                                    .addComponent(lbWeight)
-                                                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(tfWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(39, 39, 39)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                            .addComponent(jLabel2)
-                                                            .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(33, 33, 33)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel5))))
-                                                .addGap(83, 83, 83)
-                                                .addComponent(lbNotes))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(txtCorporal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lbBodyMassIndex)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnUpdate)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDelete)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnShowNotes)
-                                .addGap(18, 18, 18)
-                                .addComponent(jToggleButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jToggleButton2)))))
-                .addContainerGap(584, Short.MAX_VALUE))
-        );
+        getContentPane().add(jToggleButton2);
+        jToggleButton2.setBounds(1301, 414, 142, 48);
 
         pack();
         setLocationRelativeTo(null);
@@ -666,4 +582,18 @@ void impresion() {
     private javax.swing.JTextField tfWeight;
     private javax.swing.JTextField txtCorporal;
     // End of variables declaration//GEN-END:variables
+
+     class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos9.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

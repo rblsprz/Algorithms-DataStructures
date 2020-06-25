@@ -17,6 +17,10 @@ import javax.swing.JTable;
 import Logic.ExportarExcel;
 import Logic.Logic;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -27,11 +31,14 @@ public class SystemActions extends javax.swing.JFrame {
     /**
      * Creates new form AccionesSistema
      */
+    FondoPanel fondo = new FondoPanel();
+    
     public SystemActions() {
+         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(SystemActions.MAXIMIZED_BOTH);
           //Color JFrame
-        this.getContentPane().setBackground(Color.YELLOW);
+        
     }
 
     /**
@@ -66,6 +73,7 @@ public class SystemActions extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        btnShowHistory.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowHistory.setText("SHOW HISTORY");
         btnShowHistory.setBorderPainted(false);
@@ -87,19 +95,23 @@ public class SystemActions extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(588, 588, 588)
-                        .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnShowHistory))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(588, 588, 588)
+                                .addComponent(lbMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(282, 282, 282))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)))
+                        .addComponent(btnShowHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(835, 835, 835)
                         .addComponent(lbSystemActions, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(608, 608, 608)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(722, Short.MAX_VALUE))
+                .addContainerGap(714, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,4 +242,19 @@ public class SystemActions extends javax.swing.JFrame {
     private javax.swing.JLabel lbSystemActions;
     private javax.swing.JTextField tfSearch;
     // End of variables declaration//GEN-END:variables
+
+     class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos1.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

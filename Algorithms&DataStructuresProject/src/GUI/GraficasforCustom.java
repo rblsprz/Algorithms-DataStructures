@@ -19,8 +19,12 @@ import com.orsonpdf.PDFDocument;
 import com.orsonpdf.PDFGraphics2D;
 import com.orsonpdf.Page;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -31,15 +35,15 @@ public class GraficasforCustom extends javax.swing.JFrame {
     /**
      * Creates new form FrmGraficas
      */
+      FondoPanel fondo = new FondoPanel();
+
+       
     public GraficasforCustom() {
+         this.setContentPane(fondo);
         initComponents();
          this.setExtendedState(GraficasforCustom.MAXIMIZED_BOTH);
-         //Color JFrame
-        this.getContentPane().setBackground(Color.red);
-        
+
          
-        
-        
     }
 
     /**
@@ -69,7 +73,8 @@ public class GraficasforCustom extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnEjecutar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEjecutar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnEjecutar.setForeground(new java.awt.Color(0, 0, 0));
         btnEjecutar.setText("RUN");
         btnEjecutar.setBorderPainted(false);
         btnEjecutar.setContentAreaFilled(false);
@@ -79,7 +84,8 @@ public class GraficasforCustom extends javax.swing.JFrame {
             }
         });
 
-        btnGraficar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGraficar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnGraficar.setForeground(new java.awt.Color(0, 0, 0));
         btnGraficar.setText("GRAPH");
         btnGraficar.setBorderPainted(false);
         btnGraficar.setContentAreaFilled(false);
@@ -90,12 +96,14 @@ public class GraficasforCustom extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(rbBarra);
-        rbBarra.setForeground(new java.awt.Color(255, 255, 255));
+        rbBarra.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        rbBarra.setForeground(new java.awt.Color(0, 0, 0));
         rbBarra.setText("BARS");
         rbBarra.setContentAreaFilled(false);
 
         buttonGroup2.add(rbCircular);
-        rbCircular.setForeground(new java.awt.Color(255, 255, 255));
+        rbCircular.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        rbCircular.setForeground(new java.awt.Color(0, 0, 0));
         rbCircular.setText("CIRCULAR");
         rbCircular.setContentAreaFilled(false);
 
@@ -109,11 +117,12 @@ public class GraficasforCustom extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblConsultas);
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel7.setText("MY CHARTS");
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton1.setText("GREASE");
         jRadioButton1.setToolTipText("");
         jRadioButton1.setContentAreaFilled(false);
@@ -124,21 +133,25 @@ public class GraficasforCustom extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton2.setText("MUSCLE");
         jRadioButton2.setContentAreaFilled(false);
 
         buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton3.setText("WATER");
         jRadioButton3.setContentAreaFilled(false);
 
         buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton4.setText("WEIGHT");
         jRadioButton4.setContentAreaFilled(false);
 
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF EXPORT CHART");
         jToggleButton1.setToolTipText("");
@@ -160,14 +173,10 @@ public class GraficasforCustom extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1642, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -181,18 +190,24 @@ public class GraficasforCustom extends javax.swing.JFrame {
                                 .addGap(57, 57, 57)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rbBarra)
-                                    .addComponent(rbCircular)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 11, Short.MAX_VALUE))
+                                    .addComponent(rbCircular))
+                                .addGap(171, 171, 171))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 1521, Short.MAX_VALUE))
+                        .addGap(153, 153, 153)
+                        .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 1389, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,9 +233,10 @@ public class GraficasforCustom extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(554, Short.MAX_VALUE))
+                    .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(488, Short.MAX_VALUE))
         );
 
         pack();
@@ -472,4 +488,18 @@ public class GraficasforCustom extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbCircular;
     private javax.swing.JTable tblConsultas;
     // End of variables declaration//GEN-END:variables
+
+     class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos8.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

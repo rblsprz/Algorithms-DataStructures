@@ -102,37 +102,44 @@ public class CRUD extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(1070, 40, 600, 440);
 
+        btnshowRoles.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnshowRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnshowRoles.setText("SHOW ROLES");
+        btnshowRoles.setBorderPainted(false);
+        btnshowRoles.setContentAreaFilled(false);
         btnshowRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnshowRolesActionPerformed(evt);
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(1100, 550, 170, 41);
+        btnshowRoles.setBounds(1080, 550, 210, 48);
 
+        btnDelete.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         btnDelete.setText("DELETE");
+        btnDelete.setBorderPainted(false);
+        btnDelete.setContentAreaFilled(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(1470, 550, 120, 41);
+        btnDelete.setBounds(1500, 550, 170, 48);
         getContentPane().add(tfName);
-        tfName.setBounds(880, 100, 150, 30);
+        tfName.setBounds(890, 140, 150, 40);
 
+        lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME");
         getContentPane().add(lbName);
-        lbName.setBounds(880, 70, 40, 20);
+        lbName.setBounds(890, 120, 120, 20);
         getContentPane().add(tfLastName);
-        tfLastName.setBounds(880, 180, 150, 30);
+        tfLastName.setBounds(890, 230, 150, 40);
         getContentPane().add(tfUserName);
-        tfUserName.setBounds(880, 260, 150, 30);
+        tfUserName.setBounds(890, 310, 150, 40);
         getContentPane().add(tfAge);
-        tfAge.setBounds(880, 410, 150, 30);
+        tfAge.setBounds(890, 470, 150, 40);
 
         tfPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,55 +147,66 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfPhone);
-        tfPhone.setBounds(880, 470, 150, 30);
+        tfPhone.setBounds(890, 560, 150, 40);
 
+        lbLastName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbLastName.setText("LAST NAME");
         getContentPane().add(lbLastName);
-        lbLastName.setBounds(880, 150, 70, 20);
+        lbLastName.setBounds(890, 210, 150, 20);
 
+        lbUserName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbUserName.setText("USERNAME");
         getContentPane().add(lbUserName);
-        lbUserName.setBounds(880, 230, 70, 20);
+        lbUserName.setBounds(890, 290, 150, 20);
 
+        lbAge.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbAge.setText("AGE");
         getContentPane().add(lbAge);
-        lbAge.setBounds(880, 380, 30, 20);
+        lbAge.setBounds(890, 450, 110, 20);
 
+        lbPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbPhone.setText("PHONE");
         getContentPane().add(lbPhone);
-        lbPhone.setBounds(880, 450, 50, 20);
+        lbPhone.setBounds(890, 540, 130, 20);
 
+        btnUpdate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
+        btnUpdate.setBorderPainted(false);
+        btnUpdate.setContentAreaFilled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(1300, 550, 130, 41);
+        btnUpdate.setBounds(1300, 550, 170, 48);
 
+        lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID");
         getContentPane().add(lbID);
-        lbID.setBounds(880, 10, 20, 20);
+        lbID.setBounds(890, 40, 100, 20);
         getContentPane().add(tfID);
-        tfID.setBounds(880, 40, 150, 30);
+        tfID.setBounds(890, 60, 150, 40);
 
+        lbEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbEmail.setText("EMAIL");
         getContentPane().add(lbEmail);
-        lbEmail.setBounds(880, 510, 40, 20);
+        lbEmail.setBounds(890, 620, 120, 20);
         getContentPane().add(tfEmail);
-        tfEmail.setBounds(880, 540, 150, 30);
+        tfEmail.setBounds(890, 640, 150, 40);
 
+        lbRol.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbRol.setText("ROL");
         getContentPane().add(lbRol);
-        lbRol.setBounds(880, 580, 30, 20);
+        lbRol.setBounds(890, 700, 110, 20);
         getContentPane().add(tfRol);
-        tfRol.setBounds(880, 610, 150, 30);
+        tfRol.setBounds(890, 720, 150, 40);
 
+        lbPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbPassword.setText("PASSWORD");
         getContentPane().add(lbPassword);
-        lbPassword.setBounds(880, 310, 80, 20);
+        lbPassword.setBounds(890, 370, 160, 20);
 
         tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,29 +214,35 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfPassword);
-        tfPassword.setBounds(880, 340, 150, 30);
+        tfPassword.setBounds(890, 390, 150, 40);
         getContentPane().add(lbMensajes);
-        lbMensajes.setBounds(1070, 510, 350, 28);
+        lbMensajes.setBounds(1110, 500, 350, 28);
 
+        jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
         jToggleButton2.setText("Excel");
+        jToggleButton2.setBorderPainted(false);
+        jToggleButton2.setContentAreaFilled(false);
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(1200, 620, 120, 41);
+        jToggleButton2.setBounds(1230, 630, 120, 48);
 
+        jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF");
+        jToggleButton1.setBorderPainted(false);
+        jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(1390, 620, 110, 41);
+        jToggleButton1.setBounds(1430, 620, 120, 50);
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel7.setText("ROLES");
@@ -464,7 +488,7 @@ public class CRUD extends javax.swing.JFrame {
         @Override
         public void paint(Graphics g) {
 
-            imagen = new ImageIcon(getClass().getResource("/Images/frutas5.jpg")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos18.jpg")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
 

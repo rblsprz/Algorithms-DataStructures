@@ -90,7 +90,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         lbSuperAdministrator.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbSuperAdministrator.setText("SUPER ADMINISTRATOR");
         getContentPane().add(lbSuperAdministrator);
-        lbSuperAdministrator.setBounds(880, 0, 248, 108);
+        lbSuperAdministrator.setBounds(880, 70, 248, 108);
 
         menuAdd.setText("ADD");
 
@@ -364,7 +364,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         public void paint(Graphics g) {
 
-            imagen = new ImageIcon(getClass().getResource("/Images/frutas13.jpg")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos19.jpg")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
 

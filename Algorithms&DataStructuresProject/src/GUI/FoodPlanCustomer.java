@@ -23,6 +23,10 @@ import Logic.ExportarExcel;
 import Logic.Logic;
 import Logic.FileQueuesLog;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -33,11 +37,14 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
     /**
      * Creates new form PlanAlimenCliente
      */
+    FondoPanel fondo = new FondoPanel();
+
+       
     public FoodPlanCustomer() {
+         this.setContentPane(fondo);
         initComponents();
          this.setExtendedState(FoodPlanCustomer.MAXIMIZED_BOTH);
-         //Color JFrame
-        this.getContentPane().setBackground(Color.MAGENTA);
+        
     }
 
     /**
@@ -106,7 +113,11 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable1);
 
+        btnShowPlans.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnShowPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowPlans.setText("SHOW FOOD PLAN");
+        btnShowPlans.setBorderPainted(false);
+        btnShowPlans.setContentAreaFilled(false);
         btnShowPlans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowPlansActionPerformed(evt);
@@ -143,8 +154,8 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
                                         .addGap(424, 424, 424))
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(278, 278, 278)
-                                .addComponent(btnShowPlans)))
+                                .addGap(270, 270, 270)
+                                .addComponent(btnShowPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(367, 367, 367))))
         );
         layout.setVerticalGroup(
@@ -306,4 +317,18 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField tfLunch;
     private javax.swing.JTextField tfSnacks;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos17.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

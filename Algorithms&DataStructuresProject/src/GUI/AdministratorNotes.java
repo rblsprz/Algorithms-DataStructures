@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
 
 import Logic.UserNotes;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 
 /**
@@ -23,10 +27,16 @@ public class AdministratorNotes extends javax.swing.JFrame {
     /**
      * Creates new form NotasAdmin
      */
+     FondoPanel fondo = new FondoPanel();
+
+       
+    
+        
     public AdministratorNotes() {
+         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(AdministratorNotes.MAXIMIZED_BOTH);
-        this.getContentPane().setBackground(Color.cyan);
+       
     }
 
     UserNotes queue = new UserNotes();
@@ -71,35 +81,71 @@ public class AdministratorNotes extends javax.swing.JFrame {
         lbMessages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
+        lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
+        getContentPane().add(lbName);
+        lbName.setBounds(110, 190, 60, 24);
 
+        lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID:");
+        getContentPane().add(lbID);
+        lbID.setBounds(150, 280, 25, 24);
 
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfNameMouseClicked(evt);
             }
         });
+        getContentPane().add(tfName);
+        tfName.setBounds(190, 270, 189, 50);
+        getContentPane().add(tfID);
+        tfID.setBounds(190, 360, 189, 50);
 
+        lbWeight.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbWeight.setText("WEIGHT:");
+        getContentPane().add(lbWeight);
+        lbWeight.setBounds(750, 190, 140, 24);
 
+        lbGrease.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbGrease.setText("% GREASE:");
+        getContentPane().add(lbGrease);
+        lbGrease.setBounds(730, 340, 150, 24);
 
+        lbMuscleMass.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbMuscleMass.setText("MUSCLE MASS:");
+        getContentPane().add(lbMuscleMass);
+        lbMuscleMass.setBounds(690, 550, 180, 24);
 
+        lbHeight.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbHeight.setText("HEIGHT:");
+        getContentPane().add(lbHeight);
+        lbHeight.setBounds(760, 270, 130, 24);
 
         lbCustomerNotes.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbCustomerNotes.setText("NEW DATA");
+        getContentPane().add(lbCustomerNotes);
+        lbCustomerNotes.setBounds(446, 35, 106, 37);
+        getContentPane().add(txtPeso);
+        txtPeso.setBounds(840, 180, 137, 40);
 
         tfHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfHeightActionPerformed(evt);
             }
         });
+        getContentPane().add(tfHeight);
+        tfHeight.setBounds(840, 260, 137, 40);
+        getContentPane().add(tfGrease);
+        tfGrease.setBounds(840, 330, 137, 40);
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setText("AGE:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(130, 370, 46, 24);
+        getContentPane().add(tfAge);
+        tfAge.setBounds(190, 440, 189, 50);
 
         btnAddNutritionalInformation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnAddNutritionalInformation.setText("ADD NUTRITIONAL INFORMATION");
@@ -110,165 +156,57 @@ public class AdministratorNotes extends javax.swing.JFrame {
                 btnAddNutritionalInformationActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAddNutritionalInformation);
+        btnAddNutritionalInformation.setBounds(740, 610, 251, 48);
 
+        lbNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbNotes.setText("NOTES:");
+        getContentPane().add(lbNotes);
+        lbNotes.setBounds(100, 560, 69, 24);
 
         tANotes.setColumns(20);
         tANotes.setRows(5);
         jScrollPane1.setViewportView(tANotes);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(180, 530, 268, 123);
+
+        lbDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbDate.setText("DATE:");
+        getContentPane().add(lbDate);
+        lbDate.setBounds(120, 450, 56, 24);
 
         tfDate.setEditable(false);
+        getContentPane().add(tfDate);
+        tfDate.setBounds(186, 179, 189, 50);
+        getContentPane().add(tfBodyMassIndex);
+        tfBodyMassIndex.setBounds(840, 470, 137, 40);
 
+        lbBodyMassIndex.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbBodyMassIndex.setText("BODY MASS INDEX:");
+        getContentPane().add(lbBodyMassIndex);
+        lbBodyMassIndex.setBounds(660, 480, 200, 24);
+        getContentPane().add(tfBodyWater);
+        tfBodyWater.setBounds(840, 400, 137, 40);
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel14.setText("% BODY WATER:");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(680, 410, 180, 24);
+        getContentPane().add(tfMuscleMass);
+        tfMuscleMass.setBounds(840, 540, 145, 40);
 
         lbCustomerNotes1.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbCustomerNotes1.setText("CUSTOMER NUTRITIONAL INFORMATION");
+        getContentPane().add(lbCustomerNotes1);
+        lbCustomerNotes1.setBounds(664, 107, 371, 37);
 
         lbCustomerNotes2.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbCustomerNotes2.setText("CUSTOMER DATA");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(412, 412, 412)
-                .addComponent(lbMessages, javax.swing.GroupLayout.DEFAULT_SIZE, 1241, Short.MAX_VALUE)
-                .addGap(347, 347, 347))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbCustomerNotes2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbNotes)
-                                        .addGap(23, 23, 23))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lbName)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lbID)
-                                                .addComponent(jLabel8))
-                                            .addComponent(lbDate))
-                                        .addGap(18, 18, 18)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(231, 231, 231)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbHeight)
-                            .addComponent(lbWeight)
-                            .addComponent(lbCustomerNotes1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(24, 24, 24)
-                                        .addComponent(btnAddNutritionalInformation))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lbBodyMassIndex)
-                                                    .addComponent(lbMuscleMass)))
-                                            .addComponent(jLabel14))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(tfBodyWater, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tfGrease, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tfBodyMassIndex, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(txtPeso, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tfHeight, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbGrease)
-                                    .addGap(214, 214, 214)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(446, 446, 446)
-                        .addComponent(lbCustomerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lbCustomerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(282, 282, 282)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbDate)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbCustomerNotes1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbWeight)
-                                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tfHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbHeight))
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbGrease)
-                                    .addComponent(tfGrease, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tfBodyWater, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tfBodyMassIndex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbBodyMassIndex))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbMuscleMass)
-                                    .addComponent(tfMuscleMass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbCustomerNotes2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(56, 56, 56)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbID))
-                                        .addGap(43, 43, 43)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(tfAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbName)))
-                                .addGap(107, 107, 107)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
-                                        .addComponent(lbNotes)))))))
-                .addGap(14, 14, 14)
-                .addComponent(btnAddNutritionalInformation)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
-                .addComponent(lbMessages)
-                .addGap(66, 66, 66))
-        );
+        getContentPane().add(lbCustomerNotes2);
+        lbCustomerNotes2.setBounds(229, 107, 204, 37);
+        getContentPane().add(lbMessages);
+        lbMessages.setBounds(412, 888, 1241, 0);
 
         pack();
         setLocationRelativeTo(null);
@@ -384,4 +322,18 @@ public class AdministratorNotes extends javax.swing.JFrame {
     private javax.swing.JTextField tfName;
     private javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
+
+     class FondoPanel extends JPanel {
+
+        private Image imagen;
+
+        public void paint(Graphics g) {
+
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos16.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+
+            super.paint(g);
+        }
+    }
 }

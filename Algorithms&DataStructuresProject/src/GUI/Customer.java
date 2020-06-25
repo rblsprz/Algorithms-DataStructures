@@ -56,6 +56,7 @@ public class Customer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lbCustomer.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbCustomer.setText("CUSTOMER");
 
         menuAdd.setText("ADD");
@@ -133,14 +134,14 @@ public class Customer extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(174, 174, 174)
                 .addComponent(lbCustomer)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(lbCustomer)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,7 +244,7 @@ public class Customer extends javax.swing.JFrame {
         @Override
         public void paint(Graphics g) {
 
-            imagen = new ImageIcon(getClass().getResource("/Images/futas11.jpg")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/Images/fondos14.jpg")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
 
