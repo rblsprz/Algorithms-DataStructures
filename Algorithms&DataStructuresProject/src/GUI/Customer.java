@@ -61,6 +61,7 @@ public class Customer extends javax.swing.JFrame {
 
         menuAdd.setText("ADD");
 
+        menuItemNewDate.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuItemNewDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         menuItemNewDate.setText("NEW DATE");
         menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +75,7 @@ public class Customer extends javax.swing.JFrame {
 
         jMenu3.setText("MY PROFILE");
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         jMenuItem1.setText("MY ADVANCES");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +85,7 @@ public class Customer extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem1);
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
         jMenuItem2.setText("MY FOOD PLANS");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +95,8 @@ public class Customer extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         jMenuItem3.setText("MY CHARTS");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +105,7 @@ public class Customer extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem3);
 
+        menuItemMyCRUD.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         menuItemMyCRUD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
         menuItemMyCRUD.setText("MY DATING HISTORY");
         menuItemMyCRUD.addActionListener(new java.awt.event.ActionListener() {

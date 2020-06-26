@@ -176,6 +176,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfHours">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfHoursKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbMessages">
     </Component>

@@ -2,6 +2,7 @@ package GUI;
 
 import Logic.QueueMethods;
 import Logic.CustomerNotes;
+import Logic.Logic;
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -98,10 +99,21 @@ public class AdministratorNotes extends javax.swing.JFrame {
                 tfNameMouseClicked(evt);
             }
         });
+        tfName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNameKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfName);
-        tfName.setBounds(190, 270, 189, 50);
+        tfName.setBounds(200, 190, 189, 50);
+
+        tfID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfIDKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfID);
-        tfID.setBounds(190, 360, 189, 50);
+        tfID.setBounds(200, 280, 189, 50);
 
         lbWeight.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbWeight.setText("WEIGHT:");
@@ -127,6 +139,12 @@ public class AdministratorNotes extends javax.swing.JFrame {
         lbCustomerNotes.setText("NEW DATA");
         getContentPane().add(lbCustomerNotes);
         lbCustomerNotes.setBounds(446, 35, 106, 37);
+
+        txtPeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPesoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtPeso);
         txtPeso.setBounds(840, 180, 137, 40);
 
@@ -135,8 +153,19 @@ public class AdministratorNotes extends javax.swing.JFrame {
                 tfHeightActionPerformed(evt);
             }
         });
+        tfHeight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfHeightKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfHeight);
         tfHeight.setBounds(840, 260, 137, 40);
+
+        tfGrease.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfGreaseKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfGrease);
         tfGrease.setBounds(840, 330, 137, 40);
 
@@ -144,9 +173,21 @@ public class AdministratorNotes extends javax.swing.JFrame {
         jLabel8.setText("AGE:");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(130, 370, 46, 24);
-        getContentPane().add(tfAge);
-        tfAge.setBounds(190, 440, 189, 50);
 
+        tfAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfAgeActionPerformed(evt);
+            }
+        });
+        tfAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfAgeKeyTyped(evt);
+            }
+        });
+        getContentPane().add(tfAge);
+        tfAge.setBounds(200, 370, 189, 50);
+
+        btnAddNutritionalInformation.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnAddNutritionalInformation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/accept.png"))); // NOI18N
         btnAddNutritionalInformation.setText("ADD NUTRITIONAL INFORMATION");
         btnAddNutritionalInformation.setBorderPainted(false);
@@ -157,7 +198,7 @@ public class AdministratorNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAddNutritionalInformation);
-        btnAddNutritionalInformation.setBounds(740, 610, 251, 48);
+        btnAddNutritionalInformation.setBounds(650, 610, 390, 48);
 
         lbNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbNotes.setText("NOTES:");
@@ -178,7 +219,13 @@ public class AdministratorNotes extends javax.swing.JFrame {
 
         tfDate.setEditable(false);
         getContentPane().add(tfDate);
-        tfDate.setBounds(186, 179, 189, 50);
+        tfDate.setBounds(200, 440, 189, 50);
+
+        tfBodyMassIndex.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfBodyMassIndexKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfBodyMassIndex);
         tfBodyMassIndex.setBounds(840, 470, 137, 40);
 
@@ -186,6 +233,12 @@ public class AdministratorNotes extends javax.swing.JFrame {
         lbBodyMassIndex.setText("BODY MASS INDEX:");
         getContentPane().add(lbBodyMassIndex);
         lbBodyMassIndex.setBounds(660, 480, 200, 24);
+
+        tfBodyWater.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfBodyWaterKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfBodyWater);
         tfBodyWater.setBounds(840, 400, 137, 40);
 
@@ -193,6 +246,12 @@ public class AdministratorNotes extends javax.swing.JFrame {
         jLabel14.setText("% BODY WATER:");
         getContentPane().add(jLabel14);
         jLabel14.setBounds(680, 410, 180, 24);
+
+        tfMuscleMass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfMuscleMassKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfMuscleMass);
         tfMuscleMass.setBounds(840, 540, 145, 40);
 
@@ -213,8 +272,8 @@ public class AdministratorNotes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddNutritionalInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNutritionalInformationActionPerformed
-
-        if (tfID.getText().equals("") || tfName.getText().equals("") || tfHeight.getText().equals("") || tfAge.getText().equals("") || tfGrease.getText().equals("") || tfBodyMassIndex.getText().equals("") || txtPeso.getText().equals("") || tfBodyWater.getText().equals("")) {
+               
+        if ( tfID.getText().equals("") || tfName.getText().equals("") || tfHeight.getText().equals("") || tfAge.getText().equals("") || tfGrease.getText().equals("") || tfBodyMassIndex.getText().equals("") || txtPeso.getText().equals("") || tfBodyWater.getText().equals("")) {
             lbMessages.setText("PLEASE FILL THE DATA!");
         }//End if
         else {
@@ -253,6 +312,63 @@ public class AdministratorNotes extends javax.swing.JFrame {
     private void tfHeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHeightActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfHeightActionPerformed
+
+    private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
+       
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+    }//GEN-LAST:event_txtPesoKeyTyped
+
+    private void tfHeightKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHeightKeyTyped
+        
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+    }//GEN-LAST:event_tfHeightKeyTyped
+
+    private void tfGreaseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfGreaseKeyTyped
+
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+    }//GEN-LAST:event_tfGreaseKeyTyped
+
+    private void tfBodyWaterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBodyWaterKeyTyped
+
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+    }//GEN-LAST:event_tfBodyWaterKeyTyped
+
+    private void tfBodyMassIndexKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBodyMassIndexKeyTyped
+
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+    }//GEN-LAST:event_tfBodyMassIndexKeyTyped
+
+    private void tfMuscleMassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMuscleMassKeyTyped
+        
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+    }//GEN-LAST:event_tfMuscleMassKeyTyped
+
+    private void tfAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAgeKeyTyped
+
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfAgeKeyTyped
+
+    private void tfAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfAgeActionPerformed
+
+    private void tfIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyTyped
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfIDKeyTyped
+
+    private void tfNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNameKeyTyped
+
+         char car = evt.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z')) evt.consume();
+    }//GEN-LAST:event_tfNameKeyTyped
 
     /**
      * @param args the command line arguments

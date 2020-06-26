@@ -148,6 +148,11 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
                 tfNameMouseClicked(evt);
             }
         });
+        tfName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNameKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfName);
         tfName.setBounds(770, 110, 181, 40);
 
@@ -157,6 +162,11 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         lbID.setBounds(730, 190, 50, 24);
 
         tfID.setEditable(false);
+        tfID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfIDKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfID);
         tfID.setBounds(770, 180, 181, 40);
 
@@ -387,6 +397,16 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         impresion();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void tfNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNameKeyTyped
+         char car = evt.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z')) evt.consume();
+    }//GEN-LAST:event_tfNameKeyTyped
+
+    private void tfIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfIDKeyTyped
 
     /**
      * @param args the command line arguments

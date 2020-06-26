@@ -99,6 +99,12 @@ public class ClinicTime extends javax.swing.JFrame {
 
         lbConsultationHours.setText("CONSULTATION HOURS");
 
+        tfHours.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfHoursKeyTyped(evt);
+            }
+        });
+
         btnShowData.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         btnShowData.setText("SHOW DATA");
@@ -221,7 +227,8 @@ public class ClinicTime extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if (tfHours.getText().equals("")) {
+        Logic lo = new Logic();
+        if (tfHours.getText().equals("") || lo.validateAge(tfHours.getText()) || tfHours.getText().length()<3) {
             lbMessages.setText("FILL THE DATA!");
         }//End if
         else {
@@ -234,6 +241,11 @@ public class ClinicTime extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void tfHoursKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHoursKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfHoursKeyTyped
 
     /**
      * @param args the command line arguments

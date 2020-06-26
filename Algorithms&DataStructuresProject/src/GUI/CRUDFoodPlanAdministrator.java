@@ -140,7 +140,7 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAddFoodPlan);
-        btnAddFoodPlan.setBounds(950, 870, 180, 40);
+        btnAddFoodPlan.setBounds(950, 870, 200, 40);
 
         btnDeleteFoodPlan.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDeleteFoodPlan.setText("DELETE FOOD PLAN");
@@ -164,7 +164,7 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdateFoodPlan);
-        btnUpdateFoodPlan.setBounds(1190, 870, 215, 40);
+        btnUpdateFoodPlan.setBounds(1190, 870, 240, 40);
 
         btnShowFoodPlans.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowFoodPlans.setText("SHOW FOOD PLAN");
@@ -182,6 +182,12 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
         jLabel11.setText("ID");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(570, 500, 149, 37);
+
+        tfID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfIDKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfID);
         tfID.setBounds(730, 510, 197, 24);
 
@@ -405,6 +411,11 @@ void impresion() {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         impresion();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void tfIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfIDKeyTyped
     
 
     /**

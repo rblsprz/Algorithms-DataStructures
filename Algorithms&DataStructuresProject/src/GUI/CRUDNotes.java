@@ -164,6 +164,12 @@ public class CRUDNotes extends javax.swing.JFrame {
         jLabel2.setText("ID:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(500, 420, 60, 24);
+
+        tfHeight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfHeightKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfHeight);
         tfHeight.setBounds(1140, 380, 121, 40);
 
@@ -190,8 +196,20 @@ public class CRUDNotes extends javax.swing.JFrame {
         tfName.setEditable(false);
         getContentPane().add(tfName);
         tfName.setBounds(540, 340, 121, 40);
+
+        tfMuscleMass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfMuscleMassKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfMuscleMass);
         tfMuscleMass.setBounds(920, 410, 121, 40);
+
+        tfGrease.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfGreaseKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfGrease);
         tfGrease.setBounds(920, 480, 121, 40);
 
@@ -209,10 +227,28 @@ public class CRUDNotes extends javax.swing.JFrame {
         lbBodyMassIndex.setText("BODY MASS INDEX:");
         getContentPane().add(lbBodyMassIndex);
         lbBodyMassIndex.setBounds(730, 560, 200, 24);
+
+        tfWeight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfWeightKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfWeight);
         tfWeight.setBounds(920, 340, 121, 40);
+
+        tfAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfAgeKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfAge);
         tfAge.setBounds(1140, 440, 120, 40);
+
+        txtCorporal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorporalKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtCorporal);
         txtCorporal.setBounds(920, 550, 121, 40);
 
@@ -225,6 +261,12 @@ public class CRUDNotes extends javax.swing.JFrame {
         lblFecha.setText("DATE:");
         getContentPane().add(lblFecha);
         lblFecha.setBounds(1070, 510, 70, 24);
+
+        tfWater.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfWaterKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfWater);
         tfWater.setBounds(920, 620, 121, 40);
 
@@ -423,6 +465,42 @@ void impresion() {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         impresion();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void tfWeightKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfWeightKeyTyped
+       char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfWeightKeyTyped
+
+    private void tfMuscleMassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMuscleMassKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfMuscleMassKeyTyped
+
+    private void tfGreaseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfGreaseKeyTyped
+
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfGreaseKeyTyped
+
+    private void txtCorporalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorporalKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_txtCorporalKeyTyped
+
+    private void tfWaterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfWaterKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfWaterKeyTyped
+
+    private void tfHeightKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHeightKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfHeightKeyTyped
+
+    private void tfAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAgeKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfAgeKeyTyped
 
     //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
     public void searchClienteIndividual(String cedula) throws FileNotFoundException {

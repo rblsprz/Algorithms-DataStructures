@@ -118,6 +118,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemCRUDRoles);
 
+        menuItemSystemActions.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         menuItemSystemActions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/historial.png"))); // NOI18N
         menuItemSystemActions.setText("SYSTEM ACTIONS");
         menuItemSystemActions.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +132,7 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         jMenu7.setText("GLOBAL SETTINGS");
 
+        menuItemChangeTime.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         menuItemChangeTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
         menuItemChangeTime.setText("CLINIC TIME");
         menuItemChangeTime.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +142,8 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         jMenu7.add(menuItemChangeTime);
 
+        menuItemEmptyApp.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemEmptyApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
         menuItemEmptyApp.setText("EMPTY APP");
         menuItemEmptyApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +156,8 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
         jMenu8.setText("DOCUMENTS");
 
+        menuItemMainDocument.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemMainDocument.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         menuItemMainDocument.setText("MAIN DOCUMENT");
         menuItemMainDocument.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +166,8 @@ public class SuperAdministrator extends javax.swing.JFrame {
         });
         jMenu8.add(menuItemMainDocument);
 
+        menuItemUserManual.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemUserManual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         menuItemUserManual.setText("USER MANUAL");
         menuItemUserManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

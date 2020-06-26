@@ -3,10 +3,13 @@
 900970120;mauren;aguilar;maguilar;vI5bpQzfuun9i14QX97YEQ==;45;77990088;mag@gmail.com;3
 117800556;erick;chavarria;mano;o1c0alXyXiD9i14QX97YEQ==;19;88776655;man@gmail.com;2
 
-123456789;jesus;vargas;jesus123;vI5bpQzfuun9i14QX97YEQ==;12;84710695;brururfgrufgr;3
-123456789;jesus;Vargas;jesus1234;vI5bpQzfuun9i14QX97YEQ==;12;12345678;niihhi;2
+123456789;jesus;Vargas;jesus1234;vI5bpQzfuun9i14QX97YEQ==;11;12345678;niihhi;2
+123456789;jesus;Vargas;jesus1234;vI5bpQzfuun9i14QX97YEQ==;11;12345678;niihhi;2
 305350721;David;Robles;rblsprz;QLx0DubfgQGKahk0kU2xPQ==;18;61122441;david.roblesperez@ucr.ac.cr;2
 
-123456789;Josue;Robles;josuerobles;QLx0DubfgQH0M1L/BOBT3A==;18;12345678;josuerobles@correo;3
+123456789;jesus;Vargas;jesus1234;vI5bpQzfuun9i14QX97YEQ==;11;12345678;niihhi;2
 305350721;David;Robles;rblsprz;QLx0DubfgQGKahk0kU2xPQ==;18;61122441;david.roblesperez@ucr.ac.cr;2
 988887777;kenneth;chavarria;neke;RPMLOnaKLq39i14QX97YEQ==;27;88990044;ken@gmail.com;3
+123456789;jesus;Vargas;jesus1234;vI5bpQzfuun9i14QX97YEQ==;11;12345678;niihhi;2
+123456789;jesus;Vargas;jesus1234;vI5bpQzfuun9i14QX97YEQ==;11;12345678;niihhi;2
+123456789;jesus;Vargas;jesus1234;vI5bpQzfuun9i14QX97YEQ==;11;12345678;niihhi;2

@@ -25,10 +25,8 @@ public class NewRol extends javax.swing.JFrame {
     Encrypted encode = new Encrypted();
     FondoPanel fondo = new FondoPanel();
 
-    
-       
     public NewRol() {
-         this.setContentPane(fondo);
+        this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(NewRol.MAXIMIZED_BOTH);
 
@@ -173,8 +171,8 @@ public class NewRol extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
         String passw = tfPassword.getText().trim();
-        int count=0;
-        
+        int count = 0;
+
         if (lo.validatePassword(passw)) {
             Roles p = new Roles();
 
@@ -217,7 +215,13 @@ public class NewRol extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "IN THE AGE, ADD ONLY NUMBERS!");
         }
 
-        if (tfID.getText().equals("") || tfName.getText().equals("") || tfLastName.getText().equals("") || tfUserName.getText().equals("") || tfPassword.getText().equals("") || tfEmail.getText().equals("")) {
+        ///////////////////////////////////////////////////////////
+        if (tfEmail.getText().contains("@") || tfEmail.getText().contains(".")) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Correo incorrecto");
+        }
+
+        if ((tfEmail.getText().contains("@") || tfEmail.getText().contains(".")) && tfID.getText().equals("") || tfName.getText().equals("") || tfLastName.getText().equals("") || tfUserName.getText().equals("") || tfPassword.getText().equals("") || tfEmail.getText().equals("")) {
             lbMensajes.setText("FILL THE DATA!");
         }//End if
         else {
@@ -234,7 +238,7 @@ public class NewRol extends javax.swing.JFrame {
             Roles r = new Roles(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
             cU.add(r);
             try {
-                if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), encode.ecnode("Algoritmos",tfPassword.getText()), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
+                if ((((tfEmail.getText().contains("@") || tfEmail.getText().contains(".")) && lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), encode.ecnode("Algoritmos", tfPassword.getText()), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == true) {
                     l.insertCustomer(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol);
                     lbMensajes.setText("SUCCESFUL PROCEDURE!");
                     tfID.setText("");
@@ -246,7 +250,7 @@ public class NewRol extends javax.swing.JFrame {
                     tfPhone.setText("");
                     tfEmail.setText("");
 
-                } else if (((lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
+                } else if ((((tfEmail.getText().contains("@") || tfEmail.getText().contains(".")) && lo.validateAge(tfAge.getText()) && tfAge.getText().length() <= 3) && lo.validateNombre(tfName.getText()) && lo.validateLetras(tfLastName.getText()) && (lo.validateCed(tfID.getText()) && tfID.getText().length() == 9) && lo.validateTel(tfPhone.getText()) && tfPhone.getText().length() == 8) && lo.validatePassword(passw) && cU.createCliente(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), rol) == false) {
 
                     lbMensajes.setText("USER ALREADY EXISTS!");
                 }
@@ -329,7 +333,7 @@ public class NewRol extends javax.swing.JFrame {
     private javax.swing.JTextField tfUserName;
     // End of variables declaration//GEN-END:variables
 
-     class FondoPanel extends JPanel {
+    class FondoPanel extends JPanel {
 
         private Image imagen;
 

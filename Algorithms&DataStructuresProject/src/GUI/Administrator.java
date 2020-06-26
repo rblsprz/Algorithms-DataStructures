@@ -56,6 +56,7 @@ public class Administrator extends javax.swing.JFrame {
 
         menuAdd.setText("ADD");
 
+        menuItemNewDate.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuItemNewDate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user2.png"))); // NOI18N
         menuItemNewDate.setText("NEW DATE");
         menuItemNewDate.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +66,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuAdd.add(menuItemNewDate);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         jMenuItem1.setText("NEW DATA");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +76,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuAdd.add(jMenuItem1);
 
+        menuItemFoodPlans.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         menuItemFoodPlans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plans.png"))); // NOI18N
         menuItemFoodPlans.setText("NEW FOOD PLAN");
         menuItemFoodPlans.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +90,7 @@ public class Administrator extends javax.swing.JFrame {
 
         menuInformation.setText("INFORMATION");
 
+        menuItemDates.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         menuItemDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configure_user_16726.png"))); // NOI18N
         menuItemDates.setText("DATES");
         menuItemDates.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +100,7 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemDates);
 
+        menuItemNotes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         menuItemNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
         menuItemNotes.setText("DATA");
         menuItemNotes.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +110,8 @@ public class Administrator extends javax.swing.JFrame {
         });
         menuInformation.add(menuItemNotes);
 
+        menuItemCharts.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemCharts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         menuItemCharts.setText("CHARTS");
         menuItemCharts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

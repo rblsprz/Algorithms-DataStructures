@@ -29,13 +29,13 @@ import javax.swing.*;
  *
  * @author pc
  */
+
 public class CRUD extends javax.swing.JFrame {
 
     /**
      * Creates new form CRUD
      */
     FondoPanel fondo = new FondoPanel();
-
     public CRUD() {
         this.setContentPane(fondo);
         initComponents();
@@ -127,6 +127,12 @@ public class CRUD extends javax.swing.JFrame {
         });
         getContentPane().add(btnDelete);
         btnDelete.setBounds(1500, 550, 170, 48);
+
+        tfName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNameKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfName);
         tfName.setBounds(890, 140, 150, 40);
 
@@ -134,16 +140,33 @@ public class CRUD extends javax.swing.JFrame {
         lbName.setText("NAME");
         getContentPane().add(lbName);
         lbName.setBounds(890, 120, 120, 20);
+
+        tfLastName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfLastNameKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfLastName);
         tfLastName.setBounds(890, 230, 150, 40);
         getContentPane().add(tfUserName);
         tfUserName.setBounds(890, 310, 150, 40);
+
+        tfAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfAgeKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfAge);
         tfAge.setBounds(890, 470, 150, 40);
 
         tfPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPhoneActionPerformed(evt);
+            }
+        });
+        tfPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfPhoneKeyTyped(evt);
             }
         });
         getContentPane().add(tfPhone);
@@ -186,6 +209,12 @@ public class CRUD extends javax.swing.JFrame {
         lbID.setText("ID");
         getContentPane().add(lbID);
         lbID.setBounds(890, 40, 100, 20);
+
+        tfID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfIDKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfID);
         tfID.setBounds(890, 60, 150, 40);
 
@@ -193,6 +222,12 @@ public class CRUD extends javax.swing.JFrame {
         lbEmail.setText("EMAIL");
         getContentPane().add(lbEmail);
         lbEmail.setBounds(890, 620, 120, 20);
+
+        tfEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailActionPerformed(evt);
+            }
+        });
         getContentPane().add(tfEmail);
         tfEmail.setBounds(890, 640, 150, 40);
 
@@ -208,6 +243,7 @@ public class CRUD extends javax.swing.JFrame {
         getContentPane().add(lbPassword);
         lbPassword.setBounds(890, 370, 160, 20);
 
+        tfPassword.setEnabled(false);
         tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPasswordActionPerformed(evt);
@@ -273,6 +309,7 @@ public class CRUD extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         try {
+            
             Delete em = new Delete();
             int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText() + " ?");
             if (d == 0) {
@@ -313,7 +350,7 @@ public class CRUD extends javax.swing.JFrame {
                     contraseña = array.get(j).getContraseña();
                 }
             }
-
+             
             Update em = new Update();
             int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText() + " ?");
             if (edit == 0) {
@@ -380,6 +417,35 @@ public class CRUD extends javax.swing.JFrame {
 
         tfPassword.setEditable(false);
     }//GEN-LAST:event_tfPasswordActionPerformed
+
+    private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
+       
+    }//GEN-LAST:event_tfEmailActionPerformed
+
+    private void tfIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyTyped
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfIDKeyTyped
+
+    private void tfAgeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAgeKeyTyped
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfAgeKeyTyped
+
+    private void tfPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPhoneKeyTyped
+         char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfPhoneKeyTyped
+
+    private void tfNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNameKeyTyped
+         char car = evt.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z')) evt.consume();
+    }//GEN-LAST:event_tfNameKeyTyped
+
+    private void tfLastNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfLastNameKeyTyped
+         char car = evt.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z')) evt.consume();
+    }//GEN-LAST:event_tfLastNameKeyTyped
 
     public void mostrarRegistros() {
         Logic lC = new Logic();

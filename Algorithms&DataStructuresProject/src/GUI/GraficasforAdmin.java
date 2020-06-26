@@ -57,6 +57,8 @@ public class GraficasforAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         btnEjecutar = new javax.swing.JButton();
         btnGraficar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -91,6 +93,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
         });
 
         btnGraficar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnGraficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         btnGraficar.setText("GRAPH");
         btnGraficar.setBorderPainted(false);
         btnGraficar.setContentAreaFilled(false);
@@ -115,12 +118,18 @@ public class GraficasforAdmin extends javax.swing.JFrame {
                 tfIDMouseClicked(evt);
             }
         });
+        tfID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfIDKeyTyped(evt);
+            }
+        });
 
         lbID.setBackground(new java.awt.Color(255, 255, 255));
         lbID.setText("ID:");
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        buttonGroup1.add(radioButtonGrease);
         radioButtonGrease.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         radioButtonGrease.setText("GREASE");
         radioButtonGrease.setContentAreaFilled(false);
@@ -130,6 +139,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radioButtonWeight);
         radioButtonWeight.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         radioButtonWeight.setText("WEIGHT");
         radioButtonWeight.setContentAreaFilled(false);
@@ -139,6 +149,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radioButtonMuscle);
         radioButtonMuscle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         radioButtonMuscle.setText("MUSCLE");
         radioButtonMuscle.setContentAreaFilled(false);
@@ -147,6 +158,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
         lbData.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbData.setText("DATA");
 
+        buttonGroup1.add(radioButtonWater);
         radioButtonWater.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         radioButtonWater.setText("WATER");
         radioButtonWater.setContentAreaFilled(false);
@@ -194,10 +206,12 @@ public class GraficasforAdmin extends javax.swing.JFrame {
 
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        buttonGroup2.add(rbBars);
         rbBars.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         rbBars.setText("BARS");
         rbBars.setContentAreaFilled(false);
 
+        buttonGroup2.add(rbCircular);
         rbCircular.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         rbCircular.setText("CIRCULAR");
         rbCircular.setContentAreaFilled(false);
@@ -271,13 +285,13 @@ public class GraficasforAdmin extends javax.swing.JFrame {
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(752, 752, 752))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(832, 832, 832))
+                        .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(793, 793, 793))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jToggleButton1)
-                        .addGap(851, 851, 851))))
+                        .addGap(829, 829, 829))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,6 +484,12 @@ public class GraficasforAdmin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void tfIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyTyped
+
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfIDKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -540,6 +560,8 @@ public class GraficasforAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEjecutar;
     private javax.swing.JButton btnGraficar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuBar jMenuBar1;

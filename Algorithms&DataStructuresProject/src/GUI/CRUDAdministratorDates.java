@@ -105,6 +105,12 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         lbName.setText("NAME:");
         getContentPane().add(lbName);
         lbName.setBounds(560, 70, 70, 24);
+
+        tfName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNameKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfName);
         tfName.setBounds(620, 60, 219, 40);
 
@@ -112,6 +118,12 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         lbID.setText("ID:");
         getContentPane().add(lbID);
         lbID.setBounds(580, 140, 50, 24);
+
+        tfID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfIDKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfID);
         tfID.setBounds(620, 130, 219, 40);
 
@@ -358,6 +370,17 @@ void impresion() {
             System.err.format("error de impresion", ex.getMessage());
         }
     }//GEN-LAST:event_btnPDFActionPerformed
+
+    private void tfIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+    }//GEN-LAST:event_tfIDKeyTyped
+
+    private void tfNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNameKeyTyped
+
+        char car = evt.getKeyChar();
+        if((car<'a' || car>'z') && (car<'A' || car>'Z')) evt.consume();
+    }//GEN-LAST:event_tfNameKeyTyped
 
 
     /**
