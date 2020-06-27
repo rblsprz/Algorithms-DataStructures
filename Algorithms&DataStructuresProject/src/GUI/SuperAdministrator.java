@@ -286,13 +286,13 @@ public class SuperAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemSystemActionsActionPerformed
 
     private void menuItemMainDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMainDocumentActionPerformed
-//        try {
-//      File path = new File ("C:/Users/HELLO/Desktop/UCR/Informática y Computación/III Semestre 2020/Algoritmos y Estructuras de Datos/Mayo/Algorithms&DataStructures/Documento.pdf");
-//      Desktop.getDesktop().open(path);
-//      }//End try
-//     catch (IOException ex) {
-//     ex.printStackTrace();
-//    }//End catch
+        try {
+      File path = new File ("C:/Users/HELLO/Documents/GitHub/Algorithms-DataStructures/Algorithms&DataStructuresProject/DocumentoNutriciónClínica.pdf");
+      Desktop.getDesktop().open(path);
+      }//End try
+     catch (IOException ex) {
+     ex.printStackTrace();
+    }//End catch
     }//GEN-LAST:event_menuItemMainDocumentActionPerformed
 
     private void menuItemUserManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUserManualActionPerformed
