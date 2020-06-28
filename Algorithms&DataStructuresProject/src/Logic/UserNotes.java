@@ -35,7 +35,7 @@ public class UserNotes {
          cola.setMasaCorporal(masaCorporal);
          cola.setAgua(agua);
          
-        File f2 = new File ("notasPaciente.txt");
+        File f2 = new File ("customerNotes.txt");
         FileOutputStream fos = new FileOutputStream(f2, true);
         PrintStream ps = new PrintStream(fos);
         

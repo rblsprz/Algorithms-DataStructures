@@ -27,7 +27,7 @@ public class FileStacks {
      *
      */
     public void insertCita(Cita c) {
-        File mainFileE = new File("citas.txt");
+        File mainFileE = new File("dates.txt");
         try {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);
@@ -49,7 +49,7 @@ public class FileStacks {
      */
     public void readingFiles() {
 
-        File f = new File("citas.txt");
+        File f = new File("dates.txt");
         try {
             // metodo para leer un archivo
             FileInputStream fis = new FileInputStream(f);
@@ -112,7 +112,7 @@ public class FileStacks {
     public void buscarCita() throws IOException {
 
         NodeStacks pilaTemp = new NodeStacks();
-        File f = new File("citas.txt");
+        File f = new File("dates.txt");
         try {
             // metodo para leer un archivo
             FileInputStream fis = new FileInputStream(f);
@@ -170,7 +170,7 @@ public class FileStacks {
      * 
      */
     public void insertHora(String c) {
-        File mainFileE = new File("horasConsulta.txt");
+        File mainFileE = new File("times.txt");
         try {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);

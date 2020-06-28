@@ -36,7 +36,7 @@ public class PlanNotes {
          cola.setMasaCorporal(masaCorporal);
          cola.setAgua(agua);
          
-        File f2 = new File ("notasPaciente.txt");
+        File f2 = new File ("customerNotes.txt");
         FileOutputStream fos = new FileOutputStream(f2, true);
         PrintStream ps = new PrintStream(fos);
         
@@ -64,7 +64,7 @@ public class PlanNotes {
          plan.setCena(cena);
          plan.setMeriendas(meriendas);
          
-        File f2 = new File ("planesAlimenticiosPacientes.txt");
+        File f2 = new File ("foodPlans.txt");
         FileOutputStream fos = new FileOutputStream(f2, true);
         PrintStream ps = new PrintStream(fos);
         

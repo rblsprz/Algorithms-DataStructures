@@ -36,7 +36,7 @@ public class FileQueuesLog {
     public boolean readingFiles(String cedula1) {
         
 
-        File f = new File("notasPaciente.txt");
+        File f = new File("customerNotes.txt");
         try {
             // metodo para leer un archivo
             FileInputStream fis = new FileInputStream(f);
@@ -138,7 +138,7 @@ public class FileQueuesLog {
      public boolean readingFilesPlanes(String cedula1) {
         
 
-        File f = new File("planesAlimenticiosPacientes.txt");
+        File f = new File("foodPlans.txt");
         try {
             // metodo para leer un archivo
             FileInputStream fis = new FileInputStream(f);

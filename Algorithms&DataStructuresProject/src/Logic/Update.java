@@ -95,9 +95,9 @@ public class Update {
     }//End getPrintStream
     
     public void actualizarPersona(String cedula, String name, String apellido,String username, String contraseña, int edad,int tel,String direccion,int tipo) throws IOException{
-        String[] arregloArchivo = getArregloArchivo("registros.txt");
+        String[] arregloArchivo = getArregloArchivo("registers.txt");
 
-        PrintStream ps = getPrintStream("registros.txt", false);
+        PrintStream ps = getPrintStream("registers.txt", false);
         for (int i = 0; i < arregloArchivo.length; i++) {
 
             if (!getNameFile(arregloArchivo[i], 0).equals(cedula)) {
@@ -110,9 +110,9 @@ public class Update {
     
     public void actualizarNotaPersona(String cedula, String name, String notas, double peso,
     double musculo,double grasa, double altura, int edad, double masaCorporal, double agua, String fecha) throws IOException{
-        String[] arregloArchivo = getArregloArchivo("notasPaciente.txt");
+        String[] arregloArchivo = getArregloArchivo("customerNotes.txt");
 
-        PrintStream ps = getPrintStream("notasPaciente.txt", false);
+        PrintStream ps = getPrintStream("customerNotes.txt", false);
         for (int i = 0; i < arregloArchivo.length; i++) {
 
             if (!getNameFile(arregloArchivo[i], 0).equals(cedula) || !getNameFile(arregloArchivo[i], 10).equals(fecha)) {
@@ -125,9 +125,9 @@ public class Update {
     }//End 
     
     public void actualizarPlanPersona(String cedula, String fecha ,String desayuno, String almuerzo, String cena, String meriendas) throws IOException{
-        String[] arregloArchivo = getArregloArchivo("planesAlimenticiosPacientes.txt");
+        String[] arregloArchivo = getArregloArchivo("foodPlans.txt");
 
-        PrintStream ps = getPrintStream("planesAlimenticiosPacientes.txt", false);
+        PrintStream ps = getPrintStream("foodPlans.txt", false);
         for (int i = 0; i < arregloArchivo.length; i++) {
 
             if (!getNameFile(arregloArchivo[i], 0).equals(cedula) || !getNameFile(arregloArchivo[i], 1).equals(fecha)) {

@@ -246,27 +246,27 @@ public class SuperAdministrator extends javax.swing.JFrame {
         int i = JOptionPane.showConfirmDialog(null, "¿ESTÁ SEGUR@ QUÉ DESEA ELIMINAR TODOS LOS DATOS DE LA APLICACIÓN?");
         if (i == 0) {
             try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter("registros.txt")); //Stream de Escritura de Archivos
+                BufferedWriter bw = new BufferedWriter(new FileWriter("registers.txt")); //Stream de Escritura de Archivos
                 bw.write(""); //Escribe una línea vacía sobre código
                 bw.close(); //Vaciar Aplicación
                 //////////////////////////////////
-                BufferedWriter ba = new BufferedWriter(new FileWriter("citas.txt")); //Stream de Escritura de Archivos
+                BufferedWriter ba = new BufferedWriter(new FileWriter("dates.txt")); //Stream de Escritura de Archivos
                 ba.write(""); //Escribe una línea vacía sobre código
                 ba.close(); //Vaciar Aplicación
                 /////////////////////////////////////
-                BufferedWriter br = new BufferedWriter(new FileWriter("horasConsulta.txt")); //Stream de Escritura de Archivos
+                BufferedWriter br = new BufferedWriter(new FileWriter("times.txt")); //Stream de Escritura de Archivos
                 br.write(""); //Escribe una línea vacía sobre código
                 br.close(); //Vaciar Aplicación
                 ///////////////////////////////////////
-                BufferedWriter bs = new BufferedWriter(new FileWriter("notasPaciente.txt")); //Stream de Escritura de Archivos
+                BufferedWriter bs = new BufferedWriter(new FileWriter("customerNotes.txt")); //Stream de Escritura de Archivos
                 bs.write(""); //Escribe una línea vacía sobre código
                 bs.close(); //Vaciar Aplicación
                 //////////////////////////////////////
-                BufferedWriter bt = new BufferedWriter(new FileWriter("clientes.txt")); //Stream de Escritura de Archivos
+                BufferedWriter bt = new BufferedWriter(new FileWriter("customers.txt")); //Stream de Escritura de Archivos
                 bt.write(""); //Escribe una línea vacía sobre código
                 bt.close(); //Vaciar Aplicación
                 ///////////////////////////////////////
-                BufferedWriter bp = new BufferedWriter(new FileWriter("temporal.txt")); //Stream de Escritura de Archivos
+                BufferedWriter bp = new BufferedWriter(new FileWriter("temp.txt")); //Stream de Escritura de Archivos
                 bp.write(""); //Escribe una línea vacía sobre código
                 bp.close(); //Vaciar Aplicación
             }//End try

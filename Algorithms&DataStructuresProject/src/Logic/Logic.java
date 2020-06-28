@@ -39,7 +39,7 @@ public class Logic {
 
     //Método de lectura general
     public BufferedReader getBufferedReader() {
-        File fileAdmin = new File("clientes.txt");
+        File fileAdmin = new File("customers.txt");
         BufferedReader br = null;
         try {
 
@@ -126,7 +126,7 @@ public class Logic {
      */
     public void insertCustomer(String cedula, String nombre, String apellido, String nombreUsuario, String contraseña, int edad, int telefono, String correo, int tipoRol) {
 
-        File fileCustomer = new File("clientes.txt");
+        File fileCustomer = new File("customers.txt");
 
         try {
             FileOutputStream fos = new FileOutputStream(fileCustomer, true);
@@ -172,7 +172,7 @@ public class Logic {
      */
     public int getFileRegisters() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCustomers = new File("registros.txt");
+        File fileCustomers = new File("registers.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCustomers);
@@ -204,7 +204,7 @@ public class Logic {
     public Roles[] readRegistersFiles() {
 
         Roles array[] = new Roles[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCustomers = new File("registros.txt");
+        File fileCustomers = new File("registers.txt");
 
         try {
             FileInputStream fis = new FileInputStream(fileCustomers);
@@ -272,7 +272,7 @@ public class Logic {
         Roles[] c = readRegistersFiles();
         for (int i = 0; i < c.length; i++) {
             if (encripta.deecnode("Algoritmos", c[i].getContraseña()).equalsIgnoreCase(contraseña) && c[i].getNombreUsuario().equalsIgnoreCase(nombre)) {
-                File f2 = new File("temporal.txt");
+                File f2 = new File("temp.txt");
                 FileOutputStream fos = new FileOutputStream(f2); //Elimina los datos cada vez que guarda
                 PrintStream ps = new PrintStream(fos);
 
@@ -282,7 +282,7 @@ public class Logic {
     }
 
     public BufferedReader getBufferedReaderCita() {
-        File fileAdmin = new File("citas.txt");
+        File fileAdmin = new File("dates.txt");
         BufferedReader br = null;
         try {
 
@@ -302,7 +302,7 @@ public class Logic {
      */
     public int getFileRegistersCita() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("citas.txt");
+        File fileCountries = new File("dates.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -336,7 +336,7 @@ public class Logic {
     public Cita[] readRegistersFilesCita() {
 
         Cita array[] = new Cita[getFileRegistersCita()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("citas.txt");
+        File fileCountries = new File("dates.txt");
 
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -485,7 +485,7 @@ public class Logic {
      */
     public int getFileRegistersIndividual() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("temporal.txt");
+        File fileCountries = new File("temp.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -517,7 +517,7 @@ public class Logic {
     public Roles[] readRegistersFilesIndividual() {
 
         Roles array[] = new Roles[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("temporal.txt");
+        File fileCountries = new File("temp.txt");
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -585,7 +585,7 @@ public class Logic {
      */
     public int getFileRegistersCustomer() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("notasPaciente.txt");
+        File fileCountries = new File("customerNotes.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -617,7 +617,7 @@ public class Logic {
     public CustomerNotes[] readRegistersFilesCustomer() {
 
         CustomerNotes array[] = new CustomerNotes[getFileRegisters()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("notasPaciente.txt");
+        File fileCountries = new File("customerNotes.txt");
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -715,7 +715,7 @@ public class Logic {
      */
     public int getFileRegistersHoras() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("horasConsulta.txt");
+        File fileCountries = new File("times.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -747,7 +747,7 @@ public class Logic {
     public String[] readRegistersFilesHoras() {
 
         String array[] = new String[getFileRegistersHoras()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("horasConsulta.txt");
+        File fileCountries = new File("times.txt");
 
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -810,7 +810,7 @@ public class Logic {
      *
      */
     public BufferedReader getBufferedReaderNotas() {
-        File fileAdmin = new File("notasPaciente.txt");
+        File fileAdmin = new File("customerNotes.txt");
         BufferedReader br = null;
         try {
 
@@ -830,7 +830,7 @@ public class Logic {
      */
     public int getFileRegistersNotas() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("notasPaciente.txt");
+        File fileCountries = new File("customerNotes.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -864,7 +864,7 @@ public class Logic {
     public CustomerNotes[] readRegistersFilesNotas() {
 
         CustomerNotes array[] = new CustomerNotes[getFileRegistersNotas()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("notasPaciente.txt");
+        File fileCountries = new File("customerNotes.txt");
 
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -943,7 +943,7 @@ public class Logic {
      * 
      */
     public void insertHistorialAcciones(History c) {
-        File mainFileE = new File("HistorialAcciones.txt");
+        File mainFileE = new File("actionsHistory.txt");
         try {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);
@@ -963,7 +963,7 @@ public class Logic {
      */
     public int getFileRegistersHistorialAcciones() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("HistorialAcciones.txt");
+        File fileCountries = new File("actionsHistory.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -995,7 +995,7 @@ public class Logic {
     public History[] readRegistersFilesHistorialAcciones() {
 
         History array[] = new History[getFileRegistersHistorialAcciones()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("HistorialAcciones.txt");
+        File fileCountries = new File("actionsHistory.txt");
 
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -1051,7 +1051,7 @@ public class Logic {
      * 
      */
     public BufferedReader getBufferedReaderPlanes() {
-        File fileAdmin = new File("planesAlimenticiosPacientes.txt");
+        File fileAdmin = new File("foodPlans.txt");
         BufferedReader br = null;
         try {
 
@@ -1071,7 +1071,7 @@ public class Logic {
      */
     public int getFileRegistersPlanes() { //Ocupamos este metodo para asignarle el tamaño al arreglo
 
-        File fileCountries = new File("planesAlimenticiosPacientes.txt");
+        File fileCountries = new File("foodPlans.txt");
         int countRegisters = 0;
         try {
             FileInputStream fis = new FileInputStream(fileCountries);
@@ -1106,7 +1106,7 @@ public class Logic {
     public Plans[] readRegistersFilesPlanes() {
 
         Plans array[] = new Plans[getFileRegistersPlanes()]; //el tamaño es segun lo que nos retorna el metodo getFileRegisters
-        File fileCountries = new File("planesAlimenticiosPacientes.txt");
+        File fileCountries = new File("foodPlans.txt");
 
         try {
             FileInputStream fis = new FileInputStream(fileCountries);

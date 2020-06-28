@@ -246,7 +246,7 @@ public class Customers implements LinkedList {
         roles.setCorreo(correo);
         roles.setTipoRol(tipoRol);
 
-        File f2 = new File("registros.txt");
+        File f2 = new File("registers.txt");
         FileOutputStream fos = new FileOutputStream(f2, true);
         PrintStream ps = new PrintStream(fos);
 
@@ -274,7 +274,7 @@ public class Customers implements LinkedList {
     public Customers showCustomers() {
 
         Customers list = new Customers();
-        File f = new File("registros.txt");
+        File f = new File("registers.txt");
         int counter = 1;
 
         try {

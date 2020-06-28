@@ -34,7 +34,7 @@ public class Delete {
     public void removeLines(String l) throws IOException {
 
         Proof listaTemp = new Proof();
-        File f = new File("registros.txt");
+        File f = new File("registers.txt");
         try {
             // metodo para leer un archivo
             FileInputStream fis = new FileInputStream(f);
@@ -101,7 +101,7 @@ public class Delete {
             System.out.println("PROBLEMAS ");
 
         }//end catch
-        File fNuevo = new File("registros.txt");
+        File fNuevo = new File("registers.txt");
         try {
             FileOutputStream fos = new FileOutputStream(fNuevo);
             PrintStream ps = new PrintStream(fos);
@@ -130,7 +130,7 @@ public class Delete {
       public void removeLinesPila(String fe, String h) throws IOException{
 
         NodeStacks pilaTemp = new NodeStacks();
-        File f = new File("citas.txt");
+        File f = new File("dates.txt");
         try {
             // metodo para leer un archivo
             FileInputStream fis = new FileInputStream(f);
@@ -183,7 +183,7 @@ public class Delete {
             System.out.println("PROBLEMAS ");
 
         }//end catch
-        File fNuevo = new File("citas.txt");
+        File fNuevo = new File("dates.txt");
         try {
             FileOutputStream fos = new FileOutputStream(fNuevo);
             PrintStream ps = new PrintStream(fos);
@@ -332,7 +332,7 @@ public class Delete {
     public void removeLinesCola(String c) throws IOException {
         //prueba colaTemp = new Proof();
         QueueMethods colaTemp = new QueueMethods();
-        File f = new File("notasPaciente.txt");
+        File f = new File("customerNotes.txt");
         try {
             FileInputStream fis = new FileInputStream(f);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -405,7 +405,7 @@ public class Delete {
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }
 
-        File fNuevo = new File("notasPaciente.txt");
+        File fNuevo = new File("customerNotes.txt");
         try {
             FileOutputStream fos = new FileOutputStream(fNuevo);
             PrintStream ps = new PrintStream(fos);
@@ -430,7 +430,7 @@ public class Delete {
     public void removeLinesColaGeneral(String c) throws IOException {
         //prueba colaTemp = new prueba();
         QueueMethods colaTemp = new QueueMethods();
-        File f = new File("notasPaciente.txt");
+        File f = new File("customerNotes.txt");
         try {
             FileInputStream fis = new FileInputStream(f);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -503,7 +503,7 @@ public class Delete {
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }
 
-        File fNuevo = new File("notasPaciente.txt");
+        File fNuevo = new File("customerNotes.txt");
         try {
             FileOutputStream fos = new FileOutputStream(fNuevo);
             PrintStream ps = new PrintStream(fos);
@@ -529,7 +529,7 @@ public class Delete {
     public void removeLinesColaPlan(String fe, String id) throws IOException {
         //prueba colaTemp = new prueba();
         QueueMethods colaTemp = new QueueMethods();
-        File f = new File("planesAlimenticiosPacientes.txt");
+        File f = new File("foodPlans.txt");
         try {
             FileInputStream fis = new FileInputStream(f);
             InputStreamReader isr = new InputStreamReader(fis);
@@ -582,7 +582,7 @@ public class Delete {
             JOptionPane.showMessageDialog(null, "Problemas con el archivo");
         }
 
-        File fNuevo = new File("planesAlimenticiosPacientes.txt");
+        File fNuevo = new File("foodPlans.txt");
         try {
             FileOutputStream fos = new FileOutputStream(fNuevo);
             PrintStream ps = new PrintStream(fos);
