@@ -32,7 +32,7 @@ public class FileStacks {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);
             PrintStream ps = new PrintStream(fos);
-            ps.println(c.getFecha() + ";" + c.getHora() + ";" + c.getCedula() + ";" + c.getNombre());
+             ps.println(c.getFecha()+";"+c.getHora()+";"+c.getCedula()+";"+c.getNombre());
 
         } catch (FileNotFoundException fnfe) {
 

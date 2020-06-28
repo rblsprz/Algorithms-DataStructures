@@ -390,10 +390,10 @@ public class Logic {
      * @return file
      *
      */
-    public boolean searchCita(String fecha, String hora) {
+     public boolean searchCita(String fecha, String hora) {
         Cita[] c = readRegistersFilesCita();
         for (int i = 0; i < c.length; i++) {
-            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)) {
+            if (c[i].getFecha().equalsIgnoreCase(fecha) && c[i].getHora().equalsIgnoreCase(hora)){
                 return true;
             }
         }
@@ -948,7 +948,7 @@ public class Logic {
             //                                                  
             FileOutputStream fos = new FileOutputStream(mainFileE, true);
             PrintStream ps = new PrintStream(fos);
-            ps.println(c.getFecha() + ";" + c.getHora() + ";" + c.getAccion() + ";" + c.getPersona());
+             ps.println(c.getFecha()+";"+c.getHora()+";"+c.getAccion()+";"+c.getPersona());
 
         } catch (FileNotFoundException fnfe) {
 

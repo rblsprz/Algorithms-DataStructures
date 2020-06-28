@@ -26,8 +26,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import Logic.History;
 
 import static GUI.CRUD.JTable1;
+import Logic.Roles;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -106,6 +110,11 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         getContentPane().add(lbName);
         lbName.setBounds(560, 70, 70, 24);
 
+        tfName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNameActionPerformed(evt);
+            }
+        });
         tfName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tfNameKeyTyped(evt);
@@ -148,7 +157,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(720, 420, 150, 48);
+        btnUpdate.setBounds(720, 420, 150, 41);
 
         btnDelete.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
@@ -161,7 +170,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(910, 420, 140, 48);
+        btnDelete.setBounds(910, 420, 140, 41);
 
         btnShowDates.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
@@ -174,7 +183,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(480, 420, 190, 48);
+        btnShowDates.setBounds(480, 420, 190, 41);
         getContentPane().add(dateChooser);
         dateChooser.setBounds(620, 200, 219, 40);
         getContentPane().add(tfDate);
@@ -185,6 +194,11 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         comboHoras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 comboHorasMouseClicked(evt);
+            }
+        });
+        comboHoras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboHorasActionPerformed(evt);
             }
         });
         getContentPane().add(comboHoras);
@@ -214,12 +228,12 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnPDF);
-        btnPDF.setBounds(630, 490, 120, 48);
+        btnPDF.setBounds(630, 490, 120, 41);
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel7.setText("DATES");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(950, 10, 56, 23);
+        jLabel7.setBounds(950, 10, 61, 24);
 
         pack();
         setLocationRelativeTo(null);
@@ -235,6 +249,20 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         // jDateChooser1.setDateFormatString(jTable3.getValueAt(seleccion, 0).toString());
     }//GEN-LAST:event_jTableAdminMouseClicked
 
+     public String getPersona() {
+        Logic lC = new Logic();
+        ArrayList<Roles> array = new ArrayList();
+        String persona = "";
+
+        Roles tempCountries[] = lC.readRegistersFilesIndividual();
+        for (int i = 0; i < tempCountries.length; i++) {
+            array.add(tempCountries[i]);
+        }//endfor
+        for (int j = 0; j < 1; j++) {
+            persona = array.get(j).getNombre() + " - " + array.get(j).getCedula(); //Obtengo la cedula del usuario activo
+        }
+        return persona;
+    }
 
     public void mostrarCitas() {
         Logic lC = new Logic();
@@ -274,60 +302,80 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowDatesActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-
-         int seleccion = jTableAdmin.getSelectedRow();
-
-        String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
-        String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
-        String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
-        String fecha = (year + "-" + mes + "-" + dia);
-
+  int seleccion = jTableAdmin.getSelectedRow();
+            String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+            String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
+            String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+            String fecha=(year+"-"+mes+"-"+dia); 
         try {
-            Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO UPDATE THE DATE FROM " + tfName.getText() + " ?");
-
+                Update em = new Update();
+                int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + tfName.getText() + " ?");
                 if(edit == 0){
                     if(Stack.searchCita(fecha, comboHoras.getSelectedItem().toString()) == false){
-                    Cita cita1 = new Cita(tfDate.getText(), jTableAdmin.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
+                    Cita cita1 = new Cita(jTableAdmin.getValueAt(seleccion, 0).toString(), jTableAdmin.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
                     Cita cita2 = new Cita(fecha, comboHoras.getSelectedItem().toString(), tfID.getText(), tfName.getText());
                     stack1.insertCita(cita2);
                     em.ModifuUse(cita1, fecha, comboHoras.getSelectedItem().toString());
-                    stack.removeLinesPila(tfDate.getText(), jTableAdmin.getValueAt(seleccion, 1).toString());
-
+                    stack.removeLinesPila(jTableAdmin.getValueAt(seleccion, 0).toString(), jTableAdmin.getValueAt(seleccion, 1).toString());
                     //em.actualizarCita(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
-                    lbMessages.setText("SUCCESFULLY UPDATED!");
+                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
                     mostrarCitas();
+                    
+                    //-------------------------------------------FECHA-----------------------------
+                    Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Modifico la cita de "+tfID.getText() , getPersona());
+                    Stack.insertHistorialAcciones(c);
+                    
                     tfID.setText("");
                     tfName.setText("");
-
-                } else {
-                    lbMessages.setText("THE DATA AND TIME AREN'T AVAILABLE!");
-                }
+//                    txtHora.setText("");
+                   } else {
+                JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
             }
-        } catch (IOException ex) {
-            lbMessages.setText("UPDATE ERROR!");
-        }
+                }
+            }catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al modificar");
+            }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
-        try { int seleccion = jTableAdmin.getSelectedRow();
-            Delete stack = new Delete();
-            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE THE DATE FROM " + tfID.getText() + " ?");
-            if (d == 0) {
-                  stack.removeLinesPila(jTableAdmin.getValueAt(seleccion, 0).toString(), jTableAdmin.getValueAt(seleccion, 1).toString()); 
+              int seleccion = jTableAdmin.getSelectedRow();
+        try {
+                Delete stack = new Delete();
+                int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar la cita de " + tfName.getText() + " de este archivo?");
+                if(d == 0){
+                    stack.removeLinesPila(jTableAdmin.getValueAt(seleccion, 0).toString(), jTableAdmin.getValueAt(seleccion, 1).toString()); //FECHA - HORA
                     //stack.borrarCita("citas.txt", txtFecha.getText(), txtHora.getText());
-
-                lbMessages.setText("SUCCESSFULLY DELETED!");
-                mostrarCitas();
-                tfID.setText("");
-//                tfDate.setText("");
-//                tfTime.setText("");
-                tfName.setText("");
-            }
-        } catch (IOException ex) {
-            lbMessages.setText("DELETE ERROR!");
-        }
+                    JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
+                    mostrarCitas();
+                    //-------------------------------------------FECHA-----------------------------
+                    Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Elimino la cita de " + tfID.getText() , getPersona());
+                    Stack.insertHistorialAcciones(c);
+                    
+                    tfID.setText("");
+//                    txtFecha.setText("");
+//                    txtHora.setText("");
+                    tfName.setText("");
+                }
+            }catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al eliminar");
+            }   
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void comboHorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboHorasMouseClicked
@@ -381,6 +429,14 @@ void impresion() {
         char car = evt.getKeyChar();
         if((car<'a' || car>'z') && (car<'A' || car>'Z')) evt.consume();
     }//GEN-LAST:event_tfNameKeyTyped
+
+    private void comboHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHorasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboHorasActionPerformed
+
+    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNameActionPerformed
 
 
     /**

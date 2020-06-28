@@ -10,6 +10,7 @@ import Logic.Cita;
 import Logic.Delete;
 import Logic.ExportarExcel;
 import Logic.FileStacks;
+import Logic.History;
 import Logic.Logic;
 import Logic.Roles;
 import Logic.Update;
@@ -21,8 +22,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -120,7 +123,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(190, 350, 140, 48);
+        btnDelete.setBounds(190, 350, 140, 41);
 
         btnShowDates.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowDates.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
@@ -133,7 +136,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(350, 350, 230, 48);
+        btnShowDates.setBounds(350, 350, 230, 41);
 
         lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
@@ -146,6 +149,11 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfNameMouseClicked(evt);
+            }
+        });
+        tfName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNameActionPerformed(evt);
             }
         });
         tfName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -191,7 +199,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(20, 350, 150, 48);
+        btnUpdate.setBounds(20, 350, 150, 41);
 
         lbDatesRegisters.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         lbDatesRegisters.setText("MY DATING HISTORY");
@@ -225,7 +233,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(110, 420, 130, 48);
+        jToggleButton1.setBounds(110, 420, 130, 41);
 
         jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
@@ -239,7 +247,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(280, 420, 140, 48);
+        jToggleButton2.setBounds(280, 420, 140, 40);
 
         lbClickHere.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbClickHere.setText("CLICK HERE");
@@ -303,20 +311,50 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             ));
         }        
     }
+     public String getPersona() {
+        Logic lC = new Logic();
+        ArrayList<Roles> array = new ArrayList();
+        String persona = "";
+
+        Roles tempCountries[] = lC.readRegistersFilesIndividual();
+        for (int i = 0; i < tempCountries.length; i++) {
+            array.add(tempCountries[i]);
+        }//endfor
+        for (int j = 0; j < 1; j++) {
+            persona = array.get(j).getNombre() + " - " + array.get(j).getCedula(); //Obtengo la cedula del usuario activo
+        }
+        return persona;
+    }
+    
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int seleccion = jTableCustom.getSelectedRow();
         try {
-            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText() + " ?");
-            if (d == 0) {
+            int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar la cita de " + tfName.getText() + " de este archivo?");
+            if(d == 0){
+                //parametros : fecha y hora 
                 stack.removeLinesPila(jTableCustom.getValueAt(seleccion, 0).toString(), jTableCustom.getValueAt(seleccion, 1).toString());
-                
                 searchClienteIndividual(tfID.getText());
-                lbMessages.setText("SUCCESSFULLY DELETED!");
+                JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
+                
+                //-------------------------------------------FECHA-----------------------------
+                    Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Elimino su cita", getPersona());
+                    Stack.insertHistorialAcciones(c);
                 tfID.setText("");
+                //txtFecha.setText("");
+                //txtHora.setText("");
                 tfName.setText("");
+               // txtFecha.setText("");
             }
-        } catch (IOException ex) {
-            lbMessages.setText("DELETE ERROR!");
+        }catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -324,6 +362,11 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         try {
             mostrarNombre();
             searchClienteIndividual(tfID.getText());
+            String tempCountries[] = Stack.readRegistersFilesHoras();
+
+            for(String num : tempCountries){
+                    comboHoras3.addItem(num);
+            }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CRUDCustomerDates.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -331,41 +374,52 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
-        int seleccion = jTableCustom.getSelectedRow();
-        String dia = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
-        String mes = Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH) + 1);
-        String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
-        String fecha = (year + "-" + mes + "-" + dia);
-        
+       int seleccion = jTableCustom.getSelectedRow();
+        String dia=Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes=Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
+        String year=Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+        String fecha=(year+"-"+mes+"-"+dia);
+
         try {
             Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText() + " ?");
-            if (edit == 0) {
-                if (Stack.searchCita(fecha, jTableCustom.getValueAt(seleccion, 1).toString()) == false) {
+            int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar la cita de " + tfName.getText() + " ?");
+            if(edit == 0){
+                if(Stack.searchCita(fecha, jTableCustom.getValueAt(seleccion, 1).toString()) == false){
                     Cita cita1 = new Cita(jTableCustom.getValueAt(seleccion, 0).toString(), jTableCustom.getValueAt(seleccion, 1).toString(), tfID.getText(), tfName.getText());
-                    
                     Cita cita2 = new Cita(fecha, comboHoras3.getSelectedItem().toString(), tfID.getText(), tfName.getText());
                     stack1.insertCita(cita2);
                     em.ModifuUse(cita1, fecha, comboHoras3.getSelectedItem().toString());
-                    stack.removeLinesPila(tfDate.getText(), jTableCustom.getValueAt(seleccion, 1).toString());
+                    stack.removeLinesPila(jTableCustom.getValueAt(seleccion, 0).toString(), jTableCustom.getValueAt(seleccion, 1).toString());
                     //em.actualizarCita2(fecha, txtHora.getText(), txtPaciente.getText(), txtCedul.getText());
                     searchClienteIndividual(tfID.getText());
-                    lbMessages.setText("SUCCESSFULLY UPDATED!");
+                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO"); 
+                    //-------------------------------------------FECHA-----------------------------
+                    Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Modifico su cita", getPersona());
+                    Stack.insertHistorialAcciones(c);
                     tfID.setText("");
                     tfName.setText("");
-//                    tfTime.setText("");
-//                    tfDate.setText("");
+                   // txtHora.setText("");
+                   // txtFecha.setText("");
                 } else {
-                    lbMessages.setText("THE TIME AND DATA AREN'T AVAILABLE!");
+                    JOptionPane.showMessageDialog(null, "La hora y fecha que solicita se encuentran ocupadas");
                 }
             }
-        } catch (IOException ex) {
-            lbMessages.setText("UPDATE ERROR!");
+        }catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error al modificar");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void tfNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNameMouseClicked
         mostrarNombre();
+         
     }//GEN-LAST:event_tfNameMouseClicked
 
     private void comboHoras3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboHoras3MouseClicked
@@ -407,6 +461,10 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         char car = evt.getKeyChar();
         if((car<'0' || car>'9')) evt.consume();
     }//GEN-LAST:event_tfIDKeyTyped
+
+    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNameActionPerformed
 
     /**
      * @param args the command line arguments

@@ -8,6 +8,7 @@ package GUI;
 import Logic.Logic;
 import Logic.Delete;
 import Logic.ExportarExcel;
+import Logic.History;
 import Logic.Roles;
 import Logic.Update;
 import java.awt.Graphics;
@@ -23,6 +24,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
 
 /**
@@ -300,7 +304,20 @@ public class CRUD extends javax.swing.JFrame {
         tfEmail.setText(JTable1.getValueAt(seleccion, 7).toString());
         tfRol.setText(JTable1.getValueAt(seleccion, 8).toString());
     }//GEN-LAST:event_JTable1MouseClicked
+ public String getPersona() {
+        Logic lC = new Logic();
+        ArrayList<Roles> array = new ArrayList();
+        String persona = "";
 
+        Roles tempCountries[] = lC.readRegistersFilesIndividual();
+        for (int i = 0; i < tempCountries.length; i++) {
+            array.add(tempCountries[i]);
+        }//endfor
+        for (int j = 0; j < 1; j++) {
+            persona = array.get(j).getNombre() + " - " + array.get(j).getCedula(); //Obtengo la cedula del usuario activo
+        }
+        return persona;
+    }
     private void btnshowRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshowRolesActionPerformed
 
         mostrarRegistros();
@@ -308,11 +325,27 @@ public class CRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_btnshowRolesActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+         Logic Lf = new Logic(); 
         try {
-            
-            Delete em = new Delete();
-            int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO DELETE " + tfID.getText() + " ?");
-            if (d == 0) {
+                Delete em = new Delete();
+                int d = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar " + tfName.getText() + " de este archivo?");
+                if(d == 0){
+                    em.removeLines(tfID.getText());
+                    JOptionPane.showMessageDialog(null, "ELIMINADO CON EXITO");
+                    mostrarRegistros();
+                    
+                    //-------------------------------------------FECHA-----------------------------
+                    Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Elimino a "+tfID.getText() , getPersona());
+                    Lf.insertHistorialAcciones(c);
 
                 em.removeLines(tfID.getText());
                 lbMensajes.setText("SUCCESSFULLY REMOVED!");
@@ -335,26 +368,41 @@ public class CRUD extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        try {
-            Logic lC = new Logic();
-            ArrayList<Roles> array = new ArrayList();
-            String contraseña = "";
+         try {
+                Logic lC = new Logic();
+                ArrayList<Roles> array = new ArrayList();
+                String contraseña = "";
 
-            Roles tempCustomers[] = lC.readRegistersFiles();
-            for (int i = 0; i < tempCustomers.length; i++) {
-                array.add(tempCustomers[i]);
-            }//endfor
+                Roles tempCountries[] = lC.readRegistersFiles();
+                for(int i = 0; i < tempCountries.length; i++){
+                    array.add(tempCountries[i]);
+                }//endfor
 
-            for (int j = 0; j < array.size(); j++) {
-                if (tfName.getText().equals(array.get(j).getNombre())) {
-                    contraseña = array.get(j).getContraseña();
+                for(int j = 0; j < array.size(); j++){
+                    if(tfName.getText().equals(array.get(j).getNombre())){
+                       contraseña = array.get(j).getContraseña();
+                    }
                 }
-            }
-             
-            Update em = new Update();
-            int edit = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO UPDATE " + tfID.getText() + " ?");
-            if (edit == 0) {
+
+                Update em = new Update();
+                int edit = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea modificar a " + tfName.getText() + " ?");
+                if(edit == 0){
                 em.actualizarPersona(tfID.getText(), tfName.getText(), tfLastName.getText(), tfUserName.getText(), tfPassword.getText(), Integer.parseInt(tfAge.getText()), Integer.parseInt(tfPhone.getText()), tfEmail.getText(), Integer.parseInt(tfRol.getText()));
+                    JOptionPane.showMessageDialog(null, "MODIFICADO CON EXITO");
+                    mostrarRegistros();
+                    
+                    //-------------------------------------------FECHA-----------------------------
+                    Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Modifico a "+tfID.getText() , getPersona());
+                    lC.insertHistorialAcciones(c);
+              
                 lbMensajes.setText("SUCCESSFULLY UPDATED!");
                 mostrarRegistros();
                 tfID.setText("");

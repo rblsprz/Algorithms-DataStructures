@@ -265,33 +265,32 @@ public class GraficasforAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(963, 963, 963)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(831, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(lbID)
-                                .addGap(26, 26, 26)
-                                .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(752, 752, 752))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(31, 31, 31)
+                            .addComponent(lbID)
+                            .addGap(26, 26, 26)
+                            .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(70, 70, 70)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(793, 793, 793))
+                        .addGap(41, 41, 41))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jToggleButton1)
-                        .addGap(829, 829, 829))))
+                        .addGap(77, 77, 77)))
+                .addContainerGap(1543, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,7 +377,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createBarChart3D("Grafica de " +name, "Porcentajes Obtenidos", "Cantidad", dts,PlotOrientation.HORIZONTAL, true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500,40,500,400);
+            cp.setBounds(700,40,500,400);
 
         }
 
@@ -391,7 +390,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createPieChart3D("Grafica de " +name, dtsc,true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500,40,500,400);
+            cp.setBounds(700,40,500,400);
 
         }
 
@@ -441,7 +440,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createBarChart3D("Grafica de " +name, "Porcentajes Obtenidos", "Cantidad", dts,PlotOrientation.HORIZONTAL, true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500,40,500,400);
+            cp.setBounds(700,40,500,400);
             //        JFreeChart chart = createChart(createDataset());
 
             PDFDocument pdfDoc = new PDFDocument();
@@ -466,7 +465,7 @@ public class GraficasforAdmin extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createPieChart3D("Grafica de " +name, dtsc,true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500,40,500,400);
+            cp.setBounds(700,40,500,400);
             //        JFreeChart chart = createChart(createDataset());
 
             PDFDocument pdfDoc = new PDFDocument();

@@ -74,7 +74,6 @@ public class GraficasforCustom extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnEjecutar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnEjecutar.setForeground(new java.awt.Color(0, 0, 0));
         btnEjecutar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btnEjecutar.setText("RUN");
         btnEjecutar.setBorderPainted(false);
@@ -86,7 +85,6 @@ public class GraficasforCustom extends javax.swing.JFrame {
         });
 
         btnGraficar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnGraficar.setForeground(new java.awt.Color(0, 0, 0));
         btnGraficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ejercicio.png"))); // NOI18N
         btnGraficar.setText("GRAPH");
         btnGraficar.setBorderPainted(false);
@@ -99,13 +97,11 @@ public class GraficasforCustom extends javax.swing.JFrame {
 
         buttonGroup2.add(rbBarra);
         rbBarra.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        rbBarra.setForeground(new java.awt.Color(0, 0, 0));
         rbBarra.setText("BARS");
         rbBarra.setContentAreaFilled(false);
 
         buttonGroup2.add(rbCircular);
         rbCircular.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        rbCircular.setForeground(new java.awt.Color(0, 0, 0));
         rbCircular.setText("CIRCULAR");
         rbCircular.setContentAreaFilled(false);
 
@@ -124,7 +120,6 @@ public class GraficasforCustom extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton1.setText("GREASE");
         jRadioButton1.setToolTipText("");
         jRadioButton1.setContentAreaFilled(false);
@@ -136,24 +131,20 @@ public class GraficasforCustom extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton2.setText("MUSCLE");
         jRadioButton2.setContentAreaFilled(false);
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton3.setText("WATER");
         jRadioButton3.setContentAreaFilled(false);
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jRadioButton4.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton4.setText("WEIGHT");
         jRadioButton4.setContentAreaFilled(false);
 
         jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         jToggleButton1.setText("PDF EXPORT CHART");
         jToggleButton1.setToolTipText("");
@@ -178,7 +169,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,24 +184,20 @@ public class GraficasforCustom extends javax.swing.JFrame {
                                 .addGap(57, 57, 57)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rbBarra)
-                                    .addComponent(rbCircular))
-                                .addGap(171, 171, 171))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
-                        .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 1389, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbCircular)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
+                        .addGap(83, 83, 83)
                         .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(1560, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,15 +218,15 @@ public class GraficasforCustom extends javax.swing.JFrame {
                         .addComponent(rbCircular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbBarra)))
-                .addGap(38, 38, 38)
+                .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGraficar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(488, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
 
         pack();
@@ -301,7 +288,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createBarChart3D("Grafica de barras de " +obtenerCliente(), "Porcentajes Obtenidos", "Cantidad", dtsc, PlotOrientation.HORIZONTAL, true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500, 40, 500, 400);
+            cp.setBounds(700, 40, 500, 400);
 
         }
 
@@ -314,7 +301,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createPieChart3D("Grafica Circular de " +obtenerCliente(), dtsc, true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500, 40, 500, 400);
+            cp.setBounds(700, 40, 500, 400);
 
         }
 
@@ -365,7 +352,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createBarChart3D("Grafica de " +obtenerCliente()+ " sobre " +name, "Porcentajes Obtenidos", "Cantidad", dts,PlotOrientation.HORIZONTAL, true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500,40,500,400);
+            cp.setBounds(700,40,500,400);
             //        JFreeChart chart = createChart(createDataset());
 
             PDFDocument pdfDoc = new PDFDocument();
@@ -390,7 +377,7 @@ public class GraficasforCustom extends javax.swing.JFrame {
             JFreeChart ch = ChartFactory.createPieChart3D("Grafica circular de " +obtenerCliente()+ " sobre " +name, dtsc,true, true, false);
             ChartPanel cp = new ChartPanel(ch);
             add(cp);
-            cp.setBounds(500,40,500,400);
+            cp.setBounds(700,40,500,400);
             //        JFreeChart chart = createChart(createDataset());
 
             PDFDocument pdfDoc = new PDFDocument();

@@ -1,3 +1,10 @@
-22-jun-2020;19:25:57;Nuevo plan para 900970120;erick - 117800556
-22-jun-2020;19:26:40;Nuevo plan para 988887777;erick - 117800556
-22-jun-2020;19:26:58;Elimino el plan de 988887777;erick - 117800556
+
+27-jun-2020;21:35:48;Elimino la cita de 900970120;frame0
+27-jun-2020;21:39:58;Elimino su cita;frame1
+27-jun-2020;21:40:22;Modifico su cita;frame1
+27-jun-2020;21:53:1;Elimino la cita de 988887777;frame0
+27-jun-2020;21:53:17;Modifico la cita de 900970120;frame0
+27-jun-2020;22:48:2;Elimino la cita de 988887777;erick - 117800556
+27-jun-2020;22:50:27;Modifico las notas de 988887777;erick - 117800556
+27-jun-2020;22:51:58;Elimino las notas de 900970120;erick - 117800556
+27-jun-2020;22:54:14;Nuevo plan para 988887777;erick - 117800556

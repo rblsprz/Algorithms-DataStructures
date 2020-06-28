@@ -21,7 +21,7 @@ import Interfaces.Stacks;
  * @author pc
  */
 
-class NodeCita {
+ class NodeCita {
 
     // variables de la clase nodo
     Cita element;
@@ -47,8 +47,34 @@ class NodeCita {
     }// ver siguiente
 }// end class Node()
 
+class NodeHoras {
+
+    // variables de la clase nodo
+    String element;
+    NodeHoras next;
+
+    // constructor del nodo
+    public NodeHoras(String n) {
+
+        this.element = n;
+        next = null;
+    }
+
+    String seeElement2() {
+
+        return this.element;
+    }// end seeElement
+    // me permite ver el elemento
+    // método utilizado para el indexOf
+
+    NodeHoras seeNext2() {
+
+        return this.next;
+    }// ver siguiente
+}// end class Node()
+
 public class NodeStacks implements Stacks{
-    
+    NodeHoras start2;
     NodeCita start, end;// nodos para utilizar y mover las pilas
 
     // constructor vacio
@@ -103,7 +129,43 @@ public class NodeStacks implements Stacks{
             System.out.println(n);
         }// end else
     }
+    
+     public void push2(String n) {
+        NodeHoras aux = start2;
 
+        if (aux == null) {
+            aux = new NodeHoras(n);
+            start2 = aux;
+            System.out.println(n);
+        }// end if
+        else {
+            while (aux.next != null) {//para encontrar el ultimo elemento
+                aux = aux.next;
+            }// end while
+
+            aux.next = new NodeHoras(n);
+            // end = aux.next;
+            System.out.println(n);
+        }// end else
+    }
+     
+     
+    public String IndexOf2(int index) {
+        NodeHoras aux = start2;
+
+        // indice para recorrer la lista por medio de la 
+        //variable indice
+        for (int i = -1; i < index - 1; i++) {
+
+            // método de la clase NODO para llevar al siguiente
+            // elemento.
+            aux = aux.seeNext2();
+        }
+        // instancia del método para ver el elemento actual
+        // (el metodo está en la clase NODO)
+        return aux.seeElement2();
+    }
+    
     @Override
     public Cita peek() {
         NodeCita aux = start;

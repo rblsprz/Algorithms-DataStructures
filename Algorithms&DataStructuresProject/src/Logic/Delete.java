@@ -127,7 +127,7 @@ public class Delete {
      * @return file
      *
      */
-    public void removeLinesPila(String fe, String h) throws IOException {
+      public void removeLinesPila(String fe, String h) throws IOException{
 
         NodeStacks pilaTemp = new NodeStacks();
         File f = new File("citas.txt");
@@ -168,7 +168,7 @@ public class Delete {
                         }
                     }// end while pequeño()
                     Cita cita = new Cita(fecha, hora, cedula, nombre);
-                    //System.out.println("Fabe" + usu.getContrasenia());
+
                     pilaTemp.push(cita);// crea al usuario y lo agrega
                 }// end if()
                 linesUpdate = bR.readLine();
@@ -190,7 +190,7 @@ public class Delete {
             for (int i = 0; i < pilaTemp.size(); i++) {
                 ps.println(pilaTemp.IndexOf(i).getFecha() + ";"
                         + pilaTemp.IndexOf(i).getHora() + ";"
-                        + pilaTemp.IndexOf(i).getCedula() + ";" + pilaTemp.IndexOf(i).getNombre() + ";");
+                        + pilaTemp.IndexOf(i).getCedula()+ ";" + pilaTemp.IndexOf(i).getNombre()+ ";");
             }
         } catch (FileNotFoundException fnfe) {
 
@@ -199,7 +199,6 @@ public class Delete {
         //---------------
 
     }// end removeLines()
-
     /**
      * Imprime los datos del archivo
      *

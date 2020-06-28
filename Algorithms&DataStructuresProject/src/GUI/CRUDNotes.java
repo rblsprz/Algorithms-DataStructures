@@ -12,6 +12,9 @@ import java.awt.Image;
 import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -328,7 +331,7 @@ public class CRUDNotes extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+ Logic Stack = new Logic();
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         int seleccion = jTable3.getSelectedRow();
         tfID.setText(jTable3.getValueAt(seleccion, 0).toString());
@@ -352,6 +355,18 @@ public class CRUDNotes extends javax.swing.JFrame {
                 em.removeLinesColaGeneral(tfID.getText());
                 mostrarNotas();
                 lbMessages.setText("SUCCESFULLY DELETED!");
+                
+                Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Elimino las notas de "+tfID.getText() , getPersona());
+                    Stack.insertHistorialAcciones(c);
+                
                 tfID.setText("");
                 tfName.setText("");
                 tfWater.setText("");
@@ -422,6 +437,18 @@ public class CRUDNotes extends javax.swing.JFrame {
                         Double.parseDouble(tfGrease.getText()), Double.parseDouble(tfHeight.getText()), Integer.parseInt(tfAge.getText()), Double.parseDouble(txtCorporal.getText()), Double.parseDouble(tfWater.getText()), tfDate.getText());
                 lbMessages.setText("SUCCESFULLY UPDATED!");
                 mostrarNotas();
+                
+                Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+                    String strDateFormat = "dd-MMM-y"; // El formato de fecha está especificado  
+                    SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+                    
+                    //-----------------------------------------HORA-------------------------------
+                    Calendar calendario = Calendar.getInstance();
+                    String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
+                    
+                    History c = new History(objSDF.format(objDate), hora , "Modifico las notas de "+tfID.getText() , getPersona());
+                    Stack.insertHistorialAcciones(c);
+                
                 tfID.setText("");
                 tfName.setText("");
                 tfWater.setText("");
@@ -439,7 +466,20 @@ public class CRUDNotes extends javax.swing.JFrame {
             lbMessages.setText("UPDATE ERROR!");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
+ public String getPersona() {
+        Logic lC = new Logic();
+        ArrayList<Roles> array = new ArrayList();
+        String persona = "";
 
+        Roles tempCountries[] = lC.readRegistersFilesIndividual();
+        for (int i = 0; i < tempCountries.length; i++) {
+            array.add(tempCountries[i]);
+        }//endfor
+        for (int j = 0; j < 1; j++) {
+            persona = array.get(j).getNombre() + " - " + array.get(j).getCedula(); //Obtengo la cedula del usuario activo
+        }
+        return persona;
+    }
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
 
       MessageFormat header = new MessageFormat("Citas personal");
