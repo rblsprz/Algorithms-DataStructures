@@ -88,7 +88,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         comboHoras3 = new javax.swing.JComboBox<>();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
-        lbClickHere = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -135,7 +134,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(350, 350, 230, 41);
+        btnShowDates.setBounds(350, 350, 260, 41);
 
         lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
@@ -245,11 +244,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         });
         getContentPane().add(jToggleButton2);
         jToggleButton2.setBounds(280, 420, 140, 40);
-
-        lbClickHere.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbClickHere.setText("CLICK HERE");
-        getContentPane().add(lbClickHere);
-        lbClickHere.setBounds(970, 120, 150, 24);
 
         pack();
         setLocationRelativeTo(null);
@@ -513,7 +507,6 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     public static javax.swing.JTable jTableCustom;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JLabel lbClickHere;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbDatesRegisters;
     private javax.swing.JLabel lbID;

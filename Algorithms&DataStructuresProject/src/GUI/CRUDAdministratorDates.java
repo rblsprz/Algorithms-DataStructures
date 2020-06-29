@@ -182,7 +182,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowDates);
-        btnShowDates.setBounds(480, 420, 190, 41);
+        btnShowDates.setBounds(440, 420, 250, 41);
         getContentPane().add(dateChooser);
         dateChooser.setBounds(620, 200, 219, 40);
         getContentPane().add(lbMessages);

@@ -132,7 +132,7 @@ public class Logic {
             FileOutputStream fos = new FileOutputStream(fileCustomer, true);
             PrintStream ps = new PrintStream(fos);
 
-            if (searchAdministrator(nombre) == -1) {
+            if (searchAdministrator(nombre) == -1) {//validar si existe o no
                 ps.println(nombreUsuario + ";" + contraseña + ";" + tipoRol);
             }
         } catch (FileNotFoundException fnfe) {

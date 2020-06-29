@@ -282,7 +282,7 @@ public class CRUDNotes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(taNotes);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(340, 550, 166, 96);
+        jScrollPane1.setBounds(296, 550, 250, 140);
 
         btnShowNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
@@ -295,7 +295,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowNotes);
-        btnShowNotes.setBounds(1140, 290, 260, 41);
+        btnShowNotes.setBounds(1140, 290, 310, 41);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(2010, 294, 0, 0);
         getContentPane().add(lbNotFound);

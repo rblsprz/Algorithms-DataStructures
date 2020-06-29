@@ -1,3 +1,4 @@
 ;;;;;
 900970120;28-jun-2020;pinto con huevo;casado;pollo;frutas
 900970120;28-jun-2020;pinto con huevo;casado;pollo;frutas
+900970120;29-jun-2020;empanada con carne;cantones;pollo con ensalada;frutas

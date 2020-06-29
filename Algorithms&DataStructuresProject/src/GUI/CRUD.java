@@ -117,7 +117,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnshowRoles);
-        btnshowRoles.setBounds(1080, 550, 210, 48);
+        btnshowRoles.setBounds(1080, 550, 210, 41);
 
         btnDelete.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
@@ -130,7 +130,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(1500, 550, 170, 48);
+        btnDelete.setBounds(1500, 550, 170, 41);
 
         tfName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -207,7 +207,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(1300, 550, 170, 48);
+        btnUpdate.setBounds(1300, 550, 170, 41);
 
         lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID");
@@ -269,7 +269,7 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(1230, 630, 120, 48);
+        jToggleButton2.setBounds(1230, 630, 120, 41);
 
         jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
@@ -287,7 +287,7 @@ public class CRUD extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel7.setText("ROLES");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(660, 310, 56, 23);
+        jLabel7.setBounds(660, 310, 130, 60);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
