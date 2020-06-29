@@ -61,12 +61,12 @@ public class AdministratorDates extends javax.swing.JFrame {
         lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(890, 410, 90, 24);
+        lbName.setBounds(880, 330, 90, 24);
 
         lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(920, 340, 90, 24);
+        lbID.setBounds(890, 410, 90, 24);
 
         tfName.setBackground(new java.awt.Color(0, 102, 102));
         tfName.setOpaque(false);
@@ -76,13 +76,13 @@ public class AdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(950, 400, 170, 40);
+        tfName.setBounds(950, 320, 170, 40);
 
         tfID.setBackground(new java.awt.Color(0, 102, 102));
         tfID.setOpaque(false);
         tfID.setSelectionColor(new java.awt.Color(204, 204, 204));
         getContentPane().add(tfID);
-        tfID.setBounds(950, 330, 171, 40);
+        tfID.setBounds(950, 400, 171, 40);
 
         lbTime.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbTime.setText("TIME:");
@@ -168,9 +168,11 @@ public class AdministratorDates extends javax.swing.JFrame {
             Cita cita = new Cita(fecha, cBTime.getSelectedItem().toString(), tfID.getText(), tfName.getText());            
 //            pila.push(fecha,cbmHora.getSelectedItem().toString(), txtNombre.getText(), txtCedula.getText());
             stack.insertCita(cita);
-            lbMessages.setText("REGISTRATED DATE!");
+            JOptionPane.showMessageDialog(null,"REGISTRATED DATE!");
+            tfID.setText("");
+            tfName.setText("");
             } else {
-                lbMessages.setText("THE DATA AND TIME AREN'T AVAILABLE!");
+                JOptionPane.showMessageDialog(null,"THE DATA AND TIME AREN'T AVAILABLE!");
             }
         } 
         
