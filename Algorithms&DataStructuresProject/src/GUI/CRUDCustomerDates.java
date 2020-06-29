@@ -74,6 +74,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnShowDates = new javax.swing.JButton();
         lbName = new javax.swing.JLabel();
+        tfDate = new javax.swing.JTextField();
         tfName = new javax.swing.JTextField();
         lbID = new javax.swing.JLabel();
         tfID = new javax.swing.JTextField();
@@ -141,6 +142,8 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
         lbName.setText("NAME:");
         getContentPane().add(lbName);
         lbName.setBounds(700, 120, 80, 24);
+        getContentPane().add(tfDate);
+        tfDate.setBounds(770, 390, 178, 40);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -520,6 +523,7 @@ public class CRUDCustomerDates extends javax.swing.JFrame {
     private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTime;
+    private javax.swing.JTextField tfDate;
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables

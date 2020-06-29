@@ -92,9 +92,9 @@ public class CRUDNotes extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 18)); // NOI18N
         jLabel7.setText("DATA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(780, 60, 100, 37);
+        jLabel7.setBounds(994, 35, 49, 37);
         getContentPane().add(tfSearch);
-        tfSearch.setBounds(780, 100, 222, 40);
+        tfSearch.setBounds(900, 90, 222, 40);
 
         btnSearch.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
@@ -107,7 +107,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSearch);
-        btnSearch.setBounds(1000, 90, 160, 41);
+        btnSearch.setBounds(1125, 84, 160, 48);
 
         jTable3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -126,7 +126,7 @@ public class CRUDNotes extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable3);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(340, 160, 803, 163);
+        jScrollPane3.setBounds(459, 150, 803, 163);
 
         btnUpdate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modify.png"))); // NOI18N
@@ -139,7 +139,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(1160, 160, 145, 41);
+        btnUpdate.setBounds(1280, 150, 145, 48);
 
         btnDelete.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete2.png"))); // NOI18N
@@ -152,21 +152,21 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(1160, 230, 145, 41);
+        btnDelete.setBounds(1280, 216, 145, 48);
 
         lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(350, 360, 80, 24);
+        lbName.setBounds(470, 350, 80, 24);
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(420, 420, 121, 40);
+        tfID.setBounds(540, 410, 121, 40);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("ID:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(380, 430, 60, 24);
+        jLabel2.setBounds(500, 420, 60, 24);
 
         tfHeight.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -174,31 +174,31 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfHeight);
-        tfHeight.setBounds(1020, 390, 121, 40);
+        tfHeight.setBounds(1140, 380, 121, 40);
 
         lbNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbNotes.setText("NOTES:");
         getContentPane().add(lbNotes);
-        lbNotes.setBounds(340, 520, 80, 24);
+        lbNotes.setBounds(459, 512, 80, 24);
 
         lbWeight.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbWeight.setText("WEIGHT:");
         getContentPane().add(lbWeight);
-        lbWeight.setBounds(700, 360, 140, 24);
+        lbWeight.setBounds(820, 350, 140, 24);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("MUSCLE MASS:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(650, 430, 180, 24);
+        jLabel5.setBounds(770, 420, 180, 24);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("% GREASE:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(690, 500, 160, 24);
+        jLabel6.setBounds(810, 490, 160, 24);
 
         tfName.setEditable(false);
         getContentPane().add(tfName);
-        tfName.setBounds(420, 350, 121, 40);
+        tfName.setBounds(540, 340, 121, 40);
 
         tfMuscleMass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -206,7 +206,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfMuscleMass);
-        tfMuscleMass.setBounds(800, 420, 121, 40);
+        tfMuscleMass.setBounds(920, 410, 121, 40);
 
         tfGrease.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -214,22 +214,22 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfGrease);
-        tfGrease.setBounds(800, 490, 121, 40);
+        tfGrease.setBounds(920, 480, 121, 40);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setText("HEIGHT:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(940, 400, 80, 24);
+        jLabel8.setBounds(1060, 390, 80, 24);
 
         lbAge.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbAge.setText("AGE:");
         getContentPane().add(lbAge);
-        lbAge.setBounds(960, 460, 60, 24);
+        lbAge.setBounds(1080, 450, 60, 24);
 
         lbBodyMassIndex.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbBodyMassIndex.setText("BODY MASS INDEX:");
         getContentPane().add(lbBodyMassIndex);
-        lbBodyMassIndex.setBounds(610, 570, 200, 24);
+        lbBodyMassIndex.setBounds(730, 560, 200, 24);
 
         tfWeight.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -237,7 +237,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfWeight);
-        tfWeight.setBounds(800, 350, 121, 40);
+        tfWeight.setBounds(920, 340, 121, 40);
 
         tfAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -245,7 +245,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfAge);
-        tfAge.setBounds(1020, 450, 120, 40);
+        tfAge.setBounds(1140, 440, 120, 40);
 
         txtCorporal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -253,17 +253,17 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCorporal);
-        txtCorporal.setBounds(800, 560, 121, 40);
+        txtCorporal.setBounds(920, 550, 121, 40);
 
         lbWater.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbWater.setText("% WATER:");
         getContentPane().add(lbWater);
-        lbWater.setBounds(700, 640, 150, 24);
+        lbWater.setBounds(820, 630, 150, 24);
 
         lblFecha.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblFecha.setText("DATE:");
         getContentPane().add(lblFecha);
-        lblFecha.setBounds(950, 520, 70, 24);
+        lblFecha.setBounds(1070, 510, 70, 24);
 
         tfWater.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -271,18 +271,18 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfWater);
-        tfWater.setBounds(800, 630, 121, 40);
+        tfWater.setBounds(920, 620, 121, 40);
 
         tfDate.setEditable(false);
         getContentPane().add(tfDate);
-        tfDate.setBounds(1020, 510, 120, 40);
+        tfDate.setBounds(1140, 500, 120, 40);
 
         taNotes.setColumns(20);
         taNotes.setRows(5);
         jScrollPane1.setViewportView(taNotes);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(340, 550, 166, 96);
+        jScrollPane1.setBounds(460, 540, 223, 83);
 
         btnShowNotes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnShowNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/show.png"))); // NOI18N
@@ -295,7 +295,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnShowNotes);
-        btnShowNotes.setBounds(1140, 290, 260, 41);
+        btnShowNotes.setBounds(1280, 282, 189, 48);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(2010, 294, 0, 0);
         getContentPane().add(lbNotFound);
@@ -312,7 +312,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(1170, 360, 131, 41);
+        jToggleButton1.setBounds(1290, 349, 131, 48);
 
         jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
@@ -326,7 +326,7 @@ public class CRUDNotes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton2);
-        jToggleButton2.setBounds(1180, 420, 142, 40);
+        jToggleButton2.setBounds(1301, 414, 142, 48);
 
         pack();
         setLocationRelativeTo(null);
