@@ -269,6 +269,14 @@ public class SuperAdministrator extends javax.swing.JFrame {
                 BufferedWriter bp = new BufferedWriter(new FileWriter("temp.txt")); //Stream de Escritura de Archivos
                 bp.write(""); //Escribe una línea vacía sobre código
                 bp.close(); //Vaciar Aplicación
+                ///////////////////////////////////////
+                 BufferedWriter bl = new BufferedWriter(new FileWriter("actionsHistory.txt")); //Stream de Escritura de Archivos
+                bl.write(""); //Escribe una línea vacía sobre código
+                bl.close(); //Vaciar Aplicación
+                ////////////////////////////////////////
+                BufferedWriter bk = new BufferedWriter(new FileWriter("foodPlans.txt")); //Stream de Escritura de Archivos
+                bk.write(""); //Escribe una línea vacía sobre código
+                bk.close(); //Vaciar Aplicación
             }//End try
             catch (FileNotFoundException fnfe) {
                 JOptionPane.showMessageDialog(null, "Problemas de Archivo");
@@ -287,12 +295,11 @@ public class SuperAdministrator extends javax.swing.JFrame {
 
     private void menuItemMainDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemMainDocumentActionPerformed
         try {
-      File path = new File ("C:/Users/HELLO/Documents/GitHub/Algorithms-DataStructures/Algorithms&DataStructuresProject/DocumentoNutriciónClínica.pdf");
-      Desktop.getDesktop().open(path);
-      }//End try
-     catch (IOException ex) {
-     ex.printStackTrace();
-    }//End catch
+            File path = new File("DocumentoNutriciónClínica.pdf");
+            Desktop.getDesktop().open(path);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_menuItemMainDocumentActionPerformed
 
     private void menuItemUserManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUserManualActionPerformed

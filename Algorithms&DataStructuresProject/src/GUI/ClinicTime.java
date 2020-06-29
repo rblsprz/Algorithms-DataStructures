@@ -211,7 +211,7 @@ public class ClinicTime extends javax.swing.JFrame {
             int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO DELETE " + tfHours.getText() + " ?");
             if (d == 0) {
                 //stack.removeLinesPilaHoras(txtHoras.getText());
-                fl.borrarHora("horasConsulta.txt", tfHours.getText());
+                fl.borrarHora("times.txt", tfHours.getText());
                 lbMessages.setText("SUCCESSFULLY DELETED!");
                 mostrarHoras();
                 tfHours.setText("");
@@ -243,8 +243,8 @@ public class ClinicTime extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void tfHoursKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHoursKeyTyped
-        char car = evt.getKeyChar();
-        if((car<'0' || car>'9')) evt.consume();
+//        char car = evt.getKeyChar();
+//        if((car<'0' || car>'9')) evt.consume();
     }//GEN-LAST:event_tfHoursKeyTyped
 
     /**

@@ -112,7 +112,7 @@ public class AdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(940, 650, 150, 48);
+        btnRequest.setBounds(940, 650, 150, 41);
 
         dateChooser.setBackground(new java.awt.Color(204, 204, 204));
         dateChooser.setForeground(new java.awt.Color(255, 255, 255));

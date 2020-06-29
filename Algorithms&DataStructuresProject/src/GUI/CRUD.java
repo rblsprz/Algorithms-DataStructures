@@ -344,7 +344,7 @@ public class CRUD extends javax.swing.JFrame {
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    History c = new History(objSDF.format(objDate), hora , "Elimino a "+tfID.getText() , getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Elimino a "+tfID.getText() , "SUPER ADMINISTRADOR");
                     Lf.insertHistorialAcciones(c);
 
                 em.removeLines(tfID.getText());
@@ -400,7 +400,7 @@ public class CRUD extends javax.swing.JFrame {
                     Calendar calendario = Calendar.getInstance();
                     String hora = String.valueOf(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(calendario.get(Calendar.MINUTE))+ ":" + String.valueOf(calendario.get(Calendar.SECOND));
                     
-                    History c = new History(objSDF.format(objDate), hora , "Modifico a "+tfID.getText() , getPersona());
+                    History c = new History(objSDF.format(objDate), hora , "Modifico a "+tfID.getText() , "SUPER ADMINISTRADOR");
                     lC.insertHistorialAcciones(c);
               
                 lbMensajes.setText("SUCCESSFULLY UPDATED!");

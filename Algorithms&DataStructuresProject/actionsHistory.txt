@@ -8,3 +8,7 @@
 27-jun-2020;22:50:27;Modifico las notas de 988887777;erick - 117800556
 27-jun-2020;22:51:58;Elimino las notas de 900970120;erick - 117800556
 27-jun-2020;22:54:14;Nuevo plan para 988887777;erick - 117800556
+28-jun-2020;21:7:44;Modifico a 344445555;kenneth - 988887777
+28-jun-2020;21:20:44;Modifico la cita de 305350722;David - 305350721
+28-jun-2020;21:21:59;Modifico su cita;DavidJosue - 305350722
+28-jun-2020;21:32:13;Modifico a 305350722;SUPER ADMINISTRADOR
