@@ -37,7 +37,7 @@ class NodeQueue {
     
 }//end class NodeQueue
 
-//SE USA PARA LOS PLANES ALIMENTICIOS 
+////SE USA PARA LOS PLANES ALIMENTICIOS 
 class NodeQueue2 {
 
     //Atributos de los Nodos
@@ -54,13 +54,13 @@ class NodeQueue2 {
         next = null;
     }
     
-    Plans seeElement() {
+    Plans seeElement2() {
         return this.element;
     }// end seeElement
     // me permite ver el elemento
     // método utilizado para el indexOf
 
-    NodeQueue2 seeNext() {
+    NodeQueue2 seeNext2() {
         return this.next;
     }// ver siguiente
     
@@ -71,11 +71,11 @@ public class QueueMethods implements Queues{
     //Atributos de las Queue
     NodeQueue start;
     NodeQueue end;
-    int size=0;
+    int size;
     
     NodeQueue2 start2;
     NodeQueue2 end2;
-    int size2 =0;
+    int size2;
     
     public int size2(){
         return size2;
@@ -125,14 +125,14 @@ public class QueueMethods implements Queues{
         }// end else 
     }
     
-    public void Enqueue(Plans h) {
+    public void Enqueue2(Plans a) {
         NodeQueue2 aux = start2;
 
         // se pregunta si la lista está vacia
         if (aux == null) {
 
             // se crea mi primer objeto
-            aux = new NodeQueue2(h);
+            aux = new NodeQueue2(a);
             start2 = aux;
             size2++;
             // se hace un system.out.println para que 
@@ -149,8 +149,8 @@ public class QueueMethods implements Queues{
                 aux = aux.next;
 
             }// end while
-            aux.next = new NodeQueue2(h);
-            size++;
+            aux.next = new NodeQueue2(a);
+            size2++;
             // se hace un system.out.println para que 
             //se pueda mostrar el resultado por consola
             //resultado del resto de elementos de la lista
@@ -196,7 +196,21 @@ public class QueueMethods implements Queues{
         return aux.seeElement();
     }
     
-    
+    public Plans indexOf2(int index) {
+        NodeQueue2 aux = start2;
+
+        // indice para recorrer la cola por medio de la 
+        //variable indice
+        for (int i = -1; i < index - 1; i++) {
+
+            // método de la clase NODO para llevar al siguiente
+            // elemento.
+            aux = aux.seeNext2();
+        }
+        // instancia del método para ver el elemento actual
+        // (el metodo está en la clase NODO)
+        return aux.seeElement2();
+    }
     
     public boolean search(String a){
         NodeQueue current = start;   
@@ -208,20 +222,6 @@ public class QueueMethods implements Queues{
             current = current.next;
         }
         return false;    //data not found 
-    }
-    
-    public int search2(String a){
-        
-        NodeQueue current = start;   
-        int num = 0;
-        while (current != null) {
-            if (current.element.getCedula().equals(a)){
-                return num;
-            }
-            current = current.next;
-            num++;
-        }
-        return num;    //data not found 
     }
     
     public boolean search3(String a){

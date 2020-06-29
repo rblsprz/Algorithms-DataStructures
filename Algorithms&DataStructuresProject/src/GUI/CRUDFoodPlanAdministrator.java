@@ -355,7 +355,7 @@ public class CRUDFoodPlanAdministrator extends javax.swing.JFrame {
                 Delete em = new Delete();
                 int d = JOptionPane.showConfirmDialog(null, "ARE YOU SURE TO DELETE THE FOOD PLAN FROM " + tfID.getText() + " ?");
                 if(d == 0){
-                    em.removeLinesColaPlan(jTable1.getValueAt(seleccion, 0).toString() , tfID.getText());
+                    em.removeLinesColaPlan(tfID.getText());
                     mostrarPlanes();
                     lbMessages.setText("SUCCESSFULLY DELETED!");
                     //-------------------------------------------FECHA-----------------------------

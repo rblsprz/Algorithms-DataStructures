@@ -27,3 +27,8 @@
 28-jun-2020;22:1:23;Modifico la cita de 900970120;erick - 117800556
 28-jun-2020;22:4:37;Elimino su cita;mauren - 900970120
 28-jun-2020;22:4:53;Modifico su cita;mauren - 900970120
+28-jun-2020;23:32:43;Nuevo plan para 988887777;erick - 117800556
+28-jun-2020;23:33:51;Nuevo plan para 900970120;erick - 117800556
+28-jun-2020;23:35:15;Nuevo plan para 988887777;erick - 117800556
+28-jun-2020;23:35:33;Elimino el plan de 988887777;erick - 117800556
+28-jun-2020;23:36:11;Modifico el plan de 900970120;erick - 117800556

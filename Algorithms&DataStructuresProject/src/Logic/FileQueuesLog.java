@@ -183,7 +183,7 @@ public class FileQueuesLog {
                 }// end while pequeño
 
                 Plans cliente = new Plans(cedula, fecha, desayuno, almuerzo, cena, meriendas);
-                queue.Enqueue(cliente);
+                queue.Enqueue2(cliente);
                 linesUpdate = bR.readLine();
             }// end while grande()
            
