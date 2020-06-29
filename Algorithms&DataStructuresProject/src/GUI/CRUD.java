@@ -214,6 +214,7 @@ public class CRUD extends javax.swing.JFrame {
         getContentPane().add(lbID);
         lbID.setBounds(890, 40, 100, 20);
 
+        tfID.setEditable(false);
         tfID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tfIDKeyTyped(evt);

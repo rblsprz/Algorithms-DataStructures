@@ -69,6 +69,8 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btnShowPlans = new javax.swing.JButton();
         lbMessages = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,6 +125,22 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
                 btnShowPlansActionPerformed(evt);
             }
         });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
+        jLabel1.setText("Excel");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
+        jLabel2.setText("PDF");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,11 +168,17 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(270, 270, 270)
-                                .addComponent(btnShowPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(345, 345, 345)
-                                .addComponent(lbPersonalFoodPlan)))
+                                .addComponent(lbPersonalFoodPlan))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(270, 270, 270)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(jLabel2)
+                                        .addGap(65, 65, 65))
+                                    .addComponent(btnShowPlans, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(367, 367, 367))))
         );
         layout.setVerticalGroup(
@@ -188,9 +212,13 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnShowPlans)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(26, 26, 26)
                 .addComponent(lbMessages)
-                .addContainerGap(670, Short.MAX_VALUE))
+                .addContainerGap(614, Short.MAX_VALUE))
         );
 
         pack();
@@ -231,6 +259,32 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
         lbMessages.setText("NOT FOUND!");
             }
     }//GEN-LAST:event_btnShowPlansActionPerformed
+void impresion() {
+        JFileChooser seleccionar = new JFileChooser();
+        File archivo;
+
+        if (seleccionar.showDialog(null, "Exportar Excel") == JFileChooser.APPROVE_OPTION) {
+            archivo = seleccionar.getSelectedFile();
+            String imagen = archivo + ".xls";
+            File file = new File(imagen);
+            ExportarExcel excel = new ExportarExcel(jTable1, file, "" + "tablaimporte");
+            excel.export();
+        }
+    }
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        impresion();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+         MessageFormat header=new MessageFormat("Plan propio");
+        MessageFormat footer=new MessageFormat("Page{0,number,integer}");
+        try{
+            jTable1.print(JTable.PrintMode.NORMAL, header, footer);
+        } catch (PrinterException ex) {
+            System.err.format("error de impresion", ex.getMessage());
+        }
+    }//GEN-LAST:event_jLabel2MouseClicked
         //Busca al cliente en los registros si lo encuentra lo va a mostra en la tabla
     public void searchClienteIndividual(String cedula) throws FileNotFoundException{
         Logic lC = new Logic();
@@ -302,6 +356,8 @@ public class FoodPlanCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShowPlans;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
