@@ -66,7 +66,7 @@ public class CustomerDate extends javax.swing.JFrame {
 
         tfID.setEditable(false);
         getContentPane().add(tfID);
-        tfID.setBounds(960, 410, 171, 40);
+        tfID.setBounds(960, 350, 171, 40);
 
         lbTime.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbTime.setText("TIME:");
@@ -91,7 +91,7 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRequest);
-        btnRequest.setBounds(900, 610, 240, 60);
+        btnRequest.setBounds(960, 610, 130, 60);
         getContentPane().add(dateChooser);
         dateChooser.setBounds(960, 460, 160, 50);
 
@@ -103,12 +103,12 @@ public class CustomerDate extends javax.swing.JFrame {
         lbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbName.setText("NAME:");
         getContentPane().add(lbName);
-        lbName.setBounds(820, 350, 90, 30);
+        lbName.setBounds(820, 420, 90, 30);
 
         lbID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbID.setText("ID:");
         getContentPane().add(lbID);
-        lbID.setBounds(820, 420, 80, 20);
+        lbID.setBounds(820, 360, 80, 20);
 
         tfName.setEditable(false);
         tfName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,7 +122,7 @@ public class CustomerDate extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfName);
-        tfName.setBounds(960, 350, 170, 40);
+        tfName.setBounds(960, 410, 170, 40);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(150, 300, 310, 0);
 
@@ -145,7 +145,7 @@ public class CustomerDate extends javax.swing.JFrame {
         lbClickHere.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbClickHere.setText("CLICK HERE");
         getContentPane().add(lbClickHere);
-        lbClickHere.setBounds(1160, 350, 140, 24);
+        lbClickHere.setBounds(1140, 420, 140, 24);
 
         pack();
         setLocationRelativeTo(null);
@@ -189,9 +189,9 @@ public class CustomerDate extends javax.swing.JFrame {
 
                 //pila.push(fecha,cbmHora.getSelectedItem().toString(), tfName.getText(), tfID.getText());
                 stack.insertCita(cita);
-                JOptionPane.showMessageDialog(null,"REGISTRATED DATE!");
+                lbMessages.setText("REGISTRATED DATE!");
             } else {
-                JOptionPane.showMessageDialog(null,"THE DATE AND TIME AREN'T AVAILABLE!");
+                lbMessages.setText("THE DATE AND TIME AREN'T AVAILABLE!");
             }
         }
 

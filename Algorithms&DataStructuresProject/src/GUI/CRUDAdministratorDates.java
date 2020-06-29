@@ -76,6 +76,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnShowDates = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
+        tfDate = new javax.swing.JTextField();
         lbMessages = new javax.swing.JLabel();
         comboHoras = new javax.swing.JComboBox<>();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -185,6 +186,8 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
         btnShowDates.setBounds(480, 420, 190, 41);
         getContentPane().add(dateChooser);
         dateChooser.setBounds(620, 200, 219, 40);
+        getContentPane().add(tfDate);
+        tfDate.setBounds(620, 270, 97, 40);
         getContentPane().add(lbMessages);
         lbMessages.setBounds(560, 370, 290, 0);
 
@@ -199,7 +202,7 @@ public class CRUDAdministratorDates extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboHoras);
-        comboHoras.setBounds(620, 270, 90, 40);
+        comboHoras.setBounds(620, 340, 90, 40);
 
         jToggleButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Excel_2013_23480.png"))); // NOI18N
@@ -489,6 +492,7 @@ void impresion() {
     private javax.swing.JLabel lbMessages;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTime;
+    private javax.swing.JTextField tfDate;
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables

@@ -12,18 +12,3 @@
 28-jun-2020;21:20:44;Modifico la cita de 305350722;David - 305350721
 28-jun-2020;21:21:59;Modifico su cita;DavidJosue - 305350722
 28-jun-2020;21:32:13;Modifico a 305350722;SUPER ADMINISTRADOR
-28-jun-2020;21:42:22;Elimino a 100002222;SUPER ADMINISTRADOR
-28-jun-2020;21:44:13;Elimino a 344445555;SUPER ADMINISTRADOR
-28-jun-2020;21:44:31;Modifico a 988887777;SUPER ADMINISTRADOR
-28-jun-2020;21:50:12;Nuevo plan para 900970120;erick - 117800556
-28-jun-2020;21:51:14;Modifico el plan de 988887777;erick - 117800556
-28-jun-2020;21:51:23;Elimino el plan de 988887777;erick - 117800556
-28-jun-2020;21:51:59;Nuevo plan para 988887777;erick - 117800556
-28-jun-2020;21:52:39;Nuevo plan para 900970120;erick - 117800556
-28-jun-2020;21:52:57;Elimino el plan de 988887777;erick - 117800556
-28-jun-2020;21:53:34;Nuevo plan para 900970120;erick - 117800556
-28-jun-2020;21:55:14;Elimino las notas de 988887777;erick - 117800556
-28-jun-2020;22:0:54;Elimino la cita de 305350722;erick - 117800556
-28-jun-2020;22:1:23;Modifico la cita de 900970120;erick - 117800556
-28-jun-2020;22:4:37;Elimino su cita;mauren - 900970120
-28-jun-2020;22:4:53;Modifico su cita;mauren - 900970120
