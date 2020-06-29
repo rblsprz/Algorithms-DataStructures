@@ -303,13 +303,13 @@ public class SuperAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemMainDocumentActionPerformed
 
     private void menuItemUserManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemUserManualActionPerformed
-//        try {
-//            File path = new File("C:/Users/HELLO/Desktop/UCR/Informática y Computación/III Semestre 2020/Algoritmos y Estructuras de Datos/Mayo/Algorithms&DataStructures/Documento.pdf");
-//            Desktop.getDesktop().open(path);
-//        }//End try
-//        catch (IOException ex) {
-//            ex.printStackTrace();
-//        }//End catch
+
+       try {
+            File path = new File("manual de usuario.pdf");
+            Desktop.getDesktop().open(path);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }      
     }//GEN-LAST:event_menuItemUserManualActionPerformed
 
     /**
